@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shortcodes Ultimate 4.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-23 07:50+0300\n"
-"PO-Revision-Date: 2013-08-23 07:50+0300\n"
+"POT-Creation-Date: 2013-08-23 09:56+0100\n"
+"PO-Revision-Date: 2013-08-23 12:27+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: ETIC-Studio <nicolas.leclerc@etic-studio.fr>\n"
 "MIME-Version: 1.0\n"
@@ -12,6 +12,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../classes/sunrise.class.php:279
@@ -110,14 +111,20 @@ msgid "No"
 msgstr "Non"
 
 #: ../inc/generator.php:163
+#: ../inc/views/galleries.php:29
+#: ../inc/views/galleries.php:84
 msgid "Max upload file size"
 msgstr "Limte de téléversement de fichier"
 
 #: ../inc/generator.php:164
+#: ../inc/views/galleries.php:29
+#: ../inc/views/galleries.php:84
 msgid "Mb"
-msgstr ""
+msgstr "Mb"
 
 #: ../inc/generator.php:166
+#: ../inc/views/galleries.php:29
+#: ../inc/views/galleries.php:84
 msgid "How to increase"
 msgstr "Comment augmenter"
 
@@ -126,6 +133,7 @@ msgid "Untitled gallery"
 msgstr "Galerie sans nom"
 
 #: ../inc/generator.php:197
+#: ../inc/views/galleries.php:65
 msgid "Galleries not found"
 msgstr "Galerie introuvable"
 
@@ -169,9 +177,9 @@ msgid "Supercharge your WordPress theme with mega pack of shortcodes"
 msgstr "Ajoute à ton thème un nombre impressionnant de shortcode"
 
 #: ../inc/init.php:58
-#, fuzzy, php-format
+#, php-format
 msgid "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not fully compatible with your version of WordPress (%s).<br />Reccomended WordPress version &ndash; %s (or higher).</p><a href=\"%s\">&larr; Return to the plugins screen</a> <a href=\"%s\"%s>Continue and activate anyway &rarr;</a>"
-msgstr "<h1>Oops! Plugin non activé&hellip;</h1> <p>Shortcodes Ultimate n'est pas totalement compatible avec cette version de WordPress(%s).<br />Version de Wordpress recommandée &ndash; %s (ou plus).</p><a href=\"%s\">&larr; Retour à l'écran des plugins</a> <a href=\"%s\"%s>Continuer et activer de toute façon &rarr;</a>"
+msgstr "<h1>Oops! Plugin non activé&hellip;</h1> <p>Shortcodes Ultimate n'est pas totalement compatible avec cette version de WordPress (%s).<br />Version de Wordpress recommandée &ndash; %s (ou plus).</p><a href=\"%s\">&larr; Retour à l'écran des plugins</a> <a href=\"%s\"%s>Continuer et activer de toute façon &rarr;</a>"
 
 #: ../inc/init.php:62
 #, php-format
@@ -180,7 +188,7 @@ msgstr "<h1>Oops! Plugin non activé&hellip;</h1> <p>Shortcodes Ultimate n'est p
 
 #: ../inc/init.php:91
 msgid "Where to start?"
-msgstr ""
+msgstr "Ou commencer"
 
 #: ../inc/init.php:104
 #: ../inc/views/about.php:4
@@ -189,9 +197,8 @@ msgstr "Page d'accueil du projet"
 
 #: ../inc/init.php:106
 #: ../inc/views/about.php:10
-#, fuzzy
 msgid "Support forum"
-msgstr "Forum"
+msgstr "Forum de support"
 
 #: ../inc/init.php:108
 #: ../inc/views/about.php:12
@@ -233,14 +240,13 @@ msgid "etc."
 msgstr "etc"
 
 #: ../inc/init.php:144
-#, fuzzy
 msgid "Skin"
-msgstr "Sauvegarde"
+msgstr "Skin"
 
 #: ../inc/init.php:145
 #, php-format
 msgid "Choose skin for shortcodes.<br /><a href=\"%s\" target=\"_blank\">Learn how to create custom skin</a><br /><a href=\"%s\" target=\"_blank\"><b>Download more skins</b></a>"
-msgstr ""
+msgstr "Choisir les skins pour shortcodes.<br /><a href=\"%s\" target=\"_blank\">Apprenez à faire des skins personnalisés</a><br /><a href=\"%s\" target=\"_blank\"><b>Télécharger des skins</b></a>"
 
 #: ../inc/init.php:153
 msgid "Custom CSS"
@@ -336,9 +342,8 @@ msgid "Size"
 msgstr "Taille"
 
 #: ../inc/shortcodes/data.php:23
-#, fuzzy
 msgid "Select heading size"
-msgstr "Heading 2 stylisé"
+msgstr "Taille du Heading 2 "
 
 #: ../inc/shortcodes/data.php:28
 #: ../inc/shortcodes/data.php:269
@@ -364,9 +369,8 @@ msgid "Align"
 msgstr "Aligner"
 
 #: ../inc/shortcodes/data.php:33
-#, fuzzy
 msgid "Heading text alignment"
-msgstr "Heading text"
+msgstr "Alignement du texte du Heading"
 
 #: ../inc/shortcodes/data.php:37
 #: ../inc/shortcodes/data.php:58
@@ -405,9 +409,8 @@ msgstr "Heading text"
 #: ../inc/shortcodes/data.php:1199
 #: ../inc/shortcodes/data.php:1305
 #: ../inc/shortcodes/data.php:1356
-#, fuzzy
 msgid "Class"
-msgstr "Lunettes"
+msgstr "Class"
 
 #: ../inc/shortcodes/data.php:38
 #: ../inc/shortcodes/data.php:59
@@ -446,7 +449,6 @@ msgstr "Lunettes"
 #: ../inc/shortcodes/data.php:1200
 #: ../inc/shortcodes/data.php:1306
 #: ../inc/shortcodes/data.php:1357
-#, fuzzy
 msgid "Extra CSS class"
 msgstr "Class CSS"
 
@@ -468,7 +470,7 @@ msgstr "Vertical"
 
 #: ../inc/shortcodes/data.php:54
 msgid "Show tabs vertically"
-msgstr ""
+msgstr "Montrer les tabs verticalement"
 
 #: ../inc/shortcodes/data.php:63
 msgid ""
@@ -497,6 +499,8 @@ msgstr "Nom de la Tab"
 #: ../inc/shortcodes/data.php:515
 #: ../inc/shortcodes/data.php:548
 #: ../inc/shortcodes/data.php:798
+#: ../inc/views/galleries.php:46
+#: ../inc/views/galleries.php:101
 msgid "Title"
 msgstr "Titre"
 
@@ -721,7 +725,7 @@ msgstr "Dropcap"
 #: ../inc/shortcodes/data.php:294
 #: ../inc/shortcodes/data.php:427
 msgid "Flat"
-msgstr ""
+msgstr "Flat"
 
 #: ../inc/shortcodes/data.php:295
 #: ../inc/shortcodes/data.php:478
@@ -852,6 +856,8 @@ msgstr "Thumbs up"
 
 #: ../inc/shortcodes/data.php:378
 #: ../inc/shortcodes/data.php:410
+#: ../inc/views/galleries.php:48
+#: ../inc/views/galleries.php:103
 msgid "Link"
 msgstr "Lien"
 
@@ -1221,13 +1227,12 @@ msgstr "Hauteur du lecteur"
 #: ../inc/shortcodes/data.php:1145
 #: ../inc/shortcodes/data.php:1235
 msgid "Responsive"
-msgstr ""
+msgstr "Responsive"
 
 #: ../inc/shortcodes/data.php:673
 #: ../inc/shortcodes/data.php:722
-#, fuzzy
 msgid "Ignore width and height parameters and make player responsive"
-msgstr "Largeur du lecteur. SpécifieZ la largeur en % et le lecteur sera responsive"
+msgstr "Largeur du lecteur. Spécifiez la largeur en % et le lecteur sera responsive"
 
 #: ../inc/shortcodes/data.php:678
 #: ../inc/shortcodes/data.php:727
@@ -1273,9 +1278,8 @@ msgid "Audio file url. Supported formats: mp3, ogg"
 msgstr "Lien du fichier audio. Formats supportés : mp3, ogg"
 
 #: ../inc/shortcodes/data.php:754
-#, fuzzy
 msgid "Player width. You can specify width in percents and player will be responsive. Example values: <b%value>200px</b>, <b%value>100&#37;</b>"
-msgstr "Largeur du lecteur. SpécifieZ la largeur en % et le lecteur sera responsive"
+msgstr "Largeur du lecteur. Spécifiez la largeur en % et le lecteur sera responsive"
 
 #: ../inc/shortcodes/data.php:760
 #: ../inc/shortcodes/data.php:829
@@ -1508,9 +1512,8 @@ msgid "Max depth level"
 msgstr "Niveau de profondeur maximale"
 
 #: ../inc/shortcodes/data.php:1025
-#, fuzzy
 msgid "List of cureent page siblings"
-msgstr "Liste des pages soeurs courantes"
+msgstr "List of cureent page siblings"
 
 #: ../inc/shortcodes/data.php:1029
 msgid "Document"
@@ -1530,7 +1533,7 @@ msgstr "Hauteur du visualisateur"
 
 #: ../inc/shortcodes/data.php:1061
 msgid "Ignore width and height parameters and make viewer responsive"
-msgstr ""
+msgstr "Ignorer les paramètres de largeur et de hauteur pour un visualiseur responsive"
 
 #: ../inc/shortcodes/data.php:1069
 msgid "Document viewer by Google"
@@ -1550,7 +1553,7 @@ msgstr "Hauteur de la carte"
 
 #: ../inc/shortcodes/data.php:1099
 msgid "Ignore width and height parameters and make map responsive"
-msgstr ""
+msgstr "Ignorer les paramètres de largeur et de hauteur pour une carte responsive"
 
 #: ../inc/shortcodes/data.php:1104
 msgid "Marker"
@@ -1590,7 +1593,7 @@ msgstr "Hauteur du slider"
 
 #: ../inc/shortcodes/data.php:1146
 msgid "Ignore width and height parameters and make slider responsive"
-msgstr ""
+msgstr "Ignorer les paramètres de largeur et de hauteur pour un slider responsive"
 
 #: ../inc/shortcodes/data.php:1151
 #: ../inc/shortcodes/data.php:1257
@@ -1681,7 +1684,7 @@ msgstr "Hauteur du carousel (en pixels)"
 
 #: ../inc/shortcodes/data.php:1236
 msgid "Ignore width and height parameters and make carousel responsive"
-msgstr ""
+msgstr "Ignorer les paramètres de largeur et de hauteur pour un carousel responsive"
 
 #: ../inc/shortcodes/data.php:1243
 msgid "Items to show"
@@ -1978,7 +1981,7 @@ msgstr "Tout"
 
 #: ../inc/shortcodes/data.php:1522
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: ../inc/shortcodes/data.php:1524
 msgid "Other"
@@ -2027,7 +2030,7 @@ msgstr "Documentation"
 
 #: ../inc/views/about.php:14
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #: ../inc/views/about.php:16
 msgid "Contact author"
@@ -2122,7 +2125,6 @@ msgid "Saved"
 msgstr "Sauvé"
 
 #: ../inc/views/closetab.php:7
-#, fuzzy
 msgid "This action will remove all your custom CSS, galleries and settings. Are you sure? This action cannot be undone!"
 msgstr "Restaurer les paramètres par défaut. Etes-vous sur ? Cette action ne peut-être annulé !"
 
@@ -2251,7 +2253,6 @@ msgstr "0 commentaires"
 
 #: ../templates/default-loop.php:19
 #: ../templates/single-post.php:18
-#, fuzzy
 msgid "1 comment"
 msgstr "0 commentaires"
 
