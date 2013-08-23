@@ -232,7 +232,7 @@
 					// Get the current image dimensions and type
 					$size = @getimagesize( $file_path );
 					if ( !$size )
-						return new WP_Error( 'file_path_getimagesize_failed', __( 'Failed to get $file_path information using "@getimagesize".', 'rivasliderpro' ), $file_path );
+						return new WP_Error( 'file_path_getimagesize_failed', __( 'Failed to get $file_path information using getimagesize.' ) );
 					list( $orig_width, $orig_height, $orig_type ) = $size;
 
 					// Create new image

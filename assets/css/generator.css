@@ -1,31 +1,35 @@
-.su-generator-hidden { display: none !important }
+.su-generator-hidden { display: none !important; }
 .su-generator-button img {
+	margin: -1px 2px 0 -5px;
 	vertical-align: middle;
-	margin: 0 2px 0 -5px;
+}
+.wp-media-buttons .su-generator-button img {
+	margin: -1px -1px 0 -8px;
+	vertical-align: middle;
 }
 
-#su-generator-wrap { display: none }
+#su-generator-wrap { display: none; }
 #su-generator {
 	position: relative;
 	width: 85%;
 	max-width: 1000px;
 	margin: 28px auto 100px;
 	padding: 20px;
-	background: #fff;
 	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
 	border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
 	border-bottom-left-radius: 5px;
-	box-shadow: 0 2px 25px #000;
-	-moz-box-shadow: 0 2px 25px #000;
+	background: #fff;
 	-webkit-box-shadow: 0 2px 25px #000;
-	transition: max-width .2s;
-	-moz-transition: max-width .2s;
+	-moz-box-shadow: 0 2px 25px #000;
+	box-shadow: 0 2px 25px #000;
 	-webkit-transition: max-width .2s;
+	-moz-transition: max-width .2s;
+	transition: max-width .2s;
 }
-#su-generator.su-generator-narrow { max-width: 500px }
+#su-generator.su-generator-narrow { max-width: 500px; }
 
 /* Generator tools */
 #su-generator-tools {
@@ -36,8 +40,8 @@
 	width: 1px;
 	height: 1em;
 	margin: 0 0.5em;
-	vertical-align: middle;
 	border-right: 1px dotted #555;
+	vertical-align: middle;
 }
 
 /* Search box */
@@ -45,20 +49,20 @@
 	width: 100%;
 	margin-bottom: 30px;
 	padding: 10px 10px 10px 42px;
-	font-size: 1.3em;
 	background: 5px 50% url('../images/generator/search.png') no-repeat;
+	font-size: 1.3em;
 }
 
 /* Filter box */
 #su-generator-filter {
 	margin: 0 -20px;
 	padding: 14px 20px;
-	line-height: 24px;
-	background: #eee;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
+	background: #eee;
 	color: #555;
 	text-align: center;
+	line-height: 24px;
 }
 #su-generator-filter a,
 #su-generator-filter strong {
@@ -77,9 +81,9 @@
 	text-align: center;
 }
 #su-generator-choices:after {
-	content: '';
 	display: block;
 	clear: both;
+	content: '';
 }
 #su-generator-choices > span {
 	display: inline-block;
@@ -88,78 +92,78 @@
 	padding: 5px;
 	overflow: hidden;
 	border: 1px solid #fff;
-	border-bottom-color: #e5e5e5;
 	border-bottom-style: dotted;
-	text-align: center;
-	vertical-align: top;
-	color: #222;
-	cursor: pointer;
-	border-radius: 0;
-	-moz-border-radius: 0;
+	border-bottom-color: #e5e5e5;
 	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	color: #222;
+	vertical-align: top;
+	text-align: center;
+	cursor: pointer;
 }
 #su-generator-choices span:hover {
-	background: #f5f5f5;
 	border: 1px solid #2687b3;
-	box-shadow: 0 0 20px #fff inset;
-	-moz-box-shadow: 0 0 20px #fff inset;
-	-webkit-box-shadow: 0 0 20px #fff inset;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #f5f5f5;
+	-webkit-box-shadow: 0 0 20px #fff inset;
+	-moz-box-shadow: 0 0 20px #fff inset;
+	box-shadow: 0 0 20px #fff inset;
 }
 #su-generator-choices span img {
 	display: inline;
 	width: 32px;
 	height: 32px;
 	margin: 12px 0;
+	opacity: 0.3;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
 	filter: alpha(opacity=30);
 	-moz-opacity: 0.3;
 	-khtml-opacity: 0.3;
-	opacity: 0.3;
 }
 #su-generator-choices span:hover img {
+	opacity: 1;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
 	-moz-opacity: 1;
 	-khtml-opacity: 1;
-	opacity: 1;
 }
 #su-generator-choices strong {
 	display: inline-block;
-	text-transform: uppercase;
-	font-size: 0.9em;
 	width: 88px;
 	height: 32px;
 	overflow: hidden;
+	text-transform: uppercase;
+	font-size: 0.9em;
 }
 
 /* Breadcrumbs */
 #su-generator-breadcrumbs {
 	margin: 0 -20px;
 	padding: 14px 20px;
-	line-height: 24px;
-	background: #eee;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
+	background: #eee;
 	color: #555;
+	line-height: 24px;
 }
-#su-generator-breadcrumbs span { font-weight: bold }
+#su-generator-breadcrumbs span { font-weight: bold; }
 #su-generator-breadcrumbs small {
 	margin-left: 1em;
-	font-size: 0.9em;
-	font-weight: normal;
 	color: #aaa;
+	font-weight: normal;
+	font-size: 0.9em;
 }
 
 /* Shortcode settings (attributes) */
-#su-generator-settings { display: none }
+#su-generator-settings { display: none; }
 .su-loading-animation {
 	min-height: 100px;
 	background: 50% 50% url("../images/generator/loading.gif") no-repeat;
 }
-.su-loading-animation * { display: none }
+.su-loading-animation * { display: none; }
 
 /* Attribute container */
 #su-generator-settings .su-generator-attr-container {
@@ -182,7 +186,7 @@
 	font-style: italic;
 	line-height: 1.6;
 }
-.su-generator-attr-desc b { color: #999 }
+.su-generator-attr-desc b { color: #999; }
 
 /* Clickable values in attribute description */
 .su-generator-attr-desc b.su-generator-set-value {
@@ -190,8 +194,8 @@
 	cursor: pointer;
 }
 .su-generator-attr-desc b.su-generator-set-value:hover {
-	color: #333;
 	border-bottom: 1px dotted #333;
+	color: #333;
 }
 
 /* Common attribute fields */
@@ -199,20 +203,20 @@
 #su-generator-settings textarea,
 #su-generator-settings select {
 	width: 100%;
-	padding: 10px;
 	height: auto;
+	padding: 10px;
 }
 
 /* Upload fields */
-.su-generator-upload-field-wrap { position: relative }
+.su-generator-upload-field-wrap { position: relative; }
 .su-generator-upload-field {
 	display: inline-block;
 	width: 85%;
 }
 .su-generator-upload-button {
 	position: absolute;
-	right: 0;
 	top: 0;
+	right: 0;
 	display: inline-block;
 	width: 14%;
 	height: 100%;
@@ -220,8 +224,8 @@
 }
 .su-generator-upload-button a.button {
 	position: absolute;
-	right: 0;
 	top: 0;
+	right: 0;
 	width: 100%;
 	height: 100%;
 	text-align: center;
@@ -230,24 +234,24 @@
 }
 .su-generator-upload-button input {
 	position: absolute;
-	right: 0;
 	top: 0;
+	right: 0;
 	height: 100%;
 	font-size: 10em;
+	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
 	cursor: pointer;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
 	-moz-opacity: 0;
 	-khtml-opacity: 0;
-	opacity: 0;
 }
-.su-generator-uploading { background: 50% 50% url('../images/generator/loading.gif') no-repeat }
+.su-generator-uploading { background: 50% 50% url('../images/generator/loading.gif') no-repeat; }
 #su-generator-settings .su-generator-uploading * {
+	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity=0);
 	-moz-opacity: 0;
 	-khtml-opacity: 0;
-	opacity: 0;
 }
 
 /* Switches */
@@ -260,9 +264,9 @@
 .su-generator-switch span {
 	display: none;
 	padding: 10px;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 .su-generator-switch-yes span.su-generator-yes {
 	display: block;
@@ -281,15 +285,15 @@
 }
 .su-generator-select-color-wheel {
 	position: absolute;
-	left: 0;
 	top: 23px;
-	display: none;
-	background: #fff;
-	border: 1px solid #aaa;
+	left: 0;
 	z-index: 9999;
-	box-shadow: 0 2px 5px #ccc;
-	-moz-box-shadow: 0 2px 5px #ccc;
+	display: none;
+	border: 1px solid #aaa;
+	background: #fff;
 	-webkit-box-shadow: 0 2px 5px #ccc;
+	-moz-box-shadow: 0 2px 5px #ccc;
+	box-shadow: 0 2px 5px #ccc;
 }
 
 /* Preview box */
@@ -297,32 +301,32 @@
 	display: none;
 	margin: 0 -20px;
 	padding: 1.5em 20px;
-	border-bottom: 1px solid #ccc;
 	overflow: hidden;
+	border-bottom: 1px solid #ccc;
 }
 .su-preview-loading {
 	min-height: 60px;
 	background: 50% 50% url('../images/generator/loading.gif') no-repeat;
 }
 /* make some previews visible */
-#su-generator-preview .su-column { outline: 1px dotted #ccc }
+#su-generator-preview .su-column { outline: 1px dotted #ccc; }
 
 /* Actions box */
 .su-generator-actions {
 	margin: 0 -20px -20px;
 	padding: 1.5em 20px;
-	background: #eee;
 	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
 	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
 	border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
 	border-bottom-left-radius: 5px;
+	background: #eee;
 }
 .su-generator-actions:after {
-	content: '';
 	display: block;
 	clear: both;
+	content: '';
 }
 #su-generator-insert {
 	color: #fff !important;

@@ -44,6 +44,7 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 
 = Bundled translations =
 * Ru, [Vladimir Anokhin](http://gndev.info/)
+* Fr, [Nicolas Leclerc](http://etic-studio.fr/)
 * Unforunately old translations is incompatible with current version
 
 Have a translation? [Drop some words to Vladimir Anokhin](http://support.gndev.info/feedback/)

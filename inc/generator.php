@@ -16,7 +16,7 @@
 		// Prepare text
 		$text = ( is_null( $text ) ) ? __( 'Insert shortcode', $shult->textdomain ) : $text;
 		// Prepare icon
-		$icon = ( $icon ) ? '<img src="' . $shult->assets( 'images', 'generator/button.png' ) . '" alt="" /> ' : '';
+		$icon = ( $icon ) ? '<img src="' . $shult->assets( 'images', 'icon.png' ) . '" alt="" /> ' : '';
 		// Prepare shortcode variable
 		$shortcode = ( is_null( $shortcode ) ) ? 'false' : $shortcode;
 		// Print button
