@@ -177,6 +177,7 @@
 .su-row {
 	width: 100%;
 	margin: 0 auto;
+	overflow: hidden;
 	box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ie-box-sizing: border-box;
@@ -192,9 +193,7 @@
 .su-row:after { clear: both }
 .su-row .su-row {
 	width: auto;
-	margin-left: -1em;
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 0 -1em;
 	max-width: none;
 	*zoom: 1;
 }
@@ -209,15 +208,12 @@
 	width: 100%;
 	margin-bottom: 1.5em;
 	float: left;
+	padding: 0 1em;
 	box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ie-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-}
-.su-column {
-	padding-left: 1em;
-	padding-right: 1em;
 }
 .su-column img { max-width: 100% }
 @media only screen {
