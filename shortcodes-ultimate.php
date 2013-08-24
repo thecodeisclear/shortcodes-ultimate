@@ -28,7 +28,4 @@
 	require_once 'inc/generator.php';
 	require_once 'inc/widget.php';
 	require_once 'inc/shortcodes/shortcodes.php';
-
-	// Example add-on
-	// require_once 'inc/example-addon.php';
 ?>
