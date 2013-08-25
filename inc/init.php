@@ -48,7 +48,7 @@ function su_init() {
  */
 function su_check_version() {
 	// Prepare versions
-	$min_wp = '3.3';
+	$min_wp = '3.4';
 	$min_php = '5.1';
 	$wp = get_bloginfo( 'version' );
 	$php = phpversion();

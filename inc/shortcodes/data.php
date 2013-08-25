@@ -1,14 +1,14 @@
 <?php
 
-	/**
-	 * A list of available shortcodes and their parameters
-	 */
-	function su_shortcodes( $shortcode = false ) {
-		// Get plugin object
-		$shult = shortcodes_ultimate();
-		// Setup shortcodes data
-		$shortcodes = apply_filters( 'shortcodes_ultimate_data', array(
-			# heading
+/**
+ * A list of available shortcodes and their parameters
+ */
+function su_shortcodes( $shortcode = false ) {
+	// Get plugin object
+	$shult = shortcodes_ultimate();
+	// Setup shortcodes data
+	$shortcodes = apply_filters( 'shortcodes_ultimate_data', array(
+			// heading
 			'heading' => array(
 				'name' => __( 'Heading', $shult->textdomain ),
 				'type' => 'wrap',
@@ -41,7 +41,7 @@
 				'usage' => '[heading] Content [/heading]<br/>[heading size="5"] Content [/heading]', 'content' => __( 'Heading text', $shult->textdomain ),
 				'desc' => __( 'Styled heading', $shult->textdomain )
 			),
-			# tabs
+			// tabs
 			'tabs' => array(
 				'name' => __( 'Tabs', $shult->textdomain ),
 				'type' => 'wrap',
@@ -63,7 +63,7 @@
 				'content' => __( "[tab title=\"Title 1\"]Content 1[/tab]\n[tab title=\"Title 2\"]Content 2[/tab]\n[tab title=\"Title 3\"]Content 3[/tab]", $shult->textdomain ),
 				'desc' => __( 'Tabs container', $shult->textdomain )
 			),
-			# tab
+			// tab
 			'tab' => array(
 				'name' => __( 'Tab', $shult->textdomain ),
 				'type' => 'wrap',
@@ -84,7 +84,7 @@
 				'usage' => '[tabs] [tab title="Tab name"] Tab content [/tab] [/tabs]', 'content' => __( 'Tab content', $shult->textdomain ),
 				'desc' => __( 'Single tab', $shult->textdomain )
 			),
-			# spoiler
+			// spoiler
 			'spoiler' => array(
 				'name' => __( 'Spoiler', $shult->textdomain ),
 				'type' => 'wrap',
@@ -109,7 +109,7 @@
 				),
 				'usage' => '[spoiler title="Spoiler title"] Hidden text [/spoiler]', 'content' => __( 'Hidden content', $shult->textdomain ), 'desc' => __( 'Spoiler with hidden content', $shult->textdomain )
 			),
-			# accordion
+			// accordion
 			'accordion' => array(
 				'name' => __( 'Accordion', $shult->textdomain ),
 				'type' => 'wrap',
@@ -124,7 +124,7 @@
 				'usage' => '[accordion]<br/>[spoiler open="yes"] content [/spoiler]<br/>[spoiler] content [/spoiler]<br/>[spoiler] content [/spoiler]<br/>[/accordion]',
 				'content' => __( "[spoiler]Content[/spoiler]\n[spoiler]Content[/spoiler]\n[spoiler]Content[/spoiler]", $shult->textdomain ), 'desc' => __( 'Accordion with spoilers', $shult->textdomain )
 			),
-			# divider
+			// divider
 			'divider' => array(
 				'name' => __( 'Divider', $shult->textdomain ),
 				'type' => 'single',
@@ -150,7 +150,7 @@
 				'usage' => '[divider top="yes" text="Go to top"]',
 				'desc' => __( 'Content divider with optional TOP link', $shult->textdomain )
 			),
-			# spacer
+			// spacer
 			'spacer' => array(
 				'name' => __( 'Spacer', $shult->textdomain ),
 				'type' => 'single',
@@ -173,7 +173,7 @@
 				'usage' => '[spacer size="20"]',
 				'desc' => __( 'Empty space with adjustable height', $shult->textdomain )
 			),
-			# highlight
+			// highlight
 			'highlight' => array(
 				'name' => __( 'Highlight', $shult->textdomain ),
 				'type' => 'wrap',
@@ -201,7 +201,7 @@
 				'usage' => '[highlight background="#DDFF99" color="#000000"] Content [/highlight]', 'content' => __( 'Highlighted text', $shult->textdomain ),
 				'desc' => __( 'Highlighted text', $shult->textdomain )
 			),
-			# label
+			// label
 			'label' => array(
 				'name' => __( 'Label', $shult->textdomain ),
 				'type' => 'wrap',
@@ -230,7 +230,7 @@
 				'usage' => '[label type="info"] Information [/label]', 'content' => __( 'Label', $shult->textdomain ),
 				'desc' => __( 'Styled label', $shult->textdomain )
 			),
-			# quote
+			// quote
 			'quote' => array(
 				'name' => __( 'Quote', $shult->textdomain ),
 				'type' => 'wrap',
@@ -257,7 +257,7 @@
 				'usage' => '[quote style="default"] Content [/quote]', 'content' => __( 'Quote', $shult->textdomain ),
 				'desc' => __( 'Blockquote alternative', $shult->textdomain )
 			),
-			# pullquote
+			// pullquote
 			'pullquote' => array(
 				'name' => __( 'Pullquote', $shult->textdomain ),
 				'type' => 'wrap',
@@ -281,7 +281,7 @@
 				'usage' => '[pullquote align="left"] Content [/pullquote]', 'content' => __( 'Pullquote', $shult->textdomain ),
 				'desc' => __( 'Pullquote', $shult->textdomain )
 			),
-			# dropcap
+			// dropcap
 			'dropcap' => array(
 				'name' => __( 'Dropcap', $shult->textdomain ),
 				'type' => 'wrap',
@@ -312,7 +312,7 @@
 				'usage' => '[dropcap style="default"]D[/dropcap]ropcap', 'content' => __( 'D', $shult->textdomain ),
 				'desc' => __( 'Dropcap', $shult->textdomain )
 			),
-			# row
+			// row
 			'row' => array(
 				'name' => __( 'Row', $shult->textdomain ),
 				'type' => 'wrap',
@@ -327,7 +327,7 @@
 				'usage' => '[row]<br/>[column size="1/2"] 50% [/column]<br/>[column size="1/4"] 25% [/column]<br/>[column size="1/4"] 25% [/column]<br/>[/row]',
 				'content' => __( "[column size=\"1/3\"]Content[/column]\n[column size=\"1/3\"]Content[/column]\n[column size=\"1/3\"]Content[/column]", $shult->textdomain ), 'desc' => __( 'Row for flexible columns', $shult->textdomain )
 			),
-			# column
+			// column
 			'column' => array(
 				'name' => __( 'Column', $shult->textdomain ),
 				'type' => 'wrap',
@@ -361,7 +361,7 @@
 				),
 				'usage' => '[row]<br/>[column size="6"] 50% [/column]<br/>[column size="3"] 25% [/column]<br/>[column size="3"] 25% [/column]<br/>[/row]', 'content' => __( 'Column content', $shult->textdomain ), 'desc' => __( 'Flexible and responsive columns', $shult->textdomain )
 			),
-			# list
+			// list
 			'list' => array(
 				'name' => __( 'List', $shult->textdomain ),
 				'type' => 'wrap',
@@ -398,7 +398,7 @@
 				'usage' => '[list style="check"] <ul> <li> List item </li> </ul> [/list]',
 				'content' => __( "<ul>\n<li>List item</li>\n<li>List item</li>\n<li>List item</li>\n</ul>", $shult->textdomain ), 'desc' => __( 'Styled unordered list', $shult->textdomain )
 			),
-			# button
+			// button
 			'button' => array(
 				'name' => __( 'Button', $shult->textdomain ),
 				'type' => 'wrap',
@@ -503,7 +503,7 @@
 				'usage' => '[button url="#" background="#b00" size="3" style="default"] Button text [/button]', 'content' => __( 'Button text', $shult->textdomain ),
 				'desc' => __( 'Styled button', $shult->textdomain )
 			),
-			# service
+			// service
 			'service' => array(
 				'name' => __( 'Service', $shult->textdomain ),
 				'type' => 'wrap',
@@ -536,7 +536,7 @@
 				),
 				'usage' => '[service title="Service title" icon="service.png" size="32"] Service description [/service]', 'content' => __( 'Service description', $shult->textdomain ), 'desc' => __( 'Service box with title', $shult->textdomain )
 			),
-			# box
+			// box
 			'box' => array(
 				'name' => __( 'Box', $shult->textdomain ),
 				'type' => 'wrap',
@@ -586,9 +586,11 @@
 						'desc' => __( 'Extra CSS class', $shult->textdomain )
 					)
 				),
-				'usage' => '[box title="Box title"] Content [/box]', 'content' => __( 'Box content', $shult->textdomain ), 'desc' => __( 'Colored box with caption', $shult->textdomain )
+				'usage' => '[box title="Box title"] Content [/box]',
+				'content' => __( 'Box content', $shult->textdomain ),
+				'desc' => __( 'Colored box with caption', $shult->textdomain )
 			),
-			# note
+			// note
 			'note' => array(
 				'name' => __( 'Note', $shult->textdomain ),
 				'type' => 'wrap',
@@ -622,7 +624,39 @@
 				'usage' => '[note background="#FFCC00"] Content [/note]', 'content' => __( 'Note text', $shult->textdomain ),
 				'desc' => __( 'Colored box', $shult->textdomain )
 			),
-			# private
+			// lightbox
+			'lightbox' => array(
+				'name' => __( 'Lightbox', $shult->textdomain ),
+				'type' => 'wrap',
+				'group' => 'gallery',
+				'atts' => array(
+					'type' => array(
+						'type' => 'select',
+						'values' => array(
+							'iframe' => __( 'Iframe', $shult->textdomain ),
+							'image' => __( 'Image', $shult->textdomain ),
+							'inline' => __( 'Inline (html content)', $shult->textdomain )
+						),
+						'default' => 'iframe',
+						'name' => __( 'Content type', $shult->textdomain ),
+						'desc' => __( 'Select type of the lightbox window content', $shult->textdomain )
+					),
+					'src' => array(
+						'default' => 'http://www.youtube.com/watch?v=NbE8INOjTKM',
+						'name' => __( 'Content source', $shult->textdomain ),
+						'desc' => __( 'Insert here URL or CSS selector. Use URL for Iframe and Image content types. Use CSS selector for Inline content type.<br />Example values:<br /><b%value>http://www.youtube.com/watch?v=NbE8INOjTKM</b> - YouTube video (iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any web page (iframe)<br /><b%value>#contact-form</b> - any HTML content (inline)', $shult->textdomain )
+					),
+					'class' => array(
+						'default' => '',
+						'name' => __( 'Class', $shult->textdomain ),
+						'desc' => __( 'Extra CSS class', $shult->textdomain )
+					)
+				),
+				'usage' => '[lightbox src="http://example.com/" type="iframe"] Open example.com [/lightbox]',
+				'content' => __( '[button] Click Here to Watch the Video [/button]', $shult->textdomain ),
+				'desc' => __( 'Lightbox window with custom content', $shult->textdomain )
+			),
+			// private
 			'private' => array(
 				'name' => __( 'Private', $shult->textdomain ),
 				'type' => 'wrap',
@@ -636,7 +670,7 @@
 				),
 				'usage' => '[private] Private content [/private]', 'content' => __( 'Private note text', $shult->textdomain ), 'desc' => __( 'Private note for post authors', $shult->textdomain )
 			),
-			# youtube
+			// youtube
 			'youtube' => array(
 				'name' => __( 'YouTube' ),
 				'type' => 'single',
@@ -686,7 +720,7 @@
 				),
 				'usage' => '[youtube url="http://www.youtube.com/watch?v=NbE8INOjTKM"]', 'desc' => __( 'YouTube video', $shult->textdomain )
 			),
-			# vimeo
+			// vimeo
 			'vimeo' => array(
 				'name' => __( 'Vimeo' ),
 				'type' => 'single',
@@ -735,7 +769,7 @@
 				),
 				'usage' => '[vimeo url="http://vimeo.com/21294655"]', 'desc' => __( 'Vimeo video', $shult->textdomain )
 			),
-			# audio
+			// audio
 			'audio' => array(
 				'name' => __( 'Audio', $shult->textdomain ),
 				'type' => 'single',
@@ -774,7 +808,7 @@
 				'usage' => '[audio url="http://example.com/audio.mp3"]',
 				'desc' => __( 'Custom audio player', $shult->textdomain )
 			),
-			# video
+			// video
 			'video' => array(
 				'name' => __( 'Video', $shult->textdomain ),
 				'type' => 'single',
@@ -843,7 +877,7 @@
 				'usage' => '[video url="http://example.com/video.mp4"]',
 				'desc' => __( 'Custom video player', $shult->textdomain )
 			),
-			# table
+			// table
 			'table' => array(
 				'name' => __( 'Table', $shult->textdomain ),
 				'type' => 'mixed',
@@ -865,7 +899,7 @@
 				'content' => __( "<table>\n<tr>\n\t<td>Table</td>\n\t<td>Table</td>\n</tr>\n<tr>\n\t<td>Table</td>\n\t<td>Table</td>\n</tr>\n</table>", $shult->textdomain ),
 				'desc' => __( 'Styled table from HTML or CSV file', $shult->textdomain )
 			),
-			# permalink
+			// permalink
 			'permalink' => array(
 				'name' => __( 'Permalink', $shult->textdomain ),
 				'type' => 'mixed',
@@ -895,7 +929,7 @@
 				'usage' => '[permalink id=52]<br/>[permalink id="52" target="blank"] Content [/permalink]',
 				'content' => '', 'desc' => __( 'Permalink to specified post/page', $shult->textdomain )
 			),
-			# members
+			// members
 			'members' => array(
 				'name' => __( 'Members', $shult->textdomain ),
 				'type' => 'wrap',
@@ -920,7 +954,7 @@
 				'usage' => '[members style="default"] Content for logged members [/members]', 'content' => __( 'Content for logged members', $shult->textdomain ),
 				'desc' => __( 'Content for logged in members only', $shult->textdomain )
 			),
-			# guests
+			// guests
 			'guests' => array(
 				'name' => __( 'Guests', $shult->textdomain ),
 				'type' => 'wrap',
@@ -934,7 +968,7 @@
 				),
 				'usage' => '[guests] Content for guests [/guests]', 'content' => __( 'Content for guests', $shult->textdomain ), 'desc' => __( 'Content for guests only', $shult->textdomain )
 			),
-			# feed
+			// feed
 			'feed' => array(
 				'name' => __( 'RSS Feed', $shult->textdomain ),
 				'type' => 'single',
@@ -959,7 +993,7 @@
 				),
 				'usage' => '[feed url="http://rss1.smashingmagazine.com/feed/" limit="5"]', 'desc' => __( 'Feed grabber', $shult->textdomain )
 			),
-			# menu
+			// menu
 			'menu' => array(
 				'name' => __( 'Menu', $shult->textdomain ),
 				'type' => 'single',
@@ -978,7 +1012,7 @@
 				),
 				'usage' => '[menu name="Main menu"]', 'desc' => __( 'Custom menu by name', $shult->textdomain )
 			),
-			# subpages
+			// subpages
 			'subpages' => array(
 				'name' => __( 'Sub pages', $shult->textdomain ),
 				'type' => 'single',
@@ -1004,7 +1038,7 @@
 				),
 				'usage' => '[subpages]<br/>[subpages depth="2" p="122"]', 'desc' => __( 'List of sub pages', $shult->textdomain )
 			),
-			# siblings
+			// siblings
 			'siblings' => array(
 				'name' => __( 'Siblings', $shult->textdomain ),
 				'type' => 'single',
@@ -1024,7 +1058,7 @@
 				),
 				'usage' => '[siblings]<br/>[siblings depth="2"]', 'desc' => __( 'List of cureent page siblings', $shult->textdomain )
 			),
-			# document
+			// document
 			'document' => array(
 				'name' => __( 'Document', $shult->textdomain ),
 				'type' => 'single',
@@ -1068,7 +1102,7 @@
 				),
 				'usage' => '[document url="file.doc" width="600" height="400"]', 'desc' => __( 'Document viewer by Google', $shult->textdomain )
 			),
-			# gmap
+			// gmap
 			'gmap' => array(
 				'name' => __( 'Gmap', $shult->textdomain ),
 				'type' => 'single',
@@ -1112,7 +1146,7 @@
 				),
 				'usage' => '[gmap width="600" height="400" address="New York"]', 'desc' => __( 'Maps by Google', $shult->textdomain )
 			),
-			# slider
+			// slider
 			'slider' => array(
 				'name' => __( 'Slider', $shult->textdomain ),
 				'type' => 'single',
@@ -1202,7 +1236,7 @@
 				),
 				'usage' => '[slider gallery="1"]', 'desc' => __( 'Customizable image slider', $shult->textdomain )
 			),
-			# carousel
+			// carousel
 			'carousel' => array(
 				'name' => __( 'Carousel', $shult->textdomain ),
 				'type' => 'single',
@@ -1308,7 +1342,7 @@
 				),
 				'usage' => '[carousel gallery="1"]', 'desc' => __( 'Customizable image carousel', $shult->textdomain )
 			),
-			# custom_gallery
+			// custom_gallery
 			'custom_gallery' => array(
 				'name' => __( 'Gallery', $shult->textdomain ),
 				'type' => 'single',
@@ -1359,7 +1393,7 @@
 				),
 				'usage' => '[custom_gallery gallery="1"]', 'desc' => __( 'Customizable image gallery', $shult->textdomain )
 			),
-			# posts
+			// posts
 			'posts' => array(
 				'name' => __( 'Posts', $shult->textdomain ),
 				'type' => 'single',
@@ -1491,37 +1525,37 @@
 				'usage' => '[posts template="templates/posts.php"]',
 				'desc' => __( 'Custom posts query with customizable template', $shult->textdomain )
 			)
-			) );
-		// Sort array
-		ksort( $shortcodes );
-		// Return result
-		return ( $shortcode ) ? $shortcodes[$shortcode] :
-			$shortcodes;
-	}
+		) );
+	// Sort array
+	// ksort( $shortcodes );
+	// Return result
+	return ( $shortcode ) ? $shortcodes[$shortcode] :
+	$shortcodes;
+}
 
-	/**
-	 * Register shortcodes
-	 */
-	function su_register_shortcodes() {
-		// Loop through shortcodes
-		foreach ( ( array ) su_shortcodes() as $shortcode => $data ) {
-			// Prepare shortcode function name
-			$function = ( isset( $data['function'] ) ) ? $data['function'] : 'su_' . $shortcode . '_shortcode';
-			// Register shortcode
-			add_shortcode( su_compatibility_mode_prefix() . $shortcode, $function );
-		}
+/**
+ * Register shortcodes
+ */
+function su_register_shortcodes() {
+	// Loop through shortcodes
+	foreach ( ( array ) su_shortcodes() as $shortcode => $data ) {
+		// Prepare shortcode function name
+		$function = ( isset( $data['function'] ) ) ? $data['function'] : 'su_' . $shortcode . '_shortcode';
+		// Register shortcode
+		add_shortcode( su_compatibility_mode_prefix() . $shortcode, $function );
 	}
+}
 
-	add_action( 'init', 'su_register_shortcodes' );
+add_action( 'init', 'su_register_shortcodes' );
 
-	function su_get_groups() {
-		$shult = shortcodes_ultimate();
-		$groups = array( 'all' => __( 'All', $shult->textdomain ),
-		                 'content' => __( 'Content', $shult->textdomain ),
-		                 'box' => __( 'Box', $shult->textdomain ),
-		                 'media' => __( 'Media', $shult->textdomain ),
-		                 'gallery' => __( 'Gallery', $shult->textdomain ),
-		                 'other' => __( 'Other', $shult->textdomain ) );
-		$groups = ( array ) apply_filters( 'shortcodes_ultimate_groups', $groups );
-		return $groups;
-	}
+function su_get_groups() {
+	$shult = shortcodes_ultimate();
+	$groups = array( 'all' => __( 'All', $shult->textdomain ),
+		'content' => __( 'Content', $shult->textdomain ),
+		'box' => __( 'Box', $shult->textdomain ),
+		'media' => __( 'Media', $shult->textdomain ),
+		'gallery' => __( 'Gallery', $shult->textdomain ),
+		'other' => __( 'Other', $shult->textdomain ) );
+	$groups = ( array ) apply_filters( 'shortcodes_ultimate_groups', $groups );
+	return $groups;
+}
