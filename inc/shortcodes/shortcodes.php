@@ -1256,6 +1256,8 @@ function su_posts_shortcode( $atts, $content = null ) {
 	$original_posts = $posts;
 	// Query posts
 	$posts = new WP_Query( $args );
+	// Buffer output
+	ob_start();
 	// Search for template in stylesheet directory
 	if ( file_exists( STYLESHEETPATH . '/' . $atts['template'] ) ) load_template( STYLESHEETPATH . '/' .
 			$atts['template'], false );
@@ -1267,14 +1269,15 @@ function su_posts_shortcode( $atts, $content = null ) {
 	) load_template( path_join( dirname( $shult->file ), $atts['template'] ), false );
 	// Template not found
 	else
-		$error = '<p class="su-error">Posts: ' . __( 'template not found', $shult->textdomain ) . '</p>';
+		echo '<p class="su-error">Posts: ' . __( 'template not found', $shult->textdomain ) . '</p>';
+	$output = ob_get_contents();
+	ob_end_clean();
 	// Return original posts
 	$posts = $original_posts;
 	// Reset the query
 	wp_reset_postdata();
 	su_query_asset( 'css', 'su-other-shortcodes' );
-	// Show error
-	return ( !is_null( $error ) ) ? $error : '';
+	return $output;
 }
 
 ?>
