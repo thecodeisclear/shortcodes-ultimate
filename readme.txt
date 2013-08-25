@@ -12,7 +12,7 @@ Supercharge your WordPress theme with mega pack of shortcodes
 
 == Description ==
 
-[Shortcodes Ultimate](http://gndev.info/shortcodes-ultimate/) is WordPress plugin that provides mega pack of shortcodes.
+[Shortcodes Ultimate](http://gndev.info/shortcodes-ultimate/) is WordPress plugin that provides mega pack of shortcodes. This is really premium plugin that you can get absolutely for free!
 
 With this plugin you can easily create tabs, buttons, boxes, different sliders, responsive videos and much, much more. Turn your free theme to premium in just a few clicks. Using Shortcodes Ultimate you can quickly and easily retrieve premium themes features and display it on your site. See screenshots for more information.
 
