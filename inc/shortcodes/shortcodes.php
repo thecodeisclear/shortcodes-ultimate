@@ -747,13 +747,19 @@ function su_feed_shortcode( $atts, $content = null ) {
  * @return string Output html
  */
 function su_subpages_shortcode( $atts, $content = null ) {
-	$atts = shortcode_atts( array( 'depth' => 1, 'p' => false, 'class' => '' ), $atts );
+	$atts = shortcode_atts( array(
+			'depth' => 1,
+			'p'     => false,
+			'class' => ''
+		), $atts );
 	global $post;
 	$child_of = ( $atts['p'] ) ? $atts['p'] : get_the_ID();
-	$return = wp_list_pages( array( 'title_li' => '',
+	$return = wp_list_pages( array(
+			'title_li' => '',
 			'echo' => 0,
 			'child_of' => $child_of,
-			'depth' => $atts['depth'] ) );
+			'depth' => $atts['depth']
+		) );
 	return ( $return ) ? '<ul class="su-subpages' . su_ecssc( $atts ) . '">' . $return . '</ul>' : false;
 }
 

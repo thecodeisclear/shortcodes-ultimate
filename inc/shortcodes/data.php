@@ -1020,11 +1020,11 @@ function su_shortcodes( $shortcode = false ) {
 				'atts' => array(
 					'depth' => array(
 						'type' => 'select',
-						'values' => array( 1, 2, 3 ), 'default' => 1,
+						'values' => array( 1, 2, 3, 4, 5 ), 'default' => 1,
 						'name' => __( 'Depth', $shult->textdomain ),
 						'desc' => __( 'Max depth level of children pages', $shult->textdomain )
 					),
-					'id' => array(
+					'p' => array(
 						'values' => array( ),
 						'default' => '',
 						'name' => __( 'Parent ID', $shult->textdomain ),
