@@ -266,85 +266,99 @@ function su_list_shortcode( $atts, $content = null ) {
  * @return string Output html
  */
 function su_button_shortcode( $atts, $content = null ) {
-	$atts = shortcode_atts( array( 'url' => get_option( 'home' ),
-			'target' => 'self',
-			'style' => 'default',
+	$atts = shortcode_atts( array(
+			'url'        => get_option( 'home' ),
+			'target'     => 'self',
+			'style'      => 'default',
 			'background' => '#2D89EF',
-			'color' => '#FFFFFF',
-			'size' => 3,
-			'wide' => 'no',
-			'radius' => 'auto',
-			'icon' => false,
-			'ts_color' => 'dark',
-			'ts_pos' => 'top-left',
-			'class' => '' ), $atts );
+			'color'      => '#FFFFFF',
+			'size'       => 3,
+			'wide'       => 'no',
+			'radius'     => 'auto',
+			'icon'       => false,
+			'ts_color'   => 'dark',
+			'ts_pos'     => 'top-left',
+			'desc'       => '',
+			'class'      => ''
+		), $atts );
 
 	// Prepare vars
 	$a_css = array();
 	$span_css = array();
 	$img_css = array();
+	$small_css = array();
 	$radius = '0px';
 
 	// Text shadow values
-	$shadows = array( 'none' => '0 0',
-		'top' => '0 -1px',
-		'right' => '1px 0',
-		'bottom' => '0 1px',
-		'left' => '-1px 0',
-		'top-right' => '1px -1px',
-		'top-left' => '-1px -1px',
+	$shadows = array(
+		'none'         => '0 0',
+		'top'          => '0 -1px',
+		'right'        => '1px 0',
+		'bottom'       => '0 1px',
+		'left'         => '-1px 0',
+		'top-right'    => '1px -1px',
+		'top-left'     => '-1px -1px',
 		'bottom-right' => '1px 1px',
-		'bottom-left' => '-1px 1px' );
+		'bottom-left'  => '-1px 1px'
+	);
 
 	// Common styles for button
-	$styles = array( 'size' => round( ( $atts['size'] + 7 ) * 1.3 ),
-		'ts_color' => ( $atts['ts_color'] === 'light' ) ? su_hex_shift( $atts['background'], 'lighter',
-			50 )
-		: su_hex_shift( $atts['background'], 'darker', 40 ),
-		'ts_pos' => $shadows[$atts['ts_pos']] );
+	$styles = array(
+		'size'     => round( ( $atts['size'] + 7 ) * 1.3 ),
+		'ts_color' => ( $atts['ts_color'] === 'light' ) ? su_hex_shift( $atts['background'], 'lighter', 50 ) : su_hex_shift( $atts['background'], 'darker', 40 ),
+		'ts_pos'   => $shadows[$atts['ts_pos']]
+	);
 
 	// Calculate border-radius
 	if ( $atts['radius'] == 'auto' ) $radius = round( $atts['size'] + 2 ) . 'px';
-	elseif ( $atts['radius'] == 'round' ) $radius = round( ( ( $atts['size'] * 2 ) + 2 ) * 2 +
-			$styles['size'] ) . 'px';
+	elseif ( $atts['radius'] == 'round' ) $radius = round( ( ( $atts['size'] * 2 ) + 2 ) * 2 + $styles['size'] ) . 'px';
 	elseif ( is_numeric( $atts['radius'] ) ) $radius = intval( $atts['radius'] ) . 'px';
 
 	// CSS rules for <a> tag
-	$a_rules = array( 'color' => $atts['color'],
-		'background-color' => $atts['background'],
-		'border-color' => su_hex_shift( $atts['background'], 'darker', 20 ),
-		'border-radius' => $radius,
-		'-moz-border-radius' => $radius,
-		'-webkit-border-radius' => $radius );
+	$a_rules = array(
+		'color'                 => $atts['color'],
+		'background-color'      => $atts['background'],
+		'border-color'          => su_hex_shift( $atts['background'], 'darker', 20 ),
+		'border-radius'         => $radius,
+		'-moz-border-radius'    => $radius,
+		'-webkit-border-radius' => $radius
+	);
 
 	// CSS rules for <span> tag
-	$span_rules = array( 'color' => $atts['color'],
-		'padding' => ( $atts['icon'] ) ?
-		round( ( $atts['size'] ) / 2 + 4 ) . 'px ' . round( $atts['size'] * 2 + 10 ) . 'px'
-		: '0px ' . round( $atts['size'] * 2 + 10 ) . 'px',
-		'font-size' => $styles['size'] . 'px',
-		'line-height' => ( $atts['icon'] ) ? round( $styles['size'] * 1.5 ) . 'px'
-		: round( $styles['size'] * 2 ) . 'px',
-		'border-color' => su_hex_shift( $atts['background'], 'lighter', 30 ),
-		'border-radius' => $radius,
-		'-moz-border-radius' => $radius,
+	$span_rules = array(
+		'color'                 => $atts['color'],
+		'padding'               => ( $atts['icon'] ) ? round( ( $atts['size'] ) / 2 + 4 ) . 'px ' . round( $atts['size'] * 2 + 10 ) . 'px' : '0px ' . round( $atts['size'] * 2 + 10 ) . 'px',
+		'font-size'             => $styles['size'] . 'px',
+		'line-height'           => ( $atts['icon'] ) ? round( $styles['size'] * 1.5 ) . 'px' : round( $styles['size'] * 2 ) . 'px',
+		'border-color'          => su_hex_shift( $atts['background'], 'lighter', 30 ),
+		'border-radius'         => $radius,
+		'-moz-border-radius'    => $radius,
 		'-webkit-border-radius' => $radius,
-		'text-shadow' => $styles['ts_pos'] . ' 1px ' . $styles['ts_color'],
-		'-moz-text-shadow' => $styles['ts_pos'] . ' 1px ' . $styles['ts_color'],
-		'-webkit-text-shadow' => $styles['ts_pos'] . ' 1px ' . $styles['ts_color'] );
+		'text-shadow'           => $styles['ts_pos'] . ' 1px ' . $styles['ts_color'],
+		'-moz-text-shadow'      => $styles['ts_pos'] . ' 1px ' . $styles['ts_color'],
+		'-webkit-text-shadow'   => $styles['ts_pos'] . ' 1px ' . $styles['ts_color']
+	);
 
 	// CSS rules for <img> tag
-	$img_rules = array( 'width' => round( $styles['size'] * 1.5 ) . 'px',
-		'height' => round( $styles['size'] * 1.5 ) . 'px' );
+	$img_rules = array(
+		'width'  => round( $styles['size'] * 1.5 ) . 'px',
+		'height' => round( $styles['size'] * 1.5 ) . 'px'
+	);
+
+	// CSS rules for <small> tag
+	$small_rules = array(
+		'margin-bottom' => round( ( $atts['size'] ) / 2 + 4 ) . 'px',
+		'color' => $atts['color']
+	);
 
 	// Create style attr value for <a> tag
 	foreach ( $a_rules as $a_rule => $a_value ) $a_css[] = $a_rule . ':' . $a_value;
-
 	// Create style attr value for <span> tag
 	foreach ( $span_rules as $span_rule => $span_value ) $span_css[] = $span_rule . ':' . $span_value;
-
 	// Create style attr value for <img> tag
 	foreach ( $img_rules as $img_rule => $img_value ) $img_css[] = $img_rule . ':' . $img_value;
+	// Create style attr value for <img> tag
+	foreach ( $small_rules as $small_rule => $small_value ) $small_css[] = $small_rule . ':' . $small_value;
 
 	// Prepare button classes
 	$classes = array( 'su-button', 'su-button-style-' . $atts['style'] );
@@ -354,9 +368,9 @@ function su_button_shortcode( $atts, $content = null ) {
 	if ( $atts['wide'] === 'yes' ) $classes[] = 'su-button-wide';
 
 	// Prepare icon
-	$icon = ( $atts['icon'] ) ?
-		'<img src="' . $atts['icon'] . '" alt="' . esc_attr( $content ) . '" style="' . implode( $img_css, ';' ) .
-		'" />' : '';
+	$icon = ( $atts['icon'] ) ? '<img src="' . $atts['icon'] . '" alt="' . esc_attr( $content ) . '" style="' . implode( $img_css, ';' ) . '" />' : '';
+	// Prepare <small> with description
+	$desc = ( $atts['desc'] ) ? '<small style="' . implode( $small_css, ';' ) . '">' . ( $atts['desc'] ) . '</small>' : '';
 
 	// Replace icon marker in content,
 	// add float-icon class to rearrange margins
@@ -365,14 +379,10 @@ function su_button_shortcode( $atts, $content = null ) {
 		$classes[] = 'su-button-float-icon';
 	}
 	// Button text has no icon marker, append icon to begin of the text
-	else
-		$content = $icon . ' ' . $content;
+	else $content = $icon . ' ' . $content;
 
 	su_query_asset( 'css', 'su-content-shortcodes' );
-	return
-	'<a href="' . $atts['url'] . '" class="' . implode( $classes, ' ' ) . '" style="' . implode( $a_css, ';' ) .
-		'" target="_' . $atts['target'] . '"><span style="' . implode( $span_css, ';' ) . '">' . $content .
-		'</span></a>';
+	return '<a href="' . $atts['url'] . '" class="' . implode( $classes, ' ' ) . '" style="' . implode( $a_css, ';' ) . '" target="_' . $atts['target'] . '"><span style="' . implode( $span_css, ';' ) . '">' . $content . $desc . '</span></a>';
 }
 
 /**

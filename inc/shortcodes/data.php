@@ -494,6 +494,11 @@ function su_shortcodes( $shortcode = false ) {
 						),
 						'default' => 'top-left', 'name' => __( 'Text shadow position', $shult->textdomain ), 'desc' => __( 'Position of button text shadow', $shult->textdomain )
 					),
+					'desc' => array(
+						'default' => '',
+						'name' => __( 'Description', $shult->textdomain ),
+						'desc' => __( 'Small description under button text. This option is incompatible with icon.', $shult->textdomain )
+					),
 					'class' => array(
 						'default' => '',
 						'name' => __( 'Class', $shult->textdomain ),
