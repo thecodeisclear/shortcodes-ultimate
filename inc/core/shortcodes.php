@@ -74,8 +74,7 @@ function su_tab_shortcode( $atts, $content ) {
  * @return string Output html
  */
 function su_spoiler_shortcode( $atts, $content = null ) {
-	$shult = shortcodes_ultimate();
-	$atts = shortcode_atts( array( 'title' => __( 'Spoiler title', $shult->textdomain ),
+	$atts = shortcode_atts( array( 'title' => __( 'Spoiler title', 'su' ),
 			'open' => 'no',
 			'class' => '' ), $atts );
 	$open = ( $atts['open'] === 'no' ) ? ' su-spoiler-closed' : '';
@@ -110,8 +109,7 @@ function su_accordion_shortcode( $atts = null, $content = null ) {
  * @return string Output html
  */
 function su_divider_shortcode( $atts, $content = null ) {
-	$shult = shortcodes_ultimate();
-	$atts = shortcode_atts( array( 'top' => 'yes', 'text' => __( 'Go to top', $shult->textdomain ), 'class' => '' ),
+	$atts = shortcode_atts( array( 'top' => 'yes', 'text' => __( 'Go to top', 'su' ), 'class' => '' ),
 		$atts );
 	$top = ( $atts['top'] === 'yes' ) ? '<a href="#">' . $atts['text'] . '</a>' : '';
 	su_query_asset( 'css', 'su-content-shortcodes' );
@@ -277,7 +275,7 @@ function su_button_shortcode( $atts, $content = null ) {
 			'radius'     => 'auto',
 			'icon'       => false,
 			'ts_color'   => 'dark',
-			'ts_pos'     => 'top-left',
+			'ts_pos'     => 'none',
 			'desc'       => '',
 			'class'      => ''
 		), $atts );
@@ -347,7 +345,7 @@ function su_button_shortcode( $atts, $content = null ) {
 
 	// CSS rules for <small> tag
 	$small_rules = array(
-		'margin-bottom' => round( ( $atts['size'] ) / 2 + 4 ) . 'px',
+		'padding-bottom' => round( ( $atts['size'] ) / 2 + 4 ) . 'px',
 		'color' => $atts['color']
 	);
 
@@ -395,7 +393,7 @@ function su_button_shortcode( $atts, $content = null ) {
  */
 function su_service_shortcode( $atts, $content = null ) {
 	$shult = shortcodes_ultimate();
-	$atts = shortcode_atts( array( 'title' => __( 'Service title', $shult->textdomain ),
+	$atts = shortcode_atts( array( 'title' => __( 'Service title', 'su' ),
 			'icon' => $shult->assets( 'images', 'service.png' ),
 			'size' => 32,
 			'class' => '' ), $atts );
@@ -417,8 +415,7 @@ function su_service_shortcode( $atts, $content = null ) {
  * @return string Output html
  */
 function su_box_shortcode( $atts, $content = null ) {
-	$shult = shortcodes_ultimate();
-	$atts = shortcode_atts( array( 'title' => __( 'This is box title', $shult->textdomain ),
+	$atts = shortcode_atts( array( 'title' => __( 'This is box title', 'su' ),
 			'style' => 'default',
 			'box_color' => '#333333',
 			'title_color' => '#FFFFFF',
@@ -516,7 +513,6 @@ function su_private_shortcode( $atts = null, $content = null ) {
  */
 function su_youtube_shortcode( $atts, $content = null ) {
 	// Prepare data
-	$shult = shortcodes_ultimate();
 	$return = array();
 	$atts = shortcode_atts( array( 'url' => 'http://www.youtube.com/watch?v=NbE8INOjTKM',
 			'width' => 600,
@@ -526,15 +522,12 @@ function su_youtube_shortcode( $atts, $content = null ) {
 			'class' => '' ), $atts );
 	$id = su_video_id( $atts['url'] );
 	// Check that url is specified
-	if ( !$id ) return
-		'<p class="su-error">YouTube: ' . __( 'please specify correct url', $shult->textdomain ) . '</p>';
+	if ( !$id ) return '<p class="su-error">YouTube: ' . __( 'please specify correct url', 'su' ) . '</p>';
 	// Prepare autoplay
 	$autoplay = ( $atts['autoplay'] === 'yes' ) ? '?autoplay=1' : '';
 	// Create player
 	$return[] = '<div class="su-youtube su-responsive-media-' . $atts['responsive'] . su_ecssc( $atts ) . '">';
-	$return[] = '<iframe width="' . $atts['width'] . '" height="' . $atts['height'] .
-		'" src="http://www.youtube.com/embed/' . $id .
-		$autoplay . '" frameborder="0" allowfullscreen="true"></iframe>';
+	$return[] = '<iframe width="' . $atts['width'] . '" height="' . $atts['height'] . '" src="http://www.youtube.com/embed/' . $id . $autoplay . '" frameborder="0" allowfullscreen="true"></iframe>';
 	$return[] = '</div>';
 	su_query_asset( 'css', 'su-media-shortcodes' );
 	// Return result
@@ -551,7 +544,6 @@ function su_youtube_shortcode( $atts, $content = null ) {
  */
 function su_vimeo_shortcode( $atts, $content = null ) {
 	// Prepare data
-	$shult = shortcodes_ultimate();
 	$return = array();
 	$atts = shortcode_atts( array( 'url' => 'http://vimeo.com/21294655',
 			'width' => 600,
@@ -562,7 +554,7 @@ function su_vimeo_shortcode( $atts, $content = null ) {
 	$id = su_video_id( $atts['url'] );
 	// Check that url is specified
 	if ( !$id ) return
-		'<p class="su-error">Vimeo: ' . __( 'please specify correct url', $shult->textdomain ) . '</p>';
+		'<p class="su-error">Vimeo: ' . __( 'please specify correct url', 'su' ) . '</p>';
 	// Prepare autoplay
 	$autoplay = ( $atts['autoplay'] === 'yes' ) ? '&amp;autoplay=1' : '';
 	// Create player
@@ -599,7 +591,7 @@ function su_audio_shortcode( $atts, $content = null ) {
 	$width = ( $atts['width'] !== 'auto' ) ? 'max-width:' . $atts['width'] : '';
 	// Check that url is specified
 	if ( !$atts['url'] ) return
-		'<p class="su-error">Audio: ' . __( 'please specify correct url', $shult->textdomain ) . '</p>';
+		'<p class="su-error">Audio: ' . __( 'please specify correct url', 'su' ) . '</p>';
 	su_query_asset( 'css', 'su-players-shortcodes' );
 	su_query_asset( 'js', 'jquery' );
 	su_query_asset( 'js', 'jplayer' );
@@ -639,7 +631,7 @@ function su_video_shortcode( $atts, $content = null ) {
 	$id = uniqid( 'su_video_player_' );
 	// Check that url is specified
 	if ( !$atts['url'] ) return
-		'<p class="su-error">Video: ' . __( 'please specify correct url', $shult->textdomain ) . '</p>';
+		'<p class="su-error">Video: ' . __( 'please specify correct url', 'su' ) . '</p>';
 	// Prepare title
 	$title = ( $atts['title'] ) ? '<div class="jp-title">' . $atts['title'] . '</div>' : '';
 	su_query_asset( 'css', 'su-players-shortcodes' );
@@ -702,10 +694,9 @@ function su_permalink_shortcode( $atts, $content = null ) {
  * @return string Output html
  */
 function su_members_shortcode( $atts, $content = null ) {
-	$shult = shortcodes_ultimate();
 	$atts = shortcode_atts( array( 'message' => __( 'This content is for registered users only. Please %login%.',
-				$shult->textdomain ),
-			'login' => __( 'login', $shult->textdomain ),
+				'su' ),
+			'login' => __( 'login', 'su' ),
 			'class' => '' ), $atts );
 	// Prepare links
 	$login = '<a href="' . wp_login_url( get_permalink( get_the_ID() ) ) . '">' . $atts['login'] . '</a>';
@@ -817,7 +808,7 @@ function su_menu_shortcode( $atts, $content = null ) {
  */
 function su_menu_shortcode_fb_cb() {
 	$shult = shortcodes_ultimate();
-	return __( 'This menu doesn\'t exists, or has no elements', $shult->textdomain );
+	return __( 'This menu doesn\'t exists, or has no elements', 'su' );
 }
 
 /**
@@ -906,7 +897,7 @@ function su_slider_shortcode( $atts, $content = null ) {
 	: 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
 	// Slides not found
 	if ( !count( $slides ) || !is_array( $slides ) ) $return =
-			'<p class="su-error">Slider: ' . __( 'images not found', $shult->textdomain ) . '</p>';
+			'<p class="su-error">Slider: ' . __( 'images not found', 'su' ) . '</p>';
 	// Slides are found
 	else {
 		// Open slider
@@ -1001,7 +992,7 @@ function su_carousel_shortcode( $atts, $content = null ) {
 		: 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
 	// Slides not found
 	if ( !count( $slides ) || !is_array( $slides ) ) $return =
-			'<p class="su-error">Carousel: ' . __( 'images not found', $shult->textdomain ) . '</p>';
+			'<p class="su-error">Carousel: ' . __( 'images not found', 'su' ) . '</p>';
 	// Slides are found
 	else {
 		// Open slider
@@ -1079,7 +1070,7 @@ function su_custom_gallery_shortcode( $atts, $content = null ) {
 	$slides = ( count( ( array ) $gallery['items'] ) ) ? $gallery['items'] : array();
 	// Slides not found
 	if ( !count( $slides ) || !is_array( $slides ) ) $return =
-			'<p class="su-error">Custom gallery: ' . __( 'images not found', $shult->textdomain ) . '</p>';
+			'<p class="su-error">Custom gallery: ' . __( 'images not found', 'su' ) . '</p>';
 	// Slides are found
 	else {
 		// Open gallery
@@ -1285,7 +1276,7 @@ function su_posts_shortcode( $atts, $content = null ) {
 	) load_template( path_join( dirname( $shult->file ), $atts['template'] ), false );
 	// Template not found
 	else
-		echo '<p class="su-error">Posts: ' . __( 'template not found', $shult->textdomain ) . '</p>';
+		echo '<p class="su-error">Posts: ' . __( 'template not found', 'su' ) . '</p>';
 	$output = ob_get_contents();
 	ob_end_clean();
 	// Return original posts
@@ -1295,5 +1286,3 @@ function su_posts_shortcode( $atts, $content = null ) {
 	su_query_asset( 'css', 'su-other-shortcodes' );
 	return $output;
 }
-
-?>

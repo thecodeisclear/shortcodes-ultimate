@@ -314,7 +314,7 @@
 /* Actions box */
 .su-generator-actions {
 	margin: 0 -20px -20px;
-	padding: 1.5em 20px;
+	padding: 1.5em 15px;
 	-webkit-border-bottom-right-radius: 5px;
 	-moz-border-radius-bottomright: 5px;
 	border-bottom-right-radius: 5px;
@@ -328,6 +328,7 @@
 	clear: both;
 	content: '';
 }
+.su-generator-actions .button { margin: 0 5px }
 #su-generator-insert {
 	color: #fff !important;
 	font-weight: bold;

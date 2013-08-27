@@ -3,9 +3,7 @@
 	<div id="su-links">
 		<a href="http://gndev.info/shortcodes-ultimate/" target="_blank"><strong><?php _e( 'Project homepage', $this->textdomain ); ?></strong></a>
 		<span></span>
-		<a href="http://gndev.info/shortcodes-ultimate/addons/" target="_blank"><?php _e( 'Add-ons', $this->textdomain ); ?></a>
-		<span></span>
-		<a href="http://support.gndev.info/docs_category/shortcodes-ultimate/" target="_blank"><?php _e( 'Documentation', $this->textdomain ); ?></a>
+		<a href="http://gndev.info/kb/" target="_blank"><?php _e( 'Documentation', $this->textdomain ); ?></a>
 		<span></span>
 		<a href="http://wordpress.org/support/plugin/shortcodes-ultimate/" target="_blank"><?php _e( 'Support forum', $this->textdomain ); ?></a>
 		<span></span>
@@ -13,7 +11,7 @@
 		<span></span>
 		<a href="https://github.com/gndev/shortcodes-ultimate" target="_blank"><?php _e( 'GitHub', $this->textdomain ); ?></a>
 		<span></span>
-		<a href="http://support.gndev.info/feedback/" target="_blank"><?php _e( 'Contact author', $this->textdomain ); ?></a>
+		<a href="http://gndev.info/feedback/" target="_blank"><?php _e( 'Contact author', $this->textdomain ); ?></a>
 	</div>
 	<div class="su-about-column">
 		<h3><?php _e( 'Plugin features', $this->textdomain ); ?></h3>

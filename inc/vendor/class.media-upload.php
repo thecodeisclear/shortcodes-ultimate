@@ -8,7 +8,6 @@
 	 *
 	 * @author Zane M. Kolnik zanematthew[at]gmail[dot]com
 	 */
-	require_once 'image-meta.class.php';
 	if ( !class_exists( 'MediaUpload' ) ) {
 
 		Class MediaUpload {
