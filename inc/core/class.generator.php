@@ -11,10 +11,12 @@ class Shortcodes_Ultimate_Generator {
 	function __construct() {
 		add_action( 'media_buttons',                  array( __CLASS__, 'button' ), 100 );
 		add_action( 'su/activation',                  array( __CLASS__, 'reset' ) );
+		add_action( 'sunrise_page_before',            array( __CLASS__, 'reset' ) );
 		add_action( 'wp_ajax_su_generator_settings',  array( __CLASS__, 'settings' ) );
 		add_action( 'wp_ajax_su_generator_preview',   array( __CLASS__, 'preview' ) );
 		add_action( 'wp_ajax_su_generator_get_terms', array( __CLASS__, 'get_terms' ) );
 		add_action( 'wp_ajax_su_generator_upload',    array( __CLASS__, 'upload' ) );
+		add_action( 'wp_ajax_su_generator_galleries', array( __CLASS__, 'galleries' ) );
 	}
 
 	/**
@@ -132,6 +134,8 @@ class Shortcodes_Ultimate_Generator {
 		else {
 			// Request queried shortcode
 			$shortcode = Shortcodes_Ultimate_Data::shortcodes( $_REQUEST['shortcode'] );
+			// Prepare skip-if-default option
+			$skip = ( $shult->get_option( 'skip' ) === 'on' ) ? ' su-generator-skip' : '';
 			// Prepare actions
 			$actions = apply_filters( 'su/generator/actions', array(
 					'insert' => '<a href="#" class="button button-primary button-large" id="su-generator-insert">' . __( 'Insert shortcode', 'su' ) . '</a>',
@@ -146,7 +150,9 @@ class Shortcodes_Ultimate_Generator {
 			if ( count( $shortcode['atts'] ) && $shortcode['atts'] ) {
 				// Loop through shortcode parameters
 				foreach ( $shortcode['atts'] as $attr_name => $attr_info ) {
-					$return .= '<div class="su-generator-attr-container">';
+					// Prepare default value
+					$default = (string) ( isset( $attr_info['default'] ) ) ? $attr_info['default'] : '';
+					$return .= '<div class="su-generator-attr-container' . $skip . '" data-default="' . esc_attr( $default ) . '">';
 					$return .= '<h5>' . $attr_info['name'] . '</h5>';
 					// Create field types
 					if ( !isset( $attr_info['type'] ) ) $attr_info['type'] = 'text';
@@ -200,7 +206,7 @@ class Shortcodes_Ultimate_Generator {
 						// Galleries not created
 						else
 							$return .= '<option value="0" selected>' . __( 'Galleries not found', 'su' ) . '</option>';
-						$return .= '</select><small class="description"><a href="' . $shult->admin_url . '#tab-3" target="_blank">' . __( 'Manage galleries', 'su' ) . '</a></small>';
+						$return .= '</select><small class="description"><a href="' . $shult->admin_url . '#tab-3" target="_blank">' . __( 'Manage galleries', 'su' ) . '</a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="su-generator-reload-galleries">' . __( 'Reload galleries', 'su' ) . '</a></small>';
 						break;
 						// Number
 					case 'number':
@@ -263,6 +269,33 @@ class Shortcodes_Ultimate_Generator {
 		$file = $upload->saveUpload( $field_name = 'file' );
 		// Print result
 		die( wp_get_attachment_url( $file['attachment_id'] ) );
+	}
+
+	/**
+	 * Print json-encoded list of galleries
+	 */
+	public static function galleries() {
+		$shult = shortcodes_ultimate();
+		// Check user
+		if ( !is_user_logged_in() ) return;
+		// Prepare galleries list
+		$galleries = $shult->get_option( 'galleries' );
+		$options = array();
+		// Check that galleries is set
+		if ( is_array( $galleries ) && count( $galleries ) )
+			foreach ( $galleries as $id => $gallery ) {
+				// Is this option selected
+				$selected = ( $id == 0 ) ? ' selected' : '';
+				// Prepare title
+				$gallery['name'] = ( $gallery['name'] == '' ) ? __( 'Untitled gallery', 'su' ) : stripslashes( $gallery['name'] );
+				// Create option
+				$options[] = '<option value="' . ( $id + 1 ) . '"' . $selected . '>' . $gallery['name'] . '</option>';
+			}
+		// Galleries not created
+		else
+			$options[] = '<option value="0" selected>' . __( 'Galleries not found', 'su' ) . '</option>';
+		// Print result
+		die( implode( '', $options ) );
 	}
 }
 

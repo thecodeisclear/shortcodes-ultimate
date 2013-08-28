@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gn_themes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-27 18:45+0300\n"
-"PO-Revision-Date: 2013-08-27 18:46+0300\n"
+"POT-Creation-Date: 2013-08-28 19:24+0300\n"
+"PO-Revision-Date: 2013-08-28 19:24+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgid "All"
 msgstr "Все"
 
 #: inc/core/class.data.php:33
-#: inc/core/class.generator.php:221
+#: inc/core/class.generator.php:227
 msgid "Content"
 msgstr "Содержимое"
 
@@ -643,7 +643,7 @@ msgid "Idea"
 msgstr "Идя"
 
 #: inc/core/class.data.php:421
-#: inc/core/class.generator.php:80
+#: inc/core/class.generator.php:82
 #: inc/core/class.shortcodes-ultimate.php:121
 #: inc/vendor/class.sunrise-framework.php:279
 msgid "Settings"
@@ -1769,95 +1769,101 @@ msgstr "Выберите Да, чтобы не показывать прикре
 msgid "Custom posts query with customizable template"
 msgstr "Произвольный запрос записей/страниц с настраиваемым шаблоном"
 
-#: inc/core/class.generator.php:36
-#: inc/core/class.generator.php:137
+#: inc/core/class.generator.php:38
+#: inc/core/class.generator.php:141
 msgid "Insert shortcode"
 msgstr "Вставить шорткод"
 
-#: inc/core/class.generator.php:80
+#: inc/core/class.generator.php:82
 msgid "Plugin settings"
 msgstr "Настройки плагина"
 
-#: inc/core/class.generator.php:81
+#: inc/core/class.generator.php:83
 msgid "Plugin homepage"
 msgstr "Сайт плагина"
 
-#: inc/core/class.generator.php:82
+#: inc/core/class.generator.php:84
 msgid "Support forums"
 msgstr "Форум поддержки"
 
-#: inc/core/class.generator.php:89
+#: inc/core/class.generator.php:91
 msgid "Search for shortcodes"
 msgstr "Поиск шорткода"
 
-#: inc/core/class.generator.php:91
+#: inc/core/class.generator.php:93
 msgid "Filter by type"
 msgstr "Фильтр"
 
-#: inc/core/class.generator.php:125
-#: inc/core/class.generator.php:235
-#: inc/core/class.generator.php:250
-#: inc/core/class.generator.php:259
+#: inc/core/class.generator.php:127
+#: inc/core/class.generator.php:241
+#: inc/core/class.generator.php:256
+#: inc/core/class.generator.php:265
 msgid "Access denied"
 msgstr "Доступ запрещен"
 
-#: inc/core/class.generator.php:127
+#: inc/core/class.generator.php:129
 msgid "Shortcode not specified"
 msgstr "Не выбран шорткод"
 
-#: inc/core/class.generator.php:138
+#: inc/core/class.generator.php:142
 msgid "Live preview"
 msgstr "Включить предпросмотр"
 
-#: inc/core/class.generator.php:139
+#: inc/core/class.generator.php:143
 msgid "Close window"
 msgstr "Закрыть окно"
 
-#: inc/core/class.generator.php:143
+#: inc/core/class.generator.php:147
 msgid "Click to return to the shortcodes list"
 msgstr "Нажмите, чтобы вернуться к списку шорткодов"
 
-#: inc/core/class.generator.php:143
+#: inc/core/class.generator.php:147
 msgid "All shortcodes"
 msgstr "Все шорткоды"
 
-#: inc/core/class.generator.php:174
+#: inc/core/class.generator.php:180
 msgid "Yes"
 msgstr "Да"
 
-#: inc/core/class.generator.php:174
+#: inc/core/class.generator.php:180
 msgid "No"
 msgstr "Нет"
 
-#: inc/core/class.generator.php:178
+#: inc/core/class.generator.php:184
 msgid "Max upload file size"
 msgstr "Макс. размер файла"
 
-#: inc/core/class.generator.php:178
+#: inc/core/class.generator.php:184
 msgid "Mb"
 msgstr "Мб"
 
-#: inc/core/class.generator.php:178
+#: inc/core/class.generator.php:184
 msgid "How to increase"
 msgstr "Как увеличить"
 
-#: inc/core/class.generator.php:196
+#: inc/core/class.generator.php:202
+#: inc/core/class.generator.php:290
 msgid "Untitled gallery"
 msgstr "Галерея без имени"
 
-#: inc/core/class.generator.php:202
+#: inc/core/class.generator.php:208
+#: inc/core/class.generator.php:296
 msgid "Galleries not found"
 msgstr "Галереи не найдены"
 
-#: inc/core/class.generator.php:203
+#: inc/core/class.generator.php:209
 msgid "Manage galleries"
 msgstr "Управление галереями"
 
-#: inc/core/class.generator.php:214
+#: inc/core/class.generator.php:209
+msgid "Reload galleries"
+msgstr "Обновить список"
+
+#: inc/core/class.generator.php:220
 msgid "Click to set this value"
 msgstr "Нажмите чтобы установить это значение"
 
-#: inc/core/class.generator.php:238
+#: inc/core/class.generator.php:244
 msgid "Preview"
 msgstr "Предпросмотр"
 
@@ -1895,12 +1901,12 @@ msgid "Project homepage"
 msgstr "Страница проекта"
 
 #: inc/core/class.shortcodes-ultimate.php:107
-#: inc/views/about.php:10
+#: inc/views/about.php:8
 msgid "Support forum"
 msgstr "Форум поддержки"
 
 #: inc/core/class.shortcodes-ultimate.php:108
-#: inc/views/about.php:12
+#: inc/views/about.php:10
 msgid "Changelog"
 msgstr "Список изменений"
 
@@ -1908,7 +1914,7 @@ msgstr "Список изменений"
 msgid "About"
 msgstr "О плагине"
 
-#: inc/core/class.shortcodes-ultimate.php:122
+#: inc/core/class.shortcodes-ultimate.php:123
 msgid "Custom formatting"
 msgstr "Cпециальное форматирование"
 
@@ -1916,46 +1922,55 @@ msgstr "Cпециальное форматирование"
 msgid "Disable this option if you have some problems with other plugins or content formatting"
 msgstr "Снимите этот флажок, если у вас возникли проблемы совместимости с другими плагинами или форматированием контента"
 
-#: inc/core/class.shortcodes-ultimate.php:127
-#: inc/core/class.shortcodes-ultimate.php:138
+#: inc/core/class.shortcodes-ultimate.php:124
+#: inc/core/class.shortcodes-ultimate.php:132
 msgid "Documentation article"
 msgstr "Статья из документации (англ.)"
 
-#: inc/core/class.shortcodes-ultimate.php:131
-#: inc/core/class.shortcodes-ultimate.php:142
+#: inc/core/class.shortcodes-ultimate.php:128
+#: inc/core/class.shortcodes-ultimate.php:136
+#: inc/core/class.shortcodes-ultimate.php:144
 msgid "Enabled"
 msgstr "Включено"
 
-#: inc/core/class.shortcodes-ultimate.php:132
+#: inc/core/class.shortcodes-ultimate.php:131
 msgid "Compatibility mode"
 msgstr "Режим совместимости"
 
-#: inc/core/class.shortcodes-ultimate.php:134
+#: inc/core/class.shortcodes-ultimate.php:132
 msgid "Enable this option if you have some problems with other plugins that uses similar shortcode names"
 msgstr "Отметьте этот флажок, если у вас используются другие шорткоды с такими же именами. Все шорткоды этого плагина будут иметь такие имена"
 
-#: inc/core/class.shortcodes-ultimate.php:136
+#: inc/core/class.shortcodes-ultimate.php:132
 msgid "etc."
 msgstr "и т.д."
 
-#: inc/core/class.shortcodes-ultimate.php:143
+#: inc/core/class.shortcodes-ultimate.php:139
+msgid "Skip default values"
+msgstr "Пропускать значения по умолчанию"
+
+#: inc/core/class.shortcodes-ultimate.php:140
+msgid "Enable this option and the generator will insert a shortcode without default attribute values that you have not changed. As a result, the generated code will be shorter."
+msgstr "Отметьте этот флажок и генератор будет вставлять шорткоды без атрибутов, значение которых вы не изменяли. В результате, сгенерированный код будет более коротким."
+
+#: inc/core/class.shortcodes-ultimate.php:147
 msgid "Skin"
 msgstr "Скин"
 
-#: inc/core/class.shortcodes-ultimate.php:144
+#: inc/core/class.shortcodes-ultimate.php:148
 #, php-format
 msgid "Choose skin for shortcodes.<br /><a href=\"%s\" target=\"_blank\">Learn how to create custom skin</a><br /><a href=\"%s\" target=\"_blank\"><b>Download more skins</b></a>"
 msgstr "Выберите скин для шорткодов.<br /><a href=\"%s\" target=\"_blank\">Инструкция по созданию собственных скинов (англ.)</a><br /><a href=\"%s\" target=\"_blank\"><b>Скачать скины</b></a>"
 
-#: inc/core/class.shortcodes-ultimate.php:152
+#: inc/core/class.shortcodes-ultimate.php:154
 msgid "Custom CSS"
 msgstr "Произвольный CSS"
 
-#: inc/core/class.shortcodes-ultimate.php:155
+#: inc/core/class.shortcodes-ultimate.php:157
 msgid "Galleries"
 msgstr "Галереи"
 
-#: inc/core/class.shortcodes-ultimate.php:158
+#: inc/core/class.shortcodes-ultimate.php:160
 msgid "Cheatsheet"
 msgstr "Шпаргалка"
 
@@ -2038,70 +2053,66 @@ msgid "A real swiss army knife for WordPress"
 msgstr "Настоящий швейцарский армейский нож для WordPress"
 
 #: inc/views/about.php:6
-msgid "Add-ons"
-msgstr "Дополнения"
-
-#: inc/views/about.php:8
 msgid "Documentation"
 msgstr "Документация"
 
-#: inc/views/about.php:14
+#: inc/views/about.php:12
 msgid "GitHub"
 msgstr "GitHub"
 
-#: inc/views/about.php:16
+#: inc/views/about.php:14
 msgid "Contact author"
 msgstr "Связаться с автором"
 
-#: inc/views/about.php:19
+#: inc/views/about.php:17
 msgid "Plugin features"
 msgstr "Возможности плагина"
 
-#: inc/views/about.php:21
+#: inc/views/about.php:19
 msgid "30+ amazing shortcodes"
 msgstr "30+ невероятных шорткодов"
 
-#: inc/views/about.php:22
+#: inc/views/about.php:20
 msgid "Power of CSS3 transitions"
 msgstr "Сила CSS3"
 
-#: inc/views/about.php:23
+#: inc/views/about.php:21
 msgid "Handy shortcodes generator"
 msgstr "Удобный генератор шорткодов"
 
-#: inc/views/about.php:24
+#: inc/views/about.php:22
 msgid "International"
 msgstr "Интернационален"
 
-#: inc/views/about.php:25
+#: inc/views/about.php:23
 msgid "Documented API"
 msgstr "Доментированный API"
 
-#: inc/views/about.php:29
+#: inc/views/about.php:27
 msgid "What is a shortcode?"
 msgstr "Что такое шорткод?"
 
-#: inc/views/about.php:30
+#: inc/views/about.php:28
 msgid "<strong>Shortcode</strong> is a WordPress-specific code that lets you do nifty things with very little effort."
 msgstr "<strong>Шорткод</strong> это специфичный для WordPress код, который позволяет вам делать изящные вещи с небольшими усилиями."
 
-#: inc/views/about.php:31
+#: inc/views/about.php:29
 msgid "Shortcodes can embed files or create objects that would normally require lots of complicated, ugly code in just one line. Shortcode = shortcut."
 msgstr "С помощью шорткодов можно встраивать на страницу видео- или аудио файлы, галереи, различные кнопки и многое другое с помощью всего одной строки кода."
 
-#: inc/views/about.php:35
+#: inc/views/about.php:33
 msgid "How it works"
 msgstr "Как это работает"
 
-#: inc/views/about.php:39
+#: inc/views/about.php:37
 msgid "More videos"
 msgstr "Другие видео"
 
-#: inc/views/about.php:41
+#: inc/views/about.php:39
 msgid "Shortcodes Ultimate Tutorial"
 msgstr "Развернутый видео урок по использованию шорткодов (англ.)"
 
-#: inc/views/about.php:42
+#: inc/views/about.php:40
 msgid "How to use special widget"
 msgstr "Как использовать специальный виджет"
 
@@ -2285,3 +2296,5 @@ msgstr "%n комментариев"
 msgid "Posts not found"
 msgstr "Записи не найдены"
 
+#~ msgid "Add-ons"
+#~ msgstr "Дополнения"

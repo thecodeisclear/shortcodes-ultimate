@@ -119,35 +119,37 @@ class Shortcodes_Ultimate {
 				array( 'type' => 'about' ),
 				array( 'type' => 'closetab', 'actions' => false ),
 				array( 'name' => __( 'Settings', 'su' ), 'type' => 'opentab' ),
-				array( 'name' => __( 'Custom formatting', 'su' ),
-					'desc' =>
-					__( 'Disable this option if you have some problems with other plugins or content formatting',
-						'su' ) .
-					'<br /><a href="http://gndev.info/kb/custom-formatting/" target="_blank">' .
-					__( 'Documentation article', 'su' ) . '</a>',
+				array(
+					'name' => __( 'Custom formatting', 'su' ),
+					'desc' => __( 'Disable this option if you have some problems with other plugins or content formatting', 'su' ) . '<br /><a href="http://gndev.info/kb/custom-formatting/" target="_blank">' . __( 'Documentation article', 'su' ) . '</a>',
 					'std' => 'on',
 					'id' => 'custom_formatting',
 					'type' => 'checkbox',
-					'label' => __( 'Enabled', 'su' ) ),
-				array( 'name' => __( 'Compatibility mode', 'su' ),
-					'desc' =>
-					__( 'Enable this option if you have some problems with other plugins that uses similar shortcode names',
-						'su' ) . '<br /><code>[button] => [su_button]</code> ' .
-					__( 'etc.', 'su' ) .
-					'<br /><a href="http://gndev.info/kb/compatibility-mode/" target="_blank">' .
-					__( 'Documentation article', 'su' ) . '</a>',
+					'label' => __( 'Enabled', 'su' )
+				),
+				array(
+					'name' => __( 'Compatibility mode', 'su' ),
+					'desc' => __( 'Enable this option if you have some problems with other plugins that uses similar shortcode names', 'su' ) . '<br /><code>[button] => [su_button]</code> ' . __( 'etc.', 'su' ) . '<br /><a href="http://gndev.info/kb/compatibility-mode/" target="_blank">' . __( 'Documentation article', 'su' ) . '</a>',
 					'std' => '',
 					'id' => 'compatibility_mode',
 					'type' => 'checkbox',
-					'label' => __( 'Enabled', 'su' ) ),
-				array( 'name' => __( 'Skin', 'su' ),
-					'desc' => sprintf( __( 'Choose skin for shortcodes.<br /><a href="%s" target="_blank">Learn how to create custom skin</a><br /><a href="%s" target="_blank"><b>Download more skins</b></a>',
-							'su' ),
-						'http://gndev.info/kb/how-to-create-custom-skin-for-shortcodes-ultimate/',
-						'http://gndev.info/shortcodes-ultimate/' ),
+					'label' => __( 'Enabled', 'su' )
+				),
+				array(
+					'name' => __( 'Skip default values', 'su' ),
+					'desc' => __( 'Enable this option and the generator will insert a shortcode without default attribute values that you have not changed. As a result, the generated code will be shorter.', 'su' ),
+					'std' => 'on',
+					'id' => 'skip',
+					'type' => 'checkbox',
+					'label' => __( 'Enabled', 'su' )
+				),
+				array(
+					'name' => __( 'Skin', 'su' ),
+					'desc' => sprintf( __( 'Choose skin for shortcodes.<br /><a href="%s" target="_blank">Learn how to create custom skin</a><br /><a href="%s" target="_blank"><b>Download more skins</b></a>', 'su' ), 'http://gndev.info/kb/how-to-create-custom-skin-for-shortcodes-ultimate/', 'http://gndev.info/shortcodes-ultimate/' ),
 					'std' => 'default',
 					'id' => 'skin',
-					'type' => 'skin' ),
+					'type' => 'skin'
+				),
 				array( 'type' => 'closetab' ),
 				array( 'name' => __( 'Custom CSS', 'su' ), 'type' => 'opentab' ),
 				array( 'id' => 'custom_css', 'type' => 'css' ),
