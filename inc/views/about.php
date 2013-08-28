@@ -38,6 +38,7 @@
 		<ul>
 			<li><a href="http://www.youtube.com/watch?v=IjmaXz-b55I" target="_blank"><?php _e( 'Shortcodes Ultimate Tutorial', $this->textdomain ); ?></a></li>
 			<li><a href="http://www.youtube.com/watch?v=YU3Zu6C5ZfA" target="_blank"><?php _e( 'How to use special widget', $this->textdomain ); ?></a></li>
+			<li><a href="http://www.screenr.com/BK0H" target="_blank"><?php _e( 'How create Carousel', $this->textdomain ); ?></a></li>
 		</ul>
 	</div>
 	<div class="su-clear"></div>

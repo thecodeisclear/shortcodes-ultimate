@@ -231,10 +231,12 @@ jQuery(document).ready(function ($) {
 								action: 'su_generator_galleries'
 							},
 							beforeSend: function () {
-								$list.html('<option value="0">&hellip;</option>');
+								$attr.addClass('su-generator-uploading');
+								$list.html('<option value="0">' + $list.data('loading') + '&hellip;</option>');
 							},
 							success: function (data) {
 								$list.html(data).trigger('change');
+								$attr.removeClass('su-generator-uploading');
 							}
 						});
 					});

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gn_themes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-28 19:24+0300\n"
-"PO-Revision-Date: 2013-08-28 19:24+0300\n"
+"POT-Creation-Date: 2013-08-28 19:55+0300\n"
+"PO-Revision-Date: 2013-08-28 19:55+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -2115,6 +2115,10 @@ msgstr "Развернутый видео урок по использовани
 #: inc/views/about.php:40
 msgid "How to use special widget"
 msgstr "Как использовать специальный виджет"
+
+#: inc/views/about.php:41
+msgid "How create Carousel"
+msgstr "Как создать карусель"
 
 #: inc/views/cheatsheet.php:5
 msgid "Shortcode"

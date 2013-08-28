@@ -192,7 +192,7 @@ class Shortcodes_Ultimate_Generator {
 						// Prepare galleries list
 						$galleries = $shult->get_option( 'galleries' );
 						$created = ( is_array( $galleries ) && count( $galleries ) ) ? true : false;
-						$return .= '<select name="' . $attr_name . '" id="su-generator-attr-' . $attr_name . '" class="su-generator-attr">';
+						$return .= '<select name="' . $attr_name . '" id="su-generator-attr-' . $attr_name . '" class="su-generator-attr" data-loading="' . __( 'Please wait', 'su' ) . '">';
 						// Check that galleries is set
 						if ( $created ) // Create options
 							foreach ( $galleries as $g_id => $gallery ) {
