@@ -12,7 +12,6 @@ jQuery(document).ready(function ($) {
 	editor.getSession().setValue($textarea.val());
 	editor.getSession().on('change', function () {
 		$textarea.val(editor.getSession().getValue());
-		resize_editor();
 	});
 	editor.getSession().setMode('ace/mode/css');
 	editor.setTheme('ace/theme/monokai');
@@ -20,29 +19,6 @@ jQuery(document).ready(function ($) {
 	editor.getSession().setWrapLimitRange(null, null);
 	editor.renderer.setShowPrintMargin(null);
 	editor.session.setUseSoftTabs(null);
-
-	$('#sunrise-plugin-tabs').click(function () {
-		window.setTimeout(function () {
-			resize_editor();
-		}, 100);
-	});
-
-	function resize_editor() {
-		var $editor = $('#sunrise-plugin-field-custom_css-editor'),
-			height = $editor.height(),
-			new_height = editor.renderer.lineHeight *
-				(editor.getSession().getDocument().getLength() + 2);
-		if (new_height != height) {
-			if (new_height < 100) new_height = 100;
-			if (new_height > $(window).height()) new_height = $(window).height();
-			$editor.css('height', new_height.toString() + 'px');
-			editor.resize();
-		}
-	}
-
-	window.setTimeout(function () {
-		resize_editor();
-	}, 100);
 
 	// ########## Demos screen ##########
 
