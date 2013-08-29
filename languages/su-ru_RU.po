@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gn_themes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-28 19:55+0300\n"
-"PO-Revision-Date: 2013-08-28 19:55+0300\n"
+"POT-Creation-Date: 2013-08-29 10:20+0300\n"
+"PO-Revision-Date: 2013-08-29 10:20+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1841,6 +1841,10 @@ msgstr "Мб"
 msgid "How to increase"
 msgstr "Как увеличить"
 
+#: inc/core/class.generator.php:195
+msgid "Please wait"
+msgstr "Пожалуйста подождите"
+
 #: inc/core/class.generator.php:202
 #: inc/core/class.generator.php:290
 msgid "Untitled gallery"
@@ -1874,6 +1878,7 @@ msgid "Shortcodes Ultimate"
 msgstr "Шорткоды"
 
 #: inc/core/class.shortcodes-ultimate.php:26
+#: inc/core/class.vote.php:21
 msgid "Vladimir Anokhin"
 msgstr "Владимир Анохин"
 
@@ -1973,6 +1978,34 @@ msgstr "Галереи"
 #: inc/core/class.shortcodes-ultimate.php:160
 msgid "Cheatsheet"
 msgstr "Шпаргалка"
+
+#: inc/core/class.vote.php:23
+msgid "Hello, my name is Vladimir Anokhin, and I am developer of plugin <b>Shortcodes Ultimate</b>.<br>If you like this plugin, please write a few words about it at the wordpress.org or twitter. It will help other people find this useful plugin more quickly.<br><b>Thank you!</b>"
+msgstr "Здравствуйте, меня зовут Владимир Анохин, я являюсь разработчиком плагина <b>Shortcodes Ultimate</b>. <br>Если вам нравится этот плагин, то пожалуйста напишите пару слов о нём на сайте wordpress.org или в твиттере. Это поможет другим людям найти этот полезный плагин быстрее.<br><b>Спасибо!</b>"
+
+#: inc/core/class.vote.php:25
+msgid "Rate plugin"
+msgstr "Оценить плагин"
+
+#: inc/core/class.vote.php:26
+msgid "Shortcodes Ultimate - must have WordPress plugin #shortcodesultimate"
+msgstr "Shortcodes Ultimate - очень полезный плагин для WordPress #shortcodesultimate"
+
+#: inc/core/class.vote.php:26
+msgid "Tweet"
+msgstr "Твитнуть"
+
+#: inc/core/class.vote.php:27
+msgid "No, thanks"
+msgstr "Нет, спасибо"
+
+#: inc/core/class.vote.php:28
+msgid "or"
+msgstr "или"
+
+#: inc/core/class.vote.php:29
+msgid "Remind me later"
+msgstr "Напомнить позже"
 
 #: inc/core/class.widget.php:36
 msgid "Special Shortcodes Ultimate widget"
@@ -2300,5 +2333,3 @@ msgstr "%n комментариев"
 msgid "Posts not found"
 msgstr "Записи не найдены"
 
-#~ msgid "Add-ons"
-#~ msgstr "Дополнения"

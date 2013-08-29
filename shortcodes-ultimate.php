@@ -25,3 +25,4 @@ require_once 'inc/core/tools.php';
 require_once 'inc/core/shortcodes.php';
 require_once 'inc/core/class.generator.php';
 require_once 'inc/core/class.widget.php';
+require_once 'inc/core/class.vote.php';

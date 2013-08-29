@@ -37,6 +37,7 @@ class Shortcodes_Ultimate {
 	 * Plugin activation
 	 */
 	public static function activation() {
+		self::timestamp();
 		self::check_requirements();
 		self::create_skins_dir();
 		do_action( 'su/activation' );
@@ -47,6 +48,13 @@ class Shortcodes_Ultimate {
 	 */
 	public static function deactivation() {
 		do_action( 'su/deactivation' );
+	}
+
+	/**
+	 * Add timestamp
+	 */
+	public static function timestamp() {
+		if ( !get_option( 'su_installed' ) ) update_option( 'su_installed', time() );
 	}
 
 	/**
