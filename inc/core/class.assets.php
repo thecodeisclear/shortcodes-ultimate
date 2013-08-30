@@ -25,6 +25,9 @@ class Shortcodes_Ultimate_Assets {
 		add_action( 'admin_footer',                array( __CLASS__, 'enqueue' ) );
 		// Print
 		add_action( 'su/generator/preview/after',  array( __CLASS__, 'prnt' ) );
+		// Custom CSS
+		add_action( 'wp_footer',                   array( __CLASS__, 'custom_css' ), 99 );
+		add_action( 'su/generator/preview/after',  array( __CLASS__, 'custom_css' ), 99 );
 		// Options page assets
 		add_action( 'sunrise_page_before',         array( __CLASS__, 'options_page' ) );
 	}
@@ -82,8 +85,6 @@ class Shortcodes_Ultimate_Assets {
 		foreach ( $assets['css'] as $style ) wp_enqueue_style( $style );
 		// Enqueue scripts
 		foreach ( $assets['js'] as $script ) wp_enqueue_script( $script );
-		// Print custom css
-		self::custom_css();
 		// Hook to dequeue assets or add custom
 		do_action( 'su/assets/enqueue' );
 	}
@@ -98,8 +99,6 @@ class Shortcodes_Ultimate_Assets {
 		wp_print_styles( $assets['css'] );
 		// Enqueue scripts
 		wp_print_scripts( $assets['js'] );
-		// Print custom css
-		self::custom_css();
 		// Hook
 		do_action( 'su/assets/print' );
 	}
