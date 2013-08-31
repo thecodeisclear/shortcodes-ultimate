@@ -704,7 +704,7 @@ function su_members_shortcode( $atts, $content = null ) {
 	// Check feed
 	if ( is_feed() ) return;
 	// Check authorization
-	if ( !!is_user_logged_in() ) {
+	if ( !is_user_logged_in() ) {
 		// Prepare login link
 		$login = '<a href="' . esc_attr( $atts['login_url'] ) . '">' . $atts['login_text'] . '</a>';
 		su_query_asset( 'css', 'su-other-shortcodes' );
