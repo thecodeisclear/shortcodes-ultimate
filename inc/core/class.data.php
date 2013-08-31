@@ -976,14 +976,21 @@ class Shortcodes_Ultimate_Data {
 					'group' => 'other',
 					'atts' => array(
 						'message' => array(
-							'values' => array( ),
 							'default' => __( 'This content is for registered users only. Please %login%.', 'su' ),
 							'name' => __( 'Message', 'su' ), 'desc' => __( 'Message for not logged users', 'su' )
 						),
-						'login' => array(
-							'values' => array( ),
+						'color' => array(
+							'type' => 'color',
+							'default' => '#ffcc00',
+							'name' => __( 'Box color', 'su' ), 'desc' => __( 'This color will applied only to box for not logged users', 'su' )
+						),
+						'login_text' => array(
 							'default' => __( 'login', 'su' ),
 							'name' => __( 'Login link text', 'su' ), 'desc' => __( 'Text for the login link', 'su' )
+						),
+						'login_url' => array(
+							'default' => wp_login_url( get_permalink( get_the_ID() ) ),
+							'name' => __( 'Login link url', 'su' ), 'desc' => __( 'Login link url', 'su' )
 						),
 						'class' => array(
 							'default' => '',

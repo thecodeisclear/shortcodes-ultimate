@@ -694,17 +694,24 @@ function su_permalink_shortcode( $atts, $content = null ) {
  * @return string Output html
  */
 function su_members_shortcode( $atts, $content = null ) {
-	$atts = shortcode_atts( array( 'message' => __( 'This content is for registered users only. Please %login%.',
-				'su' ),
-			'login' => __( 'login', 'su' ),
-			'class' => '' ), $atts );
-	// Prepare links
-	$login = '<a href="' . wp_login_url( get_permalink( get_the_ID() ) ) . '">' . $atts['login'] . '</a>';
-	su_query_asset( 'css', 'su-other-shortcodes' );
-	return ( is_user_logged_in() && !is_feed() )
-		? do_shortcode( $content )
-		: '<div class="su-members' . su_ecssc( $atts ) . '"><span class="su-members-inner">' .
-		str_replace( '%login%', $login, $atts['message'] ) . '</span></div>';
+	$atts = shortcode_atts( array(
+			'message' => __( 'This content is for registered users only. Please %login%.', 'su' ),
+			'color' => '#ffcc00',
+			'login_text' => __( 'login', 'su' ),
+			'login_url' => wp_login_url(),
+			'class' => ''
+		), $atts );
+	// Check feed
+	if ( is_feed() ) return;
+	// Check authorization
+	if ( !!is_user_logged_in() ) {
+		// Prepare login link
+		$login = '<a href="' . esc_attr( $atts['login_url'] ) . '">' . $atts['login_text'] . '</a>';
+		su_query_asset( 'css', 'su-other-shortcodes' );
+		return '<div class="su-members' . su_ecssc( $atts ) . '" style="background-color:' . su_hex_shift( $atts['color'], 'lighter', 50 ) . ';border-color:' .su_hex_shift( $atts['color'], 'darker', 20 ) . ';color:' .su_hex_shift( $atts['color'], 'darker', 60 ) . '">' . str_replace( '%login%', $login, $atts['message'] ) . '</div>';
+	}
+	// Return original content
+	else return do_shortcode( $content );
 }
 
 /**
@@ -894,7 +901,7 @@ function su_slider_shortcode( $atts, $content = null ) {
 	$slides = ( count( ( array ) $gallery['items'] ) ) ? $gallery['items'] : array();
 	// Prepare width and height
 	$size = ( $atts['responsive'] === 'yes' ) ? 'width:100%'
-	: 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
+		: 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
 	// Slides not found
 	if ( !count( $slides ) || !is_array( $slides ) ) $return =
 			'<p class="su-error">Slider: ' . __( 'images not found', 'su' ) . '</p>';
