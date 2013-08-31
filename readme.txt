@@ -17,11 +17,11 @@ Supercharge your WordPress theme with mega pack of shortcodes
 With this plugin you can easily create tabs, buttons, boxes, different sliders, responsive videos and much, much more. Turn your free theme to premium in just a few clicks. Using Shortcodes Ultimate you can quickly and easily retrieve premium themes features and display it on your site. See screenshots for more information.
 
 = Features =
-* Shortcodes Generator
-* 30+ amazing shortcodes
+* Shortcode Generator
+* 35+ amazing shortcodes
 * Modern responsive design
-* Power of CSS3 transitions
-* [Addons](http://gndev.info/shortcodes-ultimate/addons/)
+* Power of CSS3
+* [Addons](http://gndev.info/shortcodes-ultimate/#Addons)
 * Custom CSS editor with syntax highlight
 * Special widget
 * Custom skins
@@ -39,15 +39,15 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 
 = Got a bug or suggestion? =
 * [Support forum](http://wordpress.org/support/plugin/shortcodes-ultimate/)
-* [Documentation](http://support.gndev.info/docs_category/shortcodes-ultimate/)
-* [Contact author](http://support.gndev.info/feedback/)
+* [Documentation](http://gndev.info/kb/)
+* [Contact author](http://gndev.info/feedback/)
 
 = Bundled translations =
 * Ru, [Vladimir Anokhin](http://gndev.info/)
 * Fr, [Nicolas Leclerc](http://etic-studio.fr/)
 * Unforunately old translations is incompatible with current version
 
-Have a translation? [Drop some words to Vladimir Anokhin](http://support.gndev.info/feedback/)
+Have a translation? [Contact me](http://gndev.info/feedback/)
 
 = Thanks =
 * Thanks to Vladimir Kharlampidi for [the great Swiper slider](http://www.idangero.us/)
@@ -62,16 +62,12 @@ Resulted names will be:
 
 Activate plugin at "Plugins" administration page.
 
-[Visit support site](http://support.gndev.info/) for more information
-
 
 == Upgrade Notice ==
 
 Be careful! This is a great update and completely new code! Don't forget, you can always install old version.
 
 Upgrade normally via your Wordpress admin -> Plugins panel.
-
-[Visit support site](http://support.gndev.info/) for more information
 
 
 == Screenshots ==
@@ -85,8 +81,7 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Frequently Asked Questions ==
 
-[Visit support site](http://support.gndev.info/) for more information
-[Visit support forum](http://wordpress.org/support/plugin/shortcodes-ultimate/) for more information
+[Visit support forum](http://wordpress.org/support/plugin/shortcodes-ultimate/)
 
 
 == Changelog ==
@@ -96,13 +91,13 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 * [GitHub repo](https://github.com/gndev/shortcodes-ultimate). Now you can easily fork and modify best plugin in the world (:
 * Brand new Shortcode Generator, [demo video](http://www.youtube.com/watch?v=DR2c266yWEA)
 * [Official plugin page](http://gndev.info/shortcodes-ultimate/)
-* [Shortcodes API](http://support.gndev.info/docs/shortcodes-ultimate-api/)
+* [Shortcodes API](http://gndev.dev/kb/shortcodes-ultimate-api-overview/)
 * Completely reorganized code. Added and removed some shortcodes
 * For security maniacs: timthumb.php replaced by native WordPress mechanism
 * For speed-up maniacs: completely rewritten assets mechanism. Now css and js files included on page depend on used shortcodes
 * Added new shortcode [posts]. This is awesome and flexible mechanism to display your content in many different ways
-* Now you can create your own custom skins for shortcodes. Useful for theme integrations
-* Columns, google maps, google document viewer, youtube player, vimeo player and custom audio player is now fully responsible
+* Now you can create your own custom skins for shortcodes
+* Columns, google maps, google document viewer, youtube player, vimeo player and custom audio player is now fully responsive
 
 = 3.9 =
 * More screencasts

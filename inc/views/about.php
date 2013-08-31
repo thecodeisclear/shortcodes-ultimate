@@ -3,6 +3,8 @@
 	<div id="su-links">
 		<a href="http://gndev.info/shortcodes-ultimate/" target="_blank"><strong><?php _e( 'Project homepage', $this->textdomain ); ?></strong></a>
 		<span></span>
+		<a href="http://gndev.info/shortcodes-ultimate/#Addons" target="_blank"><?php _e( 'Addons', $this->textdomain ); ?></a>
+		<span></span>
 		<a href="http://gndev.info/kb/" target="_blank"><?php _e( 'Documentation', $this->textdomain ); ?></a>
 		<span></span>
 		<a href="http://wordpress.org/support/plugin/shortcodes-ultimate/" target="_blank"><?php _e( 'Support forum', $this->textdomain ); ?></a>
@@ -16,7 +18,7 @@
 	<div class="su-about-column">
 		<h3><?php _e( 'Plugin features', $this->textdomain ); ?></h3>
 		<ul>
-			<li><?php _e( '30+ amazing shortcodes', $this->textdomain ); ?></li>
+			<li><?php _e( '35+ amazing shortcodes', $this->textdomain ); ?></li>
 			<li><?php _e( 'Power of CSS3 transitions', $this->textdomain ); ?></li>
 			<li><?php _e( 'Handy shortcodes generator', $this->textdomain ) ?></li>
 			<li><?php _e( 'International', $this->textdomain ); ?></li>
@@ -30,7 +32,7 @@
 	</div>
 	<div class="su-clear"></div>
 	<div class="su-about-column">
-		<h3><?php _e( 'How it works', $this->textdomain ); ?></h3>
+		<h3><?php _e( 'How does it works', $this->textdomain ); ?></h3>
 		<iframe style="width:100%" width="220" height="170" src="http://www.youtube.com/embed/DR2c266yWEA" frameborder="0" allowfullscreen=""></iframe>
 	</div>
 	<div class="su-about-column">
@@ -38,7 +40,7 @@
 		<ul>
 			<li><a href="http://www.youtube.com/watch?v=IjmaXz-b55I" target="_blank"><?php _e( 'Shortcodes Ultimate Tutorial', $this->textdomain ); ?></a></li>
 			<li><a href="http://www.youtube.com/watch?v=YU3Zu6C5ZfA" target="_blank"><?php _e( 'How to use special widget', $this->textdomain ); ?></a></li>
-			<li><a href="http://www.screenr.com/BK0H" target="_blank"><?php _e( 'How create Carousel', $this->textdomain ); ?></a></li>
+			<li><a href="http://www.screenr.com/BK0H" target="_blank"><?php _e( 'How to create Carousel', $this->textdomain ); ?></a></li>
 		</ul>
 	</div>
 	<div class="su-clear"></div>
