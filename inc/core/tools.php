@@ -313,28 +313,6 @@ function su_get_tweets( $username, $limit, $show_time ) {
 	return ( $error ) ? '<p class="su-error"><strong>Tweets:</strong> ' . $return . '</p>' : $return;
 }
 
-/**
- * Get video ID by url
- *
- * @param string $url Video url
- *
- * @return mixed Video ID or false
- */
-function su_video_id( $url ) {
-	$url = parse_url( $url );
-	$host = $url['host'];
-	parse_str( $url['query'], $query );
-	// YouTube
-	if ( $host === 'youtube.com' || $host === 'www.youtube.com' ) $return = $query['v'];
-	// Vimeo
-	elseif ( $host === 'vimeo.com' || $host === 'www.vimeo.com' ) $return = mb_substr( $url['path'], 1 );
-	// Other providers
-	else
-		$return = false;
-	// Return video ID
-	return $return;
-}
-
 function su_get_categories() {
 	$cats = array();
 	foreach ( ( array ) get_terms( 'category' ) as $cat ) {

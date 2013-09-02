@@ -514,13 +514,15 @@ function su_private_shortcode( $atts = null, $content = null ) {
 function su_youtube_shortcode( $atts, $content = null ) {
 	// Prepare data
 	$return = array();
-	$atts = shortcode_atts( array( 'url' => 'http://www.youtube.com/watch?v=NbE8INOjTKM',
-			'width' => 600,
-			'height' => 400,
-			'autoplay' => 'no',
+	$atts = shortcode_atts( array(
+			'url'        => 'http://www.youtube.com/watch?v=NbE8INOjTKM',
+			'width'      => 600,
+			'height'     => 400,
+			'autoplay'   => 'no',
 			'responsive' => 'yes',
-			'class' => '' ), $atts );
-	$id = su_video_id( $atts['url'] );
+			'class'      => ''
+		), $atts );
+	$id = ( preg_match( '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $atts['url'], $match ) ) ? $match[1] : false;
 	// Check that url is specified
 	if ( !$id ) return '<p class="su-error">YouTube: ' . __( 'please specify correct url', 'su' ) . '</p>';
 	// Prepare autoplay
@@ -545,16 +547,17 @@ function su_youtube_shortcode( $atts, $content = null ) {
 function su_vimeo_shortcode( $atts, $content = null ) {
 	// Prepare data
 	$return = array();
-	$atts = shortcode_atts( array( 'url' => 'http://vimeo.com/21294655',
-			'width' => 600,
-			'height' => 400,
-			'autoplay' => 'no',
+	$atts = shortcode_atts( array(
+			'url'        => 'http://vimeo.com/21294655',
+			'width'      => 600,
+			'height'     => 400,
+			'autoplay'   => 'no',
 			'responsive' => 'yes',
-			'class' => '' ), $atts );
-	$id = su_video_id( $atts['url'] );
+			'class'      => ''
+		), $atts );
+	$id = ( preg_match( '~(?:<iframe [^>]*src=")?(?:https?:\/\/(?:[\w]+\.)*vimeo\.com(?:[\/\w]*\/videos?)?\/([0-9]+)[^\s]*)"?(?:[^>]*></iframe>)?(?:<p>.*</p>)?~ix', $atts['url'], $match ) ) ? $match[1] : false;
 	// Check that url is specified
-	if ( !$id ) return
-		'<p class="su-error">Vimeo: ' . __( 'please specify correct url', 'su' ) . '</p>';
+	if ( !$id ) return '<p class="su-error">Vimeo: ' . __( 'please specify correct url', 'su' ) . '</p>';
 	// Prepare autoplay
 	$autoplay = ( $atts['autoplay'] === 'yes' ) ? '&amp;autoplay=1' : '';
 	// Create player
@@ -562,6 +565,37 @@ function su_vimeo_shortcode( $atts, $content = null ) {
 	$return[] = '<iframe width="' . $atts['width'] . '" height="' . $atts['height'] .
 		'" src="http://player.vimeo.com/video/' . $id . '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff' .
 		$autoplay . '" frameborder="0" allowfullscreen="true"></iframe>';
+	$return[] = '</div>';
+	su_query_asset( 'css', 'su-media-shortcodes' );
+	// Return result
+	return implode( '', $return );
+}
+
+/**
+ * Shortcode: screenr
+ *
+ * @param array   $atts    Shortcode attributes
+ * @param string  $content
+ *
+ * @return string Output html
+ */
+function su_screenr_shortcode( $atts, $content = null ) {
+	// Prepare data
+	$return = array();
+	$atts = shortcode_atts( array(
+			'url'        => 'http://www.screenr.com/OuWH',
+			'width'      => 600,
+			'height'     => 400,
+			'responsive' => 'yes',
+			'class'      => ''
+		), $atts );
+	$id = ( preg_match( '~(?:<iframe [^>]*src=")?(?:https?:\/\/(?:[\w]+\.)*screenr\.com(?:[\/\w]*\/videos?)?\/([a-zA-Z0-9]+)[^\s]*)"?(?:[^>]*></iframe>)?(?:<p>.*</p>)?~ix', $atts['url'], $match ) ) ? $match[1] : false;
+	// Check that url is specified
+	if ( !$id ) return '<p class="su-error">Screenr: ' . __( 'please specify correct url', 'su' ) . '</p>';
+	// Create player
+	$return[] = '<div class="su-screenr su-responsive-media-' . $atts['responsive'] . su_ecssc( $atts ) . '">';
+	$return[] = '<iframe width="' . $atts['width'] . '" height="' . $atts['height'] .
+		'" src="http://screenr.com/embed/' . $id . '" frameborder="0" allowfullscreen="true"></iframe>';
 	$return[] = '</div>';
 	su_query_asset( 'css', 'su-media-shortcodes' );
 	// Return result

@@ -712,7 +712,7 @@ class Shortcodes_Ultimate_Data {
 				),
 				// youtube
 				'youtube' => array(
-					'name' => __( 'YouTube' ),
+					'name' => __( 'YouTube', 'su' ),
 					'type' => 'single',
 					'group' => 'media',
 					'atts' => array(
@@ -762,7 +762,7 @@ class Shortcodes_Ultimate_Data {
 				),
 				// vimeo
 				'vimeo' => array(
-					'name' => __( 'Vimeo' ),
+					'name' => __( 'Vimeo', 'su' ),
 					'type' => 'single',
 					'group' => 'media',
 					'atts' => array(
@@ -808,6 +808,48 @@ class Shortcodes_Ultimate_Data {
 						)
 					),
 					'usage' => '[vimeo url="http://vimeo.com/21294655"]', 'desc' => __( 'Vimeo video', 'su' )
+				),
+				// screenr
+				'screenr' => array(
+					'name' => __( 'Screenr', 'su' ),
+					'type' => 'single',
+					'group' => 'media',
+					'atts' => array(
+						'url' => array(
+							'default' => '',
+							'name' => __( 'Url', 'su' ), 'desc' => __( 'Url of Screenr page with video', 'su' )
+						),
+						'width' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 20,
+							'default' => 600,
+							'name' => __( 'Width', 'su' ),
+							'desc' => __( 'Player width', 'su' )
+						),
+						'height' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 20,
+							'default' => 400,
+							'name' => __( 'Height', 'su' ),
+							'desc' => __( 'Player height', 'su' )
+						),
+						'responsive' => array(
+							'type' => 'switch',
+							'default' => 'yes',
+							'name' => __( 'Responsive', 'su' ),
+							'desc' => __( 'Ignore width and height parameters and make player responsive', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						)
+					),
+					'usage' => '[screenr url="http://www.screenr.com/OuWH"]', 'desc' => __( 'Screenr video', 'su' )
 				),
 				// audio
 				'audio' => array(
