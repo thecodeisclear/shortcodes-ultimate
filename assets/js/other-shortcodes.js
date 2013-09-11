@@ -17,8 +17,12 @@ jQuery(document).ready(function ($) {
 	});
 	// Tabs
 	$('.su-tabs-nav').delegate('span:not(.su-tabs-current)', 'click', function () {
+		var index = $(this).index();
 		$(this).addClass('su-tabs-current').siblings().removeClass('su-tabs-current').parents('.su-tabs').find('.su-tabs-pane').hide().eq($(this).index()).show();
 		su_set_tabs_height();
+		$(this).parents('.su-tabs').find('.su-tabs-pane').eq(index).find('.su-gmap iframe:not(.su-gmap-reloaded)').each(function() {
+			$(this).attr('src', $(this).attr('src')).addClass('su-gmap-reloaded');
+		});
 	});
 	$('.su-tabs-pane').hide();
 	$('.su-tabs-nav span:first-child').click();

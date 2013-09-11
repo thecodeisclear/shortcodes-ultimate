@@ -775,9 +775,19 @@ function su_guests_shortcode( $atts = null, $content = null ) {
  * @return string Output html
  */
 function su_feed_shortcode( $atts, $content = null ) {
-	$atts = shortcode_atts( array( 'url' => get_bloginfo_rss( 'rss2_url' ), 'limit' => 3, 'class' => '' ), $atts );
+	$atts = shortcode_atts( array(
+			'url'   => get_bloginfo_rss( 'rss2_url' ),
+			'limit' => 3,
+			'class' => ''
+		), $atts );
 	if ( !function_exists( 'wp_rss' ) ) include_once ABSPATH . WPINC . '/rss.php';
-	return '<div class="su-feed' . su_ecssc( $atts ) . '">' . wp_rss( $atts['url'], $atts['limit'] ) . '</div>';
+	ob_start();
+	echo '<div class="su-feed' . su_ecssc( $atts ) . '">';
+	wp_rss( $atts['url'], $atts['limit'] );
+	echo '</div>';
+	$return = ob_get_contents();
+	ob_end_clean();
+	return $return;
 }
 
 /**
