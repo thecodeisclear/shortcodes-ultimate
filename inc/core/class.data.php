@@ -1447,7 +1447,7 @@ class Shortcodes_Ultimate_Data {
 							'min' => 20,
 							'max' => 2000,
 							'step' => 20,
-							'default' => 186,
+							'default' => 90,
 							'name' => __( 'Width', 'su' ), 'desc' => __( 'Single item width (in pixels)', 'su' )
 						),
 						'height' => array(
@@ -1455,7 +1455,7 @@ class Shortcodes_Ultimate_Data {
 							'min' => 20,
 							'max' => 2000,
 							'step' => 20,
-							'default' => 120,
+							'default' => 90,
 							'name' => __( 'Height', 'su' ), 'desc' => __( 'Single item height (in pixels)', 'su' )
 						),
 						'title' => array(

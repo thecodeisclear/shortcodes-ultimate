@@ -87,11 +87,12 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 == Changelog ==
 
 = 4.0 =
+* [Official plugin page](http://gndev.info/shortcodes-ultimate/)
+* [Premium add-on for creating custom shortcodes](http://gndev.info/shortcodes-ultimate/maker/)
 * Plugin based on [Sunrise Plugin Framework](https://github.com/gndev/sunrise)
 * [GitHub repo](https://github.com/gndev/shortcodes-ultimate). Now you can easily fork and modify best plugin in the world (:
 * Brand new Shortcode Generator, [demo video](http://www.youtube.com/watch?v=DR2c266yWEA)
-* [Official plugin page](http://gndev.info/shortcodes-ultimate/)
-* [Shortcodes API](http://gndev.dev/kb/shortcodes-ultimate-api-overview/)
+* [Shortcodes API](http://gndev.info/kb/shortcodes-ultimate-api-overview/)
 * Completely reorganized code. Added and removed some shortcodes
 * For security maniacs: timthumb.php replaced by native WordPress mechanism
 * For speed-up maniacs: completely rewritten assets mechanism. Now css and js files included on page depend on used shortcodes

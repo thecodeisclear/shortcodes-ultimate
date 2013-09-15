@@ -917,19 +917,21 @@ function su_slider_shortcode( $atts, $content = null ) {
 	// Prepare vars
 	$shult = shortcodes_ultimate();
 	$return = '';
-	$atts = shortcode_atts( array( 'gallery' => false,
-			'width' => 600,
-			'height' => 300,
+	$atts = shortcode_atts( array(
+			'gallery'    => 1,
+			'width'      => 600,
+			'height'     => 300,
 			'responsive' => 'yes',
-			'title' => 'yes',
-			'centered' => 'yes',
-			'arrows' => 'yes',
-			'pages' => 'yes',
+			'title'      => 'yes',
+			'centered'   => 'yes',
+			'arrows'     => 'yes',
+			'pages'      => 'yes',
 			'mousewheel' => 'yes',
-			'autoplay' => 3000,
-			'speed' => 600,
-			'target' => 'yes',
-			'class' => '' ), $atts );
+			'autoplay'   => 3000,
+			'speed'      => 600,
+			'target'     => 'yes',
+			'class'      => ''
+			), $atts );
 	// Prepare unique ID
 	$id = uniqid( 'su_slider_' );
 	// Links target
@@ -944,36 +946,25 @@ function su_slider_shortcode( $atts, $content = null ) {
 	// Prepare slides
 	$slides = ( count( ( array ) $gallery['items'] ) ) ? $gallery['items'] : array();
 	// Prepare width and height
-	$size = ( $atts['responsive'] === 'yes' ) ? 'width:100%'
-		: 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
+	$size = ( $atts['responsive'] === 'yes' ) ? 'width:100%' : 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
 	// Slides not found
-	if ( !count( $slides ) || !is_array( $slides ) ) $return =
-			'<p class="su-error">Slider: ' . __( 'images not found', 'su' ) . '</p>';
+	if ( !count( $slides ) || !is_array( $slides ) ) $return = '<p class="su-error">Slider: ' . __( 'images not found', 'su' ) . '</p>';
 	// Slides are found
 	else {
 		// Open slider
-		$return .=
-			'<div id="' . $id . '" class="su-slider' . $centered . ' su-slider-pages-' . $atts['pages'] .
-			' su-slider-responsive-' . $atts['responsive'] . su_ecssc( $atts ) . '" style="' . $size .
-			'" data-autoplay="' . $atts['autoplay'] . '" data-speed="' . $atts['speed'] . '" data-mousewheel="' .
-			$mousewheel . '"><div class="su-slider-slides">';
+		$return .= '<div id="' . $id . '" class="su-slider' . $centered . ' su-slider-pages-' . $atts['pages'] . ' su-slider-responsive-' . $atts['responsive'] . su_ecssc( $atts ) . '" style="' . $size . '" data-autoplay="' . $atts['autoplay'] . '" data-speed="' . $atts['speed'] . '" data-mousewheel="' . $mousewheel . '"><div class="su-slider-slides">';
 		// Create slides
 		foreach ( (array) $slides as $slide ) {
 			// Crop the image
 			$image = su_image_resize( $slide['image'], $atts['width'], $atts['height'] );
 			// Prepare slide title
-			$title = ( $atts['title'] === 'yes' && $slide['title'] ) ?
-				'<span class="su-slider-slide-title">' . stripslashes( $slide['title'] ) . '</span>' : '';
+			$title = ( $atts['title'] === 'yes' && $slide['title'] ) ? '<span class="su-slider-slide-title">' . stripslashes( $slide['title'] ) . '</span>' : '';
 			// Open slide
 			$return .= '<div class="su-slider-slide">';
 			// Slide content with link
-			if ( $slide['link'] ) $return .=
-					'<a href="' . $slide['link'] . '"' . $target . '><img src="' . $image['url'] . '" alt="' .
-					esc_attr( $slide['title'] ) . '" />' . $title . '</a>';
+			if ( $slide['link'] ) $return .= '<a href="' . $slide['link'] . '"' . $target . '><img src="' . $image['url'] . '" alt="' . esc_attr( $slide['title'] ) . '" />' . $title . '</a>';
 			// Slide content without link
-			else
-				$return .= '<a><img src="' . $slide['image'] . '" alt="' . esc_attr( $slide['title'] ) . '" />' .
-					$title . '</a>';
+			else $return .= '<a><img src="' . $slide['image'] . '" alt="' . esc_attr( $slide['title'] ) . '" />' . $title . '</a>';
 			// Close slide
 			$return .= '</div>';
 		}
@@ -1010,21 +1001,23 @@ function su_carousel_shortcode( $atts, $content = null ) {
 	// Prepare vars
 	$shult = shortcodes_ultimate();
 	$return = '';
-	$atts = shortcode_atts( array( 'gallery' => false,
-			'width' => 600,
-			'height' => 100,
+	$atts = shortcode_atts( array(
+			'gallery'    => 1,
+			'width'      => 600,
+			'height'     => 100,
 			'responsive' => 'yes',
-			'items' => 3,
-			'scroll' => 1,
-			'title' => 'yes',
-			'centered' => 'yes',
-			'arrows' => 'yes',
-			'pages' => 'no',
+			'items'      => 3,
+			'scroll'     => 1,
+			'title'      => 'yes',
+			'centered'   => 'yes',
+			'arrows'     => 'yes',
+			'pages'      => 'no',
 			'mousewheel' => 'yes',
-			'autoplay' => 3000,
-			'speed' => 600,
-			'target' => 'yes',
-			'class' => '' ), $atts );
+			'autoplay'   => 3000,
+			'speed'      => 600,
+			'target'     => 'yes',
+			'class'      => ''
+			), $atts );
 	// Prepare unique ID
 	$id = uniqid( 'su_carousel_' );
 	// Links target
@@ -1039,37 +1032,25 @@ function su_carousel_shortcode( $atts, $content = null ) {
 	// Prepare slides
 	$slides = ( count( ( array ) $gallery['items'] ) ) ? $gallery['items'] : array();
 	// Prepare width and height
-	$size = ( $atts['responsive'] === 'yes' ) ? 'width:100%'
-		: 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
+	$size = ( $atts['responsive'] === 'yes' ) ? 'width:100%' : 'width:' . intval( $atts['width'] ) . 'px;height:' . intval( $atts['height'] ) . 'px';
 	// Slides not found
-	if ( !count( $slides ) || !is_array( $slides ) ) $return =
-			'<p class="su-error">Carousel: ' . __( 'images not found', 'su' ) . '</p>';
+	if ( !count( $slides ) || !is_array( $slides ) ) $return = '<p class="su-error">Carousel: ' . __( 'images not found', 'su' ) . '</p>';
 	// Slides are found
 	else {
 		// Open slider
-		$return .=
-			'<div id="' . $id . '" class="su-carousel' . $centered . ' su-carousel-pages-' . $atts['pages'] .
-			' su-carousel-responsive-' . $atts['responsive'] . su_ecssc( $atts ) . '" style="' . $size .
-			'" data-autoplay="' . $atts['autoplay'] . '" data-speed="' . $atts['speed'] . '" data-mousewheel="' .
-			$mousewheel . '" data-items="' . $atts['items'] . '" data-scroll="' .
-			$atts['scroll'] . '"><div class="su-carousel-slides">';
+		$return .= '<div id="' . $id . '" class="su-carousel' . $centered . ' su-carousel-pages-' . $atts['pages'] . ' su-carousel-responsive-' . $atts['responsive'] . su_ecssc( $atts ) . '" style="' . $size . '" data-autoplay="' . $atts['autoplay'] . '" data-speed="' . $atts['speed'] . '" data-mousewheel="' . $mousewheel . '" data-items="' . $atts['items'] . '" data-scroll="' . $atts['scroll'] . '"><div class="su-carousel-slides">';
 		// Create slides
 		foreach ( (array) $slides as $slide ) {
 			// Crop the image
 			$image = su_image_resize( $slide['image'], round( $atts['width'] / $atts['items'] ), $atts['height'] );
 			// Prepare slide title
-			$title = ( $atts['title'] === 'yes' && $slide['title'] ) ?
-				'<span class="su-carousel-slide-title">' . stripslashes( $slide['title'] ) . '</span>' : '';
+			$title = ( $atts['title'] === 'yes' && $slide['title'] ) ? '<span class="su-carousel-slide-title">' . stripslashes( $slide['title'] ) . '</span>' : '';
 			// Open slide
 			$return .= '<div class="su-carousel-slide">';
 			// Slide content with link
-			if ( $slide['link'] ) $return .=
-					'<a href="' . $slide['link'] . '"' . $target . '><img src="' . $image['url'] . '" alt="' .
-					esc_attr( $slide['title'] ) . '" />' . $title . '</a>';
+			if ( $slide['link'] ) $return .= '<a href="' . $slide['link'] . '"' . $target . '><img src="' . $image['url'] . '" alt="' . esc_attr( $slide['title'] ) . '" />' . $title . '</a>';
 			// Slide content without link
-			else
-				$return .= '<a><img src="' . $slide['image'] . '" alt="' . esc_attr( $slide['title'] ) . '" />' .
-					$title . '</a>';
+			else $return .= '<a><img src="' . $slide['image'] . '" alt="' . esc_attr( $slide['title'] ) . '" />' . $title . '</a>';
 			// Close slide
 			$return .= '</div>';
 		}
@@ -1106,12 +1087,14 @@ function su_custom_gallery_shortcode( $atts, $content = null ) {
 	// Prepare vars
 	$shult = shortcodes_ultimate();
 	$return = '';
-	$atts = shortcode_atts( array( 'gallery' => false,
-			'width' => 186,
-			'height' => 120,
-			'title' => 'hover',
-			'target' => 'yes',
-			'class' => '' ), $atts );
+	$atts = shortcode_atts( array(
+			'gallery' => 1,
+			'width'   => 90,
+			'height'  => 90,
+			'title'   => 'hover',
+			'target'  => 'yes',
+			'class'   => ''
+			), $atts );
 	// Links target
 	$target = ( $atts['target'] === 'yes' ) ? ' target="_blank"' : '';
 	// Prepare gallery
@@ -1120,32 +1103,23 @@ function su_custom_gallery_shortcode( $atts, $content = null ) {
 	// Prepare slides
 	$slides = ( count( ( array ) $gallery['items'] ) ) ? $gallery['items'] : array();
 	// Slides not found
-	if ( !count( $slides ) || !is_array( $slides ) ) $return =
-			'<p class="su-error">Custom gallery: ' . __( 'images not found', 'su' ) . '</p>';
+	if ( !count( $slides ) || !is_array( $slides ) ) $return = '<p class="su-error">Custom gallery: ' . __( 'images not found', 'su' ) . '</p>';
 	// Slides are found
 	else {
 		// Open gallery
-		$return .=
-			'<div class="su-custom-gallery su-custom-gallery-title-' . $atts['title'] . su_ecssc( $atts ) . '">';
+		$return .= '<div class="su-custom-gallery su-custom-gallery-title-' . $atts['title'] . su_ecssc( $atts ) . '">';
 		// Create slides
 		foreach ( (array) $slides as $slide ) {
 			// Crop image
 			$image = su_image_resize( $slide['image'], $atts['width'], $atts['height'] );
 			// Prepare slide title
-			$title = ( $slide['title'] ) ?
-				'<span class="su-custom-gallery-title">' . stripslashes( $slide['title'] ) . '</span>' : '';
+			$title = ( $slide['title'] ) ? '<span class="su-custom-gallery-title">' . stripslashes( $slide['title'] ) . '</span>' : '';
 			// Open slide
 			$return .= '<div class="su-custom-gallery-slide">';
 			// Slide content with link
-			if ( $slide['link'] ) $return .=
-					'<a href="' . $slide['link'] . '"' . $target . '><img src="' . $image['url'] . '" alt="' .
-					esc_attr( $slide['title'] ) . '" width="' . $atts['width'] . '" height="' . $atts['height'] .
-					'" />' . $title . '</a>';
+			if ( $slide['link'] ) $return .= '<a href="' . $slide['link'] . '"' . $target . '><img src="' . $image['url'] . '" alt="' . esc_attr( $slide['title'] ) . '" width="' . $atts['width'] . '" height="' . $atts['height'] . '" />' . $title . '</a>';
 			// Slide content without link
-			else
-				$return .=
-					'<a><img src="' . $slide['image'] . '" alt="' . esc_attr( $slide['title'] ) . '" width="' .
-					$atts['width'] . '" height="' . $atts['height'] . '" />' . $title . '</a>';
+			else $return .= '<a><img src="' . $slide['image'] . '" alt="' . esc_attr( $slide['title'] ) . '" width="' . $atts['width'] . '" height="' . $atts['height'] . '" />' . $title . '</a>';
 			// Close slide
 			$return .= '</div>';
 		}
