@@ -381,7 +381,8 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[frame align="center"]<img src="...">[/frame]', 'content' => __( '<img src="" />', 'su' ),
+					'usage' => '[frame align="center"]<img src="image.jpg">[/frame]',
+					'content' => __( '<img src="http://lorempixel.com/g/400/200/" />', 'su' ),
 					'desc' => __( 'Styled image frame', 'su' )
 				),
 				// row
