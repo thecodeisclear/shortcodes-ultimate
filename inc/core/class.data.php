@@ -393,7 +393,7 @@ class Shortcodes_Ultimate_Data {
 						)
 					),
 					'usage' => '[frame align="center"]<img src="image.jpg">[/frame]',
-					'content' => __( '<img src="http://lorempixel.com/g/400/200/" />', 'su' ),
+					'content' => '<img src="http://lorempixel.com/g/400/200/" />',
 					'desc' => __( 'Styled image frame', 'su' )
 				),
 				// row

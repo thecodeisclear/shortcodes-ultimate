@@ -42,6 +42,7 @@ class Shortcodes_Ultimate {
 		self::timestamp();
 		self::check_requirements();
 		self::create_skins_dir();
+		Shortcodes_Ultimate_Generator::reset();
 		do_action( 'su/activation' );
 	}
 
