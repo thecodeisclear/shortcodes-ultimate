@@ -18,7 +18,7 @@ class Shortcodes_Ultimate {
 		// Prepare variable for global plugin helper instance
 		global $shult;
 		// Create plugin helper instance
-		$shult = new Sunrise_Plugin_Framework_2( SU_PLUGIN_FILE );
+		$shult = new Sunrise_Plugin_Framework_2_1( SU_PLUGIN_FILE );
 		// Register settings page
 		$shult->add_options_page( array( 'link' => false ), self::options() );
 		// Translate plugin meta

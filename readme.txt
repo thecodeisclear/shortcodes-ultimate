@@ -89,6 +89,7 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 = 4.0.9 =
 * Updated [frame]. Now it can contain other shortcodes
 * Updated caching mechanism. Cache now will be reseted on plugin activation
+* Fixed many PHP warnings when debug mode enabled
 
 = 4.0.8 =
 * Added backward compatibility for [media]. Shortcode has basic support for youtube and vimeo videos
