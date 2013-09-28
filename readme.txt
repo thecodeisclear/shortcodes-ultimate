@@ -91,6 +91,11 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
+= 4.1.1 =
+* Updated caching mechanism. Cache will be reseted when you add or remove terms
+* Updated galleries mechanism. Removed some conflicts
+* Fixed spoiler background for style=fancy
+
 = 4.1 =
 * [5 metro skins](http://gndev.info/shortcodes-ultimate/metro-skins/)
 * New screencast - [How to create image gallery](http://www.youtube.com/watch?v=kCWyO2F7jTw)

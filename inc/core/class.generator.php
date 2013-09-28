@@ -12,6 +12,9 @@ class Shortcodes_Ultimate_Generator {
 		add_action( 'media_buttons',                  array( __CLASS__, 'button' ), 100 );
 		add_action( 'su/activation',                  array( __CLASS__, 'reset' ) );
 		add_action( 'sunrise_page_before',            array( __CLASS__, 'reset' ) );
+		add_action( 'create_term',                    array( __CLASS__, 'reset' ), 10, 3 );
+		add_action( 'edit_term',                      array( __CLASS__, 'reset' ), 10, 3 );
+		add_action( 'delete_term',                    array( __CLASS__, 'reset' ), 10, 3 );
 		add_action( 'wp_ajax_su_generator_settings',  array( __CLASS__, 'settings' ) );
 		add_action( 'wp_ajax_su_generator_preview',   array( __CLASS__, 'preview' ) );
 		add_action( 'wp_ajax_su_generator_get_terms', array( __CLASS__, 'get_terms' ) );
