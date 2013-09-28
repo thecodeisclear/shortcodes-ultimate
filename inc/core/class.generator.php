@@ -34,6 +34,9 @@ class Shortcodes_Ultimate_Generator {
 	 * @return string
 	 */
 	public static function button( $args = array() ) {
+		// Check access
+		if ( !self::access_check() ) return;
+		// Plugin object
 		$shult = shortcodes_ultimate();
 		// Prepare args
 		$args = wp_parse_args( $args, array(
@@ -127,7 +130,7 @@ class Shortcodes_Ultimate_Generator {
 	public static function settings() {
 		$shult = shortcodes_ultimate();
 		// Capability check
-		if ( !current_user_can( 'edit_posts' ) ) wp_die( __( 'Access denied', 'su' ) );
+		self::access();
 		// Param check
 		if ( empty( $_REQUEST['shortcode'] ) ) wp_die( __( 'Shortcode not specified', 'su' ) );
 		// Get cache
@@ -241,7 +244,7 @@ class Shortcodes_Ultimate_Generator {
 	 */
 	public static function preview() {
 		// Check authentication
-		if ( !current_user_can( 'edit_posts' ) ) die( __( 'Access denied', 'su' ) );
+		self::access();
 		// Output results
 		do_action( 'su/generator/preview/before' );
 		echo '<h5>' . __( 'Preview', 'su' ) . '</h5>';
@@ -256,7 +259,7 @@ class Shortcodes_Ultimate_Generator {
 	 */
 	public static function get_terms() {
 		// Check authentication
-		if ( !current_user_can( 'edit_posts' ) ) die( __( 'Access denied', 'su' ) );
+		self::access();
 		die( json_encode( su_get_terms( sanitize_text_field( $_POST['taxonomy'] ) ) ) );
 	}
 
@@ -265,7 +268,7 @@ class Shortcodes_Ultimate_Generator {
 	 */
 	public static function upload() {
 		// Check capability
-		if ( !current_user_can( 'edit_posts' ) ) die( __( 'Access denied', 'su' ) );
+		self::access();
 		// Create mew upload instance
 		$upload = new MediaUpload;
 		// Save file
@@ -299,6 +302,18 @@ class Shortcodes_Ultimate_Generator {
 			$options[] = '<option value="0" selected>' . __( 'Galleries not found', 'su' ) . '</option>';
 		// Print result
 		die( implode( '', $options ) );
+	}
+
+	/**
+	 * Access check
+	 */
+	public static function access() {
+		if ( !self::access_check() ) wp_die( __( 'Access denied', 'su' ) );
+	}
+
+	public static function access_check() {
+		$by_role = ( get_option( 'su_generator_access' ) ) ? current_user_can( get_option( 'su_generator_access' ) ) : true;
+		return current_user_can( 'edit_posts' ) && $by_role;
 	}
 }
 

@@ -95,6 +95,7 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 * Updated caching mechanism. Cache will be reseted when you add or remove terms
 * Updated galleries mechanism. Removed some conflicts
 * Fixed spoiler background for style=fancy
+* Additional access check option for Shortcode Generator
 
 = 4.1 =
 * [5 metro skins](http://gndev.info/shortcodes-ultimate/metro-skins/)
