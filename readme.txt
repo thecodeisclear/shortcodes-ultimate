@@ -99,6 +99,7 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 * Fixed [button] css code
 * Updated [accordion], [spoiler] and [tabs] js code
 * Fixed [tooltip]
+* Updated Greek translation
 
 = 4.1.5 =
 * Fixed [lightbox]
