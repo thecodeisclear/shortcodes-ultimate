@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 	// Spoiler
-	$('.su-spoiler-title').click(function (e) {
+	$('.su-spoiler-title').live('click', function (e) {
 		var // Spoiler elements
 		$title = $(this),
 			$spoiler = $title.parent();
@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 	});
 	// Accordion
-	$('.su-accordion .su-spoiler-title').click(function (e) {
+	$('.su-accordion .su-spoiler-title').live('click', function (e) {
 		var $title = $(this),
 			bar = ($('#wpadminbar').length > 0) ? 28 : 0;
 		if ($title.hasClass('su-spoiler-closed')) $title.parent().siblings().addClass('su-spoiler-closed');
@@ -19,7 +19,7 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 	});
 	// Tabs
-	$('.su-tabs-nav span').click(function (e) {
+	$('.su-tabs-nav span').live('click', function (e) {
 		var $tab = $(this),
 			index = $tab.index(),
 			is_disabled = $tab.hasClass('su-tabs-disabled'),
