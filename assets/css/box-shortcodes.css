@@ -260,6 +260,11 @@
 .su-column-last { margin-right: 0; }
 .su-row .su-column { margin: 0 0 1em 4%; }
 .su-row .su-column:first-child { margin-left: 0; }
+.su-column-centered {
+	float: none !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
 .su-column img,
 .su-column iframe,
 .su-column object,
@@ -284,7 +289,7 @@
 	.su-column {
 		width: 100% !important;
 		float: none !important;
-		margin: 0 0 1em 0;
+		margin: 0 0 1em 0 !important;
 	}
 }
 

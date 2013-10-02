@@ -94,6 +94,10 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
+= 4.1.7 =
+* Fixed media query for [column]
+* Added new attr [column center=yes]
+
 = 4.1.6 =
 * Added pot file
 * Fixed [button] css code
