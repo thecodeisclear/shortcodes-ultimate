@@ -94,7 +94,9 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
+
 = 4.1.7 =
+* Fixed [button wide=yes]
 * Fixed media query for [column]
 * Added new attr [column center=yes]
 * Improved js code for spoilers and tabs
