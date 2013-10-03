@@ -94,6 +94,8 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
+= 4.1.8 =
+* Added ability to use shortcodes inside of attributes
 
 = 4.1.7 =
 * Fixed [button wide=yes]
