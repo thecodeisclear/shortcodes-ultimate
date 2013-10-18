@@ -438,9 +438,9 @@ class Shortcodes_Ultimate_Shortcodes {
 
 	public static function media( $atts = null, $content = null ) {
 		// Check YouTube video
-		if ( strpos( $atts['url'], 'youtu' ) !== false ) return su_youtube( $atts );
+		if ( strpos( $atts['url'], 'youtu' ) !== false ) return Shortcodes_Ultimate_Shortcodes::youtube( $atts );
 		// Check Vimeo video
-		elseif ( strpos( $atts['url'], 'vimeo' ) !== false ) return su_vimeo( $atts );
+		elseif ( strpos( $atts['url'], 'vimeo' ) !== false ) return Shortcodes_Ultimate_Shortcodes::vimeo( $atts );
 		// Image
 		else return '<img src="' . $atts['url'] . '" width="' . $atts['width'] . '" height="' . $atts['height'] . '" style="max-width:100%" />';
 	}
