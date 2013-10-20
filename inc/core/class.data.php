@@ -405,9 +405,9 @@ class Shortcodes_Ultimate_Data {
 						'align' => array(
 							'type' => 'select',
 							'values' => array(
-								'left',
-								'center',
-								'right'
+								'left' => __( 'Left', 'su' ),
+								'center' => __( 'Center', 'su' ),
+								'right' => __( 'Right', 'su' )
 							),
 							'default' => 'left',
 							'name' => __( 'Align', 'su' ),
