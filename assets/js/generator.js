@@ -148,15 +148,15 @@ jQuery(document).ready(function ($) {
 			// Find searched choices and show
 			$choice.each(function () {
 				// Get shortcode name
-				var name = $(this).children('strong').text(),
+				var id = $(this).data('shortcode'),
+					name = $(this).data('name'),
 					desc = $(this).data('desc'),
 					group = $(this).data('group');
 				// Show choice if matched
-				if (name.match(regex) !== null) $(this).show();
-				else
-				if (desc.match(regex) !== null) $(this).show();
-				else
-				if (group.match(regex) !== null) $(this).show();
+				if (id.match(regex) !== null) $(this).show();
+				else if (name.match(regex) !== null) $(this).show();
+				else if (desc.match(regex) !== null) $(this).show();
+				else if (group.match(regex) !== null) $(this).show();
 			});
 		}
 	});

@@ -97,7 +97,7 @@ class Shortcodes_Ultimate_Generator {
 			// Choices loop
 			foreach ( (array) Shortcodes_Ultimate_Data::shortcodes() as $name => $shortcode ) {
 				$icon = ( isset( $shortcode['icon'] ) ) ? $shortcode['icon'] : '';
-				echo '<span data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . Su_Tools::icon( $icon ) . $shortcode['name'] . '</span>' . "\n";
+				echo '<span data-name="' . $shortcode['name'] . '" data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . Su_Tools::icon( $icon ) . $shortcode['name'] . '</span>' . "\n";
 			}
 ?>
 					</div>
