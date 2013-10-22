@@ -14,12 +14,12 @@
 // Define plugin file constant
 define( 'SU_PLUGIN_FILE', __FILE__ );
 define( 'SU_PLUGIN_VERSION', '4.3.2' );
-define( 'SU_ENABLE_CACHE', true );
+define( 'SU_ENABLE_CACHE', false );
 
 // Includes
-require_once 'inc/vendor/class.sunrise-framework.php';
 require_once 'inc/vendor/class.image-meta.php';
 require_once 'inc/vendor/class.media-upload.php';
+require_once 'inc/core/class.admin.php';
 require_once 'inc/core/class.requirements.php';
 require_once 'inc/core/class.shortcodes-ultimate.php';
 require_once 'inc/core/class.assets.php';

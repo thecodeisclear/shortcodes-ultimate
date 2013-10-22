@@ -87,6 +87,12 @@ class Shortcodes_Ultimate_Generator_Fields {
 		return $return;
 	}
 
+	public static function border( $id, $field ) {
+		$defaults = ( $field['default'] === 'none' ) ? array ( '0', 'solid', '#000000' ) : explode( ' ', str_replace( 'px', '', $field['default'] ) );
+		$return = '<div class="su-generator-border-picker"><span class="su-generator-border-picker-field"><input type="number" min="-1000" max="1000" step="1" value="' . $defaults[0] . '" class="su-generator-bp-width" /><small>' . __( 'Border width', 'su' ) . ' (px)</small></span><span class="su-generator-border-picker-field">' . Su_Tools::borders_select( array( 'class' => 'su-generator-bp-style', 'selected' => $defaults[1] ) ) . '<small>' . __( 'Border style', 'su' ) . '</small></span><span class="su-generator-border-picker-field su-generator-border-picker-color"><span class="su-generator-border-picker-color-wheel"></span><input type="text" value="' . $defaults[2] . '" class="su-generator-border-picker-color-value" /><small>' . __( 'Border color', 'su' ) . '</small></span><input type="hidden" name="' . $id . '" value="' . esc_attr( $field['default'] ) . '" id="su-generator-attr-' . $id . '" class="su-generator-attr" /></div>';
+		return $return;
+	}
+
 }
 
 new Shortcodes_Ultimate_Generator_Fields;

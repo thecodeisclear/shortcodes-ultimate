@@ -379,6 +379,31 @@ jQuery(document).ready(function ($) {
 						$val.val($hoff.val() + 'px ' + $voff.val() + 'px ' + $blur.val() + 'px ' + $color.value.val()).trigger('change');
 					});
 				});
+				// Init border pickers
+				$('.su-generator-border-picker').each(function (index) {
+					var $picker = $(this),
+						$fields = $picker.find('.su-generator-border-picker-field input, .su-generator-border-picker-field select'),
+						$width = $picker.find('.su-generator-bp-width'),
+						$style = $picker.find('.su-generator-bp-style'),
+						$color = {
+							cnt: $picker.find('.su-generator-border-picker-color'),
+							value: $picker.find('.su-generator-border-picker-color-value'),
+							wheel: $picker.find('.su-generator-border-picker-color-wheel')
+						},
+						$val = $picker.find('.su-generator-attr');
+					// Init color picker
+					$color.wheel.farbtastic($color.value);
+					$color.value.focus(function () {
+						$color.wheel.show();
+					});
+					$color.value.blur(function () {
+						$color.wheel.hide();
+					});
+					// Handle text fields
+					$fields.on('change blur keyup', function () {
+						$val.val($width.val() + 'px ' + $style.val() + ' ' + $color.value.val()).trigger('change');
+					});
+				});
 				// Remove skip class when setting is changed
 				$settings.find('.su-generator-attr').on('change keyup blur', function () {
 					var $cnt = $(this).parents('.su-generator-attr-container'),

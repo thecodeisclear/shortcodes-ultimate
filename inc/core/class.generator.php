@@ -97,7 +97,7 @@ class Shortcodes_Ultimate_Generator {
 			// Choices loop
 			foreach ( (array) Shortcodes_Ultimate_Data::shortcodes() as $name => $shortcode ) {
 				$icon = ( isset( $shortcode['icon'] ) ) ? $shortcode['icon'] : '';
-				echo '<span data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . Shortcodes_Ultimate_Tools::icon( $icon ) . $shortcode['name'] . '</span>' . "\n";
+				echo '<span data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . Su_Tools::icon( $icon ) . $shortcode['name'] . '</span>' . "\n";
 			}
 ?>
 					</div>
@@ -187,6 +187,10 @@ class Shortcodes_Ultimate_Generator {
 						// Shadow
 					case 'shadow':
 						$return .= Shortcodes_Ultimate_Generator_Fields::shadow( $attr_name, $attr_info );
+						break;
+						// Border
+					case 'border':
+						$return .= Shortcodes_Ultimate_Generator_Fields::border( $attr_name, $attr_info );
 						break;
 						// Text and other types
 					default:

@@ -326,6 +326,41 @@
 	border-radius: 50%;
 }
 
+/* Border picker */
+.su-generator-border-picker {}
+.su-generator-border-picker-field {
+	position: relative;
+	display: inline-block;
+	width: 30%;
+	padding-right: 3%;
+}
+.su-generator-border-picker-field small {
+	display: block;
+	color: #ccc;
+}
+.su-generator-border-picker-field input { text-align: right; }
+.su-generator-border-picker-field.su-generator-border-picker-color {
+	width: 34%;
+	padding-right: 0;
+}
+.su-generator-border-picker-field.su-generator-border-picker-color input { text-align: left; }
+.su-generator-border-picker-color { position: relative; }
+.su-generator-border-picker-color-wheel {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 9999;
+	display: none;
+	border: 1px solid #aaa;
+	background: #fff;
+	-webkit-box-shadow: 0 2px 5px #ccc;
+	-moz-box-shadow: 0 2px 5px #ccc;
+	box-shadow: 0 2px 5px #ccc;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
 /* Switches */
 .su-generator-switch {
 	display: inline-block;

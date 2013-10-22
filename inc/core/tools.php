@@ -721,20 +721,34 @@ function su_delete_resized_images( $post_id ) {
 
 add_action( 'delete_attachment', 'su_delete_resized_images' );
 
-class Shortcodes_Ultimate_Tools {
+class Su_Tools {
 	function __construct() {}
-	public static function decode_shortcode( $value ) {
+	public static function do_shortcode_attr( $value ) {
 		return do_shortcode( str_replace( array( '{', '}' ), array( '[', ']' ), $value ) );
 	}
 
 	public static function icon( $src = 'icon-file' ) {
 		return ( strpos( $src, '/' ) !== false ) ? '<img src="' . $src . '" alt="" />' : '<i class="' . $src . '"></i>';
 	}
+
+	public static function borders_select( $args ) {
+		$args = wp_parse_args( $args, array(
+				'class' => '',
+				'selected' => 0
+			) );
+		$options = array();
+		$borders = Shortcodes_Ultimate_Data::borders();
+		foreach( $borders as $style => $label ) {
+			$sel = ( $style === $args['selected'] ) ? ' selected="selected"' : '';
+			$options[] = '<option value="' . $style . '"' . $sel . '>' . $label . '</option>';
+		}
+		return '<select class="' . $args['class'] . '">' . implode( $options ) . '</select>';
+	}
 }
 
 /**
- * Just a shortcut for Shortcodes_Ultimate_Tools::decode_shortcode()
+ * Just a shortcut for Su_Tools::decode_shortcode()
  */
 function su_scattr( $value ) {
-	return Shortcodes_Ultimate_Tools::decode_shortcode( $value );
+	return Su_Tools::do_shortcode_attr( $value );
 }
