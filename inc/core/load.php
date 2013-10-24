@@ -6,7 +6,7 @@ class Shortcodes_Ultimate {
 	 * Constructor
 	 */
 	function __construct() {
-		add_action( 'plugins_loaded', array( __CLASS__, 'init' ) );
+		add_action( 'plugins_loaded',             array( __CLASS__, 'init' ) );
 		register_activation_hook( SU_PLUGIN_FILE, array( __CLASS__, 'activation' ) );
 		register_activation_hook( SU_PLUGIN_FILE, array( __CLASS__, 'deactivation' ) );
 	}
@@ -69,7 +69,7 @@ class Shortcodes_Ultimate {
 	}
 
 	/**
-	 * Import custom CSS from previous version
+	 * Import custom CSS from previous version (3.x)
 	 */
 	public static function import_custom_css() {
 		$shult = shortcodes_ultimate();
@@ -164,9 +164,6 @@ $shult = null;
  * Register main plugin function to perform checks that plugin is installed
  *
  * Useful for integration with themes and other plugins
- *
- * @global Sunrise_Plugin_Framework_2 $shult
- * @return \Sunrise_Plugin_Framework_2
  */
 function shortcodes_ultimate() {
 	global $shult;

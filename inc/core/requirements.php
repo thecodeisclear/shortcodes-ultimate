@@ -1,5 +1,5 @@
 <?php
-class Shortcodes_Ultimate_Requirements {
+class Su_Requirements {
 
 	/**
 	 * Constructor
@@ -50,4 +50,4 @@ class Shortcodes_Ultimate_Requirements {
 
 }
 
-new Shortcodes_Ultimate_Requirements;
+new Su_Requirements;

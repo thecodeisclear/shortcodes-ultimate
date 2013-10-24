@@ -114,8 +114,7 @@ class Su_Admin {
 	 * Helper function to get assets url by type
 	 */
 	function assets( $type = 'css', $file = 'sunrise.css' ) {
-		return implode( '/', array_filter( array( trim( $this->url, '/' ), trim( $this->assets, '/' ),
-					trim( $type, '/' ), trim( $file, '/' ) ) ) );
+		return implode( '/', array_filter( array( trim( $this->url, '/' ), trim( $this->assets, '/' ), trim( $type, '/' ), trim( $file, '/' ) ) ) );
 	}
 
 	/**

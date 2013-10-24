@@ -98,11 +98,11 @@ class Shortcodes_Ultimate_Shortcodes {
 
 	public static function spacer( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
-				'size'  => 0,
+				'size'  => 20,
 				'class' => ''
 			), $atts );
 		Shortcodes_Ultimate_Assets::add( 'css', 'su-content-shortcodes' );
-		return '<div class="su-spacer' . su_ecssc( $atts ) . '" style="height:' . $atts['size'] . 'px"></div>';
+		return '<div class="su-spacer' . su_ecssc( $atts ) . '" style="height:' . (string) $atts['size'] . 'px"></div>';
 	}
 
 	public static function highlight( $atts = null, $content = null ) {
@@ -208,11 +208,11 @@ class Shortcodes_Ultimate_Shortcodes {
 				$atts['icon_color'] = '#ffd647';
 				break;
 			case 'arrow':
-				$atts['icon'] = 'icon: long-arrow-right';
+				$atts['icon'] = 'icon: arrow-right';
 				$atts['icon_color'] = '#00d1ce';
 				break;
 			case 'check':
-				$atts['icon'] = 'icon: ok';
+				$atts['icon'] = 'icon: check';
 				$atts['icon_color'] = '#17bf20';
 				break;
 			case 'cross':
@@ -220,7 +220,7 @@ class Shortcodes_Ultimate_Shortcodes {
 				$atts['icon_color'] = '#ff142b';
 				break;
 			case 'thumbs':
-				$atts['icon'] = 'icon: thumbs-up-alt';
+				$atts['icon'] = 'icon: thumbs-o-up';
 				$atts['icon_color'] = '#8a8a8a';
 				break;
 			case 'link':
@@ -266,7 +266,7 @@ class Shortcodes_Ultimate_Shortcodes {
 			}
 		}
 		if ( strpos( $atts['icon'], 'icon:' ) !== false ) {
-			$atts['icon'] = '<i class="icon-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="color:' . $atts['icon_color'] . '"></i>';
+			$atts['icon'] = '<i class="fa fa-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="color:' . $atts['icon_color'] . '"></i>';
 			Shortcodes_Ultimate_Assets::add( 'css', 'font-awesome' );
 		}
 		else $atts['icon'] = '<img src="' . $atts['icon'] . '" alt="" />';
@@ -388,7 +388,7 @@ class Shortcodes_Ultimate_Shortcodes {
 		// Prepare icon
 		if ( $atts['icon'] ) {
 			if ( strpos( $atts['icon'], 'icon:' ) !== false ) {
-				$icon = '<i class="icon-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="font-size:' . $styles['size'] . 'px;color:' . $atts['icon_color'] . '"></i>';
+				$icon = '<i class="fa fa-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="font-size:' . $styles['size'] . 'px;color:' . $atts['icon_color'] . '"></i>';
 				Shortcodes_Ultimate_Assets::add( 'css', 'font-awesome' );
 			}
 			else $icon = '<img src="' . $atts['icon'] . '" alt="' . esc_attr( $content ) . '" style="' . implode( $img_css, ';' ) . '" />';
@@ -425,7 +425,7 @@ class Shortcodes_Ultimate_Shortcodes {
 			), $atts );
 		// Built-in icon
 		if ( strpos( $atts['icon'], 'icon:' ) !== false ) {
-			$atts['icon'] = '<i class="icon-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="font-size:' . $atts['size'] . 'px;color:' . $atts['icon_color'] . '"></i>';
+			$atts['icon'] = '<i class="fa fa-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="font-size:' . $atts['size'] . 'px;color:' . $atts['icon_color'] . '"></i>';
 			Shortcodes_Ultimate_Assets::add( 'css', 'font-awesome' );
 		}
 		// Uploaded icon
@@ -1117,7 +1117,7 @@ class Shortcodes_Ultimate_Shortcodes {
 				$count++;
 			}
 			if ( $more_tax_queries ):
-					$tax_relation = 'AND';
+				$tax_relation = 'AND';
 			if ( isset( $original_atts['tax_relation'] ) &&
 				in_array( $original_atts['tax_relation'], array( 'AND', 'OR' ) )
 			) $tax_relation = $original_atts['tax_relation'];
@@ -1158,6 +1158,60 @@ class Shortcodes_Ultimate_Shortcodes {
 		Shortcodes_Ultimate_Assets::add( 'css', 'su-other-shortcodes' );
 		return $output;
 	}
+
+	public static function dummy_text( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'amount' => 1,
+				'what'   => 'paras',
+				'cache'  => 'yes',
+				'class'  => ''
+			), $atts );
+		$transient = 'su/cache/dummy_text/' . sanitize_text_field( $atts['what'] ) . '/' . intVal( $atts['amount'] );
+		$return = get_transient( $transient );
+		if ( $return && $atts['cache'] === 'yes' && SU_ENABLE_CACHE ) return $return;
+		else {
+			$xml = simplexml_load_file( 'http://www.lipsum.com/feed/xml?amount=' . $atts['amount'] . '&what=' . $atts['what'] . '&start=0' );
+			$return = '<div class="su-dummy-text' . su_ecssc( $atts ) . '">' . wpautop( str_replace( "\n", "\n\n", $xml->lipsum ) ) . '</div>';
+			set_transient( $transient, $return, 60*60*24*30 );
+			return $return;
+		}
+	}
+
+	public static function dummy_image( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'width'  => 500,
+				'height' => 300,
+				'theme'  => 'any',
+				'class'  => ''
+			), $atts );
+		$url = 'http://lorempixel.com/' . $atts['width'] . '/' . $atts['height'] . '/';
+		if ( $atts['theme'] !== 'any' ) $url .= $atts['theme'] . '/' . rand( 0, 10 ) . '/';
+		return '<img src="' . $url . '" alt="' . __( 'Dummy image', 'su' ) . '" width="' . $atts['width'] . '" height="' . $atts['height'] . '" class="su-dummy-image' . su_ecssc( $atts ) . '" />';
+	}
+
+	public static function animate( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'animation' => 'flash',
+				'duration'  => 1,
+				'delay'     => 0,
+				'class'     => ''
+			), $atts );
+		$style = array(
+				'duration' => array(),
+				'delay' => array()
+			);
+		foreach( array( '-webkit-', '-moz-', '-ms-', '-o-', '' ) as $vendor ) {
+			$style['duration'][] = $vendor . 'animation-duration:' . $atts['duration'] . 's';
+			$style['delay'][] = $vendor . 'animation-delay:' . $atts['delay'] . 's';
+		}
+		$return = '<div class="su-animate ' . $atts['animation'] . su_ecssc( $atts ) . '" style="visibility:hidden;' . implode( ';', $style['duration'] ) . ';' . implode( ';', $style['delay'] ) . '" data-animation="' . $atts['animation'] . '">' . do_shortcode( $content ) . '</div>';
+		Shortcodes_Ultimate_Assets::add( 'css', 'animate' );
+		Shortcodes_Ultimate_Assets::add( 'js', 'jquery' );
+		Shortcodes_Ultimate_Assets::add( 'js', 'inview' );
+		Shortcodes_Ultimate_Assets::add( 'js', 'su-other-shortcodes' );
+		return $return;
+	}
+
 }
 
 new Shortcodes_Ultimate_Shortcodes;

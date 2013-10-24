@@ -285,7 +285,7 @@ jQuery(document).ready(function ($) {
 							success: function (data) {
 								$picker.html('');
 								$.each(data, function (icon) {
-									$picker.append('<i class="icon-' + data[icon] + '" title="' + data[icon] + '"></i>');
+									$picker.append('<i class="fa fa-' + data[icon] + '" title="' + data[icon] + '"></i>');
 								});
 								$picker.find('i').click(function (e) {
 									$val.val('icon: ' + $(this).attr('title'));

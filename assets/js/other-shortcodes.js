@@ -118,6 +118,13 @@ jQuery(document).ready(function ($) {
 		$tt.qtip(config);
 	});
 
+	// Animate
+	$('.su-animate').each(function () {
+		$(this).one('inview', function (e) {
+			$(this).addClass('animated').css('visibility', 'visible');
+		});
+	});
+
 	function tabs_height() {
 		$('.su-tabs-vertical').each(function () {
 			var $tabs = $(this),

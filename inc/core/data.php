@@ -55,7 +55,7 @@ class Shortcodes_Ultimate_Data {
 	}
 
 	public static function icons() {
-		return apply_filters( 'su/data/icons', array( 'adjust', 'anchor', 'archive', 'asterisk', 'ban-circle', 'bar-chart', 'barcode', 'beaker', 'beer', 'bell', 'bell-alt', 'bolt', 'book', 'bookmark', 'bookmark-empty', 'briefcase', 'bug', 'building', 'bullhorn', 'bullseye', 'calendar', 'calendar-empty', 'camera', 'camera-retro', 'certificate', 'check', 'check-empty', 'check-minus', 'check-sign', 'circle', 'circle-blank', 'cloud', 'cloud-download', 'cloud-upload', 'code', 'code-fork', 'coffee', 'cog', 'cogs', 'collapse', 'collapse-alt', 'collapse-top', 'comment', 'comment-alt', 'comments', 'comments-alt', 'compass', 'credit-card', 'crop', 'dashboard', 'desktop', 'download', 'download-alt', 'edit', 'edit-sign', 'ellipsis-horizontal', 'ellipsis-vertical', 'envelope', 'envelope-alt', 'eraser', 'exchange', 'exclamation', 'exclamation-sign', 'expand', 'expand-alt', 'external-link', 'external-link-sign', 'eye-close', 'eye-open', 'facetime-video', 'female', 'fighter-jet', 'film', 'filter', 'fire', 'fire-extinguisher', 'flag', 'flag-alt', 'flag-checkered', 'folder-close', 'folder-close-alt', 'folder-open', 'folder-open-alt', 'food', 'frown', 'gamepad', 'cog', 'cogs', 'gift', 'glass', 'globe', 'group', 'hdd', 'headphones', 'heart', 'heart-empty', 'home', 'inbox', 'info', 'info-sign', 'key', 'keyboard', 'laptop', 'leaf', 'legal', 'lemon', 'level-down', 'level-up', 'lightbulb', 'location-arrow', 'lock', 'magic', 'magnet', 'share-alt', 'reply', 'mail-reply-all', 'male', 'map-marker', 'meh', 'microphone', 'microphone-off', 'minus', 'minus-sign', 'minus-sign-alt', 'mobile-phone', 'money', 'moon', 'move', 'music', 'off', 'ok', 'ok-circle', 'ok-sign', 'pencil', 'phone', 'phone-sign', 'picture', 'plane', 'plus', 'plus-sign', 'plus-sign-alt', 'off', 'print', 'pushpin', 'puzzle-piece', 'qrcode', 'question', 'question-sign', 'quote-left', 'quote-right', 'random', 'refresh', 'remove', 'remove-circle', 'remove-sign', 'reorder', 'reply', 'reply-all', 'resize-horizontal', 'resize-vertical', 'retweet', 'road', 'rocket', 'rss', 'rss-sign', 'screenshot', 'search', 'share', 'share-alt', 'share-sign', 'shield', 'shopping-cart', 'sign-blank', 'signal', 'signin', 'signout', 'sitemap', 'smile', 'sort', 'sort-by-alphabet', 'sort-by-alphabet-alt', 'sort-by-attributes', 'sort-by-attributes-alt', 'sort-by-order', 'sort-by-order-alt', 'sort-down', 'sort-up', 'spinner', 'star', 'star-empty', 'star-half', 'star-half-empty', 'star-half-empty', 'subscript', 'suitcase', 'sun', 'superscript', 'tablet', 'tag', 'tags', 'tasks', 'terminal', 'thumbs-down', 'thumbs-down-alt', 'thumbs-up', 'thumbs-up-alt', 'ticket', 'time', 'tint', 'trash', 'trophy', 'truck', 'umbrella', 'check-empty', 'unlock', 'unlock-alt', 'upload', 'upload-alt', 'user', 'volume-down', 'volume-off', 'volume-up', 'warning-sign', 'wrench', 'zoom-in', 'zoom-out', 'angle-down', 'angle-left', 'angle-right', 'angle-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-sign-down', 'chevron-sign-left', 'chevron-sign-right', 'chevron-sign-up', 'chevron-up', 'circle-arrow-down', 'circle-arrow-left', 'circle-arrow-right', 'circle-arrow-up', 'double-angle-down', 'double-angle-left', 'double-angle-right', 'double-angle-up', 'hand-down', 'hand-left', 'hand-right', 'hand-up', 'long-arrow-down', 'long-arrow-left', 'long-arrow-right', 'long-arrow-up', 'backward', 'eject', 'fast-backward', 'fast-forward', 'forward', 'fullscreen', 'pause', 'play', 'play-circle', 'play-sign', 'resize-full', 'resize-small', 'step-backward', 'step-forward', 'stop', 'youtube-play', 'adn', 'android', 'apple', 'bitbucket', 'bitbucket-sign', 'btc', 'btc', 'css3', 'dribbble', 'dropbox', 'facebook', 'facebook-sign', 'flickr', 'foursquare', 'github', 'github-alt', 'github-sign', 'gittip', 'google-plus', 'google-plus-sign', 'html5', 'instagram', 'linkedin', 'linkedin-sign', 'linux', 'maxcdn', 'pinterest', 'pinterest-sign', 'renren', 'skype', 'stackexchange', 'trello', 'tumblr', 'tumblr-sign', 'twitter', 'twitter-sign', 'vk', 'weibo', 'windows', 'xing', 'xing-sign', 'youtube', 'youtube-play', 'youtube-sign', 'ambulance', 'h-sign', 'hospital', 'medkit', 'plus-sign-alt', 'stethoscope', 'user-md' ) );
+		return apply_filters( 'su/data/icons', array( 'glass', 'music', 'search', 'envelope-o', 'heart', 'star', 'star-o', 'user', 'film', 'th-large', 'th', 'th-list', 'check', 'times', 'search-plus', 'search-minus', 'power-off', 'signal', 'cog', 'trash-o', 'home', 'file-o', 'clock-o', 'road', 'download', 'arrow-circle-o-down', 'arrow-circle-o-up', 'inbox', 'play-circle-o', 'repeat', 'refresh', 'list-alt', 'lock', 'flag', 'headphones', 'volume-off', 'volume-down', 'volume-up', 'qrcode', 'barcode', 'tag', 'tags', 'book', 'bookmark', 'print', 'camera', 'font', 'bold', 'italic', 'text-height', 'text-width', 'align-left', 'align-center', 'align-right', 'align-justify', 'list', 'outdent', 'indent', 'video-camera', 'picture-o', 'pencil', 'map-marker', 'adjust', 'tint', 'pencil-square-o', 'share-square-o', 'check-square-o', 'move', 'step-backward', 'fast-backward', 'backward', 'play', 'pause', 'stop', 'forward', 'fast-forward', 'step-forward', 'eject', 'chevron-left', 'chevron-right', 'plus-circle', 'minus-circle', 'times-circle', 'check-circle', 'question-circle', 'info-circle', 'crosshairs', 'times-circle-o', 'check-circle-o', 'ban', 'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'share', 'resize-full', 'resize-small', 'plus', 'minus', 'asterisk', 'exclamation-circle', 'gift', 'leaf', 'fire', 'eye', 'eye-slash', 'exclamation-triangle', 'plane', 'calendar', 'random', 'comment', 'magnet', 'chevron-up', 'chevron-down', 'retweet', 'shopping-cart', 'folder', 'folder-open', 'resize-vertical', 'resize-horizontal', 'bar-chart-o', 'twitter-square', 'facebook-square', 'camera-retro', 'key', 'cogs', 'comments', 'thumbs-o-up', 'thumbs-o-down', 'star-half', 'heart-o', 'sign-out', 'linkedin-square', 'thumb-tack', 'external-link', 'sign-in', 'trophy', 'github-square', 'upload', 'lemon-o', 'phone', 'square-o', 'bookmark-o', 'phone-square', 'twitter', 'facebook', 'github', 'unlock', 'credit-card', 'rss', 'hdd', 'bullhorn', 'bell', 'certificate', 'hand-o-right', 'hand-o-left', 'hand-o-up', 'hand-o-down', 'arrow-circle-left', 'arrow-circle-right', 'arrow-circle-up', 'arrow-circle-down', 'globe', 'wrench', 'tasks', 'filter', 'briefcase', 'fullscreen', 'group', 'link', 'cloud', 'flask', 'scissors', 'files-o', 'paperclip', 'floppy-o', 'square', 'reorder', 'list-ul', 'list-ol', 'strikethrough', 'underline', 'table', 'magic', 'truck', 'pinterest', 'pinterest-square', 'google-plus-square', 'google-plus', 'money', 'caret-down', 'caret-up', 'caret-left', 'caret-right', 'columns', 'sort', 'sort-asc', 'sort-desc', 'envelope', 'linkedin', 'undo', 'gavel', 'tachometer', 'comment-o', 'comments-o', 'bolt', 'sitemap', 'umbrella', 'clipboard', 'lightbulb-o', 'exchange', 'cloud-download', 'cloud-upload', 'user-md', 'stethoscope', 'suitcase', 'bell-o', 'coffee', 'cutlery', 'file-text-o', 'building', 'hospital', 'ambulance', 'medkit', 'fighter-jet', 'beer', 'h-square', 'plus-square', 'angle-double-left', 'angle-double-right', 'angle-double-up', 'angle-double-down', 'angle-left', 'angle-right', 'angle-up', 'angle-down', 'desktop', 'laptop', 'tablet', 'mobile', 'circle-o', 'quote-left', 'quote-right', 'spinner', 'circle', 'reply', 'github-alt', 'folder-o', 'folder-open-o', 'expand-o', 'collapse-o', 'smile-o', 'frown-o', 'meh-o', 'gamepad', 'keyboard-o', 'flag-o', 'flag-checkered', 'terminal', 'code', 'reply-all', 'mail-reply-all', 'star-half-o', 'location-arrow', 'crop', 'code-fork', 'chain-broken', 'question', 'info', 'exclamation', 'superscript', 'subscript', 'eraser', 'puzzle-piece', 'microphone', 'microphone-slash', 'shield', 'calendar-o', 'fire-extinguisher', 'rocket', 'maxcdn', 'chevron-circle-left', 'chevron-circle-right', 'chevron-circle-up', 'chevron-circle-down', 'html5', 'css3', 'anchor', 'unlock-o', 'bullseye', 'ellipsis-horizontal', 'ellipsis-vertical', 'rss-square', 'play-circle', 'ticket', 'minus-square', 'minus-square-o', 'level-up', 'level-down', 'check-square', 'pencil-square', 'external-link-square', 'share-square', 'compass', 'caret-square-o-down', 'caret-square-o-up', 'caret-square-o-right', 'eur', 'gbp', 'usd', 'inr', 'jpy', 'rub', 'krw', 'btc', 'file', 'file-text', 'sort-alpha-asc', 'sort-alpha-desc', 'sort-amount-asc', 'sort-amount-desc', 'sort-numeric-asc', 'sort-numeric-desc', 'thumbs-up', 'thumbs-down', 'youtube-square', 'youtube', 'xing', 'xing-square', 'youtube-play', 'dropbox', 'stack-overflow', 'instagram', 'flickr', 'adn', 'bitbucket', 'bitbucket-square', 'tumblr', 'tumblr-square', 'long-arrow-down', 'long-arrow-up', 'long-arrow-left', 'long-arrow-right', 'apple', 'windows', 'android', 'linux', 'dribbble', 'skype', 'foursquare', 'trello', 'female', 'male', 'gittip', 'sun-o', 'moon-o', 'archive', 'bug', 'vk', 'weibo', 'renren', 'pagelines', 'stack-exchange', 'arrow-circle-o-right', 'arrow-circle-o-left', 'caret-square-o-left', 'dot-circle-o', 'wheelchair', 'vimeo-square', 'try' ) );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[heading] Content [/heading]<br/>[heading size="5"] Content [/heading]', 'content' => __( 'Heading text', 'su' ),
 					'desc' => __( 'Styled heading', 'su' ),
-					'icon' => 'icon-h-sign'
+					'icon' => 'h-square'
 				),
 				// tabs
 				'tabs' => array(
@@ -128,7 +128,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[tabs style="default"] [tab title="Tab name"] Tab content [/tab] [/tabs]',
 					'content' => __( "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]", 'su' ),
 					'desc' => __( 'Tabs container', 'su' ),
-					'icon' => 'icon-list-alt'
+					'icon' => 'list-alt'
 				),
 				// tab
 				'tab' => array(
@@ -161,7 +161,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[tabs] [tab title="Tab name"] Tab content [/tab] [/tabs]',
 					'content' => __( 'Tab content', 'su' ),
 					'desc' => __( 'Single tab', 'su' ),
-					'icon' => 'icon-list-alt'
+					'icon' => 'list-alt'
 				),
 				// spoiler
 				'spoiler' => array(
@@ -204,7 +204,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[spoiler title="Spoiler title"] Hidden text [/spoiler]',
 					'content' => __( 'Hidden content', 'su' ),
 					'desc' => __( 'Spoiler with hidden content', 'su' ),
-					'icon' => 'icon-list-ul'
+					'icon' => 'list-ul'
 				),
 				// accordion
 				'accordion' => array(
@@ -221,7 +221,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[accordion]<br/>[spoiler open="yes"] content [/spoiler]<br/>[spoiler] content [/spoiler]<br/>[spoiler] content [/spoiler]<br/>[/accordion]',
 					'content' => __( "[%prefix_spoiler]Content[/%prefix_spoiler]\n[%prefix_spoiler]Content[/%prefix_spoiler]\n[%prefix_spoiler]Content[/%prefix_spoiler]", 'su' ),
 					'desc' => __( 'Accordion with spoilers', 'su' ),
-					'icon' => 'icon-list'
+					'icon' => 'list'
 				),
 				// divider
 				'divider' => array(
@@ -248,7 +248,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[divider top="yes" text="Go to top"]',
 					'desc' => __( 'Content divider with optional TOP link', 'su' ),
-					'icon' => 'icon-ellipsis-horizontal'
+					'icon' => 'ellipsis-horizontal'
 				),
 				// spacer
 				'spacer' => array(
@@ -262,7 +262,8 @@ class Shortcodes_Ultimate_Data {
 							'max' => 10000,
 							'step' => 5,
 							'default' => 20,
-							'name' => __( 'Height', 'su' ), 'desc' => __( 'Height of the spacer in pixels', 'su' )
+							'name' => __( 'Height', 'su' ),
+							'desc' => __( 'Height of the spacer in pixels', 'su' )
 						),
 						'class' => array(
 							'default' => '',
@@ -272,7 +273,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[spacer size="20"]',
 					'desc' => __( 'Empty space with adjustable height', 'su' ),
-					'icon' => 'icon-resize-vertical'
+					'icon' => 'resize-vertical'
 				),
 				// highlight
 				'highlight' => array(
@@ -301,7 +302,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[highlight background="#DDFF99" color="#000000"] Content [/highlight]', 'content' => __( 'Highlighted text', 'su' ),
 					'desc' => __( 'Highlighted text', 'su' ),
-					'icon' => 'icon-pencil'
+					'icon' => 'pencil'
 				),
 				// label
 				'label' => array(
@@ -331,7 +332,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[label type="info"] Information [/label]', 'content' => __( 'Label', 'su' ),
 					'desc' => __( 'Styled label', 'su' ),
-					'icon' => 'icon-tag'
+					'icon' => 'tag'
 				),
 				// quote
 				'quote' => array(
@@ -359,7 +360,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[quote style="default"] Content [/quote]', 'content' => __( 'Quote', 'su' ),
 					'desc' => __( 'Blockquote alternative', 'su' ),
-					'icon' => 'icon-quote-right'
+					'icon' => 'quote-right'
 				),
 				// pullquote
 				'pullquote' => array(
@@ -384,7 +385,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[pullquote align="left"] Content [/pullquote]', 'content' => __( 'Pullquote', 'su' ),
 					'desc' => __( 'Pullquote', 'su' ),
-					'icon' => 'icon-quote-left'
+					'icon' => 'quote-left'
 				),
 				// dropcap
 				'dropcap' => array(
@@ -416,7 +417,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[dropcap style="default"]D[/dropcap]ropcap', 'content' => __( 'D', 'su' ),
 					'desc' => __( 'Dropcap', 'su' ),
-					'icon' => 'icon-bold'
+					'icon' => 'bold'
 				),
 				// frame
 				'frame' => array(
@@ -444,7 +445,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[frame align="center"]<img src="image.jpg">[/frame]',
 					'content' => '<img src="http://lorempixel.com/g/400/200/" />',
 					'desc' => __( 'Styled image frame', 'su' ),
-					'icon' => 'icon-picture'
+					'icon' => 'picture-o'
 				),
 				// row
 				'row' => array(
@@ -461,7 +462,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[row]<br/>[column size="1/2"] 50% [/column]<br/>[column size="1/4"] 25% [/column]<br/>[column size="1/4"] 25% [/column]<br/>[/row]',
 					'content' => __( "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n[%prefix_column size=\"1/3\"]Content[/%prefix_column]", 'su' ),
 					'desc' => __( 'Row for flexible columns', 'su' ),
-					'icon' => 'icon-columns'
+					'icon' => 'columns'
 				),
 				// column
 				'column' => array(
@@ -504,7 +505,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[row]<br/>[column size="6"] 50% [/column]<br/>[column size="3"] 25% [/column]<br/>[column size="3"] 25% [/column]<br/>[/row]',
 					'content' => __( 'Column content', 'su' ),
 					'desc' => __( 'Flexible and responsive columns', 'su' ),
-					'icon' => 'icon-columns'
+					'icon' => 'columns'
 				),
 				// list
 				'list' => array(
@@ -533,7 +534,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[list style="check"] <ul> <li> List item </li> </ul> [/list]',
 					'content' => __( "<ul>\n<li>List item</li>\n<li>List item</li>\n<li>List item</li>\n</ul>", 'su' ),
 					'desc' => __( 'Styled unordered list', 'su' ),
-					'icon' => 'icon-list-ol'
+					'icon' => 'list-ol'
 				),
 				// button
 				'button' => array(
@@ -655,7 +656,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[button url="#" background="#b00" size="3" style="default"] Button text [/button]',
 					'content' => __( 'Button text', 'su' ),
 					'desc' => __( 'Styled button', 'su' ),
-					'icon' => 'icon-heart'
+					'icon' => 'heart'
 				),
 				// service
 				'service' => array(
@@ -699,7 +700,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[service title="Service title" icon="service.png" size="32"] Service description [/service]',
 					'content' => __( 'Service description', 'su' ),
 					'desc' => __( 'Service box with title', 'su' ),
-					'icon' => 'icon-check'
+					'icon' => 'check-square-o'
 				),
 				// box
 				'box' => array(
@@ -754,7 +755,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[box title="Box title"] Content [/box]',
 					'content' => __( 'Box content', 'su' ),
 					'desc' => __( 'Colored box with caption', 'su' ),
-					'icon' => 'icon-list-alt'
+					'icon' => 'list-alt'
 				),
 				// note
 				'note' => array(
@@ -789,7 +790,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[note background="#FFCC00"] Content [/note]', 'content' => __( 'Note text', 'su' ),
 					'desc' => __( 'Colored box', 'su' ),
-					'icon' => 'icon-list-alt'
+					'icon' => 'list-alt'
 				),
 				// lightbox
 				'lightbox' => array(
@@ -822,7 +823,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[lightbox src="http://example.com/" type="iframe"] Open example.com [/lightbox]',
 					'content' => __( '[%prefix_button] Click Here to Watch the Video [/%prefix_button]', 'su' ),
 					'desc' => __( 'Lightbox window with custom content', 'su' ),
-					'icon' => 'icon-external-link'
+					'icon' => 'external-link'
 				),
 				// tooltip
 				'tooltip' => array(
@@ -925,7 +926,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[tooltip] Hover me [/lightbox]',
 					'content' => __( '[%prefix_button] Hover me to open tooltip [/%prefix_button]', 'su' ),
 					'desc' => __( 'Tooltip window with custom content', 'su' ),
-					'icon' => 'icon-comment-alt'
+					'icon' => 'comment-o'
 				),
 				// private
 				'private' => array(
@@ -942,7 +943,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[private] Private content [/private]',
 					'content' => __( 'Private note text', 'su' ),
 					'desc' => __( 'Private note for post authors', 'su' ),
-					'icon' => 'icon-lock'
+					'icon' => 'lock'
 				),
 				// youtube
 				'youtube' => array(
@@ -994,7 +995,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[youtube url="http://www.youtube.com/watch?v=NbE8INOjTKM"]',
 					'desc' => __( 'YouTube video', 'su' ),
-					'icon' => 'icon-youtube-play'
+					'icon' => 'youtube-play'
 				),
 				// vimeo
 				'vimeo' => array(
@@ -1045,7 +1046,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[vimeo url="http://vimeo.com/21294655"]',
 					'desc' => __( 'Vimeo video', 'su' ),
-					'icon' => 'icon-youtube-play'
+					'icon' => 'youtube-play'
 				),
 				// screenr
 				'screenr' => array(
@@ -1089,7 +1090,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[screenr url="http://www.screenr.com/OuWH"]',
 					'desc' => __( 'Screenr video', 'su' ),
-					'icon' => 'icon-youtube-play'
+					'icon' => 'youtube-play'
 				),
 				// audio
 				'audio' => array(
@@ -1129,7 +1130,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[audio url="http://example.com/audio.mp3"]',
 					'desc' => __( 'Custom audio player', 'su' ),
-					'icon' => 'icon-play-circle'
+					'icon' => 'play-circle'
 				),
 				// video
 				'video' => array(
@@ -1199,7 +1200,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[video url="http://example.com/video.mp4"]',
 					'desc' => __( 'Custom video player', 'su' ),
-					'icon' => 'icon-play-circle'
+					'icon' => 'play-circle'
 				),
 				// table
 				'table' => array(
@@ -1222,7 +1223,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[table style="default"] <table> ... </table> [/table]<br/>[table style="default" url="http://example.com/file.csv"] [/table]',
 					'content' => __( "<table>\n<tr>\n\t<td>Table</td>\n\t<td>Table</td>\n</tr>\n<tr>\n\t<td>Table</td>\n\t<td>Table</td>\n</tr>\n</table>", 'su' ),
 					'desc' => __( 'Styled table from HTML or CSV file', 'su' ),
-					'icon' => 'icon-table'
+					'icon' => 'table'
 				),
 				// permalink
 				'permalink' => array(
@@ -1254,7 +1255,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[permalink id=52]<br/>[permalink id="52" target="blank"] Content [/permalink]',
 					'content' => '',
 					'desc' => __( 'Permalink to specified post/page', 'su' ),
-					'icon' => 'icon-link'
+					'icon' => 'link'
 				),
 				// members
 				'members' => array(
@@ -1288,7 +1289,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[members style="default"] Content for logged members [/members]',
 					'content' => __( 'Content for logged members', 'su' ),
 					'desc' => __( 'Content for logged in members only', 'su' ),
-					'icon' => 'icon-lock'
+					'icon' => 'lock'
 				),
 				// guests
 				'guests' => array(
@@ -1305,7 +1306,7 @@ class Shortcodes_Ultimate_Data {
 					'usage' => '[guests] Content for guests [/guests]',
 					'content' => __( 'Content for guests', 'su' ),
 					'desc' => __( 'Content for guests only', 'su' ),
-					'icon' => 'icon-user'
+					'icon' => 'user'
 				),
 				// feed
 				'feed' => array(
@@ -1332,7 +1333,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[feed url="http://rss1.smashingmagazine.com/feed/" limit="5"]',
 					'desc' => __( 'Feed grabber', 'su' ),
-					'icon' => 'icon-rss'
+					'icon' => 'rss'
 				),
 				// menu
 				'menu' => array(
@@ -1353,7 +1354,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[menu name="Main menu"]',
 					'desc' => __( 'Custom menu by name', 'su' ),
-					'icon' => 'icon-reorder'
+					'icon' => 'reorder'
 				),
 				// subpages
 				'subpages' => array(
@@ -1381,7 +1382,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[subpages]<br/>[subpages depth="2" p="122"]',
 					'desc' => __( 'List of sub pages', 'su' ),
-					'icon' => 'icon-reorder'
+					'icon' => 'reorder'
 				),
 				// siblings
 				'siblings' => array(
@@ -1403,7 +1404,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[siblings]<br/>[siblings depth="2"]',
 					'desc' => __( 'List of cureent page siblings', 'su' ),
-					'icon' => 'icon-reorder'
+					'icon' => 'reorder'
 				),
 				// document
 				'document' => array(
@@ -1449,7 +1450,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[document url="file.doc" width="600" height="400"]',
 					'desc' => __( 'Document viewer by Google', 'su' ),
-					'icon' => 'icon-file-text'
+					'icon' => 'file-text'
 				),
 				// gmap
 				'gmap' => array(
@@ -1495,7 +1496,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[gmap width="600" height="400" address="New York"]',
 					'desc' => __( 'Maps by Google', 'su' ),
-					'icon' => 'icon-globe'
+					'icon' => 'globe'
 				),
 				// slider
 				'slider' => array(
@@ -1587,7 +1588,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[slider gallery="1"]',
 					'desc' => __( 'Customizable image slider', 'su' ),
-					'icon' => 'icon-picture'
+					'icon' => 'picture-o'
 				),
 				// carousel
 				'carousel' => array(
@@ -1695,7 +1696,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[carousel gallery="1"]',
 					'desc' => __( 'Customizable image carousel', 'su' ),
-					'icon' => 'icon-picture'
+					'icon' => 'picture-o'
 				),
 				// custom_gallery
 				'custom_gallery' => array(
@@ -1748,7 +1749,7 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[custom_gallery gallery="1"]',
 					'desc' => __( 'Customizable image gallery', 'su' ),
-					'icon' => 'icon-picture'
+					'icon' => 'picture-o'
 				),
 				// posts
 				'posts' => array(
@@ -1881,7 +1882,147 @@ class Shortcodes_Ultimate_Data {
 					),
 					'usage' => '[posts template="templates/posts.php"]',
 					'desc' => __( 'Custom posts query with customizable template', 'su' ),
-					'icon' => 'icon-th-list'
+					'icon' => 'th-list'
+				),
+				// dummy_image
+				'dummy_text' => array(
+					'name' => __( 'Dummy text', 'su' ),
+					'type' => 'single',
+					'group' => 'content',
+					'atts' => array(
+						'what' => array(
+							'type' => 'select',
+							'values' => array(
+								'paras' => __( 'Paragraphs', 'su' ),
+								'words' => __( 'Words', 'su' ),
+								'bytes' => __( 'Bytes', 'su' ),
+							),
+							'default' => 'paras',
+							'name' => __( 'What', 'su' ),
+							'desc' => __( 'What to generate', 'su' )
+						),
+						'amount' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 1,
+							'default' => 1,
+							'name' => __( 'Amount', 'su' ),
+							'desc' => __( 'How many items (paragraphs or words) to generate. Minimum words amount is 5', 'su' )
+						),
+						'cache' => array(
+							'type' => 'switch',
+							'default' => 'yes',
+							'name' => __( 'Cache', 'su' ),
+							'desc' => __( 'Generated text will be cached. Be careful with this option. If you disable it and insert many dummy_text shortcodes the page load time will be highly increased', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						)
+					),
+					'usage' => '[dummy_text]',
+					'desc' => __( 'Text placeholder', 'su' ),
+					'icon' => 'text-height'
+				),
+				// dummy_image
+				'dummy_image' => array(
+					'name' => __( 'Dummy image', 'su' ),
+					'type' => 'single',
+					'group' => 'content',
+					'atts' => array(
+						'width' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 20,
+							'default' => 500,
+							'name' => __( 'Width', 'su' ),
+							'desc' => __( 'Image width', 'su' )
+						),
+						'height' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 20,
+							'default' => 300,
+							'name' => __( 'Height', 'su' ),
+							'desc' => __( 'Image height', 'su' )
+						),
+						'theme' => array(
+							'type' => 'select',
+							'values' => array(
+								'any'       => __( 'Any', 'su' ),
+								'abstract'  => __( 'Abstract', 'su' ),
+								'animals'   => __( 'Animals', 'su' ),
+								'business'  => __( 'Business', 'su' ),
+								'cats'      => __( 'Cats', 'su' ),
+								'city'      => __( 'City', 'su' ),
+								'food'      => __( 'Food', 'su' ),
+								'nightlife' => __( 'Night life', 'su' ),
+								'fashion'   => __( 'Fashion', 'su' ),
+								'people'    => __( 'People', 'su' ),
+								'nature'    => __( 'Nature', 'su' ),
+								'sports'    => __( 'Sports', 'su' ),
+								'technics'  => __( 'Technics', 'su' ),
+								'transport' => __( 'Transport', 'su' )
+							),
+							'default' => 'any',
+							'name' => __( 'Theme', 'su' ),
+							'desc' => __( 'Select the theme for this image', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						)
+					),
+					'usage' => '[dummy_image]',
+					'desc' => __( 'Image placeholder with random image', 'su' ),
+					'icon' => 'picture-o'
+				),
+				// dummy_image
+				'animate' => array(
+					'name' => __( 'Animation', 'su' ),
+					'type' => 'wrap',
+					'group' => 'other',
+					'atts' => array(
+						'animation' => array(
+							'type' => 'select',
+							'values' => array( 'flash', 'bounce', 'shake', 'tada', 'swing', 'wobble', 'pulse', 'flip', 'flipInX', 'flipOutX', 'flipInY', 'flipOutY', 'fadeIn', 'fadeInUp', 'fadeInDown', 'fadeInLeft', 'fadeInRight', 'fadeInUpBig', 'fadeInDownBig', 'fadeInLeftBig', 'fadeInRightBig', 'fadeOut', 'fadeOutUp', 'fadeOutDown', 'fadeOutLeft', 'fadeOutRight', 'fadeOutUpBig', 'fadeOutDownBig', 'fadeOutLeftBig', 'fadeOutRightBig', 'slideInDown', 'slideInLeft', 'slideInRight', 'slideOutUp', 'slideOutLeft', 'slideOutRight', 'bounceIn', 'bounceInDown', 'bounceInUp', 'bounceInLeft', 'bounceInRight', 'bounceOut', 'bounceOutDown', 'bounceOutUp', 'bounceOutLeft', 'bounceOutRight', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'lightSpeedIn', 'lightSpeedOut', 'hinge', 'rollIn', 'rollOut' ),
+							'default' => 'any',
+							'name' => __( 'Animation', 'su' ),
+							'desc' => __( 'Select animation type', 'su' )
+						),
+						'duration' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 99,
+							'step' => 0.1,
+							'default' => 1,
+							'name' => __( 'Duration', 'su' ),
+							'desc' => __( 'Animation duration (seconds)', 'su' )
+						),
+						'delay' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 99,
+							'step' => 0.1,
+							'default' => 0,
+							'name' => __( 'Delay', 'su' ),
+							'desc' => __( 'Animation delay (seconds)', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						)
+					),
+					'usage' => '[animate] Animated text [/animate]',
+					'content' => __( 'Animated content', 'su' ),
+					'desc' => __( 'Wrapper for animation. Any nested element will be animated', 'su' ),
+					'icon' => 'bolt'
 				)
 			) );
 		// Return result

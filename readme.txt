@@ -95,6 +95,12 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
+= 4.4.0 =
+* New shortocde [dummy_image]
+* New shortocde [dummy_text]
+* New shortocde [animate]
+* Font Awesome updated to 4.0.0
+
 = 4.3.2 =
 * Small fixes
 * New text-shadow picker for [button]

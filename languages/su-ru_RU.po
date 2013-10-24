@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gn_themes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-22 22:08+0300\n"
-"PO-Revision-Date: 2013-10-22 22:11+0300\n"
+"POT-Creation-Date: 2013-10-24 17:01+0300\n"
+"PO-Revision-Date: 2013-10-24 17:02+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,6 +47,11 @@ msgstr "Текст заголовка 2"
 #: inc/example-addon.php:59
 msgid "Styled heading 2"
 msgstr "Стильный заголовок 2"
+
+#: inc/core/class.admin.php:272 inc/core/class.generator.php:81
+#: inc/core/class.shortcodes-ultimate.php:115
+msgid "Settings"
+msgstr "Настройки"
 
 #: inc/core/class.assets.php:61
 msgid "Choose files"
@@ -187,7 +192,7 @@ msgstr "Выравнивание текста в заголовке"
 #: inc/core/class.data.php:1378 inc/core/class.data.php:1400
 #: inc/core/class.data.php:1446 inc/core/class.data.php:1492
 #: inc/core/class.data.php:1584 inc/core/class.data.php:1692
-#: inc/core/class.data.php:1745
+#: inc/core/class.data.php:1745 inc/core/class.data.php:1934
 msgid "Class"
 msgstr "Класс"
 
@@ -211,7 +216,7 @@ msgstr "Класс"
 #: inc/core/class.data.php:1379 inc/core/class.data.php:1401
 #: inc/core/class.data.php:1447 inc/core/class.data.php:1493
 #: inc/core/class.data.php:1585 inc/core/class.data.php:1693
-#: inc/core/class.data.php:1746
+#: inc/core/class.data.php:1746 inc/core/class.data.php:1935
 msgid "Extra CSS class"
 msgstr "Дополнительный CSS класс"
 
@@ -360,7 +365,7 @@ msgstr "Спойлер со скрытым содержимым"
 
 #: inc/core/class.data.php:211
 msgid "Accordion"
-msgstr "Аккордион"
+msgstr "Аккордеон"
 
 #: inc/core/class.data.php:222
 msgid ""
@@ -374,7 +379,7 @@ msgstr ""
 
 #: inc/core/class.data.php:223
 msgid "Accordion with spoilers"
-msgstr "Аккордион со спойлерами"
+msgstr "Аккордеон со спойлерами"
 
 #: inc/core/class.data.php:228
 msgid "Divider"
@@ -413,6 +418,7 @@ msgstr "Пробел"
 #: inc/core/class.data.php:1173 inc/core/class.data.php:1435
 #: inc/core/class.data.php:1475 inc/core/class.data.php:1525
 #: inc/core/class.data.php:1617 inc/core/class.data.php:1725
+#: inc/core/class.data.php:1907
 msgid "Height"
 msgstr "Высота"
 
@@ -1177,6 +1183,7 @@ msgstr ""
 #: inc/core/class.data.php:1164 inc/core/class.data.php:1426
 #: inc/core/class.data.php:1466 inc/core/class.data.php:1517
 #: inc/core/class.data.php:1609 inc/core/class.data.php:1717
+#: inc/core/class.data.php:1898
 msgid "Width"
 msgstr "Ширина"
 
@@ -1973,7 +1980,7 @@ msgstr "Вложенный"
 msgid "Trashed"
 msgstr "В корзине"
 
-#: inc/core/class.data.php:1869
+#: inc/core/class.data.php:1869 inc/core/class.data.php:1913
 msgid "Any"
 msgstr "Любой"
 
@@ -1996,6 +2003,82 @@ msgstr "Выберите Да, чтобы не показывать прикре
 #: inc/core/class.data.php:1883
 msgid "Custom posts query with customizable template"
 msgstr "Произвольный запрос записей/страниц с настраиваемым шаблоном"
+
+#: inc/core/class.data.php:1888 inc/core/class.shortcodes.php:1171
+msgid "Dummy image"
+msgstr "Изображение болванка"
+
+#: inc/core/class.data.php:1899
+msgid "Image width"
+msgstr "Ширина изображения"
+
+#: inc/core/class.data.php:1908
+msgid "Image height"
+msgstr "Высота изображения"
+
+#: inc/core/class.data.php:1914
+msgid "Abstract"
+msgstr "Абстрактное"
+
+#: inc/core/class.data.php:1915
+msgid "Animals"
+msgstr "Животные"
+
+#: inc/core/class.data.php:1916
+msgid "Business"
+msgstr "Бизнес"
+
+#: inc/core/class.data.php:1917
+msgid "Cats"
+msgstr "Котэ"
+
+#: inc/core/class.data.php:1918
+msgid "City"
+msgstr "Город"
+
+#: inc/core/class.data.php:1919
+msgid "Food"
+msgstr "Еда"
+
+#: inc/core/class.data.php:1920
+msgid "Night life"
+msgstr "Ночная жизнь"
+
+#: inc/core/class.data.php:1921
+msgid "Fashion"
+msgstr "Мода"
+
+#: inc/core/class.data.php:1922
+msgid "People"
+msgstr "Люди"
+
+#: inc/core/class.data.php:1923
+msgid "Nature"
+msgstr "Природа"
+
+#: inc/core/class.data.php:1924
+msgid "Sports"
+msgstr "Спорт"
+
+#: inc/core/class.data.php:1925
+msgid "Technics"
+msgstr "Техника"
+
+#: inc/core/class.data.php:1926
+msgid "Transport"
+msgstr "Транспорт"
+
+#: inc/core/class.data.php:1929
+msgid "Theme"
+msgstr "Тема"
+
+#: inc/core/class.data.php:1930
+msgid "Select the theme for this image"
+msgstr "Выберите тему изображений"
+
+#: inc/core/class.data.php:1939
+msgid "Image placeholder with random image"
+msgstr "Изображение болванка со случайным изображением"
 
 #: inc/core/class.generator-fields.php:37
 msgid "Yes"
@@ -2058,11 +2141,6 @@ msgstr "Цвет рамки"
 #: inc/core/class.generator.php:36 inc/core/class.generator.php:140
 msgid "Insert shortcode"
 msgstr "Вставить шорткод"
-
-#: inc/core/class.generator.php:81 inc/core/class.shortcodes-ultimate.php:115
-#: inc/vendor/class.sunrise-framework.php:282
-msgid "Settings"
-msgstr "Настройки"
 
 #: inc/core/class.generator.php:81
 msgid "Plugin settings"

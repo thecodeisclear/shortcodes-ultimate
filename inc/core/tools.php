@@ -727,8 +727,8 @@ class Su_Tools {
 		return do_shortcode( str_replace( array( '{', '}' ), array( '[', ']' ), $value ) );
 	}
 
-	public static function icon( $src = 'icon-file' ) {
-		return ( strpos( $src, '/' ) !== false ) ? '<img src="' . $src . '" alt="" />' : '<i class="' . $src . '"></i>';
+	public static function icon( $src = 'file' ) {
+		return ( strpos( $src, '/' ) !== false ) ? '<img src="' . $src . '" alt="" />' : '<i class="fa fa-' . $src . '"></i>';
 	}
 
 	public static function borders_select( $args ) {

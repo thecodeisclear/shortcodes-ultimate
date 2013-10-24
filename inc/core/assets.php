@@ -40,6 +40,10 @@ class Shortcodes_Ultimate_Assets {
 		$shult = shortcodes_ultimate();
 		// Font Awesome
 		wp_register_style( 'font-awesome', $shult->assets( 'css', 'font-awesome.css' ), false, '3.2.1', 'all' );
+		// Animate.css
+		wp_register_style( 'animate', $shult->assets( 'css', 'animate.css' ), false, '1.0.0', 'all' );
+		// InView
+		wp_register_script( 'inview', $shult->assets( 'js', 'inview.js' ), array( 'jquery' ), '2.1.1', true );
 		// qTip
 		wp_register_style( 'qtip', $shult->assets( 'css', 'qtip.css' ), false, '2.1.1', 'all' );
 		wp_register_script( 'qtip', $shult->assets( 'js', 'qtip.js' ), array( 'jquery' ), '2.1.1', true );
@@ -51,35 +55,35 @@ class Shortcodes_Ultimate_Assets {
 		// Ace
 		wp_register_script( 'ace', $shult->assets( 'js', 'ace/ace.js' ), false, '1.1.01', true );
 		// Swiper
-		wp_register_script( 'swiper', $shult->assets( 'js', 'swiper.js' ), array( 'jquery' ), $shult->version, true );
+		wp_register_script( 'swiper', $shult->assets( 'js', 'swiper.js' ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 		// jPlayer
-		wp_register_script( 'jplayer', $shult->assets( 'js', 'jplayer.js' ), array( 'jquery' ), $shult->version, true );
+		wp_register_script( 'jplayer', $shult->assets( 'js', 'jplayer.js' ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 		// Options page
-		wp_register_style( 'su-options-page', $shult->assets( 'css', 'options-page.css' ), false, $shult->version, 'all' );
-		wp_register_script( 'su-options-page', $shult->assets( 'js', 'options-page.js' ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), $shult->version, true );
+		wp_register_style( 'su-options-page', $shult->assets( 'css', 'options-page.css' ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_script( 'su-options-page', $shult->assets( 'js', 'options-page.js' ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-options-page', 'su_options_page', array(
 				'upload_title' => __( 'Choose files', 'su' ),
 				'upload_insert' => __( 'Add selected files', 'su' )
 			) );
 		// Generator
-		wp_register_style( 'su-generator', $shult->assets( 'css', 'generator.css' ), array( 'farbtastic', 'magnific-popup' ), $shult->version, 'all' );
-		wp_register_script( 'su-generator', $shult->assets( 'js', 'generator.js' ), array( 'farbtastic', 'magnific-popup', 'qtip' ), $shult->version, true );
+		wp_register_style( 'su-generator', $shult->assets( 'css', 'generator.css' ), array( 'farbtastic', 'magnific-popup' ), SU_PLUGIN_VERSION, 'all' );
+		wp_register_script( 'su-generator', $shult->assets( 'js', 'generator.js' ), array( 'farbtastic', 'magnific-popup', 'qtip' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-generator', 'su_generator', array(
 				'upload_title' => __( 'Choose file', 'su' ),
 				'upload_insert' => __( 'Insert', 'su' ),
 				'loading_icons' => __( 'Please wait', 'su' )
 			) );
 		// Shortcodes stylesheets
-		wp_register_style( 'su-content-shortcodes', self::skin_url( 'content-shortcodes.css' ), false, $shult->version, 'all' );
-		wp_register_style( 'su-box-shortcodes', self::skin_url( 'box-shortcodes.css' ), false, $shult->version, 'all' );
-		wp_register_style( 'su-media-shortcodes', self::skin_url( 'media-shortcodes.css' ), false, $shult->version, 'all' );
-		wp_register_style( 'su-other-shortcodes', self::skin_url( 'other-shortcodes.css' ), false, $shult->version, 'all' );
-		wp_register_style( 'su-galleries-shortcodes', self::skin_url( 'galleries-shortcodes.css' ), false, $shult->version, 'all' );
-		wp_register_style( 'su-players-shortcodes', self::skin_url( 'players-shortcodes.css' ), false, $shult->version, 'all' );
+		wp_register_style( 'su-content-shortcodes', self::skin_url( 'content-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_style( 'su-box-shortcodes', self::skin_url( 'box-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_style( 'su-media-shortcodes', self::skin_url( 'media-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_style( 'su-other-shortcodes', self::skin_url( 'other-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_style( 'su-galleries-shortcodes', self::skin_url( 'galleries-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_style( 'su-players-shortcodes', self::skin_url( 'players-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
 		// Shortcodes scripts
-		wp_register_script( 'su-galleries-shortcodes', $shult->assets( 'js', 'galleries-shortcodes.js' ), array( 'jquery', 'swiper' ), $shult->version, true );
-		wp_register_script( 'su-players-shortcodes', $shult->assets( 'js', 'players-shortcodes.js' ), array( 'jquery', 'jplayer' ), $shult->version, true );
-		wp_register_script( 'su-other-shortcodes', $shult->assets( 'js', 'other-shortcodes.js' ), array( 'jquery' ), $shult->version, true );
+		wp_register_script( 'su-galleries-shortcodes', $shult->assets( 'js', 'galleries-shortcodes.js' ), array( 'jquery', 'swiper' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'su-players-shortcodes', $shult->assets( 'js', 'players-shortcodes.js' ), array( 'jquery', 'jplayer' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'su-other-shortcodes', $shult->assets( 'js', 'other-shortcodes.js' ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-other-shortcodes', 'su_other_shortcodes', array( 'no_preview' => __( 'This shortcode doesn\'t work in live preview. Please insert it into editor and preview on the site.', 'su' ) ) );
 		// Hook to deregister assets or add custom
 		do_action( 'su/assets/register' );
