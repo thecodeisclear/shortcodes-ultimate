@@ -3,7 +3,7 @@
 /**
  * Class for managing plugin assets
  */
-class Shortcodes_Ultimate_Assets {
+class Su_Assets {
 
 	/**
 	 * Set of queried assets
@@ -20,16 +20,17 @@ class Shortcodes_Ultimate_Assets {
 		add_action( 'wp_head',                     array( __CLASS__, 'register' ) );
 		add_action( 'admin_head',                  array( __CLASS__, 'register' ) );
 		add_action( 'su/generator/preview/before', array( __CLASS__, 'register' ) );
+		add_action( 'su/examples/preview/before',  array( __CLASS__, 'register' ) );
 		// Enqueue
 		add_action( 'wp_footer',                   array( __CLASS__, 'enqueue' ) );
 		add_action( 'admin_footer',                array( __CLASS__, 'enqueue' ) );
 		// Print
 		add_action( 'su/generator/preview/after',  array( __CLASS__, 'prnt' ) );
+		add_action( 'su/examples/preview/after',   array( __CLASS__, 'prnt' ) );
 		// Custom CSS
 		add_action( 'wp_footer',                   array( __CLASS__, 'custom_css' ), 99 );
 		add_action( 'su/generator/preview/after',  array( __CLASS__, 'custom_css' ), 99 );
-		// Options page assets
-		add_action( 'sunrise_page_before',         array( __CLASS__, 'options_page' ) );
+		add_action( 'su/examples/preview/after',   array( __CLASS__, 'custom_css' ), 99 );
 	}
 
 	/**
@@ -39,39 +40,40 @@ class Shortcodes_Ultimate_Assets {
 		// Get plugin object
 		$shult = shortcodes_ultimate();
 		// Font Awesome
-		wp_register_style( 'font-awesome', $shult->assets( 'css', 'font-awesome.css' ), false, '3.2.1', 'all' );
+		wp_register_style( 'font-awesome', plugins_url( 'assets/css/font-awesome.css', SU_PLUGIN_FILE ), false, '3.2.1', 'all' );
 		// Animate.css
-		wp_register_style( 'animate', $shult->assets( 'css', 'animate.css' ), false, '1.0.0', 'all' );
+		wp_register_style( 'animate', plugins_url( 'assets/css/animate.css', SU_PLUGIN_FILE ), false, '1.0.0', 'all' );
 		// InView
-		wp_register_script( 'inview', $shult->assets( 'js', 'inview.js' ), array( 'jquery' ), '2.1.1', true );
+		wp_register_script( 'inview', plugins_url( 'assets/js/inview.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.1.1', true );
 		// qTip
-		wp_register_style( 'qtip', $shult->assets( 'css', 'qtip.css' ), false, '2.1.1', 'all' );
-		wp_register_script( 'qtip', $shult->assets( 'js', 'qtip.js' ), array( 'jquery' ), '2.1.1', true );
+		wp_register_style( 'qtip', plugins_url( 'assets/css/qtip.css', SU_PLUGIN_FILE ), false, '2.1.1', 'all' );
+		wp_register_script( 'qtip', plugins_url( 'assets/js/qtip.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.1.1', true );
 		// jsRender
-		wp_register_script( 'jsrender', $shult->assets( 'js', 'jsrender.js' ), array( 'jquery' ), '1.0.0-beta', true );
+		wp_register_script( 'jsrender', plugins_url( 'assets/js/jsrender.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.0.0-beta', true );
 		// Magnific Popup
-		wp_register_style( 'magnific-popup', $shult->assets( 'css', 'magnific-popup.css' ), false, '0.9.7', 'all' );
-		wp_register_script( 'magnific-popup', $shult->assets( 'js', 'magnific-popup.js' ), array( 'jquery' ), '0.9.7', true );
+		wp_register_style( 'magnific-popup', plugins_url( 'assets/css/magnific-popup.css', SU_PLUGIN_FILE ), false, '0.9.7', 'all' );
+		wp_register_script( 'magnific-popup', plugins_url( 'assets/js/magnific-popup.js', SU_PLUGIN_FILE ), array( 'jquery' ), '0.9.7', true );
 		// Ace
-		wp_register_script( 'ace', $shult->assets( 'js', 'ace/ace.js' ), false, '1.1.01', true );
+		wp_register_script( 'ace', plugins_url( 'assets/js/ace/ace.js', SU_PLUGIN_FILE ), false, '1.1.01', true );
 		// Swiper
-		wp_register_script( 'swiper', $shult->assets( 'js', 'swiper.js' ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'swiper', plugins_url( 'assets/js/swiper.js', SU_PLUGIN_FILE ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 		// jPlayer
-		wp_register_script( 'jplayer', $shult->assets( 'js', 'jplayer.js' ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'jplayer', plugins_url( 'assets/js/jplayer.js', SU_PLUGIN_FILE ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 		// Options page
-		wp_register_style( 'su-options-page', $shult->assets( 'css', 'options-page.css' ), false, SU_PLUGIN_VERSION, 'all' );
-		wp_register_script( 'su-options-page', $shult->assets( 'js', 'options-page.js' ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), SU_PLUGIN_VERSION, true );
+		wp_register_style( 'su-options-page', plugins_url( 'assets/css/options-page.css', SU_PLUGIN_FILE ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_script( 'su-options-page', plugins_url( 'assets/js/options-page.js', SU_PLUGIN_FILE ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-options-page', 'su_options_page', array(
 				'upload_title' => __( 'Choose files', 'su' ),
 				'upload_insert' => __( 'Add selected files', 'su' )
 			) );
 		// Generator
-		wp_register_style( 'su-generator', $shult->assets( 'css', 'generator.css' ), array( 'farbtastic', 'magnific-popup' ), SU_PLUGIN_VERSION, 'all' );
-		wp_register_script( 'su-generator', $shult->assets( 'js', 'generator.js' ), array( 'farbtastic', 'magnific-popup', 'qtip' ), SU_PLUGIN_VERSION, true );
+		wp_register_style( 'su-generator', plugins_url( 'assets/css/generator.css', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup' ), SU_PLUGIN_VERSION, 'all' );
+		wp_register_script( 'su-generator', plugins_url( 'assets/js/generator.js', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup', 'qtip' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-generator', 'su_generator', array(
 				'upload_title' => __( 'Choose file', 'su' ),
 				'upload_insert' => __( 'Insert', 'su' ),
-				'loading_icons' => __( 'Please wait', 'su' )
+				'isp_media_title' => __( 'Select images', 'su' ),
+				'isp_media_insert' => __( 'Add selected images', 'su' )
 			) );
 		// Shortcodes stylesheets
 		wp_register_style( 'su-content-shortcodes', self::skin_url( 'content-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
@@ -81,9 +83,9 @@ class Shortcodes_Ultimate_Assets {
 		wp_register_style( 'su-galleries-shortcodes', self::skin_url( 'galleries-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
 		wp_register_style( 'su-players-shortcodes', self::skin_url( 'players-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
 		// Shortcodes scripts
-		wp_register_script( 'su-galleries-shortcodes', $shult->assets( 'js', 'galleries-shortcodes.js' ), array( 'jquery', 'swiper' ), SU_PLUGIN_VERSION, true );
-		wp_register_script( 'su-players-shortcodes', $shult->assets( 'js', 'players-shortcodes.js' ), array( 'jquery', 'jplayer' ), SU_PLUGIN_VERSION, true );
-		wp_register_script( 'su-other-shortcodes', $shult->assets( 'js', 'other-shortcodes.js' ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'su-galleries-shortcodes', plugins_url( 'assets/js/galleries-shortcodes.js', SU_PLUGIN_FILE ), array( 'jquery', 'swiper' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'su-players-shortcodes', plugins_url( 'assets/js/players-shortcodes.js', SU_PLUGIN_FILE ), array( 'jquery', 'jplayer' ), SU_PLUGIN_VERSION, true );
+		wp_register_script( 'su-other-shortcodes', plugins_url( 'assets/js/other-shortcodes.js', SU_PLUGIN_FILE ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-other-shortcodes', 'su_other_shortcodes', array( 'no_preview' => __( 'This shortcode doesn\'t work in live preview. Please insert it into editor and preview on the site.', 'su' ) ) );
 		// Hook to deregister assets or add custom
 		do_action( 'su/assets/register' );
@@ -121,11 +123,10 @@ class Shortcodes_Ultimate_Assets {
 	 * Print custom CSS
 	 */
 	public static function custom_css() {
-		$shult = shortcodes_ultimate();
 		// Get custom CSS and apply filters to it
-		$custom_css = apply_filters( 'su/assets/custom_css', str_replace( '&#039;', '\'', html_entity_decode( (string) $shult->get_option( 'custom_css' ) ) ) );
+		$custom_css = apply_filters( 'su/assets/custom_css', str_replace( '&#039;', '\'', html_entity_decode( (string) get_option( 'su_option_custom-css' ) ) ) );
 		// Print CSS if exists
-		if ( $custom_css ) echo "\n\n<!-- Shortcodes Ultimate custom CSS - begin -->\n<style type='text/css'>\n" . stripslashes( str_replace( array( '%theme_url%', '%home_url%', '%plugin_url%' ), array( get_stylesheet_directory_uri(), get_option( 'home' ), $shult->url ), $custom_css ) ) . "\n</style>\n<!-- Shortcodes Ultimate custom CSS - end -->\n\n";
+		if ( $custom_css ) echo "\n\n<!-- Shortcodes Ultimate custom CSS - begin -->\n<style type='text/css'>\n" . stripslashes( str_replace( array( '%theme_url%', '%home_url%', '%plugin_url%' ), array( trailingslashit( get_stylesheet_directory_uri() ), trailingslashit( get_option( 'home' ) ), trailingslashit( plugins_url( '', SU_PLUGIN_FILE ) ) ), $custom_css ) ) . "\n</style>\n<!-- Shortcodes Ultimate custom CSS - end -->\n\n";
 	}
 
 	/**
@@ -151,31 +152,19 @@ class Shortcodes_Ultimate_Assets {
 	}
 
 	/**
-	 * Add options page assets
-	 */
-	public static function options_page() {
-		$shult = shortcodes_ultimate();
-		// Check this is Shortcodes Ultimate settings page
-		if ( $_GET['page'] !== $shult->slug ) return;
-		// Request assets
-		self::add( 'css', array( 'magnific-popup', 'ace', 'su-options-page' ) );
-		self::add( 'js', array( 'jquery', 'magnific-popup', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-mouse', 'jquery-ui-sortable', 'jsrender', 'su-options-page' ) );
-	}
-
-	/**
 	 * Helper to get full URL of a skin file
 	 */
 	public static function skin_url( $file = '' ) {
 		$shult = shortcodes_ultimate();
-		$skin = $shult->get_option( 'skin' );
+		$skin = get_option( 'su_option_skin' );
 		$uploads = wp_upload_dir(); $uploads = $uploads['baseurl'];
 		// Prepare url to skin directory
-		$url = ( $skin === 'default' ) ? $shult->assets( 'css', '' ) : $uploads . '/shortcodes-ultimate-skins/' . $skin;
+		$url = ( !$skin || $skin === 'default' ) ? plugins_url( 'assets/css/', SU_PLUGIN_FILE ) : $uploads . '/shortcodes-ultimate-skins/' . $skin;
 		return trailingslashit( apply_filters( 'su/assets/skin', $url ) ) . $file;
 	}
 }
 
-$shult_assets = new Shortcodes_Ultimate_Assets;
+new Su_Assets;
 
 /**
  * Helper function to add asset to the query
@@ -184,7 +173,7 @@ $shult_assets = new Shortcodes_Ultimate_Assets;
  * @param mixed   $handle Asset handle or array with handles
  */
 function su_query_asset( $type, $handle ) {
-	Shortcodes_Ultimate_Assets::add( $type, $handle );
+	Su_Assets::add( $type, $handle );
 }
 
 /**
@@ -193,5 +182,5 @@ function su_query_asset( $type, $handle ) {
  * @param string  $file Asset file name. Example value: box-shortcodes.css
  */
 function su_skin_url( $file ) {
-	return Shortcodes_Ultimate_Assets::skin_url( $file );
+	return Su_Assets::skin_url( $file );
 }

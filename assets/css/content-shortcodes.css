@@ -193,13 +193,15 @@
 	margin: 0 !important;
 	padding: 4px 0 4px 2em !important;
 }
-.su-list ul li img {
+.su-list ul li > img {
 	position: absolute;
 	left: 0;
 	top: 4px;
 	width: 1.3em;
 	height: 1.3em;
-	line-height: 1.3em;
+	padding: 0;
+	margin: 0;
+	border: none;
 }
 .su-list ul li i {
 	position: absolute;

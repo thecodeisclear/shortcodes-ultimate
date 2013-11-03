@@ -1,10 +1,12 @@
 <?php
 
-class Shortcodes_Ultimate_Vote {
+class Su_Vote {
+
 	function __construct() {
 		add_action( 'load-plugins.php', array( __CLASS__, 'init' ) );
 		add_action( 'wp_ajax_su_vote',  array( __CLASS__, 'vote' ) );
 	}
+
 	public static function init() {
 		Shortcodes_Ultimate::timestamp();
 		$vote = get_option( 'su_vote' );
@@ -14,15 +16,17 @@ class Shortcodes_Ultimate_Vote {
 		add_action( 'admin_head',      array( __CLASS__, 'register' ) );
 		add_action( 'admin_footer',    array( __CLASS__, 'enqueue' ) );
 	}
+
 	public static function register() {
-		$shult = shortcodes_ultimate();
-		wp_register_style( 'su-vote', $shult->assets( 'css', 'vote.css' ), false, $shult->version, 'all' );
-		wp_register_script( 'su-vote', $shult->assets( 'js', 'vote.js' ), array( 'jquery' ), $shult->version, true );
+		wp_register_style( 'su-vote', plugins_url( 'assets/css/vote.css', SU_PLUGIN_FILE ), false, SU_PLUGIN_VERSION, 'all' );
+		wp_register_script( 'su-vote', plugins_url( 'assets/js/vote.js', SU_PLUGIN_FILE ), array( 'jquery' ), SU_PLUGIN_VERSION, true );
 	}
+
 	public static function enqueue() {
 		wp_enqueue_style( 'su-vote' );
 		wp_enqueue_script( 'su-vote' );
 	}
+
 	public static function vote() {
 		$vote = sanitize_key( $_GET['vote'] );
 		if ( !is_user_logged_in() || !in_array( $vote, array( 'yes', 'no', 'later', 'tweet' ) ) ) die( 'error' );
@@ -30,6 +34,7 @@ class Shortcodes_Ultimate_Vote {
 		if ( $vote === 'later' ) update_option( 'su_installed', time() );
 		die( 'OK: ' . $vote );
 	}
+
 	public static function message() {
 ?>
 		<div class="su-vote" style="display:none">
@@ -52,4 +57,4 @@ class Shortcodes_Ultimate_Vote {
 	}
 }
 
-new Shortcodes_Ultimate_Vote;
+new Su_Vote;

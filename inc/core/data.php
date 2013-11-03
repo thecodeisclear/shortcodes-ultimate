@@ -2,7 +2,7 @@
 /**
  * Class for managing plugin data
  */
-class Shortcodes_Ultimate_Data {
+class Su_Data {
 
 	/**
 	 * Constructor
@@ -19,13 +19,13 @@ class Shortcodes_Ultimate_Data {
 		foreach ( ( array ) self::shortcodes() as $id => $data ) {
 			unset( $func );
 			if ( isset( $data['function'] ) ) $func = $data['function'];
-			elseif ( method_exists( 'Shortcodes_Ultimate_Shortcodes', $id ) ) $func = array( 'Shortcodes_Ultimate_Shortcodes', $id );
-			elseif ( method_exists( 'Shortcodes_Ultimate_Shortcodes', 'su_' . $id ) ) $func = array( 'Shortcodes_Ultimate_Shortcodes', 'su_' . $id );
+			elseif ( method_exists( 'Su_Shortcodes', $id ) ) $func = array( 'Su_Shortcodes', $id );
+			elseif ( method_exists( 'Su_Shortcodes', 'su_' . $id ) ) $func = array( 'Su_Shortcodes', 'su_' . $id );
 			// Register shortcode
 			if ( isset( $func ) ) add_shortcode( su_cmpt() . $id, $func );
 		}
 		// Register [media] manually // 3.x
-		add_shortcode( su_cmpt() . 'media', array( 'Shortcodes_Ultimate_Shortcodes', 'media' ) );
+		add_shortcode( su_cmpt() . 'media', array( 'Su_Shortcodes', 'media' ) );
 	}
 
 	/**
@@ -56,6 +56,66 @@ class Shortcodes_Ultimate_Data {
 
 	public static function icons() {
 		return apply_filters( 'su/data/icons', array( 'glass', 'music', 'search', 'envelope-o', 'heart', 'star', 'star-o', 'user', 'film', 'th-large', 'th', 'th-list', 'check', 'times', 'search-plus', 'search-minus', 'power-off', 'signal', 'cog', 'trash-o', 'home', 'file-o', 'clock-o', 'road', 'download', 'arrow-circle-o-down', 'arrow-circle-o-up', 'inbox', 'play-circle-o', 'repeat', 'refresh', 'list-alt', 'lock', 'flag', 'headphones', 'volume-off', 'volume-down', 'volume-up', 'qrcode', 'barcode', 'tag', 'tags', 'book', 'bookmark', 'print', 'camera', 'font', 'bold', 'italic', 'text-height', 'text-width', 'align-left', 'align-center', 'align-right', 'align-justify', 'list', 'outdent', 'indent', 'video-camera', 'picture-o', 'pencil', 'map-marker', 'adjust', 'tint', 'pencil-square-o', 'share-square-o', 'check-square-o', 'move', 'step-backward', 'fast-backward', 'backward', 'play', 'pause', 'stop', 'forward', 'fast-forward', 'step-forward', 'eject', 'chevron-left', 'chevron-right', 'plus-circle', 'minus-circle', 'times-circle', 'check-circle', 'question-circle', 'info-circle', 'crosshairs', 'times-circle-o', 'check-circle-o', 'ban', 'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'share', 'resize-full', 'resize-small', 'plus', 'minus', 'asterisk', 'exclamation-circle', 'gift', 'leaf', 'fire', 'eye', 'eye-slash', 'exclamation-triangle', 'plane', 'calendar', 'random', 'comment', 'magnet', 'chevron-up', 'chevron-down', 'retweet', 'shopping-cart', 'folder', 'folder-open', 'resize-vertical', 'resize-horizontal', 'bar-chart-o', 'twitter-square', 'facebook-square', 'camera-retro', 'key', 'cogs', 'comments', 'thumbs-o-up', 'thumbs-o-down', 'star-half', 'heart-o', 'sign-out', 'linkedin-square', 'thumb-tack', 'external-link', 'sign-in', 'trophy', 'github-square', 'upload', 'lemon-o', 'phone', 'square-o', 'bookmark-o', 'phone-square', 'twitter', 'facebook', 'github', 'unlock', 'credit-card', 'rss', 'hdd', 'bullhorn', 'bell', 'certificate', 'hand-o-right', 'hand-o-left', 'hand-o-up', 'hand-o-down', 'arrow-circle-left', 'arrow-circle-right', 'arrow-circle-up', 'arrow-circle-down', 'globe', 'wrench', 'tasks', 'filter', 'briefcase', 'fullscreen', 'group', 'link', 'cloud', 'flask', 'scissors', 'files-o', 'paperclip', 'floppy-o', 'square', 'reorder', 'list-ul', 'list-ol', 'strikethrough', 'underline', 'table', 'magic', 'truck', 'pinterest', 'pinterest-square', 'google-plus-square', 'google-plus', 'money', 'caret-down', 'caret-up', 'caret-left', 'caret-right', 'columns', 'sort', 'sort-asc', 'sort-desc', 'envelope', 'linkedin', 'undo', 'gavel', 'tachometer', 'comment-o', 'comments-o', 'bolt', 'sitemap', 'umbrella', 'clipboard', 'lightbulb-o', 'exchange', 'cloud-download', 'cloud-upload', 'user-md', 'stethoscope', 'suitcase', 'bell-o', 'coffee', 'cutlery', 'file-text-o', 'building', 'hospital', 'ambulance', 'medkit', 'fighter-jet', 'beer', 'h-square', 'plus-square', 'angle-double-left', 'angle-double-right', 'angle-double-up', 'angle-double-down', 'angle-left', 'angle-right', 'angle-up', 'angle-down', 'desktop', 'laptop', 'tablet', 'mobile', 'circle-o', 'quote-left', 'quote-right', 'spinner', 'circle', 'reply', 'github-alt', 'folder-o', 'folder-open-o', 'expand-o', 'collapse-o', 'smile-o', 'frown-o', 'meh-o', 'gamepad', 'keyboard-o', 'flag-o', 'flag-checkered', 'terminal', 'code', 'reply-all', 'mail-reply-all', 'star-half-o', 'location-arrow', 'crop', 'code-fork', 'chain-broken', 'question', 'info', 'exclamation', 'superscript', 'subscript', 'eraser', 'puzzle-piece', 'microphone', 'microphone-slash', 'shield', 'calendar-o', 'fire-extinguisher', 'rocket', 'maxcdn', 'chevron-circle-left', 'chevron-circle-right', 'chevron-circle-up', 'chevron-circle-down', 'html5', 'css3', 'anchor', 'unlock-o', 'bullseye', 'ellipsis-horizontal', 'ellipsis-vertical', 'rss-square', 'play-circle', 'ticket', 'minus-square', 'minus-square-o', 'level-up', 'level-down', 'check-square', 'pencil-square', 'external-link-square', 'share-square', 'compass', 'caret-square-o-down', 'caret-square-o-up', 'caret-square-o-right', 'eur', 'gbp', 'usd', 'inr', 'jpy', 'rub', 'krw', 'btc', 'file', 'file-text', 'sort-alpha-asc', 'sort-alpha-desc', 'sort-amount-asc', 'sort-amount-desc', 'sort-numeric-asc', 'sort-numeric-desc', 'thumbs-up', 'thumbs-down', 'youtube-square', 'youtube', 'xing', 'xing-square', 'youtube-play', 'dropbox', 'stack-overflow', 'instagram', 'flickr', 'adn', 'bitbucket', 'bitbucket-square', 'tumblr', 'tumblr-square', 'long-arrow-down', 'long-arrow-up', 'long-arrow-left', 'long-arrow-right', 'apple', 'windows', 'android', 'linux', 'dribbble', 'skype', 'foursquare', 'trello', 'female', 'male', 'gittip', 'sun-o', 'moon-o', 'archive', 'bug', 'vk', 'weibo', 'renren', 'pagelines', 'stack-exchange', 'arrow-circle-o-right', 'arrow-circle-o-left', 'caret-square-o-left', 'dot-circle-o', 'wheelchair', 'vimeo-square', 'try' ) );
+	}
+
+	/**
+	 * Shortcode groups
+	 */
+	public static function examples() {
+		return ( array ) apply_filters( 'su/data/examples', array(
+				'basic' => array(
+					'title' => __( 'Basic examples', 'su' ),
+					'items' => array(
+						array(
+							'name' => __( 'Accordions, spoilers, different styles, anchors', 'su' ),
+							'id' => 'spoilers',
+							'code' => plugins_url( 'inc/examples/spoilers.example', SU_PLUGIN_FILE ),
+							'icon' => 'tasks'
+						),
+						array(
+							'name' => __( 'Tabs, vertical tabs, tab anchors', 'su' ),
+							'id' => 'tabs',
+							'code' => plugins_url( 'inc/examples/tabs.example', SU_PLUGIN_FILE ),
+							'icon' => 'folder'
+						),
+						array(
+							'name' => __( 'Column layouts', 'su' ),
+							'id' => 'columns',
+							'code' => plugins_url( 'inc/examples/columns.example', SU_PLUGIN_FILE ),
+							'icon' => 'th-large'
+						),
+						array(
+							'name' => __( 'Media elements, YouTube, Vimeo, Screenr and self-hosted videos, audio player', 'su' ),
+							'id' => 'media',
+							'code' => plugins_url( 'inc/examples/media.example', SU_PLUGIN_FILE ),
+							'icon' => 'play-circle'
+						),
+						array(
+							'name' => __( 'Unlimited buttons', 'su' ),
+							'id' => 'buttons',
+							'code' => plugins_url( 'inc/examples/buttons.example', SU_PLUGIN_FILE ),
+							'icon' => 'heart'
+						),
+					)
+				),
+				'advanced' => array(
+					'title' => __( 'Advanced examples', 'su' ),
+					'items' => array(
+						array(
+							'name' => __( 'Interacting with posts shortcode', 'su' ),
+							'id' => 'posts',
+							'code' => plugins_url( 'inc/examples/posts.example', SU_PLUGIN_FILE ),
+							'icon' => 'list'
+						),
+						array(
+							'name' => __( 'Nested shortcodes, shortcodes inside of attributes', 'su' ),
+							'id' => 'nested',
+							'code' => plugins_url( 'inc/examples/nested.example', SU_PLUGIN_FILE ),
+							'icon' => 'indent'
+						),
+					)
+				),
+			) );
 	}
 
 	/**
@@ -94,7 +154,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[heading] Content [/heading]<br/>[heading size="5"] Content [/heading]', 'content' => __( 'Heading text', 'su' ),
+					'content' => __( 'Heading text', 'su' ),
 					'desc' => __( 'Styled heading', 'su' ),
 					'icon' => 'h-square'
 				),
@@ -114,7 +174,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Select which tab is open by default', 'su' )
 						),
 						'vertical' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Vertical', 'su' ),
 							'desc' => __( 'Show tabs vertically', 'su' )
@@ -125,7 +185,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[tabs style="default"] [tab title="Tab name"] Tab content [/tab] [/tabs]',
 					'content' => __( "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]", 'su' ),
 					'desc' => __( 'Tabs container', 'su' ),
 					'icon' => 'list-alt'
@@ -142,7 +201,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Enter tab name', 'su' )
 						),
 						'disabled' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Disabled', 'su' ),
 							'desc' => __( 'Is this tab disabled', 'su' )
@@ -158,7 +217,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[tabs] [tab title="Tab name"] Tab content [/tab] [/tabs]',
 					'content' => __( 'Tab content', 'su' ),
 					'desc' => __( 'Single tab', 'su' ),
 					'icon' => 'list-alt'
@@ -174,7 +232,7 @@ class Shortcodes_Ultimate_Data {
 							'name' => __( 'Title', 'su' ), 'desc' => __( 'Text in spoiler title', 'su' )
 						),
 						'open' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Open', 'su' ),
 							'desc' => __( 'Is spoiler content visible by default', 'su' )
@@ -201,7 +259,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[spoiler title="Spoiler title"] Hidden text [/spoiler]',
 					'content' => __( 'Hidden content', 'su' ),
 					'desc' => __( 'Spoiler with hidden content', 'su' ),
 					'icon' => 'list-ul'
@@ -218,7 +275,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[accordion]<br/>[spoiler open="yes"] content [/spoiler]<br/>[spoiler] content [/spoiler]<br/>[spoiler] content [/spoiler]<br/>[/accordion]',
 					'content' => __( "[%prefix_spoiler]Content[/%prefix_spoiler]\n[%prefix_spoiler]Content[/%prefix_spoiler]\n[%prefix_spoiler]Content[/%prefix_spoiler]", 'su' ),
 					'desc' => __( 'Accordion with spoilers', 'su' ),
 					'icon' => 'list'
@@ -230,7 +286,7 @@ class Shortcodes_Ultimate_Data {
 					'group' => 'content',
 					'atts' => array(
 						'top' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Show TOP link', 'su' ),
 							'desc' => __( 'Show link to top of the page or not', 'su' )
@@ -246,7 +302,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[divider top="yes" text="Go to top"]',
 					'desc' => __( 'Content divider with optional TOP link', 'su' ),
 					'icon' => 'ellipsis-horizontal'
 				),
@@ -271,7 +326,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[spacer size="20"]',
 					'desc' => __( 'Empty space with adjustable height', 'su' ),
 					'icon' => 'resize-vertical'
 				),
@@ -300,7 +354,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[highlight background="#DDFF99" color="#000000"] Content [/highlight]', 'content' => __( 'Highlighted text', 'su' ),
+					'content' => __( 'Highlighted text', 'su' ),
 					'desc' => __( 'Highlighted text', 'su' ),
 					'icon' => 'pencil'
 				),
@@ -330,7 +384,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[label type="info"] Information [/label]', 'content' => __( 'Label', 'su' ),
+					'content' => __( 'Label', 'su' ),
 					'desc' => __( 'Styled label', 'su' ),
 					'icon' => 'tag'
 				),
@@ -358,7 +412,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[quote style="default"] Content [/quote]', 'content' => __( 'Quote', 'su' ),
+					'content' => __( 'Quote', 'su' ),
 					'desc' => __( 'Blockquote alternative', 'su' ),
 					'icon' => 'quote-right'
 				),
@@ -383,7 +437,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[pullquote align="left"] Content [/pullquote]', 'content' => __( 'Pullquote', 'su' ),
+					'content' => __( 'Pullquote', 'su' ),
 					'desc' => __( 'Pullquote', 'su' ),
 					'icon' => 'quote-left'
 				),
@@ -415,7 +469,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[dropcap style="default"]D[/dropcap]ropcap', 'content' => __( 'D', 'su' ),
+					'content' => __( 'D', 'su' ),
 					'desc' => __( 'Dropcap', 'su' ),
 					'icon' => 'bold'
 				),
@@ -442,7 +496,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[frame align="center"]<img src="image.jpg">[/frame]',
 					'content' => '<img src="http://lorempixel.com/g/400/200/" />',
 					'desc' => __( 'Styled image frame', 'su' ),
 					'icon' => 'picture-o'
@@ -459,7 +512,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[row]<br/>[column size="1/2"] 50% [/column]<br/>[column size="1/4"] 25% [/column]<br/>[column size="1/4"] 25% [/column]<br/>[/row]',
 					'content' => __( "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n[%prefix_column size=\"1/3\"]Content[/%prefix_column]", 'su' ),
 					'desc' => __( 'Row for flexible columns', 'su' ),
 					'icon' => 'columns'
@@ -491,7 +543,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Select column width. This width will be calculated depend page width', 'su' )
 						),
 						'center' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Centered', 'su' ),
 							'desc' => __( 'Is this column centered on the page', 'su' )
@@ -502,7 +554,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[row]<br/>[column size="6"] 50% [/column]<br/>[column size="3"] 25% [/column]<br/>[column size="3"] 25% [/column]<br/>[/row]',
 					'content' => __( 'Column content', 'su' ),
 					'desc' => __( 'Flexible and responsive columns', 'su' ),
 					'icon' => 'columns'
@@ -531,7 +582,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[list style="check"] <ul> <li> List item </li> </ul> [/list]',
 					'content' => __( "<ul>\n<li>List item</li>\n<li>List item</li>\n<li>List item</li>\n</ul>", 'su' ),
 					'desc' => __( 'Styled unordered list', 'su' ),
 					'icon' => 'list-ol'
@@ -596,12 +646,12 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Button size', 'su' )
 						),
 						'wide' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Fluid', 'su' ), 'desc' => __( 'Fluid buttons has 100% width', 'su' )
 						),
 						'center' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Centered', 'su' ), 'desc' => __( 'Is button centered on the page', 'su' )
 						),
@@ -653,7 +703,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[button url="#" background="#b00" size="3" style="default"] Button text [/button]',
 					'content' => __( 'Button text', 'su' ),
 					'desc' => __( 'Styled button', 'su' ),
 					'icon' => 'heart'
@@ -697,7 +746,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[service title="Service title" icon="service.png" size="32"] Service description [/service]',
 					'content' => __( 'Service description', 'su' ),
 					'desc' => __( 'Service box with title', 'su' ),
 					'icon' => 'check-square-o'
@@ -752,7 +800,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[box title="Box title"] Content [/box]',
 					'content' => __( 'Box content', 'su' ),
 					'desc' => __( 'Colored box with caption', 'su' ),
 					'icon' => 'list-alt'
@@ -788,7 +835,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[note background="#FFCC00"] Content [/note]', 'content' => __( 'Note text', 'su' ),
+					'content' => __( 'Note text', 'su' ),
 					'desc' => __( 'Colored box', 'su' ),
 					'icon' => 'list-alt'
 				),
@@ -820,7 +867,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[lightbox src="http://example.com/" type="iframe"] Open example.com [/lightbox]',
 					'content' => __( '[%prefix_button] Click Here to Watch the Video [/%prefix_button]', 'su' ),
 					'desc' => __( 'Lightbox window with custom content', 'su' ),
 					'icon' => 'external-link'
@@ -864,13 +910,13 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Tooltip position', 'su' )
 						),
 						'shadow' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Shadow', 'su' ),
 							'desc' => __( 'Add shadow to tooltip. This option is only works with basic styes, e.g. blue, green etc.', 'su' )
 						),
 						'rounded' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Rounded corners', 'su' ),
 							'desc' => __( 'Use rounded for tooltip. This option is only works with basic styes, e.g. blue, green etc.', 'su' )
@@ -912,7 +958,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Select tooltip behavior', 'su' )
 						),
 						'close' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Close button', 'su' ),
 							'desc' => __( 'Show close button', 'su' )
@@ -923,7 +969,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[tooltip] Hover me [/lightbox]',
 					'content' => __( '[%prefix_button] Hover me to open tooltip [/%prefix_button]', 'su' ),
 					'desc' => __( 'Tooltip window with custom content', 'su' ),
 					'icon' => 'comment-o'
@@ -940,7 +985,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[private] Private content [/private]',
 					'content' => __( 'Private note text', 'su' ),
 					'desc' => __( 'Private note for post authors', 'su' ),
 					'icon' => 'lock'
@@ -976,13 +1020,13 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Player height', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make player responsive', 'su' )
 						),
 						'autoplay' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Autoplay', 'su' ),
 							'desc' => __( 'Play video automatically when page is loaded', 'su' )
@@ -993,8 +1037,125 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[youtube url="http://www.youtube.com/watch?v=NbE8INOjTKM"]',
 					'desc' => __( 'YouTube video', 'su' ),
+					'icon' => 'youtube-play'
+				),
+				// youtube_advanced
+				'youtube_advanced' => array(
+					'name' => __( 'YouTube Advanced', 'su' ),
+					'type' => 'single',
+					'group' => 'media',
+					'atts' => array(
+						'url' => array(
+							'values' => array( ),
+							'default' => '',
+							'name' => __( 'Url', 'su' ),
+							'desc' => __( 'Url of YouTube page with video. Ex: http://youtube.com/watch?v=XXXXXX', 'su' )
+						),
+						'playlist' => array(
+							'default' => '',
+							'name' => __( 'Playlist', 'su' ),
+							'desc' => __( 'Value is a comma-separated list of video IDs to play. If you specify a value, the first video that plays will be the VIDEO_ID specified in the URL path, and the videos specified in the playlist parameter will play thereafter', 'su' )
+						),
+						'width' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 20,
+							'default' => 600,
+							'name' => __( 'Width', 'su' ),
+							'desc' => __( 'Player width', 'su' )
+						),
+						'height' => array(
+							'type' => 'number',
+							'min' => 0,
+							'max' => 10000,
+							'step' => 20,
+							'default' => 400,
+							'name' => __( 'Height', 'su' ),
+							'desc' => __( 'Player height', 'su' )
+						),
+						'responsive' => array(
+							'type' => 'bool',
+							'default' => 'yes',
+							'name' => __( 'Responsive', 'su' ),
+							'desc' => __( 'Ignore width and height parameters and make player responsive', 'su' )
+						),
+						'controls' => array(
+							'type' => 'select',
+							'values' => array(
+								'no' => __( '0 - Hide controls', 'su' ),
+								'yes' => __( '1 - Show controls', 'su' ),
+								'alt' => __( '2 - Show controls when playback is started', 'su' )
+							),
+							'default' => 'yes',
+							'name' => __( 'Controls', 'su' ),
+							'desc' => __( 'This parameter indicates whether the video player controls will display', 'su' )
+						),
+						'autohide' => array(
+							'type' => 'select',
+							'values' => array(
+								'no' => __( '0 - Do not hide controls', 'su' ),
+								'yes' => __( '1 - Hide all controls on mouse out', 'su' ),
+								'alt' => __( '2 - Hide progress bar on mouse out', 'su' )
+							),
+							'default' => 'alt',
+							'name' => __( 'Autohide', 'su' ),
+							'desc' => __( 'This parameter indicates whether the video controls will automatically hide after a video begins playing', 'su' )
+						),
+						'showinfo' => array(
+							'type' => 'bool',
+							'default' => 'yes',
+							'name' => __( 'Show title bar', 'su' ),
+							'desc' => __( 'If you set the parameter value to NO, then the player will not display information like the video title and uploader before the video starts playing.', 'su' )
+						),
+						'autoplay' => array(
+							'type' => 'bool',
+							'default' => 'no',
+							'name' => __( 'Autoplay', 'su' ),
+							'desc' => __( 'Play video automatically when page is loaded', 'su' )
+						),
+						'loop' => array(
+							'type' => 'bool',
+							'default' => 'no',
+							'name' => __( 'Loop', 'su' ),
+							'desc' => __( 'Setting of YES will cause the player to play the initial video again and again', 'su' )
+						),
+						'rel' => array(
+							'type' => 'bool',
+							'default' => 'yes',
+							'name' => __( 'Related videos', 'su' ),
+							'desc' => __( 'This parameter indicates whether the player should show related videos when playback of the initial video ends', 'su' )
+						),
+						'fs' => array(
+							'type' => 'bool',
+							'default' => 'yes',
+							'name' => __( 'Show full-screen button', 'su' ),
+							'desc' => __( 'Setting this parameter to NO prevents the fullscreen button from displaying', 'su' )
+						),
+						'modestbranding' => array(
+							'type' => 'bool',
+							'default' => 'no',
+							'name' => 'modestbranding',
+							'desc' => __( 'This parameter lets you use a YouTube player that does not show a YouTube logo. Set the parameter value to YES to prevent the YouTube logo from displaying in the control bar. Note that a small YouTube text label will still display in the upper-right corner of a paused video when the user\'s mouse pointer hovers over the player', 'su' )
+						),
+						'theme' => array(
+							'type' => 'select',
+							'values' => array(
+								'dark' => __( 'Dark theme', 'su' ),
+								'light' => __( 'Light theme', 'su' )
+							),
+							'default' => 'dark',
+							'name' => __( 'Theme', 'su' ),
+							'desc' => __( 'This parameter indicates whether the embedded player will display player controls (like a play button or volume control) within a dark or light control bar', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						)
+					),
+					'desc' => __( 'YouTube video player with advanced settings', 'su' ),
 					'icon' => 'youtube-play'
 				),
 				// vimeo
@@ -1027,13 +1188,13 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Player height', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make player responsive', 'su' )
 						),
 						'autoplay' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Autoplay', 'su' ),
 							'desc' => __( 'Play video automatically when page is loaded', 'su' )
@@ -1044,7 +1205,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[vimeo url="http://vimeo.com/21294655"]',
 					'desc' => __( 'Vimeo video', 'su' ),
 					'icon' => 'youtube-play'
 				),
@@ -1077,7 +1237,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Player height', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make player responsive', 'su' )
@@ -1088,7 +1248,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[screenr url="http://www.screenr.com/OuWH"]',
 					'desc' => __( 'Screenr video', 'su' ),
 					'icon' => 'youtube-play'
 				),
@@ -1111,13 +1270,13 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Player width. You can specify width in percents and player will be responsive. Example values: <b%value>200px</b>, <b%value>100&#37;</b>', 'su' )
 						),
 						'autoplay' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Autoplay', 'su' ),
 							'desc' => __( 'Play file automatically when page is loaded', 'su' )
 						),
 						'loop' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Loop', 'su' ),
 							'desc' => __( 'Repeat when playback is ended', 'su' )
@@ -1128,7 +1287,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[audio url="http://example.com/audio.mp3"]',
 					'desc' => __( 'Custom audio player', 'su' ),
 					'icon' => 'play-circle'
 				),
@@ -1175,19 +1333,19 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Player height', 'su' )
 						),
 						'controls' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Controls', 'su' ),
 							'desc' => __( 'Show player controls (play/pause etc.) or not', 'su' )
 						),
 						'autoplay' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Autoplay', 'su' ),
 							'desc' => __( 'Play file automatically when page is loaded', 'su' )
 						),
 						'loop' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Loop', 'su' ),
 							'desc' => __( 'Repeat when playback is ended', 'su' )
@@ -1198,7 +1356,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[video url="http://example.com/video.mp4"]',
 					'desc' => __( 'Custom video player', 'su' ),
 					'icon' => 'play-circle'
 				),
@@ -1220,7 +1377,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[table style="default"] <table> ... </table> [/table]<br/>[table style="default" url="http://example.com/file.csv"] [/table]',
 					'content' => __( "<table>\n<tr>\n\t<td>Table</td>\n\t<td>Table</td>\n</tr>\n<tr>\n\t<td>Table</td>\n\t<td>Table</td>\n</tr>\n</table>", 'su' ),
 					'desc' => __( 'Styled table from HTML or CSV file', 'su' ),
 					'icon' => 'table'
@@ -1252,7 +1408,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[permalink id=52]<br/>[permalink id="52" target="blank"] Content [/permalink]',
 					'content' => '',
 					'desc' => __( 'Permalink to specified post/page', 'su' ),
 					'icon' => 'link'
@@ -1286,7 +1441,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[members style="default"] Content for logged members [/members]',
 					'content' => __( 'Content for logged members', 'su' ),
 					'desc' => __( 'Content for logged in members only', 'su' ),
 					'icon' => 'lock'
@@ -1303,7 +1457,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[guests] Content for guests [/guests]',
 					'content' => __( 'Content for guests', 'su' ),
 					'desc' => __( 'Content for guests only', 'su' ),
 					'icon' => 'user'
@@ -1331,7 +1484,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[feed url="http://rss1.smashingmagazine.com/feed/" limit="5"]',
 					'desc' => __( 'Feed grabber', 'su' ),
 					'icon' => 'rss'
 				),
@@ -1352,7 +1504,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[menu name="Main menu"]',
 					'desc' => __( 'Custom menu by name', 'su' ),
 					'icon' => 'reorder'
 				),
@@ -1380,7 +1531,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[subpages]<br/>[subpages depth="2" p="122"]',
 					'desc' => __( 'List of sub pages', 'su' ),
 					'icon' => 'reorder'
 				),
@@ -1402,7 +1552,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[siblings]<br/>[siblings depth="2"]',
 					'desc' => __( 'List of cureent page siblings', 'su' ),
 					'icon' => 'reorder'
 				),
@@ -1437,7 +1586,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Viewer height', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make viewer responsive', 'su' )
@@ -1448,7 +1597,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[document url="file.doc" width="600" height="400"]',
 					'desc' => __( 'Document viewer by Google', 'su' ),
 					'icon' => 'file-text'
 				),
@@ -1477,7 +1625,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Map height', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make map responsive', 'su' )
@@ -1494,7 +1642,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[gmap width="600" height="400" address="New York"]',
 					'desc' => __( 'Maps by Google', 'su' ),
 					'icon' => 'globe'
 				),
@@ -1504,10 +1651,33 @@ class Shortcodes_Ultimate_Data {
 					'type' => 'single',
 					'group' => 'gallery',
 					'atts' => array(
-						'gallery' => array(
-							'type' => 'gallery',
-							'name' => __( 'Gallery', 'su' ),
-							'desc' => __( 'Choose source gallery, that will be used for this slider', 'su' )
+						'source' => array(
+							'type'    => 'image_source',
+							'default' => 'none',
+							'name'    => __( 'Source', 'su' ),
+							'desc'    => __( 'Choose images source. You can use images from Media library or retrieve it from posts (thumbnails) posted under specified blog category. You can also pick any custom taxonomy', 'su' )
+						),
+						'link' => array(
+							'type' => 'select',
+							'values' => array(
+								'none'       => __( 'None', 'su' ),
+								'image'      => __( 'Full-size image', 'su' ),
+								'attachment' => __( 'Attachment page', 'su' ),
+								'post'       => __( 'Post permalink', 'su' )
+							),
+							'default' => 'none',
+							'name' => __( 'Links', 'su' ),
+							'desc' => __( 'Select which links will be used for images in this gallery', 'su' )
+						),
+						'target' => array(
+							'type' => 'select',
+							'values' => array(
+								'self' => __( 'Same window', 'su' ),
+								'blank' => __( 'New window', 'su' )
+							),
+							'default' => 'self',
+							'name' => __( 'Links target', 'su' ),
+							'desc' => __( 'Open links in', 'su' )
 						),
 						'width' => array(
 							'type' => 'number',
@@ -1526,34 +1696,34 @@ class Shortcodes_Ultimate_Data {
 							'name' => __( 'Height', 'su' ), 'desc' => __( 'Slider height (in pixels)', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make slider responsive', 'su' )
 						),
 						'title' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Show titles', 'su' ), 'desc' => __( 'Display slide titles', 'su' )
 						),
 						'centered' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Center', 'su' ), 'desc' => __( 'Is slider centered on the page', 'su' )
 						),
 						'arrows' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Arrows', 'su' ), 'desc' => __( 'Show left and right arrows', 'su' )
 						),
 						'pages' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Pagination', 'su' ),
 							'desc' => __( 'Show pagination', 'su' )
 						),
 						'mousewheel' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes', 'name' => __( 'Mouse wheel control', 'su' ),
 							'desc' => __( 'Allow to change slides with mouse wheel', 'su' )
 						),
@@ -1574,19 +1744,12 @@ class Shortcodes_Ultimate_Data {
 							'default' => 600,
 							'name' => __( 'Speed', 'su' ), 'desc' => __( 'Specify animation speed', 'su' )
 						),
-						'target' => array(
-							'type' => 'switch',
-							'default' => 'yes',
-							'name' => __( 'Links target', 'su' ),
-							'desc' => __( 'Open slides links in new window/tab', 'su' )
-						),
 						'class' => array(
 							'default' => '',
 							'name' => __( 'Class', 'su' ),
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[slider gallery="1"]',
 					'desc' => __( 'Customizable image slider', 'su' ),
 					'icon' => 'picture-o'
 				),
@@ -1596,10 +1759,33 @@ class Shortcodes_Ultimate_Data {
 					'type' => 'single',
 					'group' => 'gallery',
 					'atts' => array(
-						'gallery' => array(
-							'type' => 'gallery',
-							'name' => __( 'Gallery', 'su' ),
-							'desc' => __( 'Choose source gallery, that will be used for this carousel', 'su' )
+						'source' => array(
+							'type'    => 'image_source',
+							'default' => 'none',
+							'name'    => __( 'Source', 'su' ),
+							'desc'    => __( 'Choose images source. You can use images from Media library or retrieve it from posts (thumbnails) posted under specified blog category. You can also pick any custom taxonomy', 'su' )
+						),
+						'link' => array(
+							'type' => 'select',
+							'values' => array(
+								'none'       => __( 'None', 'su' ),
+								'image'      => __( 'Original image', 'su' ),
+								'attachment' => __( 'Attachment page', 'su' ),
+								'post'       => __( 'Post permalink', 'su' )
+							),
+							'default' => 'none',
+							'name' => __( 'Links', 'su' ),
+							'desc' => __( 'Select which links will be used for images in this gallery', 'su' )
+						),
+						'target' => array(
+							'type' => 'select',
+							'values' => array(
+								'self' => __( 'Same window', 'su' ),
+								'blank' => __( 'New window', 'su' )
+							),
+							'default' => 'self',
+							'name' => __( 'Links target', 'su' ),
+							'desc' => __( 'Open links in', 'su' )
 						),
 						'width' => array(
 							'type' => 'number',
@@ -1618,7 +1804,7 @@ class Shortcodes_Ultimate_Data {
 							'name' => __( 'Height', 'su' ), 'desc' => __( 'Carousel height (in pixels)', 'su' )
 						),
 						'responsive' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Responsive', 'su' ),
 							'desc' => __( 'Ignore width and height parameters and make carousel responsive', 'su' )
@@ -1627,7 +1813,8 @@ class Shortcodes_Ultimate_Data {
 							'type' => 'number',
 							'min' => 1,
 							'max' => 20,
-							'step' => 1, 'default' => 3,
+							'step' => 1,
+							'default' => 3,
 							'name' => __( 'Items to show', 'su' ),
 							'desc' => __( 'How much carousel items is visible', 'su' )
 						),
@@ -1640,28 +1827,28 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'How much items are scrolled in one transition', 'su' )
 						),
 						'title' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Show titles', 'su' ), 'desc' => __( 'Display titles for each item', 'su' )
 						),
 						'centered' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Center', 'su' ), 'desc' => __( 'Is carousel centered on the page', 'su' )
 						),
 						'arrows' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Arrows', 'su' ), 'desc' => __( 'Show left and right arrows', 'su' )
 						),
 						'pages' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Pagination', 'su' ),
 							'desc' => __( 'Show pagination', 'su' )
 						),
 						'mousewheel' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes', 'name' => __( 'Mouse wheel control', 'su' ),
 							'desc' => __( 'Allow to rotate carousel with mouse wheel', 'su' )
 						),
@@ -1682,19 +1869,12 @@ class Shortcodes_Ultimate_Data {
 							'default' => 600,
 							'name' => __( 'Speed', 'su' ), 'desc' => __( 'Specify animation speed', 'su' )
 						),
-						'target' => array(
-							'type' => 'switch',
-							'default' => 'yes',
-							'name' => __( 'Links target', 'su' ),
-							'desc' => __( 'Open carousel links in new window/tab', 'su' )
-						),
 						'class' => array(
 							'default' => '',
 							'name' => __( 'Class', 'su' ),
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[carousel gallery="1"]',
 					'desc' => __( 'Customizable image carousel', 'su' ),
 					'icon' => 'picture-o'
 				),
@@ -1704,10 +1884,33 @@ class Shortcodes_Ultimate_Data {
 					'type' => 'single',
 					'group' => 'gallery',
 					'atts' => array(
-						'gallery' => array(
-							'type' => 'gallery',
-							'name' => __( 'Gallery', 'su' ),
-							'desc' => __( 'Choose source gallery, that will be used for this shortcode', 'su' )
+						'source' => array(
+							'type'    => 'image_source',
+							'default' => 'none',
+							'name'    => __( 'Source', 'su' ),
+							'desc'    => __( 'Choose images source. You can use images from Media library or retrieve it from posts (thumbnails) posted under specified blog category. You can also pick any custom taxonomy', 'su' )
+						),
+						'link' => array(
+							'type' => 'select',
+							'values' => array(
+								'none'       => __( 'None', 'su' ),
+								'image'      => __( 'Original image', 'su' ),
+								'attachment' => __( 'Attachment page', 'su' ),
+								'post'       => __( 'Post permalink', 'su' )
+							),
+							'default' => 'none',
+							'name' => __( 'Links', 'su' ),
+							'desc' => __( 'Select which links will be used for images in this gallery', 'su' )
+						),
+						'target' => array(
+							'type' => 'select',
+							'values' => array(
+								'self' => __( 'Same window', 'su' ),
+								'blank' => __( 'New window', 'su' )
+							),
+							'default' => 'self',
+							'name' => __( 'Links target', 'su' ),
+							'desc' => __( 'Open links in', 'su' )
 						),
 						'width' => array(
 							'type' => 'number',
@@ -1736,18 +1939,12 @@ class Shortcodes_Ultimate_Data {
 							'name' => __( 'Show titles', 'su' ),
 							'desc' => __( 'Title display mode', 'su' )
 						),
-						'target' => array(
-							'type' => 'switch',
-							'default' => 'yes',
-							'name' => __( 'Links target', 'su' ), 'desc' => __( 'Open links in new window/tab', 'su' )
-						),
 						'class' => array(
 							'default' => '',
 							'name' => __( 'Class', 'su' ),
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[custom_gallery gallery="1"]',
 					'desc' => __( 'Customizable image gallery', 'su' ),
 					'icon' => 'picture-o'
 				),
@@ -1778,14 +1975,14 @@ class Shortcodes_Ultimate_Data {
 						'post_type' => array(
 							'type' => 'select',
 							'multiple' => true,
-							'values' => su_get_post_types(),
+							'values' => Su_Tools::get_types(),
 							'default' => 'post',
 							'name' => __( 'Post types', 'su' ),
 							'desc' => __( 'Select post types. Hold Ctrl key to select multiple post types', 'su' )
 						),
 						'taxonomy' => array(
 							'type' => 'select',
-							'values' => su_get_taxonomies(),
+							'values' => Su_Tools::get_taxonomies(),
 							'default' => 'category',
 							'name' => __( 'Taxonomy', 'su' ),
 							'desc' => __( 'Select taxonomy to show posts from', 'su' )
@@ -1793,9 +1990,10 @@ class Shortcodes_Ultimate_Data {
 						'tax_term' => array(
 							'type' => 'select',
 							'multiple' => true,
-							'values' => su_get_terms( su_get_taxonomies( true ) ),
+							'values' => Su_Tools::get_terms( 'category' ),
 							'default' => '',
-							'name' => __( 'Terms', 'su' ), 'desc' => __( 'Select terms to show posts from', 'su' )
+							'name' => __( 'Terms', 'su' ),
+							'desc' => __( 'Select terms to show posts from', 'su' )
 						),
 						'tax_operator' => array(
 							'type' => 'select',
@@ -1806,7 +2004,7 @@ class Shortcodes_Ultimate_Data {
 						'author' => array(
 							'type' => 'select',
 							'multiple' => true,
-							'values' => su_get_users(),
+							'values' => Su_Tools::get_users(),
 							'default' => 'default',
 							'name' => __( 'Authors', 'su' ),
 							'desc' => __( 'Choose the authors whose posts you want to show', 'su' )
@@ -1874,17 +2072,16 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Show only posts with selected status', 'su' )
 						),
 						'ignore_sticky_posts' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'no',
 							'name' => __( 'Ignore sticky', 'su' ),
 							'desc' => __( 'Select Yes to ignore posts that is sticked', 'su' )
 						)
 					),
-					'usage' => '[posts template="templates/posts.php"]',
 					'desc' => __( 'Custom posts query with customizable template', 'su' ),
 					'icon' => 'th-list'
 				),
-				// dummy_image
+				// dummy_text
 				'dummy_text' => array(
 					'name' => __( 'Dummy text', 'su' ),
 					'type' => 'single',
@@ -1911,7 +2108,7 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'How many items (paragraphs or words) to generate. Minimum words amount is 5', 'su' )
 						),
 						'cache' => array(
-							'type' => 'switch',
+							'type' => 'bool',
 							'default' => 'yes',
 							'name' => __( 'Cache', 'su' ),
 							'desc' => __( 'Generated text will be cached. Be careful with this option. If you disable it and insert many dummy_text shortcodes the page load time will be highly increased', 'su' )
@@ -1922,7 +2119,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[dummy_text]',
 					'desc' => __( 'Text placeholder', 'su' ),
 					'icon' => 'text-height'
 				),
@@ -1978,11 +2174,10 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[dummy_image]',
 					'desc' => __( 'Image placeholder with random image', 'su' ),
 					'icon' => 'picture-o'
 				),
-				// dummy_image
+				// animate
 				'animate' => array(
 					'name' => __( 'Animation', 'su' ),
 					'type' => 'wrap',
@@ -2019,7 +2214,6 @@ class Shortcodes_Ultimate_Data {
 							'desc' => __( 'Extra CSS class', 'su' )
 						)
 					),
-					'usage' => '[animate] Animated text [/animate]',
 					'content' => __( 'Animated content', 'su' ),
 					'desc' => __( 'Wrapper for animation. Any nested element will be animated', 'su' ),
 					'icon' => 'bolt'
@@ -2030,4 +2224,4 @@ class Shortcodes_Ultimate_Data {
 	}
 }
 
-new Shortcodes_Ultimate_Data;
+new Su_Data;

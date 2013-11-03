@@ -3,7 +3,7 @@ Contributors: gn_themes
 License: GPL3
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MMA2VA7JDXWDY
 Tags: shortcode, shortcodes, short code, video, responsive, responsive video, youtube, vimeo, audio, mp3, tab, tabs, button, buttons, jquery, box, boxes, toggle, spoiler, column, columns, services, service, pullquote, list, lists, images, image, links, fancy, fancy link, fancy links, fancy buttons, jquery tabs, accordion, slider, plugin, admin, gallery, bloginfo, list pages, sub pages, navigation, siblings pages, children pages, permalink, permalinks, feed, document, member, members, guests, membership, documents, carousel, rss, touch, icon, icons
-Requires at least: 3.4
+Requires at least: 3.5
 Tested up to: 4.0
 Stable tag: trunk
 
@@ -60,6 +60,8 @@ Have a translation? [Contact me](http://gndev.info/feedback/)
 * Dmitry Semenov - [Magnific Popup jQuery plugin](http://dimsemenov.com/plugins/magnific-popup/)
 * Craig Thompson - [qTip jQuery plugin](http://qtip2.com/)
 * Vladimir Kharlampidi - [Swiper jQuery plugin](http://www.idangero.us/sliders/swiper/)
+* Designmodo - [Flat UI Free icons](http://designmodo.com/)
+* Dave Gandy - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 
 == Installation ==
@@ -99,12 +101,16 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 * New shortocde [dummy_image]
 * New shortocde [dummy_text]
 * New shortocde [animate]
-* Font Awesome updated to 4.0.0
+* New shortocde [youtube_advanced]
+* New admin page - Examples
+* New admin page - Add-ons
+* Font Awesome updated to version 4
+* Small fixes
 
 = 4.3.2 =
-* Small fixes
 * New text-shadow picker for [button]
 * Anchor navigation for spoilers and tabs - [forum topic](http://wordpress.org/support/topic/hyperlinks-to-spoilers-and-tabs)
+* Small fixes
 
 = 4.3 =
 * IMPORTANT: removed old list icons. These icons replaced with new font-awesome icons

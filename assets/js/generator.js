@@ -179,7 +179,7 @@ jQuery(document).ready(function ($) {
 				// Hide choices panel
 				$choices.hide();
 				// Show loading animation
-				$settings.addClass('su-loading-animation').show();
+				$settings.addClass('su-generator-loading').show();
 				// Add narrow class
 				$generator.addClass('su-generator-narrow');
 				// Hide filters
@@ -187,7 +187,7 @@ jQuery(document).ready(function ($) {
 			},
 			success: function (data) {
 				// Hide loading animation
-				$settings.removeClass('su-loading-animation');
+				$settings.removeClass('su-generator-loading');
 				// Insert new HTML
 				$settings.html(data);
 				// Apply selected text to the content field
@@ -203,31 +203,140 @@ jQuery(document).ready(function ($) {
 						$('.su-generator-select-color-wheel:eq(' + index + ')').hide();
 					});
 				});
-				// Init reload galleries links
-				$('.su-generator-reload-galleries').each(function () {
-					var $attr = $(this).parents('.su-generator-attr-container'),
-						$list = $attr.find('select:first');
-					$(this).click(function (e) {
+				// Init image sourse pickers
+				$('.su-generator-isp').each(function () {
+					var $picker = $(this),
+						$sources = $picker.find('.su-generator-isp-sources'),
+						$source = $picker.find('.su-generator-isp-source'),
+						$add_media = $picker.find('.su-generator-isp-add-media'),
+						$images = $picker.find('.su-generator-isp-images'),
+						$cats = $picker.find('.su-generator-isp-categories'),
+						$taxes = $picker.find('.su-generator-isp-taxonomies'),
+						$terms = $('.su-generator-isp-terms'),
+						$val = $picker.find('.su-generator-attr'),
+						frame;
+					// Update hidden value
+					var update = function () {
+						var val = 'none',
+							ids = '',
+							source = $sources.val();
+						// Media library
+						if (source === 'media') {
+							var images = [];
+							$images.find('span').each(function (i) {
+								images[i] = $(this).data('id');
+							});
+							if (images.length > 0) ids = images.join(',');
+						}
+						// Category
+						else if (source === 'category') {
+							var categories = $cats.val() || [];
+							if (categories.length > 0) ids = categories.join(',');
+						}
+						// Taxonomy
+						else if (source === 'taxonomy') {
+							var tax = $taxes.val() || '',
+								terms = $terms.val() || [];
+							if (tax !== '0' && terms.length > 0) val = 'taxonomy: ' + tax + '/' + terms.join(',');
+						}
+						// Deselect
+						else if (source === '0') {
+							val = 'none';
+						}
+						// Other options
+						else {
+							val = source;
+						}
+						if (ids !== '') val = source + ': ' + ids;
+						$val.val(val).trigger('change');
+					}
+					// Switch source
+					$sources.on('change', function (e) {
+						var source = $(this).val();
 						e.preventDefault();
-						// Perform request
-						$.ajax({
-							type: 'POST',
-							url: ajaxurl,
-							data: {
-								action: 'su_generator_galleries'
-							},
-							beforeSend: function () {
-								$attr.addClass('su-generator-uploading');
-								$list.html('<option value="0">' + $list.data('loading') + '&hellip;</option>');
-							},
-							success: function (data) {
-								$list.html(data).trigger('change');
-								$attr.removeClass('su-generator-uploading');
-							}
+						$source.removeClass('su-generator-isp-source-open');
+						if (source.indexOf(':') === -1) $picker.find('.su-generator-isp-source-' + source).addClass('su-generator-isp-source-open');
+						update();
+					});
+					// Remove image
+					$images.on('click', 'span i', function () {
+						$(this).parent('span').css('border-color', '#f03').fadeOut(300, function () {
+							$(this).remove();
+							update();
 						});
 					});
+					// Add image
+					$add_media.click(function (e) {
+						e.preventDefault();
+						if (typeof (frame) !== 'undefined') frame.close();
+						frame = wp.media.frames.customHeader = wp.media({
+							title: su_generator.isp_media_title,
+							library: {
+								type: 'image'
+							},
+							button: {
+								text: su_generator.isp_media_insert
+							},
+							multiple: true
+						});
+						frame.on('select', function () {
+							var files = frame.state().get('selection').toJSON();
+							$images.find('em').remove();
+							$.each(files, function (i) {
+								$images.append('<span data-id="' + this.id + '" title="' + this.title + '"><img src="' + this.url + '" alt="" /><i class="fa fa-times"></i></span>');
+							});
+							update();
+						});
+						frame.open();
+					});
+					// Sort images
+					$images.sortable({
+						revert: 200,
+						containment: $picker,
+						tolerance: 'pointer',
+						stop: function () {
+							update();
+						}
+					});
+					// Select categories and terms
+					$cats.on('change', update);
+					$terms.on('change', update);
+					// Select taxonomy
+					$taxes.on('change', function () {
+						var $cont = $(this).parents('.su-generator-isp-source'),
+							tax = $(this).val();
+						// Remove terms
+						$terms.hide().find('option').remove();
+						update();
+						// Taxonomy is not selected
+						if (tax === '0') return;
+						// Taxonomy selected
+						else {
+							var ajax_term_select = $.ajax({
+								url: ajaxurl,
+								type: 'post',
+								dataType: 'html',
+								data: {
+									'action': 'su_generator_get_terms',
+									'tax': tax,
+									'class': 'su-generator-isp-terms',
+									'multiple': true,
+									'size': 10
+								},
+								beforeSend: function () {
+									if (typeof ajax_term_select === 'object') ajax_term_select.abort();
+									$terms.html('').attr('disabled', true).hide();
+									$cont.addClass('su-generator-loading');
+								},
+								success: function (data) {
+									$terms.html(data).attr('disabled', false).show();
+									$cont.removeClass('su-generator-loading');
+								}
+							});
+						}
+					});
 				});
-				// Init upload buttons
+				// Init media buttons
 				$('.su-generator-upload-button').each(function () {
 					var $button = $(this),
 						$val = $(this).parents('.su-generator-attr-container').find('input:text'),
@@ -241,9 +350,6 @@ jQuery(document).ready(function ($) {
 						file = wp.media.frames.customHeader = wp.media({
 							// Title of media manager frame
 							title: su_generator.upload_title,
-							library: {
-								type: 'image'
-							},
 							button: {
 								//Button text
 								text: su_generator.upload_insert
@@ -264,35 +370,57 @@ jQuery(document).ready(function ($) {
 				$('.su-generator-icon-picker-button').each(function () {
 					var $button = $(this),
 						$field = $(this).parents('.su-generator-attr-container'),
-						$val = $field.find('input:text'),
-						$picker = $field.find('.su-generator-icon-picker');
+						$val = $field.find('.su-generator-attr'),
+						$picker = $field.find('.su-generator-icon-picker'),
+						$filter = $picker.find('input:text');
 
 					$button.click(function (e) {
 						$picker.toggleClass('su-generator-icon-picker-visible');
-						if ($picker.html() !== '') return;
+						$filter.val('').trigger('keyup');
+						if ($picker.hasClass('su-generator-icon-picker-loaded')) return;
 						// Load icons
 						$.ajax({
-							type: 'POST',
+							type: 'post',
 							url: ajaxurl,
 							data: {
-								action: 'su_generator_icons'
+								action: 'su_generator_get_icons'
 							},
-							dataType: 'json',
+							dataType: 'html',
 							beforeSend: function () {
 								// Show loading animation
-								$picker.html(su_generator.loading_icons + '&hellip;');
+								$picker.addClass('su-generator-loading');
+								// Add loaded class
+								$picker.addClass('su-generator-icon-picker-loaded');
 							},
 							success: function (data) {
-								$picker.html('');
-								$.each(data, function (icon) {
-									$picker.append('<i class="fa fa-' + data[icon] + '" title="' + data[icon] + '"></i>');
-								});
-								$picker.find('i').click(function (e) {
+								$picker.append(data);
+								var $icons = $picker.children('i');
+								$icons.click(function (e) {
 									$val.val('icon: ' + $(this).attr('title'));
 									$picker.removeClass('su-generator-icon-picker-visible');
 									$val.trigger('change');
 									e.preventDefault();
 								});
+								$filter.on({
+									keyup: function () {
+										var val = $(this).val(),
+											regex = new RegExp(val, 'gi');
+										// Hide all choices
+										$icons.hide();
+										// Find searched choices and show
+										$icons.each(function () {
+											// Get shortcode name
+											var name = $(this).attr('title');
+											// Show choice if matched
+											if (name.match(regex) !== null) $(this).show();
+										});
+									},
+									focus: function () {
+										$(this).val('');
+										$icons.show();
+									}
+								});
+								$picker.removeClass('su-generator-loading');
 							}
 						});
 						e.preventDefault();
@@ -323,7 +451,7 @@ jQuery(document).ready(function ($) {
 				// Init tax_term selects
 				$('select#su-generator-attr-taxonomy').on('change', function () {
 					var $taxonomy = $(this),
-						taxonomy = $taxonomy.val(),
+						tax = $taxonomy.val(),
 						$terms = $('select#su-generator-attr-tax_term');
 					// Load new options
 					window.su_generator_get_terms = $.ajax({
@@ -331,25 +459,23 @@ jQuery(document).ready(function ($) {
 						url: ajaxurl,
 						data: {
 							action: 'su_generator_get_terms',
-							taxonomy: taxonomy
+							tax: tax,
+							noselect: true
 						},
-						dataType: 'json',
+						dataType: 'html',
 						beforeSend: function () {
 							// Check previous requests
-							if (typeof window.su_generator_get_terms ===
-								'object') window.su_generator_get_terms.abort();
+							if (typeof window.su_generator_get_terms === 'object') window.su_generator_get_terms.abort();
 							// Show loading animation
-							$terms.parent().addClass('su-generator-uploading');
+							$terms.parent().addClass('su-generator-loading');
 						},
 						success: function (data) {
 							// Remove previous options
 							$terms.find('option').remove();
 							// Append new options
-							for (var slug in data) {
-								$terms.append('<option value="' + slug + '">' + data[slug] + '</option>');
-							}
+							$terms.append(data);
 							// Hide loading animation
-							$terms.parent().removeClass('su-generator-uploading');
+							$terms.parent().removeClass('su-generator-loading');
 						}
 					});
 				});
@@ -511,11 +637,11 @@ jQuery(document).ready(function ($) {
 				if (typeof window.su_generator_preview_request ===
 					'object') window.su_generator_preview_request.abort();
 				// Show loading animation
-				$preview.addClass('su-preview-loading').html('').show();
+				$preview.addClass('su-generator-loading').html('').show();
 			},
 			success: function (data) {
 				// Hide loading animation and set new HTML
-				$preview.html(data).removeClass('su-preview-loading');
+				$preview.html(data).removeClass('su-generator-loading');
 			},
 			dataType: 'html'
 		});
