@@ -23,12 +23,11 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 * Power of CSS3
 * Custom CSS editor with syntax highlight
 * Special widget
-* Custom skins
-* Extensible
+* Rich API
 
-= Add-ons =
-* [Maker add-on](http://gndev.info/sum). Allows you to create custom shortcodes
-* [Metro skins](http://gndev.info/shortcodes-ultimate/metro-skins/). 5 flat skins with different colors
+= Premium Add-ons =
+* __[Extra Skins](http://gndev.info/shortcodes-ultimate/skins/)__ - 60+ additional skins for plugin shortcodes
+* __[Shortcode Creator](http://gndev.info/shortcodes-ultimate/maker/)__ - allows you to create your own custom shortcodes
 
 = Demo video =
 [youtube http://www.youtube.com/watch?v=DR2c266yWEA]
@@ -62,6 +61,7 @@ Have a translation? [Contact me](http://gndev.info/feedback/)
 * Vladimir Kharlampidi - [Swiper jQuery plugin](http://www.idangero.us/sliders/swiper/)
 * Designmodo - [Flat UI Free icons](http://designmodo.com/)
 * Dave Gandy - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+* James Smith - [Simple Slider jQuery plugin](http://loopj.com/jquery-simple-slider/)
 
 
 == Installation ==
@@ -98,6 +98,7 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 == Changelog ==
 
 = 4.4.0 =
+* __IMPORTANT__: new galleries mechanism. Your created galleries will work but will not be visible in admin panel. Now, you're able to create galleries right in "Insert shortcode" window. Also, you can now create galleries from posts, categories or even custom taxonomies.
 * New shortocde [dummy_image]
 * New shortocde [dummy_text]
 * New shortocde [animate]
@@ -105,6 +106,9 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 * New admin page - Examples
 * New admin page - Add-ons
 * Font Awesome updated to version 4
+* New attr [spoiler icon=""]
+* Fixed issue with date format in [posts]
+* New slider control for shortcode generator
 * Small fixes
 
 = 4.3.2 =

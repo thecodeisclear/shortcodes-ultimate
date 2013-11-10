@@ -16,7 +16,7 @@ class Su_Generator_Views {
 
 	public static function select( $id, $field ) {
 		// Detect array type (numbers or strings with translations)
-		$is_numbers = is_numeric( implode( '', array_keys( $field['values'] ) ) ) ? true : false;
+		$is_numbers = is_numeric( implode( '', array_keys( $field['values'] ) ) );
 		// Multiple selects
 		$multiple = ( isset( $field['multiple'] ) ) ? ' multiple' : '';
 		$return = '<select name="' . $id . '" id="su-generator-attr-' . $id . '" class="su-generator-attr"' . $multiple . '>';
@@ -81,6 +81,11 @@ class Su_Generator_Views {
 		return $return;
 	}
 
+	public static function slider( $id, $field ) {
+		$return = '<div class="su-generator-range-picker su-generator-clearfix"><input type="number" name="' . $id . '" value="' . esc_attr( $field['default'] ) . '" id="su-generator-attr-' . $id . '" min="' . $field['min'] . '" max="' . $field['max'] . '" step="' . $field['step'] . '" class="su-generator-attr" /></div>';
+		return $return;
+	}
+
 	public static function shadow( $id, $field ) {
 		$defaults = ( $field['default'] === 'none' ) ? array ( '0', '0', '0', '#000000' ) : explode( ' ', str_replace( 'px', '', $field['default'] ) );
 		$return = '<div class="su-generator-shadow-picker"><span class="su-generator-shadow-picker-field"><input type="number" min="-1000" max="1000" step="1" value="' . $defaults[0] . '" class="su-generator-sp-hoff" /><small>' . __( 'Horizontal offset', 'su' ) . ' (px)</small></span><span class="su-generator-shadow-picker-field"><input type="number" min="-1000" max="1000" step="1" value="' . $defaults[1] . '" class="su-generator-sp-voff" /><small>' . __( 'Vertical offset', 'su' ) . ' (px)</small></span><span class="su-generator-shadow-picker-field"><input type="number" min="-1000" max="1000" step="1" value="' . $defaults[2] . '" class="su-generator-sp-blur" /><small>' . __( 'Blur', 'su' ) . ' (px)</small></span><span class="su-generator-shadow-picker-field su-generator-shadow-picker-color"><span class="su-generator-shadow-picker-color-wheel"></span><input type="text" value="' . $defaults[3] . '" class="su-generator-shadow-picker-color-value" /><small>' . __( 'Color', 'su' ) . '</small></span><input type="hidden" name="' . $id . '" value="' . esc_attr( $field['default'] ) . '" id="su-generator-attr-' . $id . '" class="su-generator-attr" /></div>';
@@ -100,8 +105,8 @@ class Su_Generator_Views {
 
 	public static function image_source( $id, $field ) {
 		$field = wp_parse_args( $field, array(
-			'default' => 'none'
-		) );
+				'default' => 'none'
+			) );
 		$sources = Su_Tools::select( array(
 				'options'  => array(
 					'media'         => __( 'Media library', 'su' ),

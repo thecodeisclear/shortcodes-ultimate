@@ -7,26 +7,7 @@ class Su_Data {
 	/**
 	 * Constructor
 	 */
-	function __construct() {
-		add_action( 'init', array( __CLASS__, 'register' ) );
-	}
-
-	/**
-	 * Register shortcodes
-	 */
-	public static function register() {
-		// Loop through shortcodes
-		foreach ( ( array ) self::shortcodes() as $id => $data ) {
-			unset( $func );
-			if ( isset( $data['function'] ) ) $func = $data['function'];
-			elseif ( method_exists( 'Su_Shortcodes', $id ) ) $func = array( 'Su_Shortcodes', $id );
-			elseif ( method_exists( 'Su_Shortcodes', 'su_' . $id ) ) $func = array( 'Su_Shortcodes', 'su_' . $id );
-			// Register shortcode
-			if ( isset( $func ) ) add_shortcode( su_cmpt() . $id, $func );
-		}
-		// Register [media] manually // 3.x
-		add_shortcode( su_cmpt() . 'media', array( 'Su_Shortcodes', 'media' ) );
-	}
+	function __construct() {}
 
 	/**
 	 * Shortcode groups
@@ -68,33 +49,39 @@ class Su_Data {
 					'items' => array(
 						array(
 							'name' => __( 'Accordions, spoilers, different styles, anchors', 'su' ),
-							'id' => 'spoilers',
+							'id'   => 'spoilers',
 							'code' => plugins_url( 'inc/examples/spoilers.example', SU_PLUGIN_FILE ),
 							'icon' => 'tasks'
 						),
 						array(
 							'name' => __( 'Tabs, vertical tabs, tab anchors', 'su' ),
-							'id' => 'tabs',
+							'id'   => 'tabs',
 							'code' => plugins_url( 'inc/examples/tabs.example', SU_PLUGIN_FILE ),
 							'icon' => 'folder'
 						),
 						array(
 							'name' => __( 'Column layouts', 'su' ),
-							'id' => 'columns',
+							'id'   => 'columns',
 							'code' => plugins_url( 'inc/examples/columns.example', SU_PLUGIN_FILE ),
 							'icon' => 'th-large'
 						),
 						array(
 							'name' => __( 'Media elements, YouTube, Vimeo, Screenr and self-hosted videos, audio player', 'su' ),
-							'id' => 'media',
+							'id'   => 'media',
 							'code' => plugins_url( 'inc/examples/media.example', SU_PLUGIN_FILE ),
 							'icon' => 'play-circle'
 						),
 						array(
 							'name' => __( 'Unlimited buttons', 'su' ),
-							'id' => 'buttons',
+							'id'   => 'buttons',
 							'code' => plugins_url( 'inc/examples/buttons.example', SU_PLUGIN_FILE ),
 							'icon' => 'heart'
+						),
+						array(
+							'name' => __( 'Animations', 'su' ),
+							'id'   => 'animations',
+							'code' => plugins_url( 'inc/examples/animations.example', SU_PLUGIN_FILE ),
+							'icon' => 'bolt'
 						),
 					)
 				),
@@ -129,13 +116,23 @@ class Su_Data {
 					'type' => 'wrap',
 					'group' => 'content',
 					'atts' => array(
+						'style' => array(
+							'type' => 'select',
+							'values' => array(
+								'default' => __( 'Default', 'su' ),
+							),
+							'default' => 'default',
+							'name' => __( 'Style', 'su' ),
+							'desc' => sprintf( '%s. <a href="http://gndev.info/shortcodes-ultimate/skins/" target="_blank">%s</a>', __( 'Choose style for this heading', 'su' ), __( 'Install additional styles', 'su' ) )
+						),
 						'size' => array(
-							'type' => 'number',
-							'min' => 1,
-							'max' => 18,
+							'type' => 'slider',
+							'min' => 7,
+							'max' => 48,
 							'step' => 1,
-							'default' => 3,
-							'name' => __( 'Size', 'su' ), 'desc' => __( 'Select heading size', 'su' )
+							'default' => 13,
+							'name' => __( 'Size', 'su' ),
+							'desc' => __( 'Select heading size (pixels)', 'su' )
 						),
 						'align' => array(
 							'type' => 'select',
@@ -148,6 +145,15 @@ class Su_Data {
 							'name' => __( 'Align', 'su' ),
 							'desc' => __( 'Heading text alignment', 'su' )
 						),
+						'margin' => array(
+							'type' => 'slider',
+							'min' => 0,
+							'max' => 200,
+							'step' => 10,
+							'default' => 20,
+							'name' => __( 'Margin', 'su' ),
+							'desc' => __( 'Bottom margin (pixels)', 'su' )
+						),						
 						'class' => array(
 							'default' => '',
 							'name' => __( 'Class', 'su' ),
@@ -164,6 +170,15 @@ class Su_Data {
 					'type' => 'wrap',
 					'group' => 'box',
 					'atts' => array(
+						'style' => array(
+							'type' => 'select',
+							'values' => array(
+								'default' => __( 'Default', 'su' )
+							),
+							'default' => 'default',
+							'name' => __( 'Style', 'su' ),
+							'desc' => sprintf( '%s. <a href="http://gndev.info/shortcodes-ultimate/skins/" target="_blank">%s</a>', __( 'Choose style for this tabs', 'su' ), __( 'Install additional styles', 'su' ) )
+						),
 						'active' => array(
 							'type' => 'number',
 							'min' => 1,
@@ -246,7 +261,28 @@ class Su_Data {
 							),
 							'default' => 'default',
 							'name' => __( 'Style', 'su' ),
-							'desc' => __( 'Spoiler skin', 'su' )
+							'desc' => sprintf( '%s. <a href="http://gndev.info/shortcodes-ultimate/skins/" target="_blank">%s</a>', __( 'Choose style for this spoiler', 'su' ), __( 'Install additional styles', 'su' ) )
+						),
+						'icon' => array(
+							'type' => 'select',
+							'values' => array(
+								'plus'           => __( 'Plus', 'su' ),
+								'plus-circle'    => __( 'Plus circle', 'su' ),
+								'plus-square-1'  => __( 'Plus square 1', 'su' ),
+								'plus-square-2'  => __( 'Plus square 2', 'su' ),
+								'arrow'          => __( 'Arrow', 'su' ),
+								'arrow-circle-1' => __( 'Arrow circle 1', 'su' ),
+								'arrow-circle-2' => __( 'Arrow circle 2', 'su' ),
+								'chevron'        => __( 'Chevron', 'su' ),
+								'chevron-circle' => __( 'Chevron circle', 'su' ),
+								'caret'          => __( 'Caret', 'su' ),
+								'caret-square'   => __( 'Caret square', 'su' ),
+								'folder-1'       => __( 'Folder 1', 'su' ),
+								'folder-2'       => __( 'Folder 2', 'su' )
+							),
+							'default' => 'plus',
+							'name' => __( 'Icon', 'su' ),
+							'desc' => __( 'Icons for spoiler', 'su' )
 						),
 						'anchor' => array(
 							'default' => '',
@@ -312,10 +348,10 @@ class Su_Data {
 					'group' => 'content other',
 					'atts' => array(
 						'size' => array(
-							'type' => 'number',
+							'type' => 'slider',
 							'min' => 0,
-							'max' => 10000,
-							'step' => 5,
+							'max' => 800,
+							'step' => 10,
 							'default' => 20,
 							'name' => __( 'Height', 'su' ),
 							'desc' => __( 'Height of the spacer in pixels', 'su' )
@@ -394,8 +430,16 @@ class Su_Data {
 					'type' => 'wrap',
 					'group' => 'box',
 					'atts' => array(
+						'style' => array(
+							'type' => 'select',
+							'values' => array(
+								'default' => __( 'Default', 'su' )
+							),
+							'default' => 'default',
+							'name' => __( 'Style', 'su' ),
+							'desc' => sprintf( '%s. <a href="http://gndev.info/shortcodes-ultimate/skins/" target="_blank">%s</a>', __( 'Choose style for this quote', 'su' ), __( 'Install additional styles', 'su' ) )
+						),
 						'cite' => array(
-							'values' => array( ),
 							'default' => '',
 							'name' => __( 'Cite', 'su' ),
 							'desc' => __( 'Quote author name', 'su' )
@@ -459,9 +503,13 @@ class Su_Data {
 							'name' => __( 'Style', 'su' ), 'desc' => __( 'Dropcap style preset', 'su' )
 						),
 						'size' => array(
-							'type' => 'select',
-							'values' => array( 1, 2, 3, 4, 5 ), 'default' => 3,
-							'name' => __( 'Size', 'su' ), 'desc' => __( 'Choose dropcap size', 'su' )
+							'type' => 'slider',
+							'min' => 1,
+							'max' => 5,
+							'step' => 1,
+							'default' => 3,
+							'name' => __( 'Size', 'su' ),
+							'desc' => __( 'Choose dropcap size', 'su' )
 						),
 						'class' => array(
 							'default' => '',
@@ -637,7 +685,7 @@ class Su_Data {
 							'desc' => __( 'Button text color', 'su' )
 						),
 						'size' => array(
-							'type' => 'number',
+							'type' => 'slider',
 							'min' => 1,
 							'max' => 20,
 							'step' => 1,
@@ -732,7 +780,7 @@ class Su_Data {
 							'desc' => __( 'This color will be applied to the selected icon. Does not works with uploaded icons', 'su' )
 						),
 						'size' => array(
-							'type' => 'number',
+							'type' => 'slider',
 							'min' => 10,
 							'max' => 128,
 							'step' => 2,
@@ -788,9 +836,11 @@ class Su_Data {
 							'name' => __( 'Title text color', 'su' ), 'desc' => __( 'Color for the box title text', 'su' )
 						),
 						'radius' => array(
-							'type' => 'select',
-							'values' => array( '0', '3', '5', '10', '20' ),
-							'default' => '3',
+							'type' => 'slider',
+							'min' => 0,
+							'max' => 20,
+							'step' => 1,
+							'default' => 3,
 							'name' => __( 'Radius', 'su' ),
 							'desc' => __( 'Box corners radius', 'su' )
 						),
@@ -824,9 +874,11 @@ class Su_Data {
 							'desc' => __( 'Note text color', 'su' )
 						),
 						'radius' => array(
-							'type' => 'select',
-							'values' => array( '0', '3', '5', '10', '20' ),
-							'default' => '3',
+							'type' => 'slider',
+							'min' => 0,
+							'max' => 20,
+							'step' => 1,
+							'default' => 3,
 							'name' => __( 'Radius', 'su' ), 'desc' => __( 'Note corners radius', 'su' )
 						),
 						'class' => array(
@@ -1002,18 +1054,18 @@ class Su_Data {
 							'desc' => __( 'Url of YouTube page with video. Ex: http://youtube.com/watch?v=XXXXXX', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Player width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 400,
 							'name' => __( 'Height', 'su' ),
@@ -1058,18 +1110,18 @@ class Su_Data {
 							'desc' => __( 'Value is a comma-separated list of video IDs to play. If you specify a value, the first video that plays will be the VIDEO_ID specified in the URL path, and the videos specified in the playlist parameter will play thereafter', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Player width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 400,
 							'name' => __( 'Height', 'su' ),
@@ -1170,18 +1222,18 @@ class Su_Data {
 							'name' => __( 'Url', 'su' ), 'desc' => __( 'Url of Vimeo page with video', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Player width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 400,
 							'name' => __( 'Height', 'su' ),
@@ -1219,18 +1271,18 @@ class Su_Data {
 							'name' => __( 'Url', 'su' ), 'desc' => __( 'Url of Screenr page with video', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Player width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 400,
 							'name' => __( 'Height', 'su' ),
@@ -1315,18 +1367,18 @@ class Su_Data {
 							'desc' => __( 'Player title', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Player width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 300,
 							'name' => __( 'Height', 'su' ),
@@ -1474,8 +1526,11 @@ class Su_Data {
 							'desc' => __( 'Url to RSS-feed', 'su' )
 						),
 						'limit' => array(
-							'type' => 'select',
-							'values' => array( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ), 'default' => 3,
+							'type' => 'slider',
+							'min' => 1,
+							'max' => 20,
+							'step' => 1,
+							'default' => 3,
 							'name' => __( 'Limit', 'su' ), 'desc' => __( 'Number of items to show', 'su' )
 						),
 						'class' => array(
@@ -1568,18 +1623,18 @@ class Su_Data {
 							'desc' => __( 'Url to uploaded document. Supported formats: doc, xls, pdf etc.', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Viewer width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Height', 'su' ),
@@ -1607,18 +1662,18 @@ class Su_Data {
 					'group' => 'media',
 					'atts' => array(
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Map width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 400,
 							'name' => __( 'Height', 'su' ),
@@ -1680,17 +1735,17 @@ class Su_Data {
 							'desc' => __( 'Open links in', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
 							'name' => __( 'Width', 'su' ), 'desc' => __( 'Slider width (in pixels)', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 200,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 300,
 							'name' => __( 'Height', 'su' ), 'desc' => __( 'Slider height (in pixels)', 'su' )
@@ -1788,20 +1843,22 @@ class Su_Data {
 							'desc' => __( 'Open links in', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 100,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 600,
-							'name' => __( 'Width', 'su' ), 'desc' => __( 'Carousel width (in pixels)', 'su' )
+							'name' => __( 'Width', 'su' ),
+							'desc' => __( 'Carousel width (in pixels)', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 20,
+							'max' => 1600,
 							'step' => 20,
 							'default' => 100,
-							'name' => __( 'Height', 'su' ), 'desc' => __( 'Carousel height (in pixels)', 'su' )
+							'name' => __( 'Height', 'su' ),
+							'desc' => __( 'Carousel height (in pixels)', 'su' )
 						),
 						'responsive' => array(
 							'type' => 'bool',
@@ -1913,18 +1970,18 @@ class Su_Data {
 							'desc' => __( 'Open links in', 'su' )
 						),
 						'width' => array(
-							'type' => 'number',
-							'min' => 20,
-							'max' => 2000,
-							'step' => 20,
+							'type' => 'slider',
+							'min' => 10,
+							'max' => 1600,
+							'step' => 10,
 							'default' => 90,
 							'name' => __( 'Width', 'su' ), 'desc' => __( 'Single item width (in pixels)', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 20,
-							'max' => 2000,
-							'step' => 20,
+							'type' => 'slider',
+							'min' => 10,
+							'max' => 1600,
+							'step' => 10,
 							'default' => 90,
 							'name' => __( 'Height', 'su' ), 'desc' => __( 'Single item height (in pixels)', 'su' )
 						),
@@ -2099,9 +2156,9 @@ class Su_Data {
 							'desc' => __( 'What to generate', 'su' )
 						),
 						'amount' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
+							'type' => 'slider',
+							'min' => 1,
+							'max' => 100,
 							'step' => 1,
 							'default' => 1,
 							'name' => __( 'Amount', 'su' ),
@@ -2129,19 +2186,19 @@ class Su_Data {
 					'group' => 'content',
 					'atts' => array(
 						'width' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
-							'step' => 20,
+							'type' => 'slider',
+							'min' => 10,
+							'max' => 1600,
+							'step' => 10,
 							'default' => 500,
 							'name' => __( 'Width', 'su' ),
 							'desc' => __( 'Image width', 'su' )
 						),
 						'height' => array(
-							'type' => 'number',
-							'min' => 0,
-							'max' => 10000,
-							'step' => 20,
+							'type' => 'slider',
+							'min' => 10,
+							'max' => 1600,
+							'step' => 10,
 							'default' => 300,
 							'name' => __( 'Height', 'su' ),
 							'desc' => __( 'Image height', 'su' )
@@ -2183,31 +2240,37 @@ class Su_Data {
 					'type' => 'wrap',
 					'group' => 'other',
 					'atts' => array(
-						'animation' => array(
+						'type' => array(
 							'type' => 'select',
 							'values' => array( 'flash', 'bounce', 'shake', 'tada', 'swing', 'wobble', 'pulse', 'flip', 'flipInX', 'flipOutX', 'flipInY', 'flipOutY', 'fadeIn', 'fadeInUp', 'fadeInDown', 'fadeInLeft', 'fadeInRight', 'fadeInUpBig', 'fadeInDownBig', 'fadeInLeftBig', 'fadeInRightBig', 'fadeOut', 'fadeOutUp', 'fadeOutDown', 'fadeOutLeft', 'fadeOutRight', 'fadeOutUpBig', 'fadeOutDownBig', 'fadeOutLeftBig', 'fadeOutRightBig', 'slideInDown', 'slideInLeft', 'slideInRight', 'slideOutUp', 'slideOutLeft', 'slideOutRight', 'bounceIn', 'bounceInDown', 'bounceInUp', 'bounceInLeft', 'bounceInRight', 'bounceOut', 'bounceOutDown', 'bounceOutUp', 'bounceOutLeft', 'bounceOutRight', 'rotateIn', 'rotateInDownLeft', 'rotateInDownRight', 'rotateInUpLeft', 'rotateInUpRight', 'rotateOut', 'rotateOutDownLeft', 'rotateOutDownRight', 'rotateOutUpLeft', 'rotateOutUpRight', 'lightSpeedIn', 'lightSpeedOut', 'hinge', 'rollIn', 'rollOut' ),
-							'default' => 'any',
+							'default' => 'bounceIn',
 							'name' => __( 'Animation', 'su' ),
 							'desc' => __( 'Select animation type', 'su' )
 						),
 						'duration' => array(
-							'type' => 'number',
+							'type' => 'slider',
 							'min' => 0,
-							'max' => 99,
-							'step' => 0.1,
+							'max' => 20,
+							'step' => 0.5,
 							'default' => 1,
 							'name' => __( 'Duration', 'su' ),
 							'desc' => __( 'Animation duration (seconds)', 'su' )
 						),
 						'delay' => array(
-							'type' => 'number',
+							'type' => 'slider',
 							'min' => 0,
-							'max' => 99,
-							'step' => 0.1,
+							'max' => 20,
+							'step' => 0.5,
 							'default' => 0,
 							'name' => __( 'Delay', 'su' ),
 							'desc' => __( 'Animation delay (seconds)', 'su' )
 						),
+						'inline' => array(
+							'type' => 'bool',
+							'default' => 'no',
+							'name' => __( 'Inline', 'su' ),
+							'desc' => __( 'This parameter determines what HTML tag will be used for animation wrapper. Turn this option to YES and animated element will be wrapped in SPAN instead of DIV. Useful for inline animations, like buttons', 'su' )
+						),						
 						'class' => array(
 							'default' => '',
 							'name' => __( 'Class', 'su' ),
@@ -2223,5 +2286,3 @@ class Su_Data {
 		return ( is_string( $shortcode ) ) ? $shortcodes[sanitize_text_field( $shortcode )] : $shortcodes;
 	}
 }
-
-new Su_Data;

@@ -118,12 +118,6 @@ if ( class_exists( 'Sunrise3_Views' ) ) {
 					'image' => plugins_url( 'assets/images/banners/maker.png', SU_PLUGIN_FILE )
 				),
 				array(
-					'name' => __( 'Extra shortcodes', 'su' ),
-					'desc' => __( 'Extra set of additional shortcodes for advanced content styling', 'su' ),
-					'url' => 'http://gndev.info/shortcodes-ultimate/extra/',
-					'image' => plugins_url( 'assets/images/banners/extra.png', SU_PLUGIN_FILE )
-				),
-				array(
 					'name' => __( 'Skins', 'su' ),
 					'desc' => __( 'Set of additional skins for Shrtcodes Ultimate. It includes skins for accordeons/spoilers, tabs and some other shortcodes', 'su' ),
 					'url' => 'http://gndev.info/shortcodes-ultimate/skins/',

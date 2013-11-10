@@ -192,6 +192,24 @@ jQuery(document).ready(function ($) {
 				$settings.html(data);
 				// Apply selected text to the content field
 				if (typeof mce_selection !== 'undefined' && mce_selection !== '') $('#su-generator-content').val(mce_selection);
+				// Init range pickers
+				$('.su-generator-range-picker').each(function (index) {
+					var $picker = $(this),
+						$val = $picker.find('input'),
+						min = $val.attr('min'),
+						max = $val.attr('max'),
+						step = $val.attr('step');
+					// Apply noUIslider
+					$val.simpleSlider({
+						snap: true,
+						step: step,
+						range: [min, max]
+					});
+					$val.attr('type', 'text').show();
+					$val.on('keyup blur', function (e) {
+						$val.simpleSlider('setValue', $val.val());
+					});
+				});
 				// Init color pickers
 				$('.su-generator-select-color').each(function (index) {
 					$(this).find('.su-generator-select-color-wheel').filter(':first').farbtastic('.su-generator-select-color-value:eq(' +
@@ -573,12 +591,16 @@ jQuery(document).ready(function ($) {
 	// Preview shortcode
 	$('#su-generator').on('click', '.su-generator-toggle-preview', function (e) {
 		// Prepare data
-		var $button = $(this);
+		var $button = $(this),
+			update_timer;
 		// Update link text
 		$button.hide(); //.text($button.data('update-text'));
 		// Bind updating on settings changes
 		if (!$button.hasClass('su-preview-enabled')) $settings.find('input, textarea, select').on('change keyup blur', function () {
-			su_generator_update_preview();
+			window.clearTimeout(update_timer);
+			update_timer = window.setTimeout(function () {
+				su_generator_update_preview();
+			}, 500);
 		});
 		// Add ready-class
 		$button.addClass('su-preview-enabled');

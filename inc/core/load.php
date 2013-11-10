@@ -1,5 +1,4 @@
 <?php
-
 class Shortcodes_Ultimate {
 
 	/**
@@ -7,7 +6,8 @@ class Shortcodes_Ultimate {
 	 */
 	function __construct() {
 		add_action( 'plugins_loaded',             array( __CLASS__, 'init' ) );
-		add_action( 'plugins_loaded',             array( __CLASS__, 'update' ), 20 );
+		add_action( 'init',                       array( __CLASS__, 'register' ) );
+		add_action( 'init',                       array( __CLASS__, 'update' ), 20 );
 		register_activation_hook( SU_PLUGIN_FILE, array( __CLASS__, 'activation' ) );
 		register_activation_hook( SU_PLUGIN_FILE, array( __CLASS__, 'deactivation' ) );
 	}
@@ -173,10 +173,30 @@ class Shortcodes_Ultimate {
 	 * Plugin update hook
 	 */
 	public static function update() {
-		if ( version_compare( get_option( 'su_option_version' ), SU_PLUGIN_VERSION, '<' ) ) {
+		$option = get_option( 'su_option_version' );
+		if ( $option !== SU_PLUGIN_VERSION ) {
 			update_option( 'su_option_version', SU_PLUGIN_VERSION );
 			do_action( 'su/update' );
 		}
+	}
+
+	/**
+	 * Register shortcodes
+	 */
+	public static function register() {
+		// Prepare compatibility mode prefix
+		$prefix = su_cmpt();
+		// Loop through shortcodes
+		foreach ( ( array ) Su_Data::shortcodes() as $id => $data ) {
+			if ( isset( $data['function'] ) && is_callable( $data['function'] ) ) $func = $data['function']; 
+			elseif ( is_callable( array( 'Su_Shortcodes', $id ) ) ) $func = array( 'Su_Shortcodes', $id );
+			elseif ( is_callable( array( 'Su_Shortcodes', 'su_' . $id ) ) ) $func = array( 'Su_Shortcodes', 'su_' . $id );
+			else continue;
+			// Register shortcode
+			add_shortcode( $prefix . $id, $func );
+		}
+		// Register [media] manually // 3.x
+		add_shortcode( $prefix . 'media', array( 'Su_Shortcodes', 'media' ) );
 	}
 
 	/**

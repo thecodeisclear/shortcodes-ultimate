@@ -47,6 +47,13 @@ jQuery(document).ready(function ($) {
 
 	// ########## Examples screen ##########
 
+	// Disable all buttons
+	$('#su-examples-preview').on('click', '.su-button', function (e) {
+		if ($(this).hasClass('su-example-button-clicked')) alert(su_options_page.not_clickable);
+		else $(this).addClass('su-example-button-clicked');
+		e.preventDefault();
+	});
+
 	var examples_timer = 0,
 		$example_window = $('#su-examples-window'),
 		$example_preview = $('#su-examples-preview');

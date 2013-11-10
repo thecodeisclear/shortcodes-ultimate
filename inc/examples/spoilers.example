@@ -70,6 +70,24 @@ Use next links to expand accordion items
 
 -----
 
+<h2>Different icons</h2>
+
+[%su_accordion]
+	[%su_spoiler title="plus" icon="plus"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="plus-circle" icon="plus-circle"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="plus-square-1" icon="plus-square-1"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="plus-square-2" icon="plus-square-2"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="arrow" icon="arrow"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="arrow-circle-1" icon="arrow-circle-1"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="arrow-circle-2" icon="arrow-circle-2"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="caret" icon="caret"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="caret-square" icon="caret-square"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="folder-1" icon="folder-1"] Spoiler content [/%su_spoiler]
+	[%su_spoiler title="folder-2" icon="folder-2"] Spoiler content [/%su_spoiler]
+[/%su_accordion]
+
+-----
+
 <h2>Custom styles</h2>
 
 [%su_spoiler title="Spoiler title" class="my-custom-spoiler"] Spoiler content [/%su_spoiler]

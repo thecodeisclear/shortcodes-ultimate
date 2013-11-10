@@ -46,11 +46,11 @@ class Su_Generator {
 		add_action( 'admin_footer', array( __CLASS__, 'popup' ) );
 		// Request assets
 		wp_enqueue_media();
-		su_query_asset( 'css', array( 'farbtastic', 'qtip', 'magnific-popup', 'font-awesome', 'su-generator' ) );
-		su_query_asset( 'js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-mouse', 'farbtastic', 'qtip', 'magnific-popup', 'su-generator' ) );
+		su_query_asset( 'css', array( 'simpleslider', 'farbtastic', 'qtip', 'magnific-popup', 'font-awesome', 'su-generator' ) );
+		su_query_asset( 'js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-mouse', 'simpleslider', 'farbtastic', 'qtip', 'magnific-popup', 'su-generator' ) );
 		// Print/return result
 		if ( $args['echo'] ) echo $button;
-		else return $button;
+		return $button;
 	}
 
 	/**
@@ -92,7 +92,8 @@ class Su_Generator {
 						<?php
 			// Choices loop
 			foreach ( (array) Su_Data::shortcodes() as $name => $shortcode ) {
-				$icon = ( isset( $shortcode['icon'] ) ) ? $shortcode['icon'] : '';
+				$icon = ( isset( $shortcode['icon'] ) ) ? $shortcode['icon'] : 'puzzle-piece';
+				$shortcode['name'] = ( isset( $shortcode['name'] ) ) ? $shortcode['name'] : $name;
 				echo '<span data-name="' . $shortcode['name'] . '" data-shortcode="' . $name . '" title="' . esc_attr( $shortcode['desc'] ) . '" data-desc="' . esc_attr( $shortcode['desc'] ) . '" data-group="' . $shortcode['group'] . '">' . Su_Tools::icon( $icon ) . $shortcode['name'] . '</span>' . "\n";
 			}
 ?>
@@ -145,10 +146,12 @@ class Su_Generator {
 				foreach ( $shortcode['atts'] as $attr_name => $attr_info ) {
 					// Prepare default value
 					$default = (string) ( isset( $attr_info['default'] ) ) ? $attr_info['default'] : '';
+					$attr_info['name'] = (isset( $attr_info['name'] )) ? $attr_info['name'] : $attr_name;
 					$return .= '<div class="su-generator-attr-container' . $skip . '" data-default="' . esc_attr( $default ) . '">';
 					$return .= '<h5>' . $attr_info['name'] . '</h5>';
 					// Create field types
-					if ( !isset( $attr_info['type'] ) ) $attr_info['type'] = 'text';
+					if ( !isset( $attr_info['type'] ) && isset( $attr_info['values'] ) && is_array( $attr_info['values'] ) && count( $attr_info['values'] ) ) $attr_info['type'] = 'select';
+					elseif ( !isset( $attr_info['type'] ) ) $attr_info['type'] = 'text';
 					if ( is_callable( array( 'Su_Generator_Views', $attr_info['type'] ) ) ) $return .= call_user_func( array( 'Su_Generator_Views', $attr_info['type'] ), $attr_name, $attr_info );
 					elseif ( isset( $attr_info['callback'] ) && is_callable( $attr_info['callback'] ) ) $return .= call_user_func( $attr_info['callback'], $attr_name, $attr_info );
 					if ( isset( $attr_info['desc'] ) ) $return .= '<div class="su-generator-attr-desc">' . str_replace( '<b%value>', '<b class="su-generator-set-value" title="' . __( 'Click to set this value', 'su' ) . '">', $attr_info['desc'] ) . '</div>';

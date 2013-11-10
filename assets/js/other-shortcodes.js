@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
 		tabs_height();
 	});
 
-	// Activate anchor nav for tabs
+	// Activate anchor nav for tabs and spoilers
 	anchor_nav();
 
 	// Lightbox
@@ -128,9 +128,10 @@ jQuery(document).ready(function ($) {
 	function tabs_height() {
 		$('.su-tabs-vertical').each(function () {
 			var $tabs = $(this),
-				$panes = $(this).children('.su-tabs-panes'),
+				$nav = $tabs.children('.su-tabs-nav'),
+				$panes = $tabs.find('.su-tabs-pane'),
 				height = 0;
-			$panes.css('min-height', '0').css('min-height', $tabs.height());
+			$panes.css('min-height', $nav.outerHeight(true));
 		});
 	}
 

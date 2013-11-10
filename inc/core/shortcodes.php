@@ -8,23 +8,25 @@ class Su_Shortcodes {
 
 	public static function heading( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
-				'size'  => 3,
-				'align' => 'center',
-				'class' => ''
+				'style'  => 'default',
+				'size'   => 13,
+				'align'  => 'center',
+				'margin' => '20',
+				'class'  => ''
 			), $atts );
 		su_query_asset( 'css', 'su-content-shortcodes' );
-		$size = round( ( $atts['size'] + 7 ) * 1.3 );
-		return '<div class="su-heading su-heading-align-' . $atts['align'] . su_ecssc( $atts ) . '" style="font-size:' . $size . 'px"><div class="su-heading-inner">' . $content . '</div></div>';
+		do_action( 'su/shortcode/heading', $atts );
+		return '<div class="su-heading su-heading-style-' . $atts['style'] . ' su-heading-align-' . $atts['align'] . su_ecssc( $atts ) . '" style="font-size:' . intVal( $atts['size'] ) . 'px;margin-bottom:' . $atts['margin'] . 'px"><div class="su-heading-inner">' . $content . '</div></div>';
 	}
 
 	public static function tabs( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
 				'active'   => 1,
 				'vertical' => 'no',
-				'style'    => null, // 3.x
+				'style'    => 'default', // 3.x
 				'class'    => ''
 			), $atts );
-		if ( $atts['style'] == '3' ) $atts['vertical'] = 'yes';
+		if ( $atts['style'] === '3' ) $atts['vertical'] = 'yes';
 		do_shortcode( $content );
 		$return = '';
 		$tabs = $panes = array();
@@ -34,8 +36,8 @@ class Su_Shortcodes {
 				$tabs[] = '<span class="' . su_ecssc( $tab ) . $tab['disabled'] . '"' . $tab['anchor'] . '>' . su_scattr( $tab['title'] ) . '</span>';
 				$panes[] = '<div class="su-tabs-pane' . su_ecssc( $tab ) . '">' . $tab['content'] . '<div style="clear:both;height:0"></div></div>';
 			}
-			$vertical = ( $atts['vertical'] === 'yes' ) ? ' su-tabs-vertical' : '';
-			$return = '<div class="su-tabs' . $vertical . su_ecssc( $atts ) . '" data-active="' . (string) $atts['active'] . '"><div class="su-tabs-nav">' . implode( '', $tabs ) . '</div><div class="su-tabs-panes">' . implode( "\n", $panes ) . '</div></div>';
+			$atts['vertical'] = ( $atts['vertical'] === 'yes' ) ? ' su-tabs-vertical' : '';
+			$return = '<div class="su-tabs su-tabs-style-' . $atts['style'] . $atts['vertical'] . su_ecssc( $atts ) . '" data-active="' . (string) $atts['active'] . '"><div class="su-tabs-nav">' . implode( '', $tabs ) . '</div><div class="su-tabs-panes">' . implode( "\n", $panes ) . '</div></div>';
 		}
 		// Reset tabs
 		self::$tabs = array();
@@ -43,6 +45,7 @@ class Su_Shortcodes {
 		su_query_asset( 'css', 'su-box-shortcodes' );
 		su_query_asset( 'js', 'jquery' );
 		su_query_asset( 'js', 'su-other-shortcodes' );
+		do_action( 'su/shortcode/tabs', $atts );
 		return $return;
 	}
 
@@ -62,6 +65,7 @@ class Su_Shortcodes {
 			'class' => $atts['class']
 		);
 		self::$tab_count++;
+		do_action( 'su/shortcode/tab', $atts );
 	}
 
 	public static function spoiler( $atts = null, $content = null ) {
@@ -69,20 +73,24 @@ class Su_Shortcodes {
 				'title'  => __( 'Spoiler title', 'su' ),
 				'open'   => 'no',
 				'style'  => 'default',
+				'icon'   => 'plus',
 				'anchor' => '',
 				'class'  => ''
 			), $atts );
 		$atts['style'] = str_replace( array( '1', '2' ), array( 'default', 'fancy' ), $atts['style'] );
-		$closed = ( $atts['open'] !== 'yes' ) ? ' su-spoiler-closed' : '';
 		$atts['anchor'] = ( $atts['anchor'] ) ? ' data-anchor="' . str_replace( ' ', '', trim( sanitize_text_field( $atts['anchor'] ) ) ) . '"' : '';
+		if ( $atts['open'] !== 'yes' ) $atts['class'] .= ' su-spoiler-closed';
+		su_query_asset( 'css', 'font-awesome' );
 		su_query_asset( 'css', 'su-box-shortcodes' );
 		su_query_asset( 'js', 'jquery' );
 		su_query_asset( 'js', 'su-other-shortcodes' );
-		return '<div class="su-spoiler su-spoiler-style-' . $atts['style'] . $closed . su_ecssc( $atts ) . '"' . $atts['anchor'] . '><div class="su-spoiler-title"><span class="su-spoiler-icon"></span>' . su_scattr( $atts['title'] ) . '</div><div class="su-spoiler-content">' . su_do_shortcode( $content, 's' ) . '</div></div>';
+		do_action( 'su/shortcode/spoiler', $atts );
+		return '<div class="su-spoiler su-spoiler-style-' . $atts['style'] . ' su-spoiler-icon-' . $atts['icon'] . su_ecssc( $atts ) . '"' . $atts['anchor'] . '><div class="su-spoiler-title"><span class="su-spoiler-icon"></span>' . su_scattr( $atts['title'] ) . '</div><div class="su-spoiler-content">' . su_do_shortcode( $content, 's' ) . '</div></div>';
 	}
 
 	public static function accordion( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array( 'class' => '' ), $atts );
+		do_action( 'su/shortcode/accordion', $atts );
 		return '<div class="su-accordion' . su_ecssc( $atts ) . '">' . do_shortcode( $content ) . '</div>';
 	}
 
@@ -99,7 +107,7 @@ class Su_Shortcodes {
 
 	public static function spacer( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
-				'size'  => 20,
+				'size'  => '20',
 				'class' => ''
 			), $atts );
 		su_query_asset( 'css', 'su-content-shortcodes' );
@@ -131,16 +139,18 @@ class Su_Shortcodes {
 
 	public static function quote( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
+				'style' => 'default',
 				'cite'  => false,
 				'url'   => false,
 				'class' => ''
 			), $atts );
-		$cite_link = ( $atts['url'] && $atts['cite'] ) ? '<a href="' . $atts['url'] . '">' . $atts['cite'] . '</a>'
+		$cite_link = ( $atts['url'] && $atts['cite'] ) ? '<a href="' . $atts['url'] . '" target="_blank">' . $atts['cite'] . '</a>'
 		: $atts['cite'];
-		$cite = ( $atts['cite'] ) ? '<span class="su-quote-cite">&mdash; ' . $cite_link . '</span>' : '';
+		$cite = ( $atts['cite'] ) ? '<span class="su-quote-cite">' . $cite_link . '</span>' : '';
 		$cite_class = ( $atts['cite'] ) ? ' su-quote-has-cite' : '';
 		su_query_asset( 'css', 'su-box-shortcodes' );
-		return '<div class="su-quote' . $cite_class . su_ecssc( $atts ) . '"><div class="su-quote-inner">' . do_shortcode( $content ) . su_scattr( $cite ) . '</div></div>';
+		do_action( 'su/shortcode/quote', $atts );
+		return '<div class="su-quote su-quote-style-' . $atts['style'] . $cite_class . su_ecssc( $atts ) . '"><div class="su-quote-inner">' . do_shortcode( $content ) . su_scattr( $cite ) . '</div></div>';
 	}
 
 	public static function pullquote( $atts = null, $content = null ) {
@@ -1223,11 +1233,13 @@ class Su_Shortcodes {
 
 	public static function animate( $atts = null, $content = null ) {
 		$atts = shortcode_atts( array(
-				'animation' => 'flash',
+				'type'      => 'bounceIn',
 				'duration'  => 1,
 				'delay'     => 0,
+				'inline'    => 'no',
 				'class'     => ''
 			), $atts );
+		$tag = ( $atts['inline'] === 'yes' ) ? 'span' : 'div';
 		$style = array(
 			'duration' => array(),
 			'delay' => array()
@@ -1236,7 +1248,7 @@ class Su_Shortcodes {
 			$style['duration'][] = $vendor . 'animation-duration:' . $atts['duration'] . 's';
 			$style['delay'][] = $vendor . 'animation-delay:' . $atts['delay'] . 's';
 		}
-		$return = '<div class="su-animate ' . $atts['animation'] . su_ecssc( $atts ) . '" style="visibility:hidden;' . implode( ';', $style['duration'] ) . ';' . implode( ';', $style['delay'] ) . '" data-animation="' . $atts['animation'] . '">' . do_shortcode( $content ) . '</div>';
+		$return = '<' . $tag . ' class="su-animate ' . $atts['type'] . su_ecssc( $atts ) . '" style="visibility:hidden;' . implode( ';', $style['duration'] ) . ';' . implode( ';', $style['delay'] ) . '" data-animation="' . $atts['type'] . '">' . do_shortcode( $content ) . '</' . $tag . '>';
 		su_query_asset( 'css', 'animate' );
 		su_query_asset( 'js', 'jquery' );
 		su_query_asset( 'js', 'inview' );

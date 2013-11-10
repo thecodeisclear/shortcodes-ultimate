@@ -37,8 +37,9 @@ class Su_Assets {
 	 * Register assets
 	 */
 	public static function register() {
-		// Get plugin object
-		$shult = shortcodes_ultimate();
+		// noUIslider
+		wp_register_script( 'simpleslider', plugins_url( 'assets/js/simpleslider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.0.0', true );
+		wp_register_style( 'simpleslider', plugins_url( 'assets/css/simpleslider.css', SU_PLUGIN_FILE ), false, '1.0.0', 'all' );
 		// Font Awesome
 		wp_register_style( 'font-awesome', plugins_url( 'assets/css/font-awesome.css', SU_PLUGIN_FILE ), false, '3.2.1', 'all' );
 		// Animate.css
@@ -64,7 +65,8 @@ class Su_Assets {
 		wp_register_script( 'su-options-page', plugins_url( 'assets/js/options-page.js', SU_PLUGIN_FILE ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-options-page', 'su_options_page', array(
 				'upload_title' => __( 'Choose files', 'su' ),
-				'upload_insert' => __( 'Add selected files', 'su' )
+				'upload_insert' => __( 'Add selected files', 'su' ),
+				'not_clickable' => __( 'This button is not clickable', 'su' )
 			) );
 		// Generator
 		wp_register_style( 'su-generator', plugins_url( 'assets/css/generator.css', SU_PLUGIN_FILE ), array( 'farbtastic', 'magnific-popup' ), SU_PLUGIN_VERSION, 'all' );
