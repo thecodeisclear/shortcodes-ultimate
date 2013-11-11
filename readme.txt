@@ -97,6 +97,9 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
+= 4.4.1 =
+* Fixed file_get_contents() (disabled http wrappers) issue at the examples page
+
 = 4.4.0 =
 * __IMPORTANT__: new galleries mechanism. Your created galleries will work but will not be visible in admin panel. Now, you're able to create galleries right in "Insert shortcode" window. Also, you can now create galleries from posts, categories or even custom taxonomies.
 * New shortocde [dummy_image]
