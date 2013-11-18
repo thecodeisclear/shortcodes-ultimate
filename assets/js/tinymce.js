@@ -21,13 +21,21 @@
 				infourl: "http://www.tinymce.com/wiki.php/Plugin:bbcode"
 			}
 		},
-		_html2shortcodes: function (e) {
-			function t(t, n) {
-				e = e.replace(t, n);
-			}
-			return e = tinymce.trim(e),
-			t(/<div.*?class=\"su-column su-column-size-(.*?) (.*?)\".*?>(.*?)<\/div>/gi, '[column size="$1" class="$2"]$3[/column]'),
-			e;
+		_html2shortcodes: function (content) {
+			// Prepare data
+			var shortcodes = ['row', 'column'],
+				prefix = '';
+			// Trim content
+			content = tinymce.trim(content);
+			content = content.replace(/<div.*?class=\"su-row (.*?)\".*?>(.*?)<\/div>/gi, '[row class="$1"]$2[/column]');
+			content = content.replace(/<div.*?class=\"su-column su-column-size-(.*?) (.*?)\".*?>(.*?)<\/div>/gi, '[column size="$1" class="$2"]$3[/column]');
+			return content;
+			// function t(t, n) {
+			// e = e.replace(t, n);
+			// }
+			// return e = tinymce.trim(e),
+			// t(),
+			// e;
 			// t(/<a.*?href=\"(.*?)\".*?>(.*?)<\/a>/gi, "[url=$1]$2[/url]"),
 			// t(/<font.*?color=\"(.*?)\".*?class=\"codeStyle\".*?>(.*?)<\/font>/gi, "[code][color=$1]$2[/color][/code]"),
 			// t(/<font.*?color=\"(.*?)\".*?class=\"quoteStyle\".*?>(.*?)<\/font>/gi, "[quote][color=$1]$2[/color][/quote]"),
@@ -66,12 +74,19 @@
 			// t(/&gt;/gi, ">"),
 			// t(/&amp;/gi, "&"),
 		},
-		_shortcodes2html: function (e) {
-			function t(t, n) {
-				e = e.replace(t, n)
-			}
-			return e = tinymce.trim(e),
-			t(/\[column.*?size="(.*?)".*?class="(.*?)".*?\](.*?)\[\/column\]/gi, '<div class="su-column su-column-size-$1 $2">$3</div>'),
+		_shortcodes2html: function (content) {
+			// Prepare data
+			var shortcodes = ['row', 'column'],
+				prefix = '';
+			// Trim content
+			content = tinymce.trim(content);
+			// Loop shortcodes
+			for (var i = shortcodes.length - 1; i >= 0; i--) {
+				content = wp.shortcode.replace(prefix + shortcodes[i], content, this._shortcode2html);
+			};
+			return content;
+			// return e = tinymce.trim(e),
+			// t(/\[column.*?size="(.*?)".*?class="(.*?)".*?\](.*?)\[\/column\]/gi, '<div class="su-column su-column-size-$1 $2">$3</div>'),
 			// t(/\n/gi, "<br />"),
 			// t(/\[b\]/gi, "<strong>"),
 			// t(/\[\/b\]/gi, "</strong>"),
@@ -85,7 +100,24 @@
 			// t(/\[color=(.*?)\](.*?)\[\/color\]/gi, '<font color="$1">$2</font>'),
 			// t(/\[code\](.*?)\[\/code\]/gi, '<span class="codeStyle">$1</span>&nbsp;'),
 			// t(/\[quote.*?\](.*?)\[\/quote\]/gi, '<span class="quoteStyle">$1</span>&nbsp;'),
-			e
+			// e
+		},
+		_shortcode2html: function (s) {
+			// Prepare data
+			var prefix = '';
+			// Remove prefix from shortcode tag name
+			s.tag = s.tag.replace(prefix, '');
+			// Row
+			if (s.tag === 'row') {
+				var cssclass = (typeof s.attrs.named.class !== 'undefined') ? ' ' + s.attrs.named.class : '';
+				return '<div class="su-row' + cssclass + '">' + s.content + '</div>';
+			}
+			// Columns
+			else if (s.tag === 'column') {
+				var size = (typeof s.attrs.named.size !== 'undefined') ? s.attrs.named.size.replace('/', '-') : '1-1',
+					cssclass = (typeof s.attrs.named.class !== 'undefined') ? ' ' + s.attrs.named.class : '';
+				return '<div class="su-column su-column-size-' + size + cssclass + '">' + s.content + '</div>';
+			}
 		}
 	}),
 	tinymce.PluginManager.add('shortcodesultimate', tinymce.plugins.shortcodesultimate);

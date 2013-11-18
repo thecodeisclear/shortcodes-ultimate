@@ -211,9 +211,7 @@ function su_do_shortcode( $content, $pre ) {
  * @return string Special prefix
  */
 function su_compatibility_mode_prefix() {
-	$option = get_option( 'su_compatibility_mode_prefix' );
-	if ( get_option( 'su_option_compatibility-mode' ) === 'on' ) return ( $option ) ? $option : 'su_';
-	else return '';
+	return get_option( 'su_option_prefix' );
 }
 
 /**
