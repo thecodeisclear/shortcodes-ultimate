@@ -97,13 +97,16 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 
 == Changelog ==
 
-= 4.4.6 =
-* Minor admin panel fixes
+= 4.5.0 =
+* New WP filters for shortcodes attributes
+* New option for compatibility mode prefix
+* Compatibility mode is now enabled by default
 
 = 4.4 =
 * __IMPORTANT__: new galleries mechanism. Your created galleries will work but will not be visible in admin panel. Now, you're able to create galleries right in "Insert shortcode" window. Also, you can now create galleries from posts, categories or even custom taxonomies.
 * Removed all default links (default youtube videos)
 * Updated admin page framework Sunrise
+* Minor admin panel fixes
 * Fixed file_get_contents() (disabled http wrappers) issue at the examples page
 * Added classes Shortcodes_Ultimate_Generator, Shortcodes_Ultimate_Shortcodes and Shortcodes_Ultimate_Data
 * Removed unused classes MediaUpload and ImageMeta

@@ -283,3 +283,11 @@ function shortcodes_ultimate() {
 }
 
 new Shortcodes_Ultimate;
+
+/* Add the TinyMCE VisualBlocks Plugin */
+add_filter( 'mce_external_plugins', 'su_mce_plugin' );
+
+function su_mce_plugin( $plugins ) {
+	$plugins['shortcodesultimate'] = plugins_url( 'assets/js/tinymce.js', SU_PLUGIN_FILE );
+	return $plugins;
+}

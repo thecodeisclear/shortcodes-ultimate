@@ -31,6 +31,8 @@ class Su_Assets {
 		add_action( 'wp_footer',                   array( __CLASS__, 'custom_css' ), 99 );
 		add_action( 'su/generator/preview/after',  array( __CLASS__, 'custom_css' ), 99 );
 		add_action( 'su/examples/preview/after',   array( __CLASS__, 'custom_css' ), 99 );
+		// Custom TinyMCE CSS
+		add_filter( 'mce_css',                     array( __CLASS__, 'mce_css' ) );
 	}
 
 	/**
@@ -129,6 +131,15 @@ class Su_Assets {
 		$custom_css = apply_filters( 'su/assets/custom_css', str_replace( '&#039;', '\'', html_entity_decode( (string) get_option( 'su_option_custom-css' ) ) ) );
 		// Print CSS if exists
 		if ( $custom_css ) echo "\n\n<!-- Shortcodes Ultimate custom CSS - begin -->\n<style type='text/css'>\n" . stripslashes( str_replace( array( '%theme_url%', '%home_url%', '%plugin_url%' ), array( trailingslashit( get_stylesheet_directory_uri() ), trailingslashit( get_option( 'home' ) ), trailingslashit( plugins_url( '', SU_PLUGIN_FILE ) ) ), $custom_css ) ) . "\n</style>\n<!-- Shortcodes Ultimate custom CSS - end -->\n\n";
+	}
+
+	/**
+	 * Styles for visualised shortcodes
+	 */
+	public static function mce_css( $mce_css ) {
+		if ( ! empty( $mce_css ) ) $mce_css .= ',';
+		$mce_css .= plugins_url( 'assets/css/tinymce.css', SU_PLUGIN_FILE );
+		return $mce_css;
 	}
 
 	/**
