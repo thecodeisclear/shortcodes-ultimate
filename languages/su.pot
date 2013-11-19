@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shortcodes Ultimate\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-18 12:23+0300\n"
-"PO-Revision-Date: 2013-11-18 12:23+0300\n"
+"POT-Creation-Date: 2013-11-19 08:59+0300\n"
+"PO-Revision-Date: 2013-11-19 08:59+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -187,7 +187,15 @@ msgstr ""
 msgid "Add selected images"
 msgstr ""
 
-#: inc/core/assets.php:94
+#: inc/core/assets.php:82
+msgid "Please enter a name for new preset"
+msgstr ""
+
+#: inc/core/assets.php:83
+msgid "New preset"
+msgstr ""
+
+#: inc/core/assets.php:96
 msgid ""
 "This shortcode doesn't work in live preview. Please insert it into editor "
 "and preview on the site."
@@ -197,7 +205,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: inc/core/data.php:18 inc/core/generator.php:164
+#: inc/core/data.php:18 inc/core/generator.php:170
 msgid "Content"
 msgstr ""
 
@@ -2537,65 +2545,73 @@ msgid ""
 "(Cmd) key"
 msgstr ""
 
-#: inc/core/generator.php:34 inc/core/generator.php:135
+#: inc/core/generator.php:41 inc/core/generator.php:142
 msgid "Insert shortcode"
 msgstr ""
 
-#: inc/core/generator.php:77 inc/core/load.php:30 inc/core/load.php:51
+#: inc/core/generator.php:84 inc/core/load.php:30 inc/core/load.php:51
 #: inc/core/load.php:104 inc/core/load.php:105
 msgid "Settings"
 msgstr ""
 
-#: inc/core/generator.php:77
+#: inc/core/generator.php:84
 msgid "Plugin settings"
 msgstr ""
 
-#: inc/core/generator.php:78
+#: inc/core/generator.php:85
 msgid "Plugin homepage"
 msgstr ""
 
-#: inc/core/generator.php:79
+#: inc/core/generator.php:86
 msgid "Support forums"
 msgstr ""
 
-#: inc/core/generator.php:86
+#: inc/core/generator.php:93
 msgid "Search for shortcodes"
 msgstr ""
 
-#: inc/core/generator.php:88
+#: inc/core/generator.php:95
 msgid "Filter by type"
 msgstr ""
 
-#: inc/core/generator.php:123
+#: inc/core/generator.php:130
 msgid "Shortcode not specified"
 msgstr ""
 
-#: inc/core/generator.php:136
+#: inc/core/generator.php:143
 msgid "Live preview"
 msgstr ""
 
-#: inc/core/generator.php:137
-msgid "Close window"
-msgstr ""
-
-#: inc/core/generator.php:141
+#: inc/core/generator.php:147
 msgid "Click to return to the shortcodes list"
 msgstr ""
 
-#: inc/core/generator.php:141
+#: inc/core/generator.php:147
 msgid "All shortcodes"
 msgstr ""
 
-#: inc/core/generator.php:157
+#: inc/core/generator.php:163
 msgid "Click to set this value"
 msgstr ""
 
-#: inc/core/generator.php:182
+#: inc/core/generator.php:187
 msgid "Preview"
 msgstr ""
 
-#: inc/core/generator.php:190 inc/core/tools.php:792
+#: inc/core/generator.php:195 inc/core/tools.php:792
 msgid "Access denied"
+msgstr ""
+
+#: inc/core/generator.php:230
+msgid "Presets"
+msgstr ""
+
+#: inc/core/generator.php:233
+msgid "Save current settings as preset"
+msgstr ""
+
+#: inc/core/generator.php:262 inc/core/generator.php:265
+msgid "Presets not found"
 msgstr ""
 
 #: inc/core/load.php:30 inc/core/load.php:104 inc/core/load.php:113

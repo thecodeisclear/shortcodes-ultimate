@@ -76,9 +76,7 @@ Activate plugin at "Plugins" administration page.
 
 == Upgrade Notice ==
 
-Be careful! This is a great update and completely new code! Don't forget, you can always install old version.
 
-Upgrade normally via your Wordpress admin -> Plugins panel.
 
 
 == Screenshots ==
@@ -98,9 +96,11 @@ Upgrade normally via your Wordpress admin -> Plugins panel.
 == Changelog ==
 
 = 4.5.0 =
+* Presets. Now you need to adjust the shortcodes only once
 * New WP filters for shortcodes attributes
 * New option for compatibility mode prefix
 * Compatibility mode is now enabled by default
+* Font-awesome updated to 4.0.3
 
 = 4.4 =
 * __IMPORTANT__: new galleries mechanism. Your created galleries will work but will not be visible in admin panel. Now, you're able to create galleries right in "Insert shortcode" window. Also, you can now create galleries from posts, categories or even custom taxonomies.
