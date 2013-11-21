@@ -598,21 +598,18 @@ jQuery(document).ready(function ($) {
 	// Preview shortcode
 	$('#su-generator').on('click', '.su-generator-toggle-preview', function (e) {
 		// Prepare data
-		var $button = $(this),
-			update_timer;
+		var $preview = $('#su-generator-preview'),
+			$button = $(this);
 		// Hide button
 		$button.hide();
-		// Add ready-class
-		$button.addClass('su-preview-enabled');
+		// Show preview box
+		$preview.addClass('su-generator-loading').show();
 		// Bind updating on settings changes
 		$settings.find('input, textarea, select').on('change keyup blur', function () {
-			window.clearTimeout(update_timer);
-			update_timer = window.setTimeout(function () {
-				update_preview();
-			}, 500);
+			update_preview();
 		});
 		// Update preview box
-		update_preview();
+		update_preview(true);
 		// Prevent default action
 		e.preventDefault();
 	});
@@ -760,7 +757,7 @@ jQuery(document).ready(function ($) {
 			else value = $this.val();
 			// Check that value is not empty
 			if (value == null) value = '';
-			else if (value !== '') result += ' ' + $(this).attr('name') + '="' + $(this).val() + '"';
+			else if (value !== '') result += ' ' + $(this).attr('name') + '="' + $(this).val().replace(/"/gi, "'") + '"';
 		});
 		// End of opening tag
 		result += ']';
@@ -818,34 +815,44 @@ jQuery(document).ready(function ($) {
 		update_preview();
 	}
 
-	function update_preview() {
+	var update_preview_timer,
+		update_preview_request;
+
+	function update_preview(forced) {
 		// Prepare data
 		var $preview = $('#su-generator-preview'),
 			shortcode = parse(),
 			previous = $result.text();
-		// Break if preview isn't enabled
-		if (!$('.su-generator-toggle-preview').hasClass('su-preview-enabled')) return;
-		// Request new preview
-		if (shortcode !== previous) window.su_generator_preview_request = $.ajax({
-			type: 'POST',
-			url: ajaxurl,
-			cache: false,
-			data: {
-				action: 'su_generator_preview',
-				shortcode: shortcode
-			},
-			beforeSend: function () {
-				// Abort previous requests
-				if (typeof window.su_generator_preview_request === 'object') window.su_generator_preview_request.abort();
-				// Show loading animation
-				$preview.addClass('su-generator-loading').html('').show();
-			},
-			success: function (data) {
-				// Hide loading animation and set new HTML
-				$preview.html(data).removeClass('su-generator-loading');
-			},
-			dataType: 'html'
-		});
+		// Check forced mode
+		forced = forced || false;
+		// Break if preview box is hidden (preview isn't enabled)
+		if (!$preview.is(':visible')) return;
+		// Check shortcode is changed is this is not a forced mode
+		if (shortcode === previous && !forced) return;
+		// Run timer to filter often calls
+		window.clearTimeout(update_preview_timer);
+		update_preview_timer = window.setTimeout(function () {
+			update_preview_request = $.ajax({
+				type: 'POST',
+				url: ajaxurl,
+				cache: false,
+				data: {
+					action: 'su_generator_preview',
+					shortcode: shortcode
+				},
+				beforeSend: function () {
+					// Abort previous requests
+					if (typeof update_preview_request === 'object') update_preview_request.abort();
+					// Show loading animation
+					$preview.addClass('su-generator-loading').html('');
+				},
+				success: function (data) {
+					// Hide loading animation and set new HTML
+					$preview.html(data).removeClass('su-generator-loading');
+				},
+				dataType: 'html'
+			});
+		}, 300);
 		// Save shortcode to div
 		$result.text(shortcode);
 	}

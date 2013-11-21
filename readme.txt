@@ -101,6 +101,9 @@ Activate plugin at "Plugins" administration page.
 * New option for compatibility mode prefix
 * Compatibility mode is now enabled by default
 * Font-awesome updated to 4.0.3
+* New shortcode [meta]
+* New shortcode [user]
+* New shortcode [post]
 
 = 4.4 =
 * __IMPORTANT__: new galleries mechanism. Your created galleries will work but will not be visible in admin panel. Now, you're able to create galleries right in "Insert shortcode" window. Also, you can now create galleries from posts, categories or even custom taxonomies.

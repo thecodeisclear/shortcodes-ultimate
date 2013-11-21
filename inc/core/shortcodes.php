@@ -1262,6 +1262,79 @@ class Su_Shortcodes {
 		return $return;
 	}
 
+	public static function meta( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'key'     => '',
+				'default' => '',
+				'before'  => '',
+				'after'   => '',
+				'post_id' => '',
+				'filter'  => ''
+			), $atts, 'meta' );
+		// Define current post ID
+		if ( !$atts['post_id'] ) $atts['post_id'] = get_the_ID();
+		// Check post ID
+		if ( !is_numeric( $atts['post_id'] ) || $atts['post_id'] < 1 ) return sprintf( '<p class="su-error">Meta: %s</p>', __( 'post ID is incorrect', 'su' ) );
+		// Check key name
+		if ( !$atts['key'] ) return sprintf( '<p class="su-error">Meta: %s</p>', __( 'please specify meta key name', 'su' ) );
+		// Get the meta
+		$meta = get_post_meta( $atts['post_id'], $atts['key'], true );
+		// Set default value if meta is empty
+		if ( !$meta ) $meta = $atts['default'];
+		// Apply cutom filter
+		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $meta = call_user_func( $atts['filter'], $meta );
+		// Return result
+		return ( $meta ) ? $atts['before'] . $meta . $atts['after'] : '';
+	}
+
+	public static function user( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'field'   => 'display_name',
+				'default' => '',
+				'before'  => '',
+				'after'   => '',
+				'user_id' => '',
+				'filter'  => ''
+			), $atts, 'user' );
+		// Check for password requests
+		if ( $atts['field'] === 'user_pass' ) return sprintf( '<p class="su-error">User: %s</p>', __( 'password field is not allowed', 'su' ) );
+		// Define current user ID
+		if ( !$atts['user_id'] ) $atts['user_id'] = get_current_user_id();
+		// Check user ID
+		if ( !is_numeric( $atts['user_id'] ) || $atts['user_id'] < 1 ) return sprintf( '<p class="su-error">User: %s</p>', __( 'user ID is incorrect', 'su' ) );
+		// Get user data
+		$user = get_user_by( 'id', $atts['user_id'] );
+		// Get user data if user was found
+		$user = ( $user && isset( $user->data->$atts['field'] ) ) ? $user->data->$atts['field'] : $atts['default'];
+		// Apply cutom filter
+		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $user = call_user_func( $atts['filter'], $user );
+		// Return result
+		return ( $user ) ? $atts['before'] . $user . $atts['after'] : '';
+	}
+
+	public static function post( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'field'   => 'post_title',
+				'default' => '',
+				'before'  => '',
+				'after'   => '',
+				'post_id' => '',
+				'filter'  => ''
+			), $atts, 'meta' );
+		// Define current post ID
+		if ( !$atts['post_id'] ) $atts['post_id'] = get_the_ID();
+		// Check post ID
+		if ( !is_numeric( $atts['post_id'] ) || $atts['post_id'] < 1 ) return sprintf( '<p class="su-error">Post: %s</p>', __( 'post ID is incorrect', 'su' ) );
+		// Get the post
+		$post = get_post( $atts['post_id'] );
+		// Set default value if meta is empty
+		$post = ( empty( $post ) || empty( $post->$atts['field'] ) ) ? $atts['default'] : $post->$atts['field'];
+		// Apply cutom filter
+		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $post = call_user_func( $atts['filter'], $post );
+		// Return result
+		return ( $post ) ? $atts['before'] . $post . $atts['after'] : '';
+	}
+
 }
 
 new Su_Shortcodes;

@@ -19,6 +19,7 @@ class Su_Data {
 				'box'     => __( 'Box', 'su' ),
 				'media'   => __( 'Media', 'su' ),
 				'gallery' => __( 'Gallery', 'su' ),
+				'data'    => __( 'Data', 'su' ),
 				'other'   => __( 'Other', 'su' )
 			) );
 	}
@@ -2280,7 +2281,162 @@ class Su_Data {
 					'content' => __( 'Animated content', 'su' ),
 					'desc' => __( 'Wrapper for animation. Any nested element will be animated', 'su' ),
 					'icon' => 'bolt'
-				)
+				),
+				// meta
+				'meta' => array(
+					'name' => __( 'Meta', 'su' ),
+					'type' => 'single',
+					'group' => 'data',
+					'atts' => array(
+						'key' => array(
+							'default' => '',
+							'name' => __( 'Key', 'su' ),
+							'desc' => __( 'Meta key name', 'su' )
+						),
+						'default' => array(
+							'default' => '',
+							'name' => __( 'Default', 'su' ),
+							'desc' => __( 'This text will be shown if data is not found', 'su' )
+						),
+						'before' => array(
+							'default' => '',
+							'name' => __( 'Before', 'su' ),
+							'desc' => __( 'This content will be shown before the value', 'su' )
+						),
+						'after' => array(
+							'default' => '',
+							'name' => __( 'After', 'su' ),
+							'desc' => __( 'This content will be shown after the value', 'su' )
+						),
+						'post_id' => array(
+							'default' => '',
+							'name' => __( 'Post ID', 'su' ),
+							'desc' => __( 'You can specify custom post ID. Leave this field empty to use an ID of the current post. Current post ID may not work in Live Preview mode', 'su' )
+						),
+						'filter' => array(
+							'default' => '',
+							'name' => __( 'Filter', 'su' ),
+							'desc' => __( 'You can apply custom filter to the retrieved value. Enter here function name. Your function must accept one argument and return modified value. Example function: ', 'su' ) . "<br /><pre><code style='display:block;padding:5px'>function my_custom_filter( \$value ) {\n\treturn 'Value is: ' . \$value;\n}</code></pre>"
+						)
+					),
+					'desc' => __( 'Post meta', 'su' ),
+					'icon' => 'cog'
+				),
+				// user
+				'user' => array(
+					'name' => __( 'User', 'su' ),
+					'type' => 'single',
+					'group' => 'data',
+					'atts' => array(
+						'field' => array(
+							'type' => 'select',
+							'values' => array(
+								'display_name'        => __( 'Display name', 'su' ),
+								'ID'                  => __( 'ID', 'su' ),
+								'user_login'          => __( 'Login', 'su' ),
+								'user_nicename'       => __( 'Nice name', 'su' ),
+								'user_email'          => __( 'Email', 'su' ),
+								'user_url'            => __( 'URL', 'su' ),
+								'user_registered'     => __( 'Registered', 'su' ),
+								'user_activation_key' => __( 'Activation key', 'su' ),
+								'user_status'         => __( 'Status', 'su' )
+							),
+							'default' => 'display_name',
+							'name' => __( 'Field', 'su' ),
+							'desc' => __( 'User data field name', 'su' )
+						),
+						'default' => array(
+							'default' => '',
+							'name' => __( 'Default', 'su' ),
+							'desc' => __( 'This text will be shown if data is not found', 'su' )
+						),
+						'before' => array(
+							'default' => '',
+							'name' => __( 'Before', 'su' ),
+							'desc' => __( 'This content will be shown before the value', 'su' )
+						),
+						'after' => array(
+							'default' => '',
+							'name' => __( 'After', 'su' ),
+							'desc' => __( 'This content will be shown after the value', 'su' )
+						),
+						'user_id' => array(
+							'default' => '',
+							'name' => __( 'User ID', 'su' ),
+							'desc' => __( 'You can specify custom user ID. Leave this field empty to use an ID of the current user', 'su' )
+						),
+						'filter' => array(
+							'default' => '',
+							'name' => __( 'Filter', 'su' ),
+							'desc' => __( 'You can apply custom filter to the retrieved value. Enter here function name. Your function must accept one argument and return modified value. Example function: ', 'su' ) . "<br /><pre><code style='display:block;padding:5px'>function my_custom_filter( \$value ) {\n\treturn 'Value is: ' . \$value;\n}</code></pre>"
+						)
+					),
+					'desc' => __( 'User data', 'su' ),
+					'icon' => 'cog'
+				),
+				// post
+				'post' => array(
+					'name' => __( 'Post', 'su' ),
+					'type' => 'single',
+					'group' => 'data',
+					'atts' => array(
+						'field' => array(
+							'type' => 'select',
+							'values' => array(
+								'ID'                    => __( 'Post ID', 'su' ),
+								'post_author'           => __( 'Post author', 'su' ),
+								'post_date'             => __( 'Post date', 'su' ),
+								'post_date_gmt'         => __( 'Post date', 'su' ) . ' GMT',
+								'post_content'          => __( 'Post content', 'su' ),
+								'post_title'            => __( 'Post title', 'su' ),
+								'post_excerpt'          => __( 'Post excerpt', 'su' ),
+								'post_status'           => __( 'Post status', 'su' ),
+								'comment_status'        => __( 'Comment status', 'su' ),
+								'ping_status'           => __( 'Ping status', 'su' ),
+								'post_name'             => __( 'Post name', 'su' ),
+								'post_modified'         => __( 'Post modified', 'su' ),
+								'post_modified_gmt'     => __( 'Post modified', 'su' ) . ' GMT',
+								'post_content_filtered' => __( 'Filtered post content', 'su' ),
+								'post_parent'           => __( 'Post parent', 'su' ),
+								'guid'                  => __( 'GUID', 'su' ),
+								'menu_order'            => __( 'Menu order', 'su' ),
+								'post_type'             => __( 'Post type', 'su' ),
+								'post_mime_type'        => __( 'Post mime type', 'su' ),
+								'comment_count'         => __( 'Comment count', 'su' )
+							),
+							'default' => 'post_title',
+							'name' => __( 'Field', 'su' ),
+							'desc' => __( 'Post data field name', 'su' )
+						),
+						'default' => array(
+							'default' => '',
+							'name' => __( 'Default', 'su' ),
+							'desc' => __( 'This text will be shown if data is not found', 'su' )
+						),
+						'before' => array(
+							'default' => '',
+							'name' => __( 'Before', 'su' ),
+							'desc' => __( 'This content will be shown before the value', 'su' )
+						),
+						'after' => array(
+							'default' => '',
+							'name' => __( 'After', 'su' ),
+							'desc' => __( 'This content will be shown after the value', 'su' )
+						),
+						'post_id' => array(
+							'default' => '',
+							'name' => __( 'Post ID', 'su' ),
+							'desc' => __( 'You can specify custom post ID. Leave this field empty to use an ID of the current post. Current post ID may not work in Live Preview mode', 'su' )
+						),
+						'filter' => array(
+							'default' => '',
+							'name' => __( 'Filter', 'su' ),
+							'desc' => __( 'You can apply custom filter to the retrieved value. Enter here function name. Your function must accept one argument and return modified value. Example function: ', 'su' ) . "<br /><pre><code style='display:block;padding:5px'>function my_custom_filter( \$value ) {\n\treturn 'Value is: ' . \$value;\n}</code></pre>"
+						)
+					),
+					'desc' => __( 'Post data', 'su' ),
+					'icon' => 'cog'
+				),
 			) );
 		// Return result
 		return ( is_string( $shortcode ) ) ? $shortcodes[sanitize_text_field( $shortcode )] : $shortcodes;
