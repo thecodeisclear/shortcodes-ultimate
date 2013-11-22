@@ -14,7 +14,7 @@
 // Define plugin file constant
 define( 'SU_PLUGIN_FILE', __FILE__ );
 define( 'SU_PLUGIN_VERSION', '4.5.0' );
-define( 'SU_ENABLE_CACHE', false );
+define( 'SU_ENABLE_CACHE', true );
 
 // Includes
 require_once 'inc/vendor/sunrise.php';

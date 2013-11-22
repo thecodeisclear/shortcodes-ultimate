@@ -65,18 +65,24 @@ jQuery(document).ready(function ($) {
 		// Prepare data
 		var filter = $(this).data('filter');
 		// If filter All, show all choices
-		if (filter === 'all') $choice.show();
+		if (filter === 'all') $choice.css({
+			opacity: 1
+		});
 		// Else run search
 		else {
 			var regex = new RegExp(filter, 'gi');
 			// Hide all choices
-			$choice.hide();
+			$choice.css({
+				opacity: 0.2
+			});
 			// Find searched choices and show
 			$choice.each(function () {
 				// Get shortcode name
 				var group = $(this).data('group');
 				// Show choice if matched
-				if (group.match(regex) !== null) $(this).show();
+				if (group.match(regex) !== null) $(this).css({
+					opacity: 1
+				});
 			});
 		}
 		e.preventDefault();
@@ -121,7 +127,9 @@ jQuery(document).ready(function ($) {
 			$generator.removeClass('su-generator-narrow');
 			// Show choices panel
 			$choices.show();
-			$choice.show();
+			$choice.css({
+				opacity: 1
+			});
 			// Show filters
 			$filter.show();
 		},
@@ -130,7 +138,9 @@ jQuery(document).ready(function ($) {
 			var val = $(this).val(),
 				regex = new RegExp(val, 'gi');
 			// Hide all choices
-			$choice.hide();
+			$choice.css({
+				opacity: 0.2
+			});
 			// Find searched choices and show
 			$choice.each(function () {
 				// Get shortcode name
@@ -139,10 +149,18 @@ jQuery(document).ready(function ($) {
 					desc = $(this).data('desc'),
 					group = $(this).data('group');
 				// Show choice if matched
-				if (id.match(regex) !== null) $(this).show();
-				else if (name.match(regex) !== null) $(this).show();
-				else if (desc.match(regex) !== null) $(this).show();
-				else if (group.match(regex) !== null) $(this).show();
+				if (id.match(regex) !== null) $(this).css({
+					opacity: 1
+				});
+				else if (name.match(regex) !== null) $(this).css({
+					opacity: 1
+				});
+				else if (desc.match(regex) !== null) $(this).css({
+					opacity: 1
+				});
+				else if (group.match(regex) !== null) $(this).css({
+					opacity: 1
+				});
 			});
 		}
 	});

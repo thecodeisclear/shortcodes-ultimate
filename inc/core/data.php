@@ -1713,6 +1713,15 @@ class Su_Data {
 							'name'    => __( 'Source', 'su' ),
 							'desc'    => __( 'Choose images source. You can use images from Media library or retrieve it from posts (thumbnails) posted under specified blog category. You can also pick any custom taxonomy', 'su' )
 						),
+						'limit' => array(
+							'type' => 'slider',
+							'min' => -1,
+							'max' => 100,
+							'step' => 1,
+							'default' => 20,
+							'name' => __( 'Limit', 'su' ),
+							'desc' => __( 'Maximum number of image source posts (for recent posts, category and custom taxonomy)', 'su' )
+						),
 						'link' => array(
 							'type' => 'select',
 							'values' => array(
@@ -1820,6 +1829,15 @@ class Su_Data {
 							'default' => 'none',
 							'name'    => __( 'Source', 'su' ),
 							'desc'    => __( 'Choose images source. You can use images from Media library or retrieve it from posts (thumbnails) posted under specified blog category. You can also pick any custom taxonomy', 'su' )
+						),
+						'limit' => array(
+							'type' => 'slider',
+							'min' => -1,
+							'max' => 100,
+							'step' => 1,
+							'default' => 20,
+							'name' => __( 'Limit', 'su' ),
+							'desc' => __( 'Maximum number of image source posts (for recent posts, category and custom taxonomy)', 'su' )
 						),
 						'link' => array(
 							'type' => 'select',
@@ -1947,6 +1965,15 @@ class Su_Data {
 							'default' => 'none',
 							'name'    => __( 'Source', 'su' ),
 							'desc'    => __( 'Choose images source. You can use images from Media library or retrieve it from posts (thumbnails) posted under specified blog category. You can also pick any custom taxonomy', 'su' )
+						),
+						'limit' => array(
+							'type' => 'slider',
+							'min' => -1,
+							'max' => 100,
+							'step' => 1,
+							'default' => 20,
+							'name' => __( 'Limit', 'su' ),
+							'desc' => __( 'Maximum number of image source posts (for rcent posts, category and custom taxonomy)', 'su' )
 						),
 						'link' => array(
 							'type' => 'select',
@@ -2320,7 +2347,7 @@ class Su_Data {
 						)
 					),
 					'desc' => __( 'Post meta', 'su' ),
-					'icon' => 'cog'
+					'icon' => 'info-circle'
 				),
 				// user
 				'user' => array(
@@ -2372,7 +2399,7 @@ class Su_Data {
 						)
 					),
 					'desc' => __( 'User data', 'su' ),
-					'icon' => 'cog'
+					'icon' => 'info-circle'
 				),
 				// post
 				'post' => array(
@@ -2435,7 +2462,22 @@ class Su_Data {
 						)
 					),
 					'desc' => __( 'Post data', 'su' ),
-					'icon' => 'cog'
+					'icon' => 'info-circle'
+				),
+				// template
+				'template' => array(
+					'name' => __( 'Template', 'su' ),
+					'type' => 'single',
+					'group' => 'other',
+					'atts' => array(
+						'name' => array(
+							'default' => '',
+							'name' => __( 'Template name', 'su' ),
+							'desc' => sprintf( __( 'Use template file name (with optional .php extension). If you need to use templates from theme sub-folder, use relative path. Example values: %s, %s, %s', 'su' ), '<b%value>page</b>', '<b%value>page.php</b>', '<b%value>includes/page.php</b>' )
+						)
+					),
+					'desc' => __( 'Theme template', 'su' ),
+					'icon' => 'puzzle-piece'
 				),
 			) );
 		// Return result

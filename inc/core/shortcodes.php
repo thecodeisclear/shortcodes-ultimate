@@ -876,6 +876,7 @@ class Su_Shortcodes {
 		$return = '';
 		$atts = shortcode_atts( array(
 				'source'     => 'none',
+				'limit'      => 20,
 				'gallery'    => null, // Dep. 4.3.2
 				'link'       => 'none',
 				'target'     => 'self',
@@ -949,6 +950,7 @@ class Su_Shortcodes {
 		$return = '';
 		$atts = shortcode_atts( array(
 				'source'     => 'none',
+				'limit'      => 20,
 				'gallery'    => null, // Dep. 4.3.2
 				'link'       => 'none',
 				'target'     => 'self',
@@ -1024,8 +1026,9 @@ class Su_Shortcodes {
 		$return = '';
 		$atts = shortcode_atts( array(
 				'source'  => 'none',
-				'link'    => 'none',
+				'limit'   => 20,
 				'gallery' => null, // Dep. 4.4.0
+				'link'    => 'none',
 				'width'   => 90,
 				'height'  => 90,
 				'title'   => 'hover',
@@ -1320,7 +1323,7 @@ class Su_Shortcodes {
 				'after'   => '',
 				'post_id' => '',
 				'filter'  => ''
-			), $atts, 'meta' );
+			), $atts, 'post' );
 		// Define current post ID
 		if ( !$atts['post_id'] ) $atts['post_id'] = get_the_ID();
 		// Check post ID
@@ -1333,6 +1336,21 @@ class Su_Shortcodes {
 		if ( $atts['filter'] && function_exists( $atts['filter'] ) ) $post = call_user_func( $atts['filter'], $post );
 		// Return result
 		return ( $post ) ? $atts['before'] . $post . $atts['after'] : '';
+	}
+
+	public static function template( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'name' => ''
+			), $atts, 'template' );
+		// Check template name
+		if ( !$atts['name'] ) return sprintf( '<p class="su-error">Template: %s</p>', __( 'please specify template name', 'su' ) );
+		// Get template output
+		ob_start();
+		get_template_part( str_replace( '.php', '', $atts['name'] ) );
+		$output = ob_get_contents();
+		ob_end_clean();
+		// Return result
+		return $output;
 	}
 
 }

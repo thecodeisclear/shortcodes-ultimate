@@ -104,6 +104,8 @@ Activate plugin at "Plugins" administration page.
 * New shortcode [meta]
 * New shortcode [user]
 * New shortcode [post]
+* New attribute limit for [slider], [carousel] and [custom_gallery]
+* Minor UX improvements
 
 = 4.4 =
 * __IMPORTANT__: new galleries mechanism. Your created galleries will work but will not be visible in admin panel. Now, you're able to create galleries right in "Insert shortcode" window. Also, you can now create galleries from posts, categories or even custom taxonomies.

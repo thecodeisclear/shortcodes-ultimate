@@ -636,6 +636,7 @@ class Su_Tools {
 	public static function get_slides( $args ) {
 		$args = wp_parse_args( $args, array(
 				'source'  => 'none',
+				'limit'   => 20,
 				'gallery' => null,
 				'type'    => '',
 				'link'    => 'none'
@@ -656,7 +657,7 @@ class Su_Tools {
 		// Source is not parsed correctly, return empty array
 		if ( !is_array( $args['source'] ) ) return $slides;
 		// Default posts query
-		$query = array( 'posts_per_page' => 100 );
+		$query = array( 'posts_per_page' => $args['limit'] );
 		// Source: media
 		if ( $args['source']['type'] === 'media' ) {
 			$query['post_type'] = 'attachment';
