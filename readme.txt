@@ -97,6 +97,7 @@ Activate plugin at "Plugins" administration page.
 
 = 4.5.1 =
 * Updated Japanese translation
+* Added NL locale
 
 = 4.5.0 =
 * Presets. Now you need to adjust the shortcodes only once
