@@ -95,6 +95,9 @@ Activate plugin at "Plugins" administration page.
 
 == Changelog ==
 
+= 4.5.3 =
+* Updated some examples
+
 = 4.5.2 =
 * Updated custom formatting filter
 * Updated Japanese translation
