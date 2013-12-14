@@ -97,6 +97,7 @@ Activate plugin at "Plugins" administration page.
 
 = 4.5.3 =
 * Updated some examples
+* Removed import functions. Old versions of plugin (like 3.9.5) is not supported anymore
 
 = 4.5.2 =
 * Updated custom formatting filter
