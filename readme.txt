@@ -95,17 +95,16 @@ Activate plugin at "Plugins" administration page.
 
 == Changelog ==
 
-= 4.5.3 =
+= 4.6.0 =
+* Auto-save for shortcodes settings. Now you don't need to adjust it again and again
+
+= 4.5 =
 * Updated some examples
 * Removed import functions. Old versions of plugin (like 3.9.5) is not supported anymore
-
-= 4.5.2 =
 * Updated custom formatting filter
 * Updated Japanese translation
 * Added NL translation
 * Minor fixes
-
-= 4.5.0 =
 * Presets. Now you need to adjust the shortcodes only once
 * New WP filters for shortcodes attributes
 * New option for compatibility mode prefix
