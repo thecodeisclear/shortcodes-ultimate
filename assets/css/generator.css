@@ -13,7 +13,7 @@
 
 .su-generator-loading {
 	min-height: 60px;
-	background: 50% 50% url("../images/ajax.gif") no-repeat !important;
+	background: 50% 50% url("../images/spinner.gif") no-repeat !important;
 }
 .su-generator-loading * { visibility: hidden; }
 
