@@ -97,6 +97,7 @@ Activate plugin at "Plugins" administration page.
 
 = 4.6.0 =
 * Auto-save for shortcodes settings. Now you don't need to adjust it again and again
+* Minor UX improvements
 
 = 4.5 =
 * Updated some examples

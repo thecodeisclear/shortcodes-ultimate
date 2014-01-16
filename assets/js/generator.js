@@ -633,7 +633,7 @@ jQuery(document).ready(function ($) {
 		// Insert into editor
 		else window.wp.media.editor.insert(shortcode);
 		// Save current settings to presets
-		add_preset('last_used', 'Last used');
+		add_preset('last_used', su_generator.last_used);
 		// Close popup
 		$.magnificPopup.close();
 		// Save shortcode to div

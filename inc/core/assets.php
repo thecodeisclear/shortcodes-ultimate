@@ -82,7 +82,8 @@ class Su_Assets {
 				'isp_media_title'      => __( 'Select images', 'su' ),
 				'isp_media_insert'     => __( 'Add selected images', 'su' ),
 				'presets_prompt_msg'   => __( 'Please enter a name for new preset', 'su' ),
-				'presets_prompt_value' => __( 'New preset', 'su' )
+				'presets_prompt_value' => __( 'New preset', 'su' ),
+				'last_used'            => __( 'Last used settings', 'su' )
 			) );
 		// Shortcodes stylesheets
 		wp_register_style( 'su-content-shortcodes', self::skin_url( 'content-shortcodes.css' ), false, SU_PLUGIN_VERSION, 'all' );
