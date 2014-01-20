@@ -612,6 +612,8 @@ jQuery(document).ready(function ($) {
 						// $settings.removeClass('su-generator-loading');
 						// Set new settings
 						set(data);
+						// Apply selected text to the content field
+						if (typeof mce_selection !== 'undefined' && mce_selection !== '') $('#su-generator-content').val(mce_selection);
 					},
 					dataType: 'json'
 				});

@@ -62,6 +62,7 @@ Have a translation? [Contact me](http://gndev.info/feedback/)
 * Designmodo - [Flat UI Free icons](http://designmodo.com/)
 * Dave Gandy - [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 * James Smith - [Simple Slider jQuery plugin](http://loopj.com/jquery-simple-slider/)
+* Kevin Batdorf - [Liquid Slider jQuery plugin](http://liquidslider.com)
 
 
 == Installation ==

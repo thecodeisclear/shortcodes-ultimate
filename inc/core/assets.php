@@ -42,9 +42,13 @@ class Su_Assets {
 	public static function register() {
 		// Chart.js
 		wp_register_script( 'chartjs', plugins_url( 'assets/js/chart.js', SU_PLUGIN_FILE ), false, '0.2', true );
-		// noUIslider
+		// SimpleSlider
 		wp_register_script( 'simpleslider', plugins_url( 'assets/js/simpleslider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.0.0', true );
 		wp_register_style( 'simpleslider', plugins_url( 'assets/css/simpleslider.css', SU_PLUGIN_FILE ), false, '1.0.0', 'all' );
+		// Touch Swipe
+		wp_register_script( 'touchswipe', plugins_url( 'assets/js/touchswipe.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.6.4', true );
+		// Liquid Slider
+		wp_register_script( 'liquid-slider', plugins_url( 'assets/js/liquid-slider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.0.12', true );
 		// Font Awesome
 		wp_register_style( 'font-awesome', plugins_url( 'assets/css/font-awesome.css', SU_PLUGIN_FILE ), false, '3.2.1', 'all' );
 		// Animate.css
@@ -69,7 +73,7 @@ class Su_Assets {
 		wp_register_style( 'su-options-page', plugins_url( 'assets/css/options-page.css', SU_PLUGIN_FILE ), false, SU_PLUGIN_VERSION, 'all' );
 		wp_register_script( 'su-options-page', plugins_url( 'assets/js/options-page.js', SU_PLUGIN_FILE ), array( 'magnific-popup', 'jquery-ui-sortable', 'ace', 'jsrender' ), SU_PLUGIN_VERSION, true );
 		wp_localize_script( 'su-options-page', 'su_options_page', array(
-				'upload_title' => __( 'Choose files', 'su' ),
+				'upload_title'  => __( 'Choose files', 'su' ),
 				'upload_insert' => __( 'Add selected files', 'su' ),
 				'not_clickable' => __( 'This button is not clickable', 'su' )
 			) );
