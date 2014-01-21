@@ -32,10 +32,11 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 = Demo video =
 [youtube http://www.youtube.com/watch?v=DR2c266yWEA]
 
-= More videos =
-* [Shortcodes Ultimate Tutorial](http://www.youtube.com/watch?v=IjmaXz-b55I)
-* [How to use special widget](http://www.youtube.com/watch?v=YU3Zu6C5ZfA)
-* [How to create image gallery](http://www.youtube.com/watch?v=kCWyO2F7jTw)
+= More videos and articles =
+* Review: [40+ Reasons Shortcodes Ultimate Is A Must Have Plugin](http://www.the-best-web-hosting-service.com/blog/2014/01/ultimateshortcodesreview/)
+* Video: [Shortcodes Ultimate Tutorial](http://www.youtube.com/watch?v=IjmaXz-b55I)
+* Video: [How to use special widget](http://www.youtube.com/watch?v=YU3Zu6C5ZfA)
+* Video: [How to create image gallery](http://www.youtube.com/watch?v=kCWyO2F7jTw)
 
 = Requirements =
 * WordPress 3.5+
