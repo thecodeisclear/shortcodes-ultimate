@@ -1977,7 +1977,7 @@ class Su_Data {
 							'step' => 1,
 							'default' => 20,
 							'name' => __( 'Limit', 'su' ),
-							'desc' => __( 'Maximum number of image source posts (for rcent posts, category and custom taxonomy)', 'su' )
+							'desc' => __( 'Maximum number of image source posts (for recent posts, category and custom taxonomy)', 'su' )
 						),
 						'link' => array(
 							'type' => 'select',

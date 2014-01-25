@@ -45,10 +45,10 @@ class Su_Assets {
 		// SimpleSlider
 		wp_register_script( 'simpleslider', plugins_url( 'assets/js/simpleslider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.0.0', true );
 		wp_register_style( 'simpleslider', plugins_url( 'assets/css/simpleslider.css', SU_PLUGIN_FILE ), false, '1.0.0', 'all' );
-		// Touch Swipe
-		wp_register_script( 'touchswipe', plugins_url( 'assets/js/touchswipe.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.6.4', true );
-		// Liquid Slider
-		wp_register_script( 'liquid-slider', plugins_url( 'assets/js/liquid-slider.js', SU_PLUGIN_FILE ), array( 'jquery' ), '2.0.12', true );
+		// Owl Carousel
+		wp_register_script( 'owl-carousel', plugins_url( 'assets/js/owl-carousel.js', SU_PLUGIN_FILE ), array( 'jquery' ), '1.3.2', true );
+		wp_register_style( 'owl-carousel', plugins_url( 'assets/css/owl-carousel.css', SU_PLUGIN_FILE ), false, '1.3.2', 'all' );
+		wp_register_style( 'owl-carousel-transitions', plugins_url( 'assets/css/owl-carousel-transitions.css', SU_PLUGIN_FILE ), false, '1.3.2', 'all' );
 		// Font Awesome
 		wp_register_style( 'font-awesome', plugins_url( 'assets/css/font-awesome.css', SU_PLUGIN_FILE ), false, '3.2.1', 'all' );
 		// Animate.css

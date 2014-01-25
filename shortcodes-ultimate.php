@@ -29,3 +29,4 @@ require_once 'inc/core/generator-views.php';
 require_once 'inc/core/generator.php';
 require_once 'inc/core/widget.php';
 require_once 'inc/core/vote.php';
+require_once 'inc/core/counters.php';
