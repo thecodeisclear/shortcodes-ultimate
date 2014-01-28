@@ -102,6 +102,8 @@ Activate plugin at "Plugins" administration page.
 * New premium add-on - [Extra Shortcodes](http://gndev.info/shortcodes-ultimate/extra/)
 * Minor UX improvements
 * New locale - VI
+* Fixed bug with tax_term IDs in [posts] shortcode, [forum topic](http://wordpress.org/support/topic/posts-tax_term-category-number)
+* Fixed bug with service title, [forum topic](http://wordpress.org/support/topic/service-shortcode-not-wrapping-properly-on-mobile-browser)
 
 = 4.5 =
 * Updated some examples
