@@ -1144,8 +1144,9 @@ class Su_Shortcodes {
 			$tax_term = explode( ',', $tax_term );
 			// Validate operator
 			if ( !in_array( $tax_operator, array( 'IN', 'NOT IN', 'AND' ) ) ) $tax_operator = 'IN';
-			$tax_args = array( 'tax_query' => array( array( 'taxonomy' => $taxonomy,
-						'field' => 'slug',
+			$tax_args = array( 'tax_query' => array( array(
+						'taxonomy' => $taxonomy,
+						'field' => ( is_numeric( $tax_term[0] ) ) ? 'id' : 'slug',
 						'terms' => $tax_term,
 						'operator' => $tax_operator ) ) );
 			// Check for multiple taxonomy queries

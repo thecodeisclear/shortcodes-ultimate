@@ -663,9 +663,10 @@ class Su_Tools {
 		return $taxes;
 	}
 
-	public static function get_terms( $tax = 'category' ) {
+	public static function get_terms( $tax = 'category', $key = 'id' ) {
 		$terms = array();
-		foreach ( (array) get_terms( $tax, array( 'hide_empty' => false ) ) as $term ) $terms[$term->term_id] = $term->name;
+		if ( $key === 'id' ) foreach ( (array) get_terms( $tax, array( 'hide_empty' => false ) ) as $term ) $terms[$term->term_id] = $term->name;
+		elseif ( $key === 'slug' ) foreach ( (array) get_terms( $tax, array( 'hide_empty' => false ) ) as $term ) $terms[$term->slug] = $term->name;
 		return $terms;
 	}
 
