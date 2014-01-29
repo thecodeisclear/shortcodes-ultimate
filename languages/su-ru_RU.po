@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gn_themes\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-25 06:54+0300\n"
-"PO-Revision-Date: 2014-01-25 06:54+0300\n"
+"POT-Creation-Date: 2014-01-29 06:16+0300\n"
+"PO-Revision-Date: 2014-01-29 06:16+0300\n"
 "Last-Translator: Vladimir Anokhin <ano.vladimir@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -2484,7 +2484,7 @@ msgstr ""
 msgid "Text placeholder"
 msgstr "Текст болванка"
 
-#: inc/core/data.php:2216 inc/core/shortcodes.php:1240
+#: inc/core/data.php:2216 inc/core/shortcodes.php:1241
 msgid "Dummy image"
 msgstr "Изображение болванка"
 
@@ -2968,7 +2968,7 @@ msgstr "Нажмите чтобы установить это значение"
 msgid "Preview"
 msgstr "Предпросмотр"
 
-#: inc/core/generator.php:196 inc/core/tools.php:862
+#: inc/core/generator.php:196 inc/core/tools.php:863
 msgid "Access denied"
 msgstr "Доступ запрещен"
 
@@ -3140,35 +3140,35 @@ msgstr "Такое меню не существует, или в нем нет �
 msgid "images not found"
 msgstr "изображения не найдены"
 
-#: inc/core/shortcodes.php:1202
+#: inc/core/shortcodes.php:1203
 msgid "template not found"
 msgstr "шаблон не найден"
 
-#: inc/core/shortcodes.php:1280 inc/core/shortcodes.php:1330
+#: inc/core/shortcodes.php:1281 inc/core/shortcodes.php:1331
 msgid "post ID is incorrect"
 msgstr "ID записи указан неверно"
 
-#: inc/core/shortcodes.php:1282
+#: inc/core/shortcodes.php:1283
 msgid "please specify meta key name"
 msgstr "пожалуйста укажите имя ключа произвольного поля"
 
-#: inc/core/shortcodes.php:1303
+#: inc/core/shortcodes.php:1304
 msgid "password field is not allowed"
 msgstr "поле пароль запрещено"
 
-#: inc/core/shortcodes.php:1307
+#: inc/core/shortcodes.php:1308
 msgid "user ID is incorrect"
 msgstr "ID пользователя указан неверно"
 
-#: inc/core/shortcodes.php:1346
+#: inc/core/shortcodes.php:1347
 msgid "please specify template name"
 msgstr "пожалуйста укажите имя шаблона"
 
-#: inc/core/tools.php:781
+#: inc/core/tools.php:782
 msgid "Example code does not found, please check it later"
 msgstr "Код примера не найден, возвращайтесь позже"
 
-#: inc/core/tools.php:797
+#: inc/core/tools.php:798
 msgid "Get the code"
 msgstr "Получить код"
 
