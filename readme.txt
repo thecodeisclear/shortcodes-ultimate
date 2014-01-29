@@ -17,7 +17,8 @@ Supercharge your WordPress theme with mega pack of shortcodes
 With this plugin you can easily create tabs, buttons, boxes, different sliders, responsive videos and much, much more. Turn your free theme to premium in just a few clicks. Using Shortcodes Ultimate you can quickly and easily retrieve premium themes features and display it on your site. See screenshots for more information.
 
 = Premium Add-ons =
-* __[Extra Skins](http://gndev.info/shortcodes-ultimate/skins/)__ - 60+ additional skins for plugin shortcodes
+* __[Extra Shortcodes](http://gndev.info/shortcodes-ultimate/extra/)__ - 15+ additional shortcodes
+* __[Additional Skins](http://gndev.info/shortcodes-ultimate/skins/)__ - 60+ additional skins for plugin shortcodes
 * __[Shortcode Creator](http://gndev.info/shortcodes-ultimate/maker/)__ - allows you to create your own custom shortcodes
 
 = Features =
@@ -29,8 +30,13 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 * Special widget
 * Rich API
 
-= Reviews =
+= What people are saying (reviews) =
 * [40+ Reasons Shortcodes Ultimate Is A Must Have Plugin](http://www.the-best-web-hosting-service.com/blog/2014/01/ultimateshortcodesreview/)
+* [Обзор плагина Shortcodes Ultimate](http://rad-dom.ru/shortcodes-ultimate/) (Ru)
+* [Shortcodes Ultimate Plugin Review](http://kevindankowebdesign.com/shortcodes-ultimate-plugin-review/)
+* [Shortcodes Ultimate — плагин неограниченных возможностей](http://altacademic.ru/shortcodes-ultimate/) (Ru)
+* [Shortcodes Ultimate – Free Shortcode Plugin For WordPress](http://www.wordpress-masterclass.com/shortcodes-ultimate-free-shortcode-plugin-for-wordpress/)
+* [Shortcodes Ultimate – Newest Update Broke My Website](http://4spotmarketing.com/shortcodes-ultimate-stopped-working-and-the-update-broke-my-website/)
 * Video: [Shortcodes Ultimate Tutorial](http://www.youtube.com/watch?v=IjmaXz-b55I)
 * Video: [How to use special widget](http://www.youtube.com/watch?v=YU3Zu6C5ZfA)
 * Video: [How to create image gallery](http://www.youtube.com/watch?v=kCWyO2F7jTw)
@@ -78,7 +84,7 @@ Activate plugin at "Plugins" administration page.
 
 == Upgrade Notice ==
 
-
+Upgrade normally
 
 
 == Screenshots ==
@@ -104,6 +110,7 @@ Activate plugin at "Plugins" administration page.
 * New locale - VI
 * Fixed bug with tax_term IDs in [posts] shortcode, [forum topic](http://wordpress.org/support/topic/posts-tax_term-category-number)
 * Fixed bug with service title, [forum topic](http://wordpress.org/support/topic/service-shortcode-not-wrapping-properly-on-mobile-browser)
+* Fixed bug with animations names in shortcode generator, [forum topic](http://wordpress.org/support/topic/animations-2)
 
 = 4.5 =
 * Updated some examples
