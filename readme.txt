@@ -103,8 +103,11 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.6.2 =
+* Updated readme.txt
+
 = 4.6.1 =
-* Compatibility with recent version of [SiteOrigin page builder](http://wordpress.org/plugins/siteorigin-panels/)
+* Compatibility with recent version of [SiteOrigin page builder](siteorigin.com/page-builder/) - it's free!
 * Compatibility with recent version of [Visual Composer](http://vc.wpbakery.com/)
 * Compatibility with recent version of [Elegant Themes page builder](http://www.elegantthemes.com/gallery/elegant-builder/)
 
