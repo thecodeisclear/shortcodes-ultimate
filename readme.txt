@@ -104,6 +104,7 @@ Upgrade normally
 == Changelog ==
 
 = 4.6.2 =
+* Font-Awesome is now loaded from bootstrap CDN. [Details](http://stackoverflow.com/questions/20032426/fontawesome-doesnt-display-in-firefox).
 * Updated readme.txt
 
 = 4.6.1 =
