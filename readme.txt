@@ -31,6 +31,7 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 * Rich API
 
 = What people are saying (reviews) =
+* [Shortcodes Ultimate: Ultimatize your written content](http://wisdmlabs.com/blog/how-to-style-wordpress-themes-with-shortcodes-ultimate/)
 * [40+ Reasons Shortcodes Ultimate Is A Must Have Plugin](http://www.the-best-web-hosting-service.com/blog/2014/01/ultimateshortcodesreview/)
 * [Обзор плагина Shortcodes Ultimate](http://rad-dom.ru/shortcodes-ultimate/) (Ru)
 * [Shortcodes Ultimate Plugin Review](http://kevindankowebdesign.com/shortcodes-ultimate-plugin-review/)
@@ -105,6 +106,7 @@ Upgrade normally
 
 = 4.6.2 =
 * Font-Awesome is now loaded from bootstrap CDN. [Details](http://stackoverflow.com/questions/20032426/fontawesome-doesnt-display-in-firefox).
+* New awesome review - [Shortcodes Ultimate: Ultimatize your written content](http://wisdmlabs.com/blog/how-to-style-wordpress-themes-with-shortcodes-ultimate/)
 * Updated readme.txt
 
 = 4.6.1 =
