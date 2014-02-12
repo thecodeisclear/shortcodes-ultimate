@@ -30,9 +30,10 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 * Special widget
 * Rich API
 
-= What people are saying (reviews) =
-* [Shortcodes Ultimate: Ultimatize your written content](http://wisdmlabs.com/blog/how-to-style-wordpress-themes-with-shortcodes-ultimate/)
+= What people are saying (blog posts/tutorials) =
 * [40+ Reasons Shortcodes Ultimate Is A Must Have Plugin](http://www.the-best-web-hosting-service.com/blog/2014/01/ultimateshortcodesreview/)
+* [Show Me the Shortcode](http://thewpchick.com/show-shortcode/) + Video
+* [Shortcodes Ultimate: Ultimatize your written content](http://wisdmlabs.com/blog/how-to-style-wordpress-themes-with-shortcodes-ultimate/)
 * [Add 40+ New Layout Features To WordPress with Shortcodes Ultimate](http://www.makeuseof.com/tag/add-40-new-layout-features-wordpress-shortcodes-ultimate/)
 * [Обзор плагина Shortcodes Ultimate](http://rad-dom.ru/shortcodes-ultimate/) (Ru)
 * [Shortcodes Ultimate Plugin Review](http://kevindankowebdesign.com/shortcodes-ultimate-plugin-review/)
@@ -106,9 +107,10 @@ Upgrade normally
 == Changelog ==
 
 = 4.6.2 =
-* Font-Awesome is now loaded from bootstrap CDN. [Details](http://stackoverflow.com/questions/20032426/fontawesome-doesnt-display-in-firefox).
+* Font-Awesome is now loaded from bootstrap CDN. [Technical details](http://stackoverflow.com/questions/20032426/fontawesome-doesnt-display-in-firefox).
 * New review - [Shortcodes Ultimate: Ultimatize your written content](http://wisdmlabs.com/blog/how-to-style-wordpress-themes-with-shortcodes-ultimate/)
 * New review - [Add 40+ New Layout Features To WordPress with Shortcodes Ultimate](http://www.makeuseof.com/tag/add-40-new-layout-features-wordpress-shortcodes-ultimate/)
+* New review - [Show Me the Shortcode](http://thewpchick.com/show-shortcode/) + Video
 * Updated readme.txt
 
 = 4.6.1 =
