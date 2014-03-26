@@ -107,9 +107,10 @@ Upgrade normally
 == Changelog ==
 
 = 4.7.0 =
-* Fixed https bug in FontAwesome enqueue
 * Long-awaited feature: slider, carousel and custom_gallery links can now be open with lightbox
 * Long-awaited feature: custom links in slider, carousel and custom_gallery shortcodes
+* Fixed https bug in FontAwesome enqueue
+* Fixed bug with multiple users queries - [forum topic](http://wordpress.org/support/topic/plugin-making-700-sql-calls)
 
 = 4.6 =
 * Auto-save for shortcodes settings. Now you don't need to adjust it again and again

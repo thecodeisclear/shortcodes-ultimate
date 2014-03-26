@@ -592,6 +592,9 @@ class Su_Tools {
 
 		add_filter( 'attachment_fields_to_edit',  array( __CLASS__, 'slide_link_input' ), null, 2 );
 		add_filter( 'attachment_fields_to_save',  array( __CLASS__, 'slide_link_save' ), null, 2 );
+
+		add_action( 'load-users.php',             array( __CLASS__, 'reset_users_cache' ) );
+		add_action( 'load-user-edit.php',         array( __CLASS__, 'reset_users_cache' ) );
 	}
 
 	public static function select( $args ) {
@@ -655,9 +658,22 @@ class Su_Tools {
 	}
 
 	public static function get_users() {
-		$users = array();
-		foreach ( (array) get_users() as $user ) $users[$user->ID] = $user->data->display_name;
-		return $users;
+		// Get data from cache
+		$users = get_transient( 'su/users_cache' );
+		// Query users
+		if ( !$users ) $users = get_users();
+		// Cache results
+		set_transient( 'su/users_cache', $users );
+		// Prepare data array
+		$data = array();
+		// Loop through users
+		foreach ( $users as $user ) $data[$user->data->ID] = $user->data->display_name;
+		// Return data
+		return $data;
+	}
+
+	public static function reset_users_cache() {
+		if ( $_GET['update'] === 'del' || $_GET['update'] === 'add' || $_GET['updated'] === '1' ) delete_transient( 'su/users_cache' );
 	}
 
 	public static function get_taxonomies() {
