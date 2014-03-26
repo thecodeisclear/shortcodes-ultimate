@@ -659,7 +659,7 @@ class Su_Tools {
 
 	public static function get_users() {
 		// Get data from cache
-		$users = get_transient( 'su/users_cache' );
+		if ( SU_ENABLE_CACHE ) $users = get_transient( 'su/users_cache' );
 		// Query users
 		if ( !$users ) $users = get_users();
 		// Cache results
