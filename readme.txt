@@ -61,7 +61,7 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 * Fr, [Nicolas Leclerc](http://etic-studio.fr/)
 * Gr, [Kleanthis Manolopoulos](mailto:akis_manolopoulos_at_hotmail_dot_com)
 * Ja, [Stranger](#)
-* Unforunately old translations is incompatible with current version
+* Sk, [Patrik Žec (PATWIST)](http://patwist.com/)
 
 Have a translation? [Contact me](http://gndev.info/feedback/)
 
@@ -105,6 +105,9 @@ Upgrade normally
 
 
 == Changelog ==
+
+= 4.7.1 =
+* Slovak language
 
 = 4.7.0 =
 * Long-awaited feature: slider, carousel and custom_gallery links can now be open with lightbox
