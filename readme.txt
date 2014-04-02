@@ -108,6 +108,9 @@ Upgrade normally
 
 = 4.7.1 =
 * Slovak language
+* New shortcode [dailymotion]
+* YouTube (advanced) can now use https protocol
+* Additional help notes in Shortcode Generator
 
 = 4.7.0 =
 * Long-awaited feature: slider, carousel and custom_gallery links can now be open with lightbox
