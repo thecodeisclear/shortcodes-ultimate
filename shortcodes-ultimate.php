@@ -11,7 +11,7 @@
   License: GPL
  */
 
-// Define plugin file constants
+// Define plugin constants
 define( 'SU_PLUGIN_FILE', __FILE__ );
 define( 'SU_PLUGIN_VERSION', '4.7.1' );
 define( 'SU_ENABLE_CACHE', true );
