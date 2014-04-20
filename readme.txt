@@ -106,6 +106,10 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.7.2 =
+* New Ghost style for [button]
+* Minor UI fixes (for WP 3.9+)
+
 = 4.7.1 =
 * New shortcode [dailymotion]
 * YouTube (advanced) can now use https protocol
