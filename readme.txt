@@ -106,6 +106,9 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.7.3 =
+* Minor UI fixes (compatibility with page builders)
+
 = 4.7.2 =
 * New Ghost style for [button]
 * Minor UI fixes (for WP 3.9+)
