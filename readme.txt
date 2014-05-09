@@ -62,6 +62,7 @@ With this plugin you can easily create tabs, buttons, boxes, different sliders, 
 * Gr, [Kleanthis Manolopoulos](mailto:akis_manolopoulos_at_hotmail_dot_com)
 * Ja, [Stranger](#)
 * Sk, [Patrik Žec (PATWIST)](http://patwist.com/)
+* Cz, [Punc00](http://nuze.cz/)
 
 Have a translation? [Contact me](http://gndev.info/feedback/)
 
@@ -108,6 +109,7 @@ Upgrade normally
 
 = 4.7.3 =
 * Minor UI fixes (compatibility with page builders)
+* Czech translation
 
 = 4.7.2 =
 * New Ghost style for [button]
