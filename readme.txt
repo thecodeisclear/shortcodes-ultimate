@@ -109,10 +109,11 @@ Upgrade normally
 
 = 4.9.0 =
 * New shortcode [qrcode] allows you to generate colorful and responsive QR codes!
-* Improved shortcode serach. Just type shortcode name and hit Enter.
+* Improved shortcode serach. Just type shortcode name and hit Enter
 * Updated Animate.css (animations library)
 * Updated ACE editor (custom CSS editor)
 * Responsive CSS for [tabs]
+* Highly decreased plugin size
 
 = 4.8 =
 * Minor UI fixes (compatibility with page builders)
