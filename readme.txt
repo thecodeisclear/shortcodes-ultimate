@@ -107,6 +107,9 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.9.1 =
+* Updated animations script. CSS transitions will be skipped in non-supported browsers
+
 = 4.9.0 =
 * New shortcode [qrcode] allows you to generate colorful and responsive QR codes!
 * Improved shortcode serach. Just type shortcode name and hit Enter

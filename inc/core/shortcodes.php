@@ -1314,15 +1314,8 @@ class Su_Shortcodes {
 				'class'     => ''
 			), $atts, 'animate' );
 		$tag = ( $atts['inline'] === 'yes' ) ? 'span' : 'div';
-		$style = array(
-			'duration' => array(),
-			'delay' => array()
-		);
-		foreach ( array( '-webkit-', '-moz-', '-ms-', '-o-', '' ) as $vendor ) {
-			$style['duration'][] = $vendor . 'animation-duration:' . $atts['duration'] . 's';
-			$style['delay'][] = $vendor . 'animation-delay:' . $atts['delay'] . 's';
-		}
-		$return = '<' . $tag . ' class="su-animate ' . $atts['type'] . su_ecssc( $atts ) . '" style="visibility:hidden;' . implode( ';', $style['duration'] ) . ';' . implode( ';', $style['delay'] ) . '" data-animation="' . $atts['type'] . '" data-delay="' . ( $atts['delay'] * 1000 ) . '">' . do_shortcode( $content ) . '</' . $tag . '>';
+		$time = '-webkit-animation-duration:' . $atts['duration'] . 's;-webkit-animation-delay:' . $atts['delay'] . 's;animation-duration:' . $atts['duration'] . 's;animation-delay:' . $atts['delay'] . 's;';
+		$return = '<' . $tag . ' class="su-animate' . su_ecssc( $atts ) . '" style="visibility:hidden;' . $time . '" data-animation="' . $atts['type'] . '" data-duration="' . $atts['duration'] . '" data-delay="' . $atts['delay'] . '">' . do_shortcode( $content ) . '</' . $tag . '>';
 		su_query_asset( 'css', 'animate' );
 		su_query_asset( 'js', 'jquery' );
 		su_query_asset( 'js', 'inview' );

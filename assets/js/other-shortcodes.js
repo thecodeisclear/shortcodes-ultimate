@@ -135,15 +135,35 @@ jQuery(document).ready(function ($) {
 		$tt.qtip(config);
 	});
 
+	// jQuery.support.transition
+	// to verify that CSS3 transition is supported (or any of its browser-specific implementations)
+	$.support.transition = (function () {
+		var thisBody = document.body || document.documentElement,
+			thisStyle = thisBody.style,
+			support = thisStyle.transition !== undefined || thisStyle.WebkitTransition !== undefined || thisStyle.MozTransition !== undefined || thisStyle.MsTransition !== undefined || thisStyle.OTransition !== undefined;
+
+		return support;
+	})();
+
 	// Animate
-	$('.su-animate').each(function () {
-		$(this).one('inview', function (e) {
-			var $this = $(this);
-			window.setTimeout(function () {
-				$this.addClass('animated').css('visibility', 'visible');
-			}, $this.data('delay'));
+	// Animations is supported
+	if ($.support.transition) {
+		$('.su-animate').each(function () {
+			$(this).one('inview', function (e) {
+				var $this = $(this),
+					data = $this.data();
+				window.setTimeout(function () {
+					$this.addClass(data.animation);
+					$this.addClass('animated');
+					$this.css('visibility', 'visible');
+				}, data.delay * 1000);
+			});
 		});
-	});
+	}
+	// Animations isn't supported
+	else {
+		$('.su-animate').css('visibility', 'visible');
+	}
 
 	function tabs_height() {
 		$('.su-tabs-vertical').each(function () {
