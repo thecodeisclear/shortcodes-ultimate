@@ -108,7 +108,13 @@ Upgrade normally
 == Changelog ==
 
 = 4.9.1 =
-* Updated animations script. CSS transitions will be skipped in non-supported browsers
+* Added: New shortcode [scheduler]
+* Added: New shortcode [expand]
+* Added: New options for [divider]
+* Added: New option `rel` for [button]
+* Fixed: animations script has been changed. CSS animations will be skipped in non-supported browsers, [forum topic](http://wordpress.org/support/topic/disable-animations-on-non-supported-devicesbrowsers)
+* Fixed: templates/default-loop.php - removed extra n character in comments number, [forum topic](http://wordpress.org/support/topic/minor-bug-in-templatesdefault-loopphp)
+* Fixed: large DB query on sites with many users, [forum topic](http://wordpress.org/support/topic/installing-sc-ultimate-on-site-with-30000-wp-users)
 
 = 4.9.0 =
 * New shortcode [qrcode] allows you to generate colorful and responsive QR codes!

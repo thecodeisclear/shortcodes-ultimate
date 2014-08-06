@@ -135,6 +135,25 @@ jQuery(document).ready(function ($) {
 		$tt.qtip(config);
 	});
 
+	// Expand
+	$('.su-expand').each(function () {
+		var $this = $(this),
+			$content = $this.children('.su-expand-content'),
+			$more = $this.children('.su-expand-link-more'),
+			$less = $this.children('.su-expand-link-less'),
+			data = $this.data(),
+			col = 'su-expand-collapsed';
+
+		$more.on('click', function (e) {
+			$content.css('max-height', 'none');
+			$this.removeClass(col);
+		});
+		$less.on('click', function (e) {
+			$content.css('max-height', data.height + 'px');
+			$this.addClass(col);
+		});
+	});
+
 	// jQuery.support.transition
 	// to verify that CSS3 transition is supported (or any of its browser-specific implementations)
 	$.support.transition = (function () {
@@ -145,9 +164,9 @@ jQuery(document).ready(function ($) {
 		return support;
 	})();
 
-	// Animate
 	// Animations is supported
 	if ($.support.transition) {
+		// Animate
 		$('.su-animate').each(function () {
 			$(this).one('inview', function (e) {
 				var $this = $(this),
