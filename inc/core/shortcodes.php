@@ -60,7 +60,7 @@ class Su_Shortcodes {
 			'title' => $atts['title'],
 			'content' => do_shortcode( $content ),
 			'disabled' => ( $atts['disabled'] === 'yes' ) ? ' su-tabs-disabled' : '',
-			'anchor' => ( $atts['anchor'] ) ? ' data-anchor="' . str_replace( ' ', '', trim( sanitize_text_field( $atts['anchor'] ) ) ) . '"' : '',
+			'anchor' => ( $atts['anchor'] ) ? ' data-anchor="' . str_replace( array( ' ', '#' ), '', sanitize_text_field( $atts['anchor'] ) ) . '"' : '',
 			'class' => $atts['class']
 		);
 		self::$tab_count++;
@@ -77,7 +77,7 @@ class Su_Shortcodes {
 				'class'  => ''
 			), $atts, 'spoiler' );
 		$atts['style'] = str_replace( array( '1', '2' ), array( 'default', 'fancy' ), $atts['style'] );
-		$atts['anchor'] = ( $atts['anchor'] ) ? ' data-anchor="' . str_replace( ' ', '', trim( sanitize_text_field( $atts['anchor'] ) ) ) . '"' : '';
+		$atts['anchor'] = ( $atts['anchor'] ) ? ' data-anchor="' . str_replace( array( ' ', '#' ), '', sanitize_text_field( $atts['anchor'] ) ) . '"' : '';
 		if ( $atts['open'] !== 'yes' ) $atts['class'] .= ' su-spoiler-closed';
 		su_query_asset( 'css', 'font-awesome' );
 		su_query_asset( 'css', 'su-box-shortcodes' );

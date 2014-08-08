@@ -107,6 +107,11 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.9.2 =
+* Added: minor improvements for tabs/spoilers anchors
+* Updated: Japanese translation
+* Updated: FontAwesome, 4.1.0
+
 = 4.9.1 =
 * Added: New shortcode [scheduler]
 * Added: New shortcode [expand]
@@ -118,7 +123,7 @@ Upgrade normally
 
 = 4.9.0 =
 * New shortcode [qrcode] allows you to generate colorful and responsive QR codes!
-* Improved shortcode serach. Just type shortcode name and hit Enter
+* Improved shortcode search. Just type shortcode name and hit Enter
 * Updated Animate.css (animations library)
 * Updated ACE editor (custom CSS editor)
 * Responsive CSS for [tabs]
