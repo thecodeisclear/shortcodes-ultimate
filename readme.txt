@@ -109,6 +109,7 @@ Upgrade normally
 
 = 4.9.2 =
 * Added: minor improvements for tabs/spoilers anchors
+* Added: compatibility with TablePress's advanced editor
 * Updated: Japanese translation
 * Updated: FontAwesome, 4.1.0
 
