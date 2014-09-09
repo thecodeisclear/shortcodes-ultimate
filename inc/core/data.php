@@ -241,6 +241,21 @@ class Su_Data {
 							'name' => __( 'Anchor', 'su' ),
 							'desc' => __( 'You can use unique anchor for this tab to access it with hash in page url. For example: type here <b%value>Hello</b> and then use url like http://example.com/page-url#Hello. This tab will be activated and scrolled in', 'su' )
 						),
+						'url' => array(
+							'default' => '',
+							'name' => __( 'URL', 'su' ),
+							'desc' => __( 'You can link this tab to any webpage. Enter here full URL to switch this tab into link', 'su' )
+						),
+						'target' => array(
+							'type' => 'select',
+							'values' => array(
+								'self'  => __( 'Open link in same window/tab', 'su' ),
+								'blank' => __( 'Open link in new window/tab', 'su' )
+							),
+							'default' => 'blank',
+							'name' => __( 'Link target', 'su' ),
+							'desc' => __( 'Choose how to open the custom tab link', 'su' )
+						),
 						'class' => array(
 							'default' => '',
 							'name' => __( 'Class', 'su' ),
@@ -1076,7 +1091,7 @@ class Su_Data {
 						'src' => array(
 							'default' => '',
 							'name' => __( 'Content source', 'su' ),
-							'desc' => __( 'Insert here URL or CSS selector. Use URL for Iframe and Image content types. Use CSS selector for Inline content type.<br />Example values:<br /><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</b> - YouTube video (iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any web page (iframe)<br /><b%value>#contact-form</b> - any HTML content (inline)', 'su' )
+							'desc' => __( 'Insert here URL or CSS selector. Use URL for Iframe and Image content types. Use CSS selector for Inline content type.<br />Example values:<br /><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</b> - YouTube video (iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any web page (iframe)<br /><b%value>#my-custom-popup</b> - any HTML content (inline)', 'su' )
 						),
 						'class' => array(
 							'default' => '',
@@ -1086,6 +1101,85 @@ class Su_Data {
 					),
 					'content' => __( '[%prefix_button] Click Here to Watch the Video [/%prefix_button]', 'su' ),
 					'desc' => __( 'Lightbox window with custom content', 'su' ),
+					'icon' => 'external-link'
+				),
+				// lightbox content
+				'lightbox_content' => array(
+					'name' => __( 'Lightbox content', 'su' ),
+					'type' => 'wrap',
+					'group' => 'gallery',
+					'atts' => array(
+						'id' => array(
+							'default' => '',
+							'name' => __( 'ID', 'su' ),
+							'desc' => sprintf( __( 'Enter here the ID from Content source field. %s Example value: %s', 'su' ), '<br>', '<b%value>my-custom-popup</b>' )
+						),
+						'width' => array(
+							'default' => '50%',
+							'name' => __( 'Width', 'su' ),
+							'desc' => sprintf( __( 'Adjust the width for inline content (in pixels or percents). %s Example values: %s, %s, %s', 'su' ), '<br>', '<b%value>300px</b>', '<b%value>600px</b>', '<b%value>90%</b>' )
+						),
+						'margin' => array(
+							'type' => 'slider',
+							'min' => 0,
+							'max' => 600,
+							'step' => 5,
+							'default' => 40,
+							'name' => __( 'Margin', 'su' ),
+							'desc' => __( 'Adjust the margin for inline content (in pixels)', 'su' )
+						),
+						'padding' => array(
+							'type' => 'slider',
+							'min' => 0,
+							'max' => 600,
+							'step' => 5,
+							'default' => 40,
+							'name' => __( 'Padding', 'su' ),
+							'desc' => __( 'Adjust the padding for inline content (in pixels)', 'su' )
+						),
+						'text_align' => array(
+							'type' => 'select',
+							'values' => array(
+								'left'   => __( 'Left', 'su' ),
+								'center' => __( 'Center', 'su' ),
+								'right'  => __( 'Right', 'su' )
+							),
+							'default' => 'center',
+							'name' => __( 'Text alignment', 'su' ),
+							'desc' => __( 'Select the text alignment', 'su' )
+						),
+						'background' => array(
+							'type' => 'color',
+							'default' => '#FFFFFF',
+							'name' => __( 'Background color', 'su' ),
+							'desc' => __( 'Pick a background color', 'su' )
+						),
+						'color' => array(
+							'type' => 'color',
+							'default' => '#333333',
+							'name' => __( 'Text color', 'su' ),
+							'desc' => __( 'Pick a text color', 'su' )
+						),
+						'color' => array(
+							'type' => 'color',
+							'default' => '#333333',
+							'name' => __( 'Text color', 'su' ),
+							'desc' => __( 'Pick a text color', 'su' )
+						),
+						'shadow' => array(
+							'type' => 'shadow',
+							'default' => '0px 0px 15px #333333',
+							'name' => __( 'Shadow', 'su' ),
+							'desc' => __( 'Adjust the shadow for content box', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						)
+					),
+					'content' => __( 'Inline content', 'su' ),
+					'desc' => __( 'Inline content for lightbox', 'su' ),
 					'icon' => 'external-link'
 				),
 				// tooltip
@@ -1372,6 +1466,11 @@ class Su_Data {
 							'default' => 'no',
 							'name' => __( 'Force HTTPS', 'su' ),
 							'desc' => __( 'Use HTTPS in player iframe', 'su' )
+						),
+						'wmode' => array(
+							'default' => '',
+							'name'    => __( 'WMode', 'su' ),
+							'desc'    => sprintf( __( 'Here you can specify wmode value for the embed URL. %s Example values: %s, %s', 'su' ), '<br>', '<b%value>transparent</b>', '<b%value>opaque</b>' )
 						),
 						'class' => array(
 							'default' => '',

@@ -108,10 +108,17 @@ Upgrade normally
 == Changelog ==
 
 = 4.9.2 =
-* Added: minor improvements for tabs/spoilers anchors
+* Added: minor improvements for tabs/spoilers anchors (auto-removing extra # characters)
 * Added: compatibility with TablePress's advanced editor
-* Updated: Japanese translation
+* Added: new option for tabs. You can now link any tab to any webpage [su_tab url="http://" target="blank"]
+* Added: new option wmode for [youtube_advanced], [forum topic](http://wordpress.org/support/topic/youtube-player-option-request)
+* Added: new shortcode [lightbox_content]
+* Fixed: lightbox and galleries scripts, [forum topic](http://wordpress.org/support/topic/carousel-su-little-hack)
+* Fixed: removed global function $.support.transition, [forum topic](http://wordpress.org/support/topic/transition-check-returns-string-instead-of-object)
+* Updated: Russian language
+* Updated: Japanese language
 * Updated: FontAwesome, 4.1.0
+* Updated: Magnific Popup, 0.9.9
 
 = 4.9.1 =
 * Added: New shortcode [scheduler]
