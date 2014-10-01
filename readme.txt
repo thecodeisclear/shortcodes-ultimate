@@ -107,6 +107,10 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.9.3 =
+* Updated: owl-carousel.js
+* Added: minor UI improvements
+
 = 4.9.2 =
 * Added: minor improvements for tabs/spoilers anchors (auto-removing extra # characters)
 * Added: compatibility with TablePress's advanced editor
