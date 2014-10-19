@@ -110,6 +110,7 @@ Upgrade normally
 = 4.9.3 =
 * Updated: owl-carousel.js
 * Added: minor UI improvements
+* Fixed: [vimeo] ssl issue (thanks to Adam)
 
 = 4.9.2 =
 * Added: minor improvements for tabs/spoilers anchors (auto-removing extra # characters)
