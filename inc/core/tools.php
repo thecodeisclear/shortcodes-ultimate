@@ -584,9 +584,6 @@ class Su_Tools {
 
 		add_filter( 'attachment_fields_to_edit',  array( __CLASS__, 'slide_link_input' ), null, 2 );
 		add_filter( 'attachment_fields_to_save',  array( __CLASS__, 'slide_link_save' ), null, 2 );
-
-		add_action( 'load-users.php',             array( __CLASS__, 'reset_users_cache' ) );
-		add_action( 'load-user-edit.php',         array( __CLASS__, 'reset_users_cache' ) );
 	}
 
 	public static function select( $args ) {
@@ -647,11 +644,6 @@ class Su_Tools {
 		$types = array();
 		foreach ( (array) get_post_types( '', 'objects' ) as $cpt => $cpt_data ) $types[$cpt] = $cpt_data->label;
 		return $types;
-	}
-
-	public static function reset_users_cache() {
-		if ( ( isset( $_GET['update'] ) || isset( $_GET['updated'] ) ) )
-			if ( $_GET['update'] === 'del' || $_GET['update'] === 'add' || $_GET['updated'] === '1' ) delete_transient( 'su/users_cache' );
 	}
 
 	public static function get_taxonomies() {

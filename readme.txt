@@ -111,6 +111,9 @@ Upgrade normally
 * Updated: owl-carousel.js
 * Added: minor UI improvements
 * Fixed: [vimeo] ssl issue (thanks to Adam)
+* Fixed: multiple errors on cheatsheet page
+* Fixed: errors when updating user profile, [forum topic](https://wordpress.org/support/topic/error-message-when-updating-users-in-wp-admin)
+* Removed: global skin option at settings page
 
 = 4.9.2 =
 * Added: minor improvements for tabs/spoilers anchors (auto-removing extra # characters)

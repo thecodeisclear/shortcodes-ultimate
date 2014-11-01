@@ -130,6 +130,8 @@ class Su_Admin_Views {
 				foreach ( $shortcode['atts'] as $id => $data ) {
 					// Prepare default value
 					$default = ( isset( $data['default'] ) && $data['default'] !== '' ) ? '<p><em>' . __( 'Default value', 'su' ) . ':</em> ' . $data['default'] . '</p>' : '';
+					// Check type is set
+					if ( empty( $data['type'] ) ) $data['type'] = 'text';
 					// Switch attribute types
 					switch ( $data['type'] ) {
 						// Select
@@ -169,10 +171,12 @@ class Su_Admin_Views {
 				}
 			// Prepare example code
 			$example = '[%prefix_' . $name . ' ' . implode( ' ', $example ) . ']';
+			// Prepare content value
+			if ( empty( $shortcode['content'] ) ) $shortcode['content'] = '';
 			// Add wrapping code
 			if ( $shortcode['type'] === 'wrap' ) $example .= esc_textarea( $shortcode['content'] ) . '[/%prefix_' . $name . ']';
 			// Change compatibility prefix
-			$example = str_replace( '%prefix_', su_cmpt(), $example );
+			$example = str_replace( array( '%prefix_', '__' ), su_cmpt(), $example );
 			// Shortcode
 			$table[] = '<td>' . '<span class="su-shortcode-icon">' . Su_Tools::icon( $icon ) . '</span>' . $shortcode['name'] . '<br/><em class="su-shortcode-desc">' . $shortcode['desc'] . '</em></td>';
 			// Attributes
