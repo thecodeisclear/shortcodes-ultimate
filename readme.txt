@@ -107,6 +107,9 @@ Upgrade normally
 
 == Changelog ==
 
+= 4.9.4 =
+* Updated: Japanese translation
+
 = 4.9.3 =
 * Updated: owl-carousel.js
 * Added: minor UI improvements
