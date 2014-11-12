@@ -109,6 +109,7 @@ Upgrade normally
 
 = 4.9.4 =
 * Updated: Japanese translation
+* Fixed: minor fixes in shortcode settings window
 
 = 4.9.3 =
 * Updated: owl-carousel.js

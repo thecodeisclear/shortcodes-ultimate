@@ -159,7 +159,7 @@ class Su_Generator {
 				$return .= '</div></div>';
 			}
 			// Shortcode has atts
-			if ( count( $shortcode['atts'] ) && $shortcode['atts'] ) {
+			if ( isset( $shortcode['atts'] ) && count( $shortcode['atts'] ) ) {
 				// Loop through shortcode parameters
 				foreach ( $shortcode['atts'] as $attr_name => $attr_info ) {
 					// Prepare default value
@@ -180,7 +180,11 @@ class Su_Generator {
 			// Single shortcode (not closed)
 			if ( $shortcode['type'] == 'single' ) $return .= '<input type="hidden" name="su-generator-content" id="su-generator-content" value="false" />';
 			// Wrapping shortcode
-			else $return .= '<div class="su-generator-attr-container"><h5>' . __( 'Content', 'su' ) . '</h5><textarea name="su-generator-content" id="su-generator-content" rows="5">' . esc_attr( str_replace( array( '%prefix_', '__' ), su_cmpt(), $shortcode['content'] ) ) . '</textarea></div>';
+			else {
+				// Prepare shortcode content
+				$shortcode['content'] = ( isset( $shortcode['content'] ) ) ? $shortcode['content'] : '';
+				$return .= '<div class="su-generator-attr-container"><h5>' . __( 'Content', 'su' ) . '</h5><textarea name="su-generator-content" id="su-generator-content" rows="5">' . esc_attr( str_replace( array( '%prefix_', '__' ), su_cmpt(), $shortcode['content'] ) ) . '</textarea></div>';
+			}
 			$return .= '<div id="su-generator-preview"></div>';
 			$return .= '<div class="su-generator-actions su-generator-clearfix">' . implode( ' ', array_values( $actions ) ) . '</div>';
 			set_transient( 'su/generator/settings/' . sanitize_text_field( $_REQUEST['shortcode'] ), $return, 2 * DAY_IN_SECONDS );
