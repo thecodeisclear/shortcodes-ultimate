@@ -54,6 +54,19 @@ Use next links to switch this tabs
 
 -----
 
+<h2>Tabs with Icons</h2>
+
+[%su_tabs]
+	[%su_tab title="Tab 1"] Tab 1 content [/%su_tab]
+	[%su_tab title="Tab 2"] Tab 2 content [/%su_tab]
+	[%su_tab title="Tab 3" icon="http://lorempixel.com/16/16/sports/"] Tab 3 content [/%su_tab]
+	[%su_tab title="Tab 4" icon="icon: chevron-right" icon_color="#333"]Tab 4 content[/%su_tab]
+[/%su_tabs]
+
+Either upload an icon or use fontawesome icons for the tab.
+
+-----
+
 <h2>Custom styles</h2>
 
 [%su_tabs class="my-custom-tabs"]

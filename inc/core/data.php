@@ -230,6 +230,28 @@ class Su_Data {
 							'name' => __( 'Title', 'su' ),
 							'desc' => __( 'Enter tab name', 'su' )
 						),
+						// Included Icon for tab
+						'icon' => array(
+							'type' => 'icon',
+							'default' => '',
+							'name' => __( 'Icon', 'su' ),
+							'desc' => __( 'You can upload custom icon for this box', 'su' )
+						),
+						'icon_color' => array(
+							'type' => 'color',
+							'default' => '#333333',
+							'name' => __( 'Icon color', 'su' ),
+							'desc' => __( 'This color will be applied to the selected icon. Does not works with uploaded icons', 'su' )
+						),
+						'size' => array(
+							'type' => 'slider',
+							'min' => 10,
+							'max' => 128,
+							'step' => 2,
+							'default' => 16,
+							'name' => __( 'Icon size', 'su' ),
+							'desc' => __( 'Size of the uploaded icon in pixels', 'su' )
+						),
 						'disabled' => array(
 							'type' => 'bool',
 							'default' => 'no',

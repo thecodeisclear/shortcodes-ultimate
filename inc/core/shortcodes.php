@@ -32,7 +32,7 @@ class Su_Shortcodes {
 		if ( is_array( self::$tabs ) ) {
 			if ( self::$tab_count < $atts['active'] ) $atts['active'] = self::$tab_count;
 			foreach ( self::$tabs as $tab ) {
-				$tabs[] = '<span class="' . su_ecssc( $tab ) . $tab['disabled'] . '"' . $tab['anchor'] . $tab['url'] . $tab['target'] . '>' . su_scattr( $tab['title'] ) . '</span>';
+				$tabs[] = '<span class="' . su_ecssc( $tab ) . $tab['disabled'] . '"' . $tab['anchor'] . $tab['url'] . $tab['target'] . '>' . $tab['icon'] . su_scattr( $tab['title'] ) . '</span>';
 				$panes[] = '<div class="su-tabs-pane su-clearfix' . su_ecssc( $tab ) . '">' . $tab['content'] . '</div>';
 			}
 			$atts['vertical'] = ( $atts['vertical'] === 'yes' ) ? ' su-tabs-vertical' : '';
@@ -55,9 +55,24 @@ class Su_Shortcodes {
 				'anchor'   => '',
 				'url'      => '',
 				'target'   => 'blank',
-				'class'    => ''
+				'class'    => '',
+				'icon'     => '',
+				'icon_color' => '#333',
+				'size'     => 16
 			), $atts, 'tab' );
 		$x = self::$tab_count;
+		// Built-in icon
+		if ( strpos( $atts['icon'], 'icon:' ) !== false ) {
+			$atts['icon'] = '<i class="fa fa-' . trim( str_replace( 'icon:', '', $atts['icon'] ) ) . '" style="font-size:' . $atts['size'] . 'px;color:' . $atts['icon_color'] . '"></i>&nbsp;';
+			su_query_asset( 'css', 'font-awesome' );
+		}
+		// Uploaded icon
+		elseif ( $atts['icon'] == '') {
+			$atts['icon'] = '';
+		}
+		else {
+			$atts['icon'] = '<img src="' . $atts['icon'] . '" width="' . $atts['size'] . '" height="' . $atts['size'] . '" alt="' . $atts['title'] . '" style="float:left; padding: 0px 3px 0px 0px;" />';
+		}
 		self::$tabs[$x] = array(
 			'title'    => $atts['title'],
 			'content'  => do_shortcode( $content ),
@@ -65,7 +80,8 @@ class Su_Shortcodes {
 			'anchor'   => ( $atts['anchor'] ) ? ' data-anchor="' . str_replace( array( ' ', '#' ), '', sanitize_text_field( $atts['anchor'] ) ) . '"' : '',
 			'url'      => ' data-url="' . $atts['url'] . '"',
 			'target'   => ' data-target="' . $atts['target'] . '"',
-			'class'    => $atts['class']
+			'class'    => $atts['class'],
+			'icon'     => $atts['icon']
 		);
 		self::$tab_count++;
 		do_action( 'su/shortcode/tab', $atts );
