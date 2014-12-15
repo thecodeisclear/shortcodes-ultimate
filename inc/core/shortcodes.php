@@ -71,7 +71,7 @@ class Su_Shortcodes {
 			$atts['icon'] = '';
 		}
 		else {
-			$atts['icon'] = '<img src="' . $atts['icon'] . '" width="' . $atts['size'] . '" height="' . $atts['size'] . '" alt="' . $atts['title'] . '" style="float:left; padding: 0px 3px 0px 0px;" />';
+			$atts['icon'] = '<img src="' . $atts['icon'] . '" width="' . $atts['size'] . '" height="' . $atts['size'] . '" alt="' . $atts['title'] . '" style="vertical-align:middle; padding: 0px 3px 0px 0px;" />';
 		}
 		self::$tabs[$x] = array(
 			'title'    => $atts['title'],
