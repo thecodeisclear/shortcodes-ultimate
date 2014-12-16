@@ -1,0 +1,58 @@
+<h2>Default Rating (all fields filled)</h2>
+
+[%su_rating item="Wordpress" reviewer="Reviewer" dtreviewed="2014-12-12" rank="5" summary="Best blogging platform for beginners and experts" description="Whether you want to create a simple online journal or a full fledged shopping website, <strong>Wordpress</strong> is what you should be looking for. With a large number of the internet powered by this, you will never be left behind in finding themes, plugins and a helpful support community"]
+Rating : %rating% <br/>Review of %item% by %reviewer% on %date% <br/>%summary%<br/><strong>Review:</strong> %desc%
+[/%su_rating]
+
+-----
+
+<h2>Display Only Rating</h2>
+
+[%su_rating rank="4"]
+	%rating%
+[/%su_rating]
+
+-----
+
+<h2>Rating with different icon & color</h2>
+
+[%su_rating rank="2" icon="heart" rating_color="#db295a"]
+	%rating%
+[/%su_rating]
+
+-----
+
+<h2>[Advanced] Customize output with nested shortcodes</h2>
+
+[%su_rating item="Wordpress" reviewer="TheReviewer" dtreviewed="2014-12-12" rank="5" icon="check-square" rating_color="#2983db" summary="Best blogging platform for beginners and experts" description="Whether you want to create a simple online journal or a full fledged shopping website, <strong>Wordpress</strong> is what you should be looking for. With a large number of the internet powered by this, you will never be left behind in finding themes, plugins and a helpful support community"]
+	[%su_row]
+		[%su_column]%item% ( %rating% )[/%su_column]
+		[%su_column]by %reviewer%[/%su_column]
+	[/%su_row]
+	[%su_quote]%summary%[/%su_quote]
+	%desc%
+[/%su_rating]
+
+-----
+
+<h2>[Advanced] Using custom classes</h2>
+
+[%su_rating item="Wordpress" reviewer="Reviewer" dtreviewed="2014-12-12" rank="5" class="my-custom-rating" summary="Best blogging platform for beginners and experts" description="Whether you want to create a simple online journal or a full fledged shopping website, <strong>Wordpress</strong> is what you should be looking for. With a large number of the internet powered by this, you will never be left behind in finding themes, plugins and a helpful support community"]
+Rating : %rating% <br/>Review of %item% by %reviewer% on %date% <br/>%summary%<br/><strong>Review:</strong> %desc%
+[/%su_rating]
+
+<!--
+	IMPORTANT
+	You need to add this CSS code to the custom CSS editor at plugin settings page
+-->
+<style>
+	.su-rating.my-custom-rating { 
+		-webkit-border-radius: 0px 20px 0px 20px;
+		-moz-border-radius: 0px 20px 0px 20px;
+		border-radius: 0px 20px 0px 20px;
+		background-color:#91D9DB;
+		-webkit-box-shadow: #B3B3B3 5px 5px 5px;
+		-moz-box-shadow: #B3B3B3 5px 5px 5px; 
+		box-shadow: #B3B3B3 5px 5px 5px;
+	}
+</style>

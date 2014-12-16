@@ -97,6 +97,12 @@ class Su_Data {
 							'code' => plugin_dir_path( SU_PLUGIN_FILE ) . '/inc/examples/animations.example',
 							'icon' => 'bolt'
 						),
+						array(
+							'name' => __( 'Ratings', 'su' ),
+							'id'   => 'ratings',
+							'code' => plugin_dir_path( SU_PLUGIN_FILE ) . '/inc/examples/ratings.example',
+							'icon' => 'star'
+						),
 					)
 				),
 				'advanced' => array(
@@ -3043,6 +3049,82 @@ class Su_Data {
 					'desc' => __( 'Allows to show the content only at the specified time period', 'su' ),
 					'note' => __( 'This shortcode allows you to show content only at the specified time.', 'su' ) . '<br><br>' . __( 'Please pay special attention to the descriptions, which are located below each text field. It will save you a lot of time', 'su' ) . '<br><br>' . __( 'By default, the content of this shortcode will be visible all the time. By using fields below, you can add some limitations. For example, if you type 1-5 in the Days of the week field, content will be only shown from Monday to Friday. Using the same principles, you can limit content visibility from years to seconds.', 'su' ),
 					'icon' => 'clock-o'
+				),
+				// rating
+				'rating' => array(
+					'name' => __( 'Ratings', 'su' ),
+					'type' => 'wrap',
+					'group' => 'content',
+					'atts' => array(
+						'item' => array(
+							'default' => __( 'Item Reviewed', 'su' ),
+							'name' => __( 'Item', 'su' ), 'desc' => __( 'Item being reviewed [<code>%item%</code>]', 'su' )
+						),
+						'reviewer' => array(
+							'default' => __( '', 'su' ),
+							'name' => __( 'Reviewer', 'su' ), 'desc' => __( 'Name of the person giving the rating [<code>%reviewer%</code>]', 'su' )
+						),
+						'dtreviewed' => array(
+							'default' => __( '', 'su' ),
+							'name' => __( 'Date reviewed', 'su' ), 'desc' => __( 'Date when the item was reviewed [<code>%date%</code>]', 'su' )
+						),
+						'rank' => array(
+							'type' => 'select',
+							'values' => array(
+								'1' => __( '1 (Lowest)', 'su' ),
+								'2' => __( '2', 'su' ),
+								'3' => __( '3', 'su' ),
+								'4' => __( '4', 'su' ),
+								'5' => __( '5 (Highest)', 'su' )
+							),
+							'default' => '3',
+							'name' => __( 'Rating', 'su' ),
+							'desc' => __( 'Choose the rating you would like to give to the item reviewed [<code>%rating%</code>]', 'su' ) 
+						),
+						'icon' => array(
+							'type' => 'select',
+							'values' => array(
+								'star'           => __( 'Star', 'su' ),
+								'star-o'         => __( 'Star (Outline)', 'su' ),
+								'thumbs-up'      => __( 'Thumbs Up', 'su' ),
+								'thumbs-up-o'    => __( 'Thumbs Up (Outline)', 'su' ),
+								'check'          => __( 'Check Mark', 'su' ),
+								'check-circle'   => __( 'Check Mark Circle', 'su'),
+								'check-square'   => __( 'Check Mark Square', 'su'),
+								'heart'          => __( 'Heart', 'su' ),
+								'heart-o'        => __( 'Heart (Outline)', 'su' )
+							),
+							'default' => 'star',
+							'name' => __( 'Icon', 'su' ),
+							'desc' => __( 'Icons to be used for rating', 'su' )
+						),
+						'rating_color' => array(
+							'type' => 'color',
+							'values' => array( ),
+							'default' => '#ffee00',
+							'name' => __( 'Rating color', 'su' ),
+							'desc' => __( 'Pick the color for the rating icons', 'su' )
+						),
+						'class' => array(
+							'default' => '',
+							'name' => __( 'Class', 'su' ),
+							'desc' => __( 'Extra CSS class', 'su' )
+						),
+						'summary' => array(
+							'default' => __( '', 'su' ),
+							'name' => __( 'Summary', 'su' ), 'desc' => __( 'Summary of the review (one liner perhaps) [<code>%summary%</code>]', 'su' )
+						),
+						'description' => array(
+							'type' => 'textarea',
+							'default' => __( '', 'su' ),
+							'name' => __( 'Description', 'su' ), 'desc' => __( 'The full description of the review. Can contain HTML tags. [<code>%desc%</code>]', 'su' )
+						)
+					),
+					'content' => __( 'Rating : %rating% <br/>Review of %item% by %reviewer% on %date% <br/>%summary%<br/><strong>Review:</strong> %desc%', 'su' ),
+					'desc' => __( 'Ratings based on hReview system', 'su' ),
+					'note' => __( 'Did you know that the resulting markup is Google Rich Snippet compatible if you enter data in atleast 2 of the following fields - rating, reviewer, date reviewed?', 'su' ),
+					'example' => 'ratings',
+					'icon' => 'star'
 				),
 			) );
 		// Return result

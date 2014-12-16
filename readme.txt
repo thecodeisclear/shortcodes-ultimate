@@ -1,5 +1,5 @@
 === Shortcodes Ultimate ===
-Contributors: madfork, gn_themes
+Contributors: madfork, gn_themes, thecodeisclear
 License: GPL
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MMA2VA7JDXWDY
 Tags: shortcode, shortcodes, short code, video, responsive, responsive video, youtube, vimeo, audio, mp3, tab, tabs, button, buttons, jquery, box, boxes, toggle, spoiler, column, columns, services, service, pullquote, list, lists, images, image, links, fancy, fancy link, fancy links, fancy buttons, jquery tabs, accordion, slider, plugin, admin, gallery, bloginfo, list pages, sub pages, navigation, siblings pages, children pages, permalink, permalinks, feed, document, member, members, guests, membership, documents, carousel, rss, touch, icon, icons
@@ -106,6 +106,10 @@ Upgrade normally
 
 
 == Changelog ==
+
+= 4.9.5 -
+* Added: Ratings Shortcode (Google Rich Snippet Compatible)
+* Updated: Tab titles can now contain icons
 
 = 4.9.4 =
 * Updated: Japanese translation

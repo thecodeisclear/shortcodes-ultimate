@@ -526,6 +526,22 @@
 .su-lightbox-content h5,
 .su-lightbox-content h6 { color: inherit; }
 
+/*		Ratings
+---------------------------------------------------------------*/
+
+.su-rating {
+	padding: 14px;
+	-webkit-transition: padding-top .2s;
+	-moz-transition: padding-top .2s;
+	-o-transition: padding-top .2s;
+	transition: padding-top .2s;
+	-ie-transition: padding-top .2s;
+}
+.su-rating abbr {
+	border-bottom: 0;
+}
+
+
 /*		Common margin resets for box elements
 ---------------------------------------------------------------*/
 

@@ -71,7 +71,7 @@ class Su_Shortcodes {
 			$atts['icon'] = '';
 		}
 		else {
-			$atts['icon'] = '<img src="' . $atts['icon'] . '" width="' . $atts['size'] . '" height="' . $atts['size'] . '" alt="' . $atts['title'] . '" style="float:left; padding: 0px 3px 0px 0px;" />';
+			$atts['icon'] = '<img src="' . $atts['icon'] . '" width="' . $atts['size'] . '" height="' . $atts['size'] . '" alt="' . $atts['title'] . '" style="vertical-align:middle; padding: 0px 3px 0px 0px;" />';
 		}
 		self::$tabs[$x] = array(
 			'title'    => $atts['title'],
@@ -1600,6 +1600,52 @@ class Su_Shortcodes {
 		}
 		// Return result (all check passed)
 		return do_shortcode( $content );
+	}
+	
+	public static function rating( $atts = null, $content = null ) {
+		$atts = shortcode_atts( array(
+				'item'         => __( 'Item reviewed', 'su' ),
+				'reviewer'     => '',
+				'dtreviewed'   => '',
+				'rank'         => '3',
+				'icon'         => 'star',
+				'rating_color' => '#ffee00',
+				'class'        => '',
+				'summary'      => '',
+				'description'  => ''
+			), $atts, 'rating' );
+		// Commented till I find a way to update these values directly in the content
+		//if ( $atts['dtreviewed'] == 'default' ) {
+		//	$atts['dtreviewed'] = date("Y-m-d");
+		//}
+		//if ( $atts['reviewer'] == '' && is_user_logged_in() ) {
+		//	$current_user = wp_get_current_user();
+		//	$atts['reviewer'] = $current_user->display_name;
+		//}
+		$indiv_icon = '<i class="fa fa-' . $atts['icon'] . '" style="color:' . $atts['rating_color'] . '"></i>';
+		// Enclose data with hReview compatible tags
+		$atts['icon'] = '<abbr class="value" title="' . $atts['rank'] . '">' . str_repeat($indiv_icon, $atts['rank']) . '<meta itemprop="rating" content="' . $atts['rank'] . '" /></abbr>';
+		$atts['item'] = '<span itemprop="itemreviewed" class="su-rating-title">' . $atts['item'] . '</span>';
+		if ( $atts['dtreviewed'] != '' ) {
+			$atts['dtreviewed'] = '<time itemprop="dtreviewed" datetime="' . $atts['dtreviewed'] . '">' . $atts['dtreviewed'] . '</time>';
+		}
+		if ( $atts['reviewer'] != '' ) {
+			$atts['reviewer'] = '<span itemprop="reviewer" class="su-rating-reviewer">' . $atts['reviewer'] . '</span>';
+		}
+		if ( $atts['summary'] != '' ) {
+			$atts['summary'] = '<div class="su-rating-summary" itemprop="summary">' . $atts['summary'] . '</div>';
+		}
+		if ( $atts['description'] != '' ) {
+			$atts['description'] = '<div class="su-rating-description" itemprop="description">' . $atts['description'] . '</div>';
+		}
+		su_query_asset( 'css', 'font-awesome' );
+		su_query_asset( 'css', 'su-box-shortcodes' );
+		su_query_asset( 'js', 'jquery' );
+		su_query_asset( 'js', 'su-other-shortcodes' );
+		do_action( 'su/shortcode/rating', $atts );
+		$content = str_replace(array("%rating%","%item%","%reviewer%","%date%","%summary%","%desc%"),array($atts['icon'],$atts['item'],$atts['reviewer'],$atts['dtreviewed'],$atts['summary'],$atts['description']),$content);
+		return '<div itemscope itemtype="http://data-vocabulary.org/Review" class="su-rating ' . su_ecssc( $atts ) . '">' . su_do_shortcode( $content, 's' ) . '</div>';
+		//return '<div itemscope itemtype="http://data-vocabulary.org/Review" class="su-rating ' . su_ecssc( $atts ) . '><span itemprop="itemreviewed">' . $atts['item'] . '</span> Reviewed by <span itemprop="reviewer" class="su-rating-reviewer">' . $atts['reviewer'] . '</span> on <time itemprop="dtreviewed" datetime="' . $atts['dtreviewed'] . '">' . $atts['dtreviewed'] . '<div class="su-rating-summary" itemprop="summary">' . $atts['summary'] . '</div><div class="su-rating-description" itemprop="description">' . su_do_shortcode( $content, 's' ) . '</div>' . $atts['icon'] . '</div>';		
 	}
 
 }
