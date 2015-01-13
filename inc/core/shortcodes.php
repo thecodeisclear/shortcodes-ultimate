@@ -1614,14 +1614,13 @@ class Su_Shortcodes {
 				'summary'      => '',
 				'description'  => ''
 			), $atts, 'rating' );
-		// Commented till I find a way to update these values directly in the content
-		//if ( $atts['dtreviewed'] == 'default' ) {
-		//	$atts['dtreviewed'] = date("Y-m-d");
-		//}
-		//if ( $atts['reviewer'] == '' && is_user_logged_in() ) {
-		//	$current_user = wp_get_current_user();
-		//	$atts['reviewer'] = $current_user->display_name;
-		//}
+                // If shortcode does not provide "Reviewed By" and "Reviewed On" populate with Post Author & Post Date 
+                if ( $atts['dtreviewed'] == 'default' ) { 
+                        $atts['dtreviewed'] = get_the_date("Y-m-d"); 
+                } 
+                if ( $atts['reviewer'] == '' ) { 
+                        $atts['reviewer'] = get_the_author_meta('nickname'); 
+                } 
 		$indiv_icon = '<i class="fa fa-' . $atts['icon'] . '" style="color:' . $atts['rating_color'] . '"></i>';
 		// Enclose data with hReview compatible tags
 		$atts['icon'] = '<abbr class="value" title="' . $atts['rank'] . '">' . str_repeat($indiv_icon, $atts['rank']) . '<meta itemprop="rating" content="' . $atts['rank'] . '" /></abbr>';
